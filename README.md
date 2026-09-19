@@ -48,6 +48,15 @@ Copying from the box is safer than copying from the PDF, which can add line brea
 * Keep your flows turned off until your trainer asks you to test them.
 * Only send test emails to the addresses your trainer has approved.
 
+## What to learn next
+
+These free Microsoft Learn resources pick up where the course ends.
+
+* [Build and optimize cloud flows in Power Automate](https://learn.microsoft.com/en-us/training/paths/build-optimize-cloud-flows-power-automate/): expressions, error handling and troubleshooting slow flows.
+* [Demonstrate the capabilities of Microsoft Power Automate](https://learn.microsoft.com/en-us/training/paths/demonstrate-capabilities-microsoft-power-automate/): a wider tour of what Power Automate can do.
+* [Microsoft Certified: Power Platform Fundamentals (PL-900)](https://learn.microsoft.com/en-us/credentials/certifications/power-platform-fundamentals/): a beginner certification if you want proof of your skills.
+* [Power Automate documentation](https://learn.microsoft.com/en-us/power-automate/): the official reference for every connector and action.
+
 ## Need help?
 
 During the course, ask your trainer. After the course, contact the training coordinator who arranged your class.
