@@ -4,6 +4,8 @@ Participant resources for the two-day **Microsoft Power Automate for End Users**
 
 You do not need a GitHub account to use anything on this page.
 
+**Version 1.0**, last updated 19 September 2026. Earlier versions are listed under [Releases](https://github.com/Asraf-JS/Microsoft-Power-Automate/releases).
+
 ## Download everything
 
 **[Download all course files (ZIP)](https://github.com/Asraf-JS/Microsoft-Power-Automate/archive/refs/heads/main.zip)**
@@ -20,6 +22,20 @@ Save the ZIP to your computer, then right-click it and choose **Extract All** be
 | [Sample training register](TrainingRegister.xlsx) | A ready-made Excel workbook with the `tblTraining` table and six fictional records. Only use it if your trainer tells you to, instead of building it yourself | Chapters 2 to 7 |
 | [Test files](test-files/) | The sample email attachments: `CourseOutline.pdf`, `TrainerPhoto.jpg` and `SessionNotes.docx` | Chapters 2 and 3 |
 
+## Course outline
+
+| Day | Chapter | What you'll build or learn | Time |
+|---|---|---|---|
+| 1 | 1. Understand Power Automate | Triggers, actions and flow types; plan an automation | 45 min |
+| 1 | 2. Prepare your training workspace | OneDrive folders, the Excel register and test email | 90 min |
+| 1 | 3. Save email attachments automatically | Automated flow that saves PDF attachments to OneDrive | 120 min |
+| 1 | 4. Create and distribute an Excel summary | Instant flow that emails one summary table from Excel | 120 min |
+| 2 | 5. Send weekly training reminders | Scheduled flow that sends a reminder for each row | 75 min |
+| 2 | 6. Process a training approval | Forms, approvals and Teams messages | 75 min |
+| 2 | 7. Capstone | Filtered weekly reminders with a coordinator summary | 90 min |
+| 2 | 8. Plan an automation with Copilot | Review and refine a Copilot flow plan | 30 min |
+| 2 | 9. Move automations with solutions | Package a flow for another environment | 60 min |
+
 ## Copying an expression
 
 Open [expressions.md](copy-paste/expressions.md) and find the section for your chapter. Hover over a grey box and click the copy icon in its top-right corner. Then paste it into the Power Automate expression editor.
@@ -34,7 +50,7 @@ Copying from the box is safer than copying from the PDF, which can add line brea
 
 ## Need help?
 
-Ask your trainer during the session. After the course, email the trainer or contact your training coordinator.
+During the course, ask your trainer. After the course, contact the training coordinator who arranged your class.
 
 ---
 
