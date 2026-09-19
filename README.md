@@ -17,6 +17,7 @@ Save the ZIP to your computer, then right-click it and choose **Extract All** be
 | [Participant manual (PDF)](Microsoft-Power-Automate-for-End-Users-Participant-Manual.pdf) | Step-by-step guide for all nine chapters | Throughout the course |
 | [Copy-paste expressions](copy-paste/expressions.md) | Every expression and text value used in the exercises | Chapters 2 to 7 |
 | [Copilot prompts](copy-paste/copilot-prompts.md) | The three prompts for the Copilot planning exercise | Chapter 8 |
+| [Sample training register](TrainingRegister.xlsx) | A ready-made Excel workbook with the `tblTraining` table and six fictional records. Only use it if your trainer tells you to, instead of building it yourself | Chapters 2 to 7 |
 | [Test files](test-files/) | The sample email attachments: `CourseOutline.pdf`, `TrainerPhoto.jpg` and `SessionNotes.docx` | Chapters 2 and 3 |
 
 ## Copying an expression
