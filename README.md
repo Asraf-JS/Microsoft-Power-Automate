@@ -4,7 +4,7 @@ Participant resources for the two-day **Microsoft Power Automate for End Users**
 
 You do not need a GitHub account to use anything on this page.
 
-**Version 1.0**, last updated 19 September 2026. Earlier versions are listed under [Releases](https://github.com/Asraf-JS/Microsoft-Power-Automate/releases).
+**Version 1.0**, last updated 19 September 2026.
 
 ## Download everything
 
