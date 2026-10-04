@@ -1,8 +1,6 @@
 # 07 - Capstone: Copy-paste
 
-Hover over a grey box and click the copy icon in its top-right corner. Paste expressions into the **Expression** tab of the dynamic content panel (type `/` in a field, then choose **Insert expression**).
-
-Anything marked **text** is typed or pasted straight into a field, not the expression editor.
+Hover over a grey box and click the copy icon in its top-right corner. Everything in the main steps is **text**, typed or pasted straight into a field.
 
 ---
 
@@ -12,13 +10,99 @@ Anything marked **text** is typed or pasted straight into a field, not the expre
 PA - Weekly training capstone
 ```
 
-## Filter array action name (text, section 7.3)
+## Filter array (text, section 7.2)
+
+Action name:
 
 ```text
-Filter upcoming incomplete training
+Filter out completed training
 ```
 
-## Filter array condition, advanced mode (section 7.3)
+Right value:
+
+```text
+Completed
+```
+
+## Variable (text, section 7.4)
+
+Action name:
+
+```text
+Initialize reminder count
+```
+
+Variable name:
+
+```text
+ReminderCount
+```
+
+## Date condition name (text, section 7.6)
+
+```text
+Is the session in the next 14 days
+```
+
+## Current row's session date (section 7.6)
+
+Type `/` in the left box of each condition row, choose **Insert expression**, paste, then select **Add**.
+
+```
+items('Apply_to_each')?['SessionDate']
+```
+
+## Summary condition name (text, section 7.8)
+
+```text
+If reminders were prepared
+```
+
+## Coordinator summary (text, section 7.9)
+
+Action name:
+
+```text
+Send coordinator summary
+```
+
+Subject:
+
+```text
+[PA TRAINING] Weekly reminder summary
+```
+
+Body: paste the first part, insert **ReminderCount**, then paste the second part.
+
+```text
+The weekly training reminder flow prepared 
+```
+
+```text
+ reminder(s) for upcoming sessions in the next 14 days.
+```
+
+## No-records Compose (text, section 7.10)
+
+Action name:
+
+```text
+No upcoming records
+```
+
+Inputs:
+
+```text
+No upcoming training records were found for the next 14 days.
+```
+
+---
+
+## Going further (optional)
+
+### One filter that does it all
+
+Replaces both Filter array and the date condition. In Filter array, choose **Edit in advanced mode** and paste. It ignores capital letters and stray spaces in Status, and compares dates from the start of today.
 
 ```
 @and(
@@ -26,64 +110,4 @@ not(equals(toLower(trim(item()?['Status'])), 'completed')),
 greaterOrEquals(ticks(item()?['SessionDate']), ticks(startOfDay(utcNow()))),
 lessOrEquals(ticks(item()?['SessionDate']), ticks(addDays(startOfDay(utcNow()), 14)))
 )
-```
-
-## Initialize variable action name (text, section 7.4)
-
-```text
-Initialize reminder count
-```
-
-## Variable name (text, section 7.4)
-
-```text
-ReminderCount
-```
-
-## Apply to each input (section 7.5)
-
-```
-body('Filter_upcoming_incomplete_training')
-```
-
-## Condition name (text, section 7.8)
-
-```text
-If reminders were prepared
-```
-
-## Coordinator summary action name (text, section 7.9)
-
-```text
-Send coordinator summary
-```
-
-## Coordinator summary subject (text, section 7.9)
-
-```text
-[PA TRAINING] Weekly reminder summary
-```
-
-## Coordinator summary body (text, section 7.9)
-
-Paste the first part, insert **ReminderCount** from dynamic content, then paste the second part.
-
-```text
-The weekly training reminder flow prepared 
-```
-
-```text
- reminder(s) for upcoming incomplete sessions in the next 14 days.
-```
-
-## No-records Compose name (text, section 7.10)
-
-```text
-No upcoming records
-```
-
-## No-records Compose input (text, section 7.10)
-
-```text
-No upcoming incomplete training records were found for the next 14 days.
 ```

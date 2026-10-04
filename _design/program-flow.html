@@ -108,8 +108,9 @@ const TOPICS = [
   { n: "05", app: "Recurrence", icon: "play",  tile: "#2f7bec", desc: "Send weekly reminders for each row", out: "Scheduled flow", stage: "Remind" },
   { n: "06", app: "Approvals",  icon: "check", tile: "#077568", desc: "Route a request and post the result", out: "Approval flow", stage: "Approve" },
   { n: "07", app: "Capstone",   icon: "lines", tile: "#5b6cf0", desc: "Filter, count and summarise the week", out: "Capstone flow", stage: "Refine" },
-  { n: "08", app: "Copilot",    icon: "spark", tile: "linear-gradient(135deg, #3b82f6, #8b5cf6 55%, #ec4899)", desc: "Plan a flow and correct the suggestion", out: "Reviewed plan", stage: "Design" },
-  { n: "09", app: "Solutions",  icon: "nodes", tile: "#4b3b8f", desc: "Package the flow for another environment", out: "Solution package", stage: "Release" },
+  { n: "08", app: "Briefing",   icon: "spark", tile: "#d9480f", desc: "Variables and parallel branches in one email", out: "Morning briefing", stage: "Brief" },
+  { n: "09", app: "Copilot",    icon: "chat",  tile: "linear-gradient(135deg, #3b82f6, #8b5cf6 55%, #ec4899)", desc: "Plan a flow and correct the suggestion", out: "Reviewed plan", stage: "Design" },
+  { n: "10", app: "Solutions",  icon: "nodes", tile: "#4b3b8f", desc: "Package a flow for another environment", out: "Solution package", stage: "Release", optional: true, pill: "DEMO" },
 ];
 const FOUNDATIONS = [
   { n: "01", name: "Power Automate Basics", desc: "Triggers, actions, flow types and planning" },
@@ -117,6 +118,7 @@ const FOUNDATIONS = [
 ];
 
 const GLYPHS = {
+  chat: '<path d="M5 5h14a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8l-5 4v-4h-1a2 2 0 0 1 -2 -2v-8a2 2 0 0 1 2 -2z"/>',
   play: '<path d="M8 5l11 7l-11 7z"/>',
   check: '<path d="M5 12.5l4.5 4.5l9.5 -10"/>',
   lines: '<path d="M5 7h14M5 12h14M5 17h9"/>',
@@ -150,7 +152,7 @@ TOPICS.forEach((t, i) => {
     ? `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${GLYPHS[t.icon]}</svg>`
     : t.icon;
   html.push(`<div class="card step${t.optional ? " optional" : ""}" style="left:${x}px">
-    <div class="num">${t.n}</div>${t.optional ? '<div class="pill">OPTIONAL</div>' : ""}
+    <div class="num">${t.n}</div>${t.optional ? `<div class="pill">${t.pill || "OPTIONAL"}</div>` : ""}
     <div class="tile" style="background:${t.tile}">${glyph}</div>
     <div class="name">${t.app}</div><div class="desc">${t.desc}</div>
     <div class="rule"></div><div class="out-label">OUTPUT</div><div class="out">${t.out}</div></div>`);
