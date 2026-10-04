@@ -95,8 +95,6 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
 ## 1.5 Explore Power Automate
 
-The manual has a screenshot for each step (Figures 1.1 to 1.12).
-
 **Open the training workspace**
 
 1. In Edge, go to [make.powerautomate.com](https://make.powerautomate.com) and sign in with your training account.

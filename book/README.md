@@ -2,7 +2,7 @@
 
 This folder builds [Microsoft-Power-Automate-Course-Book.pdf](../Microsoft-Power-Automate-Course-Book.pdf), a printable book of the whole course, from the same Markdown files the website uses. Edit a chapter's `README.md` or `copy-paste.md`, rebuild, and the book picks up the change.
 
-The book is text only. The screenshots live in the [participant manual](../Microsoft-Power-Automate-for-End-Users-Participant-Manual.pdf), which is written in Word and isn't built from this folder.
+The book includes every chapter's screenshots from its `images` folder.
 
 The build tools, layout, colour palettes and the About the author page live in the shared [training-book-kit](https://github.com/Asraf-JS/training-book-kit), so every book in the series looks the same. This folder only holds what is specific to this course.
 

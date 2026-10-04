@@ -1,5 +1,7 @@
 # Screenshot prompt for Codex
 
+> **Red boxes and step numbers.** Codex captures clean screenshots. They're copied into `_design/shots/raw/`, and the red highlight boxes and numbers are drawn from `_design/shots/annotations.json` by the kit's `annotate-shots` command: `cd book && npm run annotate`. To move a box, edit its `[x0, y0, x1, y1, step]` numbers and run it again. After a recapture, copy the new clean image into `raw/` first.
+
 Codex works in a local clone of this repository, drives a real browser with Playwright, and saves each screenshot straight into the chapter's `images` folder. No uploading.
 
 ## One-time setup

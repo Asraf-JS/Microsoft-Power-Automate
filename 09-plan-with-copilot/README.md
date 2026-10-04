@@ -29,7 +29,7 @@ Copilot may leave out a calculation, add an action you don't need, or read a bro
 
 ## Before You Begin
 
-Copilot availability depends on your organisation, environment, region and admin settings. If **Create with Copilot** or **Describe it to design it** isn't available, follow along with the manual's screenshots and answer the review questions without entering a prompt.
+Copilot availability depends on your organisation, environment, region and admin settings. If **Create with Copilot** or **Describe it to design it** isn't available, follow along with the screenshots in this chapter and answer the review questions without entering a prompt.
 
 > **Important:** Use only fictional details and `coordinator@example.com`. Never put confidential information, personal data, passwords or real recipients into a training prompt.
 
@@ -59,7 +59,7 @@ A strong prompt states the event, the data source, the rule, the output and the 
 
 ## 9.3 Review the First Suggestion
 
-Read the trigger and every proposed action before you select anything. In the manual's example, the first version suggested Recurrence, List rows present in a table, FilteredRows, Initialise Count and Send an email. It looks plausible, but **Initialise Count** doesn't say how the count is calculated.
+Read the trigger and every proposed action before you select anything. In the example below, the first version suggested Recurrence, List rows present in a table, FilteredRows, Initialise Count and Send an email. It looks plausible, but **Initialise Count** doesn't say how the count is calculated.
 
 ![Copilot's first suggested flow with Recurrence, List rows, FilteredRows, Initialise Count and Send an email](./images/09-03-first-suggestion.png)
 
@@ -136,7 +136,7 @@ Write a prompt for a monthly training-capacity report. Include the schedule, dat
 
 | Symptom | What to check |
 |---------|---------------|
-| Create with Copilot is missing | Organisation settings, environment, region, account entitlement. Use the manual's example instead |
+| Create with Copilot is missing | Organisation settings, environment, region, account entitlement. Follow the screenshots in this chapter instead |
 | Copilot suggests the wrong trigger | State the exact event or schedule: frequency, day, time and time zone |
 | The plan has a participant email loop | Say only one coordinator summary is needed and explicitly rule out participant emails |
 | The count is unclear | Name the filtered array and ask for `length(body('FilteredRows'))` |
