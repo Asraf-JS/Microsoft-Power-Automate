@@ -1,6 +1,6 @@
 # Microsoft Power Automate for End Users
 
-Participant resources for the two-day **Microsoft Power Automate for End Users** course: chapter notes, copy-paste expressions, the participant manual and a sample workbook.
+Participant resources for the two-day **Microsoft Power Automate for End Users** course: step-by-step chapter notes with screenshots, copy-paste values, a printable course book and sample files.
 
 You do not need a GitHub account to use anything on this page.
 
@@ -22,7 +22,6 @@ To copy a value: open the chapter's copy-paste page, find the value, and click t
 
 To download everything: **[download all course files (ZIP)](https://github.com/Asraf-JS/Microsoft-Power-Automate/archive/refs/heads/main.zip)**. Save the ZIP, then right-click it and choose **Extract All** before you open any file.
 
-The **[participant manual (PDF)](./Microsoft-Power-Automate-for-End-Users-Participant-Manual.pdf)** is the previous edition. Its steps and section numbers differ from Chapters 3 onwards here, so follow these pages during class.
 
 To read offline or print: download the **[course book (PDF)](./Microsoft-Power-Automate-Course-Book.pdf)**. It has every chapter's notes and copy-paste values in one file.
 
