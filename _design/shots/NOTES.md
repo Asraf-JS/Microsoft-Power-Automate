@@ -13,3 +13,6 @@
 - 05-weekly-reminders, section 5.2: the format selector is labelled Time unit instead of Format string; selected Full date/time pattern (short time) [f].
 - 05-weekly-reminders, section 5.3: the Excel file picker requires selecting the folder's right-hand arrow (Navigate to Power Automate Training folder); clicking the folder name does not navigate.
 - 05-weekly-reminders, section 5.5: To initially uses a people picker; its Settings menu > Use dynamic content exposes the Email-token editor. The screenshot script replays the saved final email with its formatted date expression. No tests were run; the flow is off.
+
+- 06, section 6.1: Forms uses a large cover layout; switched to the compact layout and scrolled to show all four required questions together. Business reason is Multi Line Text (Long answer).
+- 06, sections 6.5-6.9: Reused the existing disabled training approval flow, retaining the signed-in training account as approver and using approver@example.com for both Teams documentation recipients. Replaced email branches with Teams branches; checker reports zero errors/warnings. No form submission, test, approval or Teams post.

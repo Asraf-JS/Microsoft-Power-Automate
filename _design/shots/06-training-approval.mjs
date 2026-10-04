@@ -1,0 +1,33 @@
+import { session, open, capture } from './capture-helpers.mjs';
+const context = await session();
+const chapter = '06-training-approval';
+const env = 'https://make.powerautomate.com/environments/b3c2cece-31a3-e316-bdc9-540bfc327e87';
+const form = await open(context, 'https://forms.cloud.microsoft/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=5N8axnwK9UqGK82r2nDW98rsoqOyMVpEkxj9gmLISzxUNjlHR1BOU1pJTEdVTTdZMFBNWk00TklaVi4u');
+await form.getByText('Requester name', { exact: true }).waitFor();
+await form.mouse.move(1100, 400);
+const box = await form.getByText('Requester name', { exact: true }).boundingBox();
+await form.mouse.wheel(0, box.y - 197);
+await capture(form, chapter, '06-01-form.png');
+const page = await open(context, `${env}/create`);
+await page.getByText('Automated cloud flow', { exact: true }).click();
+await page.getByRole('textbox', { name: 'Flow name', exact: true }).fill('PA - Training request approval');
+await page.getByRole('searchbox', { name: "Choose your flow's trigger", exact: true }).fill('Forms');
+await page.getByText('When a new response is submitted', { exact: true }).click();
+await capture(page, chapter, '06-02-create-flow.png');
+await page.getByText('Cancel', { exact: true }).click();
+// Reuse the saved flow, which remains OFF. Do not submit, test, or approve.
+await page.goto(`${env}/solutions/~preferred/flows/0fcc8d42-14c7-1940-1d48-366549318902?v3=true`);
+await page.getByRole('button', { name: 'Expand all action groups', exact: true }).click();
+const action = async (name, file) => {
+  await page.getByRole('button', { name, exact: true }).click();
+  await page.waitForTimeout(500);
+  await capture(page, chapter, file);
+};
+await action('When a new response is submitted operation, Microsoft Forms connector', '06-03-trigger.png');
+await action('Get response details operation, Microsoft Forms connector', '06-04-response-details.png');
+await action('Start and wait for an approval operation, Standard approvals connector', '06-05-approval.png');
+await action('Condition operation', '06-06-condition.png');
+await action('Post message in a chat or channel operation, Microsoft Teams connector', '06-07-teams-approved.png');
+await page.getByRole('button', { name: 'Collapse', exact: true }).last().click();
+await capture(page, chapter, '06-08-full-flow.png');
+process.exit(0);
