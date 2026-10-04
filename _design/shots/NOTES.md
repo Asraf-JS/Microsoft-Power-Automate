@@ -22,3 +22,6 @@
 
 - 08, sections 8.4-8.5: Calendar/email list tokens are body/value. Added explicit Apply to each loops because Increment variable alone does not supply an array. Used the right-click plus menu for Add a parallel branch. Test succeeded once to the signed-in training account, then the flow was turned OFF. Received-email screenshot is pending permission because a calendar title includes a third-party name.
 - 09, sections 9.4-9.7: The second suggestion already had Recurrence, List rows, FilteredRows, Count and Send an email; it did not add Get file metadata using path. The final refinement kept the same five-step outline. Selected Cancel; no flow was created.
+
+- 10, sections 10.3-10.8: Capstone is listed under From Dataverse. Adding it did not automatically include references; Advanced > Add required objects added its exact Excel and Outlook references, resulting in three objects. Used the existing Asraf publisher.
+- 10, sections 10.10-10.12: Selected Next without global Publish all changes because the saved cloud-flow objects were already available. Captured Unmanaged export options, selected Cancel, and deleted only the unmanaged demonstration solution container. No export/import occurred; objects were preserved.
