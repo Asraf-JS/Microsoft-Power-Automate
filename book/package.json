@@ -3,7 +3,8 @@
   "private": true,
   "description": "Builds the participant book PDF",
   "scripts": {
-    "build": "build-book"
+    "build": "build-book",
+    "annotate": "annotate-shots ../_design/shots/annotations.json"
   },
   "dependencies": {
     "training-book-kit": "github:Asraf-JS/training-book-kit"
