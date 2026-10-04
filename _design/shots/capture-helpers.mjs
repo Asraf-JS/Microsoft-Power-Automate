@@ -24,7 +24,7 @@ export async function open(context, url) {
 }
 export async function capture(page, chapter, filename) {
   mkdirSync(resolve(root, chapter, 'images'), { recursive: true });
-  await page.keyboard.press('Escape');
+  // Escape in Outlook opens Discard message; close menus explicitly before capture.
   await page.mouse.move(100, 80);
   const masks = page.frames().map(frame => frame.locator('#mectrl_main_trigger, [data-tid="me-control-mini-avatar"], button[aria-label^="Account manager"]'));
   await page.screenshot({ path: resolve(root, chapter, 'images', filename), mask: masks, maskColor: '#ffffff' });
