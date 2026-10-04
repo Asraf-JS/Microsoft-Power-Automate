@@ -23,13 +23,14 @@ export async function open(context, url) {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   return page;
 }
-export async function capture(page, chapter, filename) {
+export async function capture(page, chapter, filename, options = {}) {
   mkdirSync(resolve(root, chapter, 'images'), { recursive: true });
+  await page.setViewportSize({ width: 1600, height: 900 });
   // Escape in Outlook opens Discard message; close menus explicitly before capture.
   await page.mouse.move(1500, 850);
   await page.waitForTimeout(750);
   const masks = page.frames().map(frame => frame.locator('#mectrl_main_trigger, button:has([data-tid="me-control-mini-avatar"]), button[aria-label^="Account manager"]'));
-  await page.screenshot({ path: resolve(root, chapter, 'images', filename), mask: masks, maskColor: '#ffffff' });
+  await page.screenshot({ path: resolve(root, chapter, 'images', filename), mask: masks.concat(options.mask || []), maskColor: options.maskColor || '#ffffff' });
   console.log(`Saved ${chapter}/images/${filename}`);
 }
 export function note(text) {

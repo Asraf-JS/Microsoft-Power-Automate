@@ -20,7 +20,7 @@
 - 07, section 7.6: Selecting the Excel SessionDate token after changing the loop input caused an extra For each. Used items('Apply_to_each')?['SessionDate'] for both date comparisons instead, verified in Code view. UI operators say is greater or equal to / is less or equal to. The blank Add row is an editor placeholder, not a saved condition.
 - 07, section 7.11: Fit view is named Zoom view to fit. The capstone is OFF, no tests were run, and checker reports zero errors/warnings.
 
-- 08, sections 8.4-8.5: Calendar/email list tokens are body/value. Added explicit Apply to each loops because Increment variable alone does not supply an array. Used the right-click plus menu for Add a parallel branch. Test succeeded once to the signed-in training account, then the flow was turned OFF. Received-email screenshot is pending permission because a calendar title includes a third-party name.
+- 08, sections 8.4-8.5: Calendar/email list tokens are body/value. Added explicit Apply to each loops because Increment variable alone does not supply an array. Used the right-click plus menu for Add a parallel branch. Test succeeded once to the signed-in training account, then the flow was turned OFF. The received-email screenshot masks the private meeting details and Outlook list preview; no third-party name is included.
 - 09, sections 9.4-9.7: The second suggestion already had Recurrence, List rows, FilteredRows, Count and Send an email; it did not add Get file metadata using path. The final refinement kept the same five-step outline. Selected Cancel; no flow was created.
 
 - 10, sections 10.3-10.8: Capstone is listed under From Dataverse. Adding it did not automatically include references; Advanced > Add required objects added its exact Excel and Outlook references, resulting in three objects. Used the existing Asraf publisher.
@@ -30,4 +30,4 @@
 - 11B, step 5: One permitted manual test failed. The action reports that the Power Automate mobile app was retired on August 31, 2026 and notifications no longer have a destination. Kept the lesson action for documentation and turned the flow OFF.
 - 11C, step 6: One fictional [PA SAVE] Booking confirmation email was sent to the signed-in account. Run succeeded; Create file returned /Power Automate Training/Reports/[PA SAVE] Booking confirmation.eml (4369 bytes). Flow turned OFF.
 - 11D: Configured the supplied public feed and self-addressed email; saved and turned OFF without Test/Run. The new designer shows one action's parameters at a time.
-- 11A: To Do connection requires manual sign-in; final action screenshot is pending. No flagged-email test was performed.
+- 11A: To Do connection required manual sign-in, completed by the user. Captured Tasks, Follow up: Subject, and From sender token. Checker reports zero errors/warnings; flow saved and turned OFF. No flagged-email test was performed.

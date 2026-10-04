@@ -26,14 +26,22 @@ await action('Busy day operation', '08-08-set-variable.png');
 await action('Send an email (V2) operation, Office 365 Outlook connector', '08-09-email.png');
 // One successful manual test has already sent the briefing to the signed-in account.
 // Leave the scheduled flow OFF. This replay does not send another message.
-// Received-email capture requires approval if it contains real third-party details.
-if (process.argv.includes('--include-received')) {
+// Always mask private meeting/email details in both message body and list preview.
+{
   const mail = context.pages().find(p => p.url().startsWith('https://outlook.cloud.microsoft/mail/') && !p.url().includes('compose'));
   const search = mail.getByLabel('Search for email, meetings, files and more.', { exact: true });
   await search.fill('subject:"Your day ahead"');
   await search.press('Enter');
   await mail.getByText('Your day ahead', { exact: true }).first().click();
   await mail.getByText('Good morning,', { exact: true }).waitFor();
-  await capture(mail, chapter, '08-10-email-received.png');
+  const body = mail.getByRole('document').filter({ hasText: /^Good morning/ });
+  await capture(mail, chapter, '08-10-email-received.png', {
+    mask: [
+      body.locator('p').filter({ hasText: /^Meetings in the next 12 hours/ }),
+      body.locator('p').filter({ hasText: /^Important unread email:\s*\S/ }),
+      mail.getByText(/^Good morning, Weather in Kuala Lumpur:/),
+    ],
+    maskColor: '#d9d9d9',
+  });
 }
 process.exit(0);
