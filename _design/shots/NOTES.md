@@ -19,3 +19,6 @@
 
 - 07, section 7.6: Selecting the Excel SessionDate token after changing the loop input caused an extra For each. Used items('Apply_to_each')?['SessionDate'] for both date comparisons instead, verified in Code view. UI operators say is greater or equal to / is less or equal to. The blank Add row is an editor placeholder, not a saved condition.
 - 07, section 7.11: Fit view is named Zoom view to fit. The capstone is OFF, no tests were run, and checker reports zero errors/warnings.
+
+- 08, sections 8.4-8.5: Calendar/email list tokens are body/value. Added explicit Apply to each loops because Increment variable alone does not supply an array. Used the right-click plus menu for Add a parallel branch. Test succeeded once to the signed-in training account, then the flow was turned OFF. Received-email screenshot is pending permission because a calendar title includes a third-party name.
+- 09, sections 9.4-9.7: The second suggestion already had Recurrence, List rows, FilteredRows, Count and Send an email; it did not add Get file metadata using path. The final refinement kept the same five-step outline. Selected Cancel; no flow was created.
