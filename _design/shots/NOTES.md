@@ -16,3 +16,6 @@
 
 - 06, section 6.1: Forms uses a large cover layout; switched to the compact layout and scrolled to show all four required questions together. Business reason is Multi Line Text (Long answer).
 - 06, sections 6.5-6.9: Reused the existing disabled training approval flow, retaining the signed-in training account as approver and using approver@example.com for both Teams documentation recipients. Replaced email branches with Teams branches; checker reports zero errors/warnings. No form submission, test, approval or Teams post.
+
+- 07, section 7.6: Selecting the Excel SessionDate token after changing the loop input caused an extra For each. Used items('Apply_to_each')?['SessionDate'] for both date comparisons instead, verified in Code view. UI operators say is greater or equal to / is less or equal to. The blank Add row is an editor placeholder, not a saved condition.
+- 07, section 7.11: Fit view is named Zoom view to fit. The capstone is OFF, no tests were run, and checker reports zero errors/warnings.
