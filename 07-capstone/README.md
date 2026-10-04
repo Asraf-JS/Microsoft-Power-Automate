@@ -45,6 +45,10 @@ Complete Chapter 5.
 3. Name the copy `PA - Weekly training capstone` and select **Save**. The copy starts turned off.
 4. Go back to **My flows** and select the capstone copy's name. Its details page opens; select **Edit** at the top left to open it in the designer.
 
+   ![The flow details toolbar with Edit at the left](./images/07-00-flow-details.png)
+
+   *A flow's details page. Edit opens the designer.*
+
 ![Save As dialog naming the copy PA - Weekly training capstone](./images/07-01-save-as.png)
 
 *Working on a copy keeps your Chapter 5 flow safe.*

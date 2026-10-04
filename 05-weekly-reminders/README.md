@@ -114,6 +114,10 @@ Add **List rows present in a table** (Excel Online (Business)) and set it exactl
 Select the **+** inside the **Apply to each** box and add **Send an email (V2)** (Office 365 Outlook).
 
 1. **To:** this field opens a people picker. Select the small **settings** (gear) icon beside it and choose **Use dynamic content**, then insert **Email**.
+
+   ![The settings gear above the right end of the To field](./images/05-06-gear.png)
+
+   *The gear switches To from picking people to accepting dynamic content.*
 2. **Subject:** type `[PA TRAINING] Reminder: ` then insert **CourseTitle**.
 3. **Body:** type the message and insert the values where they belong:
 

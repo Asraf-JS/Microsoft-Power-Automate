@@ -46,6 +46,8 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 > **Tip:** Before each run, finish any cell edit and let Excel save. The connector reads the saved cloud file, so an open edit gives you a stale report.
 
+> **Important:** Keep the workbook in Excel for the web during class. If it's open in the Excel desktop app while a flow runs, the flow can read old data or fail because the file is locked. Close the desktop app before testing.
+
 ---
 
 ## 4.1 Confirm the Source Table

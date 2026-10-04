@@ -96,7 +96,7 @@ Then: node _design/check-screenshots.mjs, commit "Recapture briefing and note sc
 
 ## Gap-fill prompt (round 3)
 
-A beginner walkthrough found steps where a first-time user can't see where to click. Paste this into one Codex conversation. Claude adds the image lines and red boxes afterwards.
+**Optional.** Most of these gaps are now covered by crops of existing screenshots (Create or upload, the Insert tab, the + menu, the toolbar with Flow checker, Save and Test, the folder icon, the To gear, Edit and Turn on). Only items 9 and 10, the Chapter 8 calendar and email settings, still have no picture; the rest are small panels the text already describes. If you do run it, delete the items you don't need first. Claude adds the image lines and red boxes afterwards.
 
 ```text
 Capture 11 new screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, mask the account avatar. Keep output short. Save each clean capture to BOTH <chapter>/images/<file> and _design/shots/raw/<file>. Don't edit any README. Don't run, test or turn on any flow; open existing flows only to show a panel, then leave without saving.

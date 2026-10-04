@@ -19,7 +19,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 | C. Save an email to OneDrive | Automated | Trigger filters, file actions | Office 365 Outlook, OneDrive for Business |
 | D. News digest | Automated | A non-Microsoft 365 trigger | RSS, Office 365 Outlook |
 
-> **Tip:** Turn each flow off when you've finished testing, unless you want to keep using it. Go to **My flows**, select the **...** next to the flow, and choose **Turn off**.
+> **Tip:** Turn each flow off when you've finished testing, unless you want to keep using it. Open it from **My flows** and select **Turn off** in the toolbar, where **Turn on** was.
 
 ---
 
@@ -116,7 +116,11 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
    *The RSS connector watches a public web feed. It reads, and never writes, anything.*
 
-5. Save. Then go to **My flows**, select the **...** next to the flow, and choose **Turn on**. The next new blog post arrives in your inbox. The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
+5. Save, then select **Back** (top left) to reach the flow's details page, and select **Turn on** in the toolbar. The next new blog post arrives in your inbox.
+
+   ![The flow details toolbar with Turn on](./images/11-05-turn-on.png)
+
+   *Turn on is in the toolbar of the flow's details page.* The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
 
 > **Note:** If the feed URL stops working, open the blog in your browser and look for its RSS link, or try any other news site that offers an RSS feed.
 

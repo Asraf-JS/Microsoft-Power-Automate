@@ -64,6 +64,14 @@ You'll also do these in every chapter.
 - **Flow checker:** the small stethoscope icon just left of **Save**. It opens a panel listing errors and warnings. Close it with the **X**.
 - **Test:** the **Test** button next to **Save**. A panel opens on the right; choose **Manually**, then select **Test**.
 
+![The + menu with Add an action at the top](./images/03-00-add-action.png)
+
+*Select a + on the canvas and this menu opens. Add an action is at the top.*
+
+![The designer toolbar with the Flow checker icon, Save and Test boxed](./images/03-00-toolbar.png)
+
+*Top right of the designer: Flow checker (the stethoscope), Save and Test.*
+
 ---
 
 ## 3.1 Create the Automated Cloud Flow
@@ -140,6 +148,10 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
    > **Tip:** Search by connector name, not action name. Several connectors have an action called Create file, and it's easy to grab the wrong one.
 
 3. In **Folder Path**, select the folder icon at the right end of the box. A list of your OneDrive folders opens: select the **>** arrow beside `Power Automate Training` to open it, then select `Attachments`.
+
+   ![The folder icon at the right end of the Folder Path box](./images/03-05-folder-icon.png)
+
+   *The folder icon opens your OneDrive folders.*
 4. In **File Name**, insert **Attachments Name** from the dynamic content picker.
 5. In **File Content**, insert **Attachments Content**.
 6. Leave the **False** branch empty. That's the deliberate decision to skip non-PDF files.

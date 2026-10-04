@@ -23,10 +23,33 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 
 ---
 
+## Apps You'll Use
+
+Everything in this course runs in the browser. Start from the Microsoft 365 home page and you can reach every app from it.
+
+| App | Web address | What you use it for |
+|-----|-------------|---------------------|
+| Microsoft 365 home | [m365.cloud.microsoft](https://m365.cloud.microsoft) | Your starting point. The app launcher (nine dots, top left) opens every app below |
+| OneDrive | Open from the app launcher | The training folder and the Excel register |
+| Outlook | [outlook.office.com](https://outlook.office.com) | Test emails and the emails your flows send |
+| Microsoft Forms | [forms.office.com](https://forms.office.com) | The training request form (Chapter 6) |
+| Teams | [teams.microsoft.com](https://teams.microsoft.com) | Flow bot messages (Chapters 6 and 11) |
+| Power Automate | [make.powerautomate.com](https://make.powerautomate.com) | Building your flows |
+
+Sign in to each one with your **work or school account**, the same one every time.
+
+> **Note:** Used to OneDrive as a folder in File Explorer? That folder and OneDrive on the web are the same storage, so files appear in both. During class, use the web version so your screen matches the screenshots. Power Automate can only see files inside OneDrive: a workbook saved to your Desktop or Documents outside the OneDrive folder is invisible to it.
+
+---
+
 ## 2.1 Create the Training Folders in OneDrive
 
-1. Open OneDrive for Business (go to [onedrive.com](https://onedrive.com) and sign in with your work account, or select OneDrive from the Microsoft 365 app launcher, the nine dots at the top left) and select **My files** on the left.
+1. Open [m365.cloud.microsoft](https://m365.cloud.microsoft), select the app launcher (nine dots, top left), then **OneDrive**. Select **My files** on the left.
 2. Select the blue **Create or upload** button at the top left, then **Folder**.
+
+   ![The Create or upload button at the top left of OneDrive](./images/02-00-create-upload.png)
+
+   *Create or upload makes folders, uploads files and creates new Office documents.*
 3. Name the folder `Power Automate Training` and select **Create**.
 4. Select the new folder's name to open it. The path at the top now reads **My files > Power Automate Training**.
 5. Inside it, create two subfolders the same way (**Create or upload** > **Folder**): `Attachments` and `Reports`.
@@ -54,6 +77,10 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
    *Fictional rows. The example.com addresses can't receive mail. (This workbook has a seventh test row; yours needs six.)*
 
 5. Select any cell with data in it, then select the **Insert** tab and **Table**. In the box that opens, make sure **My table has headers** is ticked, and select **OK**. The rows turn into a striped table.
+
+   ![The Insert tab on the Excel for the web ribbon](./images/02-05-insert-tab.png)
+
+   *Table is on the Insert tab, near its left end.*
 6. With a cell in the table still selected, select the **Table Design** tab that has appeared at the end of the ribbon.
 7. At the far left of that tab, select the name box (it reads something like **Table1**), type `tblTraining` and press Enter.
 
