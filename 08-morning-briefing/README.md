@@ -137,7 +137,7 @@ This branch starts *beside* the weather, not below it.
 
 ![Three branches side by side: weather, meetings and email](./images/08-06-three-branches.png)
 
-*Three independent branches, running at the same time.*
+*Three independent branches, running at the same time. The lines curving into the meetings loop are explained in section 8.6.*
 
 > **Key point:** Each branch writes to its **own** variable. If all three appended to one shared variable, the sections would arrive in whatever order the branches happened to finish. Separate variables keep the email in a fixed order.
 
@@ -148,14 +148,14 @@ This branch starts *beside* the weather, not below it.
 The next step must wait until all three branches have finished.
 
 1. At the bottom of the **meetings** branch, below its loop, add a **Condition**. Rename it `Busy day`.
-2. Open the Condition's **Settings** tab. Under **Run after**, select **Select actions** and tick the last action of each branch: **Get current weather**, the meetings **Apply to each**, and the email **Apply to each**. Leave **Is successful** ticked for each.
-3. Look at the canvas. Lines from all three branches now lead into **Busy day**.
+2. Open the Condition's **Settings** tab. Under **Run after**, select **Select actions** and tick the last action of each branch: **Get current weather**, the meetings **Apply to each**, and the email **Apply to each 1**. Leave **Is successful** ticked for each.
+3. Check the **Run after** list shows all three actions, then **Save**.
 
-![Condition named Busy day with lines joining from all three branches](./images/08-07-join.png)
+![Busy day selected with Settings open, showing Run after set to Apply to each, Get current weather and Apply to each 1](./images/08-07-join.png)
 
-*All three branches flow into one step. It waits for the slowest branch.*
+*Run after lists one action from each branch, so Busy day waits for the slowest branch.*
 
-> **Note:** If your designer shows a single **+** where the three branches end, you can add the Condition there instead. It joins the branches automatically. Either way, check that three lines lead into it.
+> **Note:** The designer draws the lines from the weather and email branches into the side of the meetings loop, not into Busy day. That's just how it lays out the picture. The **Run after** list is what actually controls the order, so trust that, not the lines.
 
 ---
 
