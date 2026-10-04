@@ -1,8 +1,6 @@
 # 03 - Save Email Attachments Automatically: Copy-paste
 
-Hover over a grey box and click the copy icon in its top-right corner. Paste expressions into the **Expression** tab of the dynamic content panel (type `/` in a field, then choose **Insert expression**).
-
-Anything marked **text** is typed or pasted straight into a field, not the expression editor.
+Hover over a grey box and click the copy icon in its top-right corner. Everything in the main steps is **text**, typed or pasted straight into a field.
 
 ---
 
@@ -18,32 +16,22 @@ PA - Save training PDF attachments
 [PA TRAINING]
 ```
 
-## Condition left value: current attachment name (section 3.4)
-
-```
-item()?['name']
-```
-
 ## Condition right value (text, section 3.4)
 
 ```text
 .pdf
 ```
 
-## Create file content (section 3.5)
+---
 
-```
-item()?['contentBytes']
-```
+## Going further (optional)
 
-## Unique file name with a timestamp (section 3.8)
+### Unique file name with a timestamp
+
+Paste into the expression editor (type `/` in File Name, then choose **Insert expression**).
 
 ```
 concat(formatDateTime(utcNow(),'yyyyMMdd-HHmmss'), '-', item()?['name'])
 ```
 
-## Optional image-only test subject (text, section 3.7)
-
-```text
-[PA TRAINING] Image-only test
-```
+`item()` means "the attachment the loop is on right now", the same thing the **Attachments Name** token points to.

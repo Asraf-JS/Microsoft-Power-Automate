@@ -1,37 +1,46 @@
 # 05 - Send Weekly Training Reminders: Copy-paste
 
-Hover over a grey box and click the copy icon in its top-right corner. Paste expressions into the **Expression** tab of the dynamic content panel (type `/` in a field, then choose **Insert expression**).
-
-Anything marked **text** is typed or pasted straight into a field, not the expression editor.
+Hover over a grey box and click the copy icon in its top-right corner. Anything marked **text** is typed or pasted straight into a field.
 
 ---
 
-## Flow name (text, section 5.2)
+## Flow name (text, section 5.1)
 
 ```text
 PA - Weekly training reminders
 ```
 
-## Apply to each input (section 5.5)
+## Email subject start (text, section 5.5)
 
-```
-outputs('List_rows_present_in_a_table')?['body/value']
-```
+Paste, then insert **CourseTitle** after it.
 
-## Email To (section 5.6)
-
-```
-item()?['Email']
+```text
+[PA TRAINING] Reminder: 
 ```
 
-## Email Subject (section 5.6)
+## Email body (text, section 5.5)
+
+Paste, then replace each `[Name]` with the matching dynamic content token.
+
+```text
+Hello [ParticipantName],
+
+This is your weekly training reminder.
+
+Course: [CourseTitle]
+Session date: [SessionDate]
+Status: [Status]
+Reminder generated: [Converted time]
+
+Please contact the training coordinator if your plans change.
+```
+
+## Readable session date (section 5.6)
+
+Type `/` where the SessionDate token was, choose **Insert expression**, paste, then select **Add**.
 
 ```
-concat('[PA TRAINING] Reminder: ', item()?['CourseTitle'])
+formatDateTime(items('Apply_to_each')?['SessionDate'], 'dd MMM yyyy')
 ```
 
-## Email Body (section 5.6)
-
-```
-concat('<p>Hello ', item()?['ParticipantName'], ',</p><p>This is your weekly training reminder.</p><p><strong>Course:</strong> ', item()?['CourseTitle'], '<br><strong>Session date:</strong> ', item()?['SessionDate'], '<br><strong>Status:</strong> ', item()?['Status'], '<br><strong>Reminder generated:</strong> ', body('Convert_time_zone'), '</p><p>Please contact the training coordinator if your plans change.</p>')
-```
+> **Note:** If your loop has a different name (for example `Apply_to_each_1`), build the expression by picking **SessionDate** from the Dynamic content tab as in section 5.6 instead of pasting.

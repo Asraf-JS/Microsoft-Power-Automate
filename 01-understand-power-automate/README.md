@@ -101,8 +101,16 @@ The manual has a screenshot for each step (Figures 1.1 to 1.12).
 
 1. In Edge, go to [make.powerautomate.com](https://make.powerautomate.com) and sign in with your training account.
 2. Check that the page says **Power Automate** at the upper left.
+
+![Power Automate home page after sign-in with the product name at the upper left](./images/01-01-home.png)
+
+*The Power Automate home page.*
 3. Find the environment name near the top of the page, under **Environments**. An environment is a workspace that holds Power Platform resources, including flows.
 4. Compare it with the environment your trainer gave you. If they differ, ask before you build anything.
+
+![The Environments selector at the top right of Power Automate showing the current environment](./images/01-02-environment.png)
+
+*The environment selector shows which workspace you're in. Yours will have a different name.*
 
 **Find the three cloud-flow choices**
 
@@ -117,6 +125,10 @@ The manual has a screenshot for each step (Figures 1.1 to 1.12).
 | Desktop flow | Automates processes on your desktop environment | No |
 | Process mining | Evaluate and optimize your existing processes and tasks | No |
 
+![The Create page with the five Start from blank tiles: Automated, Instant, Scheduled cloud flow, Desktop flow and Process mining](./images/01-03-create-tiles.png)
+
+*The three cloud-flow tiles come first under Start from blank.*
+
 > **Note:** The heading **Three ways to make a flow** refers to the three sections of the page: Start from blank, Start from a template and Start from a connector. Those aren't the three cloud-flow types. The types are three of the five tiles inside the first section.
 
 3. Decide which tile you'd use for a flow that starts when someone submits a form. The answer is **Automated cloud flow**: a form submission is an event that happens without you starting it. Instant means *you* start the flow.
@@ -124,6 +136,10 @@ The manual has a screenshot for each step (Figures 1.1 to 1.12).
 **Locate your flows**
 
 1. Find **My flows** in the left navigation. You'll come back here to find every flow you build.
+
+![Left navigation with My flows highlighted](./images/01-04-my-flows.png)
+
+*My flows lists every flow you've built.*
 2. Select **Home** to return to the start page.
 
 ---

@@ -4,14 +4,14 @@ This book collects the notes and copy-paste values from the two-day Microsoft Po
 
 Each chapter matches one chapter of the course and has two parts:
 
-- **Notes** explain the concepts and walk you through each build step, with checkpoints and troubleshooting.
-- **Hands-on exercises** give you every flow name, expression and text value you type, ready to copy.
+- **Notes** explain the concepts and walk you through each build step by step, mostly point and click, with screenshots, checkpoints and troubleshooting.
+- **Hands-on exercises** give you every flow name and text value you type, ready to copy.
 
-For screenshots of each step, use the participant manual PDF that comes with the course. This book follows the same section numbers, so section 3.4 here is section 3.4 there.
+You'll write just two short expressions on the main path, in Chapters 4 and 5. More are waiting in optional *Going further* boxes for when you're ready.
 
 Look out for the coloured boxes. Blue boxes are notes, teal boxes are tips, purple boxes are things to try, and orange boxes are key points and warnings.
 
-Prefer to copy expressions rather than retype them? Everything in this book is also online at **github.com/Asraf-JS/Microsoft-Power-Automate**, where each grey box has a copy button. Copying from there is safer than copying from a PDF, which can add line breaks or change quotation marks.
+Prefer to copy values rather than retype them? Everything in this book is also online at **github.com/Asraf-JS/Microsoft-Power-Automate**, where each grey box has a copy button. Copying from there is safer than copying from a PDF, which can add line breaks or change quotation marks.
 
 ## Course scenario
 
@@ -30,8 +30,9 @@ Each chapter turns one of those manual tasks into a flow:
 | Remind | Send weekly reminders to every participant on a schedule |
 | Approve | Route a training request form through an approval and post the result to Teams |
 | Refine | Filter reminders to upcoming incomplete sessions, count them and summarise the week |
+| Brief | Build a personal morning briefing with variables and parallel branches |
 | Design | Use Copilot to plan a flow, then review and correct its suggestion |
-| Release | Package the finished flow in a solution and export it for another environment |
+| Release | Watch the trainer package the finished flow in a solution for another environment |
 
 ## Ground rules
 

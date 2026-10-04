@@ -46,6 +46,10 @@ In Microsoft Forms, create a form named **Training Request** with the descriptio
 | Preferred date | Date | Required |
 | Business reason | Text | Long answer |
 
+![Microsoft Forms editor showing the Training Request form with four required questions](./images/06-01-form.png)
+
+*Four required questions. The red asterisk marks each one as required.*
+
 **Checkpoint:** All four questions show the red required marker. A missing answer gives the approver an incomplete card.
 
 ---
@@ -54,11 +58,19 @@ In Microsoft Forms, create a form named **Training Request** with the descriptio
 
 Select **Create > Automated cloud flow**. Name it `PA - Training request approval`, search for **Forms**, select **When a new response is submitted**, and select **Create**.
 
+![Build an automated cloud flow dialog with the flow name and When a new response is submitted selected](./images/06-02-create-flow.png)
+
+*The Forms trigger starts the flow whenever the form gets a response.*
+
 ---
 
 ## 6.3 Select the Form
 
 Open the trigger and set **Form Id** to **Training Request**.
+
+![When a new response is submitted trigger with Form Id set to Training Request](./images/06-03-trigger.png)
+
+*Pick the form from the dropdown.*
 
 If the form isn't listed, check that you own or can access it, refresh the list, and confirm the Forms connection uses the right account.
 
@@ -67,6 +79,10 @@ If the form isn't listed, check that you own or can access it, refresh the list,
 ## 6.4 Retrieve the Answers
 
 Add **Microsoft Forms > Get response details**. Set **Form Id** to Training Request, and in **Response Id** insert **Response Id** from the trigger.
+
+![Get response details with Form Id Training Request and the Response Id token](./images/06-04-response-details.png)
+
+*The Response Id token links this step to the exact submission that started the flow.*
 
 The trigger only says a response exists. Get response details returns the individual answers so later actions can use them.
 
@@ -85,6 +101,10 @@ Add **Approvals > Start and wait for an approval**:
 
 Lay out Details so each label is followed by its matching value.
 
+![Start and wait for an approval with type, title, assigned to and Details containing the four answers](./images/06-05-approval.png)
+
+*Each label in Details is followed by its answer from Get response details.*
+
 **Checkpoint:** Use the values from **Get response details**, not similarly named values from another action.
 
 ---
@@ -92,6 +112,10 @@ Lay out Details so each label is followed by its matching value.
 ## 6.6 Branch on the Outcome
 
 Add **Control > Condition**. Set the left value to **Outcome** from Start and wait for an approval, choose **is equal to**, and enter `Approve`.
+
+![Condition with the Outcome token, is equal to, and Approve](./images/06-06-condition.png)
+
+*An Approve outcome goes to True. Anything else goes to False.*
 
 > **Key point:** The text must be exactly `Approve`. A typo or a trailing space sends every approval down the False branch.
 
@@ -108,6 +132,10 @@ In the **True** branch, add **Microsoft Teams > Post message in a chat or channe
 | Recipient | Trainer-approved Teams account |
 | Message | `Training request approved for` followed by **Course** from Get response details |
 
+![Post message in a chat or channel in the True branch with Flow bot settings and the approved message](./images/06-07-teams-approved.png)
+
+*The True branch posts the approved message.*
+
 ---
 
 ## 6.8 Prepare the Rejected Message
@@ -122,6 +150,10 @@ A production process would also handle outcomes like cancelled or timed-out appr
 
 1. Select **Save** and open **Flow checker**. Fix every error before testing.
 2. Confirm the canvas: three steps before the Condition, and one Teams action in each branch.
+
+![The complete approval flow with a Teams action in each branch of the condition](./images/06-08-full-flow.png)
+
+*Three steps, then one Teams message per branch.*
 
 ---
 

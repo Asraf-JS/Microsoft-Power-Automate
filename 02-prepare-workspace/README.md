@@ -31,6 +31,10 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 4. Open the new folder.
 5. Inside it, create two subfolders: `Attachments` and `Reports`.
 
+![OneDrive showing the Attachments and Reports folders inside Power Automate Training](./images/02-01-folders.png)
+
+*Both subfolders inside Power Automate Training.*
+
 **Checkpoint:** You can see `Attachments` and `Reports` inside `Power Automate Training`. The Chapter 3 flow writes to Attachments. Summary outputs can go to Reports.
 
 ---
@@ -45,7 +49,15 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 |---|---|---|---|---|---|
 
 4. Enter six fictional rows. Include at least two upcoming sessions, one completed session, and one session outside the training week. Use the trainer's approved test addresses in the Email column.
+
+![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
+
+*Six fictional rows. The example.com addresses can't receive mail.*
 5. Select any cell in the range, choose **Insert > Table**, confirm **My table has headers** is ticked, and select **OK**. Then on the **Table Design** tab, replace the default table name with `tblTraining` and press Enter.
+
+![Table Design tab in Excel for the web with the table name set to tblTraining](./images/02-03-table-name.png)
+
+*Set the table name on the Table Design tab.*
 
 **Checkpoint:** The workbook is named `TrainingRegister.xlsx`, the data is a formatted table named `tblTraining`, and the table has six fictional records.
 
@@ -60,6 +72,10 @@ If Power Automate can't find the table later, check three things: the workbook i
 1. Open Outlook on the web with the training account.
 2. Create a message to your own training mailbox, the one you connect to Power Automate in Chapter 3. Use the subject `[PA TRAINING] Attachment test`.
 3. Attach `CourseOutline.pdf` and `TrainerPhoto.jpg` from the [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder in this chapter. **Don't send it yet.** Close the message so it's saved in Drafts.
+
+![Outlook on the web draft with subject PA TRAINING Attachment test and two attachments](./images/02-04-draft-email.png)
+
+*The test email waits in Drafts until Chapter 3.*
 
 > **Important:** Don't attach real course materials or any file whose name contains a person's name. The filename shows up in run history and in your OneDrive folder.
 
@@ -87,7 +103,7 @@ The Teams connector is standard, but your organisation may restrict posting or r
 2. Check the environment selector near the top of the page.
 3. Confirm it matches the environment your trainer gave you.
 
-> **Key point:** OneDrive files, Excel workbooks, Forms and Teams destinations aren't packaged automatically when a solution is moved. Keep a note of where each resource lives. You'll need it in Chapter 9.
+> **Key point:** OneDrive files, Excel workbooks, Forms and Teams destinations aren't packaged automatically when a solution is moved. Keep a note of where each resource lives. Your trainer demonstrates moving flows in Chapter 10.
 
 ---
 

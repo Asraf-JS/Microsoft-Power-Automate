@@ -1,4 +1,4 @@
-# 08 - Plan an Automation with Copilot
+# 09 - Plan an Automation with Copilot
 
 Copilot in Power Automate can turn a plain-language description into a suggested flow. A suggestion isn't a finished design, though. In this chapter you review what Copilot proposes, correct it precisely, and walk away without creating anything.
 
@@ -35,23 +35,35 @@ Copilot availability depends on your organisation, environment, region and admin
 
 ---
 
-## 8.1 Open the Copilot Planning Experience
+## 9.1 Open the Copilot Planning Experience
 
 On the Power Automate home page, select **Create with Copilot**. The Create page may call the same thing **Describe it to design it**.
 
+![Power Automate home page with the Create with Copilot box](./images/09-01-create-with-copilot.png)
+
+*Create with Copilot starts from a plain-language description.*
+
 ---
 
-## 8.2 Describe the Complete Business Outcome
+## 9.2 Describe the Complete Business Outcome
 
 In **What will your flow do?**, paste prompt 1 from the copy-paste page and select **Submit**.
+
+![Copilot prompt box containing the weekly coordinator summary prompt](./images/09-02-first-prompt.png)
+
+*The prompt names the schedule, source, rule, output and a boundary.*
 
 A strong prompt states the event, the data source, the rule, the output and the boundaries. Even so, Copilot doesn't know your approved recipient, the exact workbook location, your organisation's policies, or how you'll test the result.
 
 ---
 
-## 8.3 Review the First Suggestion
+## 9.3 Review the First Suggestion
 
 Read the trigger and every proposed action before you select anything. In the manual's example, the first version suggested Recurrence, List rows present in a table, FilteredRows, Initialise Count and Send an email. It looks plausible, but **Initialise Count** doesn't say how the count is calculated.
+
+![Copilot's first suggested flow with Recurrence, List rows, FilteredRows, Initialise Count and Send an email](./images/09-03-first-suggestion.png)
+
+*A plausible start, but the count isn't explained.*
 
 Use these questions on any AI-generated flow plan:
 
@@ -66,25 +78,29 @@ Use these questions on any AI-generated flow plan:
 
 ---
 
-## 8.4 Clarify the Filter and Count
+## 9.4 Clarify the Filter and Count
 
 In **Add more details to improve the flow**, paste prompt 2 and select **Send**. It names the actions, gives the counting expression, and draws a clear line around who gets email.
 
 ---
 
-## 8.5 Identify an Unnecessary Action
+## 9.5 Identify an Unnecessary Action
 
 The second suggestion now has a proper Count and still one email, but it adds **Get file metadata using path** before List rows present in a table. You don't need it: List rows present in a table can select the workbook directly. The extra action is just another dependency.
 
+![Copilot's second suggestion with an extra Get file metadata using path step](./images/09-04-second-suggestion.png)
+
+*The count improved, but an unneeded step appeared.*
+
 ---
 
-## 8.6 Request a Streamlined Design
+## 9.6 Request a Streamlined Design
 
 Paste prompt 3 and select **Send**. It says what to remove, why, and exactly which structure to keep.
 
 ---
 
-## 8.7 Validate the Final Suggestion
+## 9.7 Validate the Final Suggestion
 
 The third suggestion should have exactly these steps:
 
@@ -96,11 +112,15 @@ The third suggestion should have exactly these steps:
 | 4 | Compose Count |
 | 5 | Send an email |
 
+![Copilot's final suggestion with five steps: Recurrence, List rows, FilteredRows, Compose Count and Send an email](./images/09-05-final-suggestion.png)
+
+*The outline matches the intended plan.*
+
 This only checks the outline. If you continued, you'd still need to configure the Friday schedule and time zone, the workbook and table, the filter and count expressions, the recipient, subject and body, error handling, and test data.
 
 ---
 
-## 8.8 Exit Without Creating the Flow
+## 9.8 Exit Without Creating the Flow
 
 Select **Cancel**, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
 

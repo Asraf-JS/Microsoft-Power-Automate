@@ -10,7 +10,7 @@
   ],
   "runningTitle": "Microsoft Power Automate for End Users",
   "subtitle": "Two-day course book",
-  "blurb": "Collect, report, remind, approve and release: automate a training coordinator's routine with automated, instant and scheduled cloud flows, Copilot and solutions.",
+  "blurb": "Collect, report, remind, approve and brief: automate a training coordinator's routine with automated, instant and scheduled cloud flows, variables, parallel branches and Copilot.",
   "coverIcons": [
     "play",
     "lines",
@@ -19,7 +19,7 @@
   ],
   "edition": "Participant edition",
   "year": "2026",
-  "version": "1.1",
+  "version": "2.0",
   "author": "Asraf Jaafar Sidik",
   "authorShort": "Asraf",
   "credential": "Microsoft Certified Trainer",
@@ -67,15 +67,23 @@
       "exercises": "../07-capstone/copy-paste.md"
     },
     {
-      "notes": "../08-plan-with-copilot/README.md",
-      "exercises": "../08-plan-with-copilot/copy-paste.md"
+      "notes": "../08-morning-briefing/README.md",
+      "exercises": "../08-morning-briefing/copy-paste.md"
     },
     {
-      "notes": "../09-environments-and-solutions/README.md",
-      "exercises": "../09-environments-and-solutions/copy-paste.md"
+      "notes": "../09-plan-with-copilot/README.md",
+      "exercises": "../09-plan-with-copilot/copy-paste.md"
+    },
+    {
+      "notes": "../10-environments-and-solutions/README.md",
+      "exercises": "../10-environments-and-solutions/copy-paste.md"
+    },
+    {
+      "notes": "../11-extra-practice/README.md",
+      "exercises": "../11-extra-practice/copy-paste.md"
     }
   ],
-  "backCover": "This book accompanies the two-day Microsoft Power Automate for End Users course. It follows one training coordinator's routine, from saving email attachments and sending an Excel summary, through weekly reminders and a Forms approval, to a filtered capstone flow, a Copilot-planned design and a solution ready to move. Every chapter pairs short notes with copy-ready names and expressions you can use during the session and back at your desk.",
+  "backCover": "This book accompanies the two-day Microsoft Power Automate for End Users course. It follows one training coordinator's routine, from saving email attachments and sending an Excel summary, through weekly reminders and a Forms approval, to a filtered capstone flow and a personal morning briefing built with variables and parallel branches. Every chapter gives point-and-click steps and copy-ready values you can use during the session and back at your desk.",
   "programFlow": {
     "title": "Your Power Automate training journey",
     "lead": "One coordinator's routine, start to finish: turn each repeated manual task into a cloud flow.",
@@ -139,20 +147,29 @@
       },
       {
         "n": 8,
-        "app": "Copilot",
+        "app": "Briefing",
         "icon": "spark",
+        "color": "#d9480f",
+        "stage": "Brief",
+        "desc": "Variables and parallel branches in a daily email",
+        "output": "Morning briefing"
+      },
+      {
+        "n": 9,
+        "app": "Copilot",
+        "icon": "chat",
         "color": "#7b4be6",
         "stage": "Design",
         "desc": "Plan a flow and correct the suggestion",
         "output": "Reviewed plan"
       },
       {
-        "n": 9,
+        "n": 10,
         "app": "Solutions",
         "icon": "nodes",
         "color": "#6b4fbb",
         "stage": "Release",
-        "desc": "Package the flow for another environment",
+        "desc": "Trainer demo: package a flow for another environment",
         "output": "Solution package"
       }
     ]
