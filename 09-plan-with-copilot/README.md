@@ -47,7 +47,7 @@ On the Power Automate home page, select **Create with Copilot**. The Create page
 
 ## 9.2 Describe the Complete Business Outcome
 
-In **What will your flow do?**, paste prompt 1 from the copy-paste page and select **Submit**.
+In **What will your flow do?**, paste prompt 1 from the copy-paste page and select the arrow icon at the bottom right of the box to send it.
 
 ![Copilot prompt box containing the weekly coordinator summary prompt](./images/09-02-first-prompt.png)
 
@@ -80,7 +80,7 @@ Use these questions on any AI-generated flow plan:
 
 ## 9.4 Clarify the Filter and Count
 
-In **Add more details to improve the flow**, paste prompt 2 and select **Send**. It names the actions, gives the counting expression, and draws a clear line around who gets email.
+In **Add more details for Copilot to work with** (the box below the suggestion), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email.
 
 ---
 
@@ -90,13 +90,13 @@ Copilot's answers vary from run to run. Check whether the second suggestion adde
 
 ![Copilot's second suggestion with Recurrence, List rows, FilteredRows, Count and Send an email](./images/09-04-second-suggestion.png)
 
-*The count improved, but an unneeded step appeared.*
+*In this run the second suggestion was already clean: Recurrence, List rows, FilteredRows, Count and Send an email.*
 
 ---
 
 ## 9.6 Request a Streamlined Design
 
-Paste prompt 3 and select **Send**. It says what to remove, why, and exactly which structure to keep.
+Paste prompt 3 into the same box and send it. It says what to remove, why, and exactly which structure to keep.
 
 ---
 

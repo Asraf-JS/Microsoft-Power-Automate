@@ -37,14 +37,15 @@ You need Microsoft Forms, Approvals and Microsoft Teams through your work or sch
 
 ## 6.1 Prepare the Request Form
 
-In Microsoft Forms, create a form named **Training Request** with the description from the copy-paste page. Add four required questions:
+1. Go to [forms.office.com](https://forms.office.com) and sign in with your training account.
+2. Select **New Form**.
+3. Select **Untitled form** at the top and type `Training Request`. In the description box under it, paste the description from the copy-paste page.
+4. Select **Add new question** (or the **+**), then **Text**. Type `Requester name` as the question and switch on **Required** at the bottom of the question.
+5. Select **Add new question** > **Choice**. Type `Course` as the question, then type the three options from the copy-paste page (Power Automate Basics, Approval Workflows, Excel Reporting), one per option box. Switch on **Required**.
+6. Select **Add new question** > **Date**. Type `Preferred date` and switch on **Required**.
+7. Select **Add new question** > **Text**. Type `Business reason`, switch on **Long answer** and **Required**.
 
-| Question | Type | Options or setting |
-|----------|------|--------------------|
-| Requester name | Text | Single line |
-| Course | Choice | Power Automate Basics; Approval Workflows; Excel Reporting |
-| Preferred date | Date | Required |
-| Business reason | Text | Long answer |
+Forms saves as you go. There's no Save button.
 
 ![Microsoft Forms editor showing the Training Request form with four required questions](./images/06-01-form.png)
 
@@ -56,7 +57,10 @@ In Microsoft Forms, create a form named **Training Request** with the descriptio
 
 ## 6.2 Create the Automated Flow
 
-Select **Create > Automated cloud flow**. Name it `PA - Training request approval`, search for **Forms**, select **When a new response is submitted**, and select **Create**.
+1. In Power Automate, select **Create** on the left, then the **Automated cloud flow** tile.
+2. In **Flow name**, enter `PA - Training request approval`.
+3. In the trigger search box, type `Forms` and select **When a new response is submitted** (Microsoft Forms).
+4. Select **Create**.
 
 ![Build an automated cloud flow dialog with the flow name and When a new response is submitted selected](./images/06-02-create-flow.png)
 
@@ -66,11 +70,12 @@ Select **Create > Automated cloud flow**. Name it `PA - Training request approva
 
 ## 6.3 Select the Form
 
-Open the trigger and set **Form Id** to **Training Request**.
+1. Select the trigger on the canvas.
+2. Open the **Form Id** dropdown and select **Training Request**.
 
 ![When a new response is submitted trigger with Form Id set to Training Request](./images/06-03-trigger.png)
 
-*Pick the form from the dropdown.*
+*After saving, Form Id shows the form's long internal ID instead of its name. That's normal.*
 
 If the form isn't listed, check that you own or can access it, refresh the list, and confirm the Forms connection uses the right account.
 
@@ -78,7 +83,9 @@ If the form isn't listed, check that you own or can access it, refresh the list,
 
 ## 6.4 Retrieve the Answers
 
-Add **Microsoft Forms > Get response details**. Set **Form Id** to Training Request, and in **Response Id** insert **Response Id** from the trigger.
+1. Below the trigger, add **Get response details** (Microsoft Forms).
+2. Open **Form Id** and select **Training Request** again.
+3. Click into **Response Id**, open the dynamic content picker, and select **Response Id** from *When a new response is submitted*.
 
 ![Get response details with Form Id Training Request and the Response Id token](./images/06-04-response-details.png)
 
@@ -90,20 +97,15 @@ The trigger only says a response exists. Get response details returns the indivi
 
 ## 6.5 Request the Decision
 
-Add **Approvals > Start and wait for an approval**:
-
-| Field | Value |
-|-------|-------|
-| Approval type | Approve/Reject - First to respond (if your list doesn't have it, choose **Basic**) |
-| Title | `[PA TRAINING] Training request` |
-| Assigned to | Trainer-approved approver |
-| Details | Requester name, Course, Preferred date and Business reason from Get response details |
-
-Lay out Details so each label is followed by its matching value.
+1. Below Get response details, add **Start and wait for an approval** (Approvals).
+2. Set **Approval type** to **Approve/Reject - First to respond**. If your list doesn't have it, choose **Basic**.
+3. In **Title**, enter `[PA TRAINING] Training request`.
+4. In **Assigned to**, type the trainer-approved approver's name or email and select them from the list.
+5. In **Details**, paste the details template from the copy-paste page. After each label, insert the matching answer from *Get response details*: **Requester name**, **Course**, **Preferred date**, **Business reason**.
 
 ![Start and wait for an approval with type, title, assigned to and Details containing the four answers](./images/06-05-approval.png)
 
-*Each label in Details is followed by its answer from Get response details.*
+*Each label in Details is followed by its answer. In the picker the answers show their question names; after saving they show as codes like `body/r96281c9…`.*
 
 **Checkpoint:** Use the values from **Get response details**, not similarly named values from another action.
 
@@ -111,7 +113,10 @@ Lay out Details so each label is followed by its matching value.
 
 ## 6.6 Branch on the Outcome
 
-Add **Control > Condition**. Set the left value to **Outcome** from Start and wait for an approval, choose **is equal to**, and enter `Approve`.
+1. Below the approval, add **Condition** (Control).
+2. In the left box, insert **Outcome** from *Start and wait for an approval*. (After saving it shows as `body/outcome`.)
+3. Leave the middle box on **is equal to**.
+4. In the right box, type `Approve`.
 
 ![Condition with the Outcome token, is equal to, and Approve](./images/06-06-condition.png)
 
@@ -123,14 +128,10 @@ Add **Control > Condition**. Set the left value to **Outcome** from Start and wa
 
 ## 6.7 Prepare the Approved Message
 
-In the **True** branch, add **Microsoft Teams > Post message in a chat or channel**:
-
-| Field | Value |
-|-------|-------|
-| Post as | Flow bot |
-| Post in | Chat with Flow bot |
-| Recipient | Trainer-approved Teams account |
-| Message | `Training request approved for` followed by **Course** from Get response details |
+1. Select the **+** inside the green **True** box and add **Post message in a chat or channel** (Microsoft Teams).
+2. Set **Post as** to **Flow bot** and **Post in** to **Chat with Flow bot**.
+3. In **Recipient**, type the trainer-approved Teams account and select it from the list.
+4. In **Message**, type `Training request approved for ` and insert **Course** from *Get response details*.
 
 ![Post message in a chat or channel in the True branch with Flow bot settings and the approved message](./images/06-07-teams-approved.png)
 
@@ -140,7 +141,9 @@ In the **True** branch, add **Microsoft Teams > Post message in a chat or channe
 
 ## 6.8 Prepare the Rejected Message
 
-In the **False** branch, add a second **Post message in a chat or channel** with the same Post as, Post in and recipient. Set Message to `Training request rejected for` followed by **Course**.
+1. Select the **+** inside the red **False** box and add a second **Post message in a chat or channel**.
+2. Use the same **Post as**, **Post in** and **Recipient** as section 6.7.
+3. In **Message**, type `Training request rejected for ` and insert **Course**.
 
 A production process would also handle outcomes like cancelled or timed-out approvals. This exercise sticks to the two standard Approve and Reject buttons.
 

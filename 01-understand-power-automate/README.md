@@ -100,9 +100,10 @@ The core exercises use standard connectors only. Power Automate Free can create 
 1. In Edge, go to [make.powerautomate.com](https://make.powerautomate.com) and sign in with your training account.
 2. Check that the page says **Power Automate** at the upper left.
 
-![Power Automate home page after sign-in with the product name at the upper left](./images/01-01-home.png)
+   ![Power Automate home page after sign-in with the product name at the upper left](./images/01-01-home.png)
 
-*The Power Automate home page.*
+   *The Power Automate home page.*
+
 3. Find the environment name near the top of the page, under **Environments**. An environment is a workspace that holds Power Platform resources, including flows.
 4. Compare it with the environment your trainer gave you. If they differ, ask before you build anything.
 
@@ -115,20 +116,20 @@ The core exercises use standard connectors only. Power Automate Free can create 
 1. Expand the left navigation if it's collapsed, then select **Create**.
 2. Under **Start from blank** you see six tiles. Three of them create cloud flows from scratch, and those are what this course uses:
 
-| Tile | Description on the tile | Used in this course |
-|------|------------------------|---------------------|
-| Automated cloud flow | Triggered by a designated event | Yes |
-| Instant cloud flow | Triggered manually as needed | Yes |
-| Scheduled cloud flow | You choose when and how often it runs | Yes |
-| Describe it to design it | Describe the flow you want and AI builds it for you | Chapter 9 |
-| Desktop flow | Automates processes on your desktop environment | No |
-| Process mining | Evaluate and optimize your existing processes and tasks | No |
+   | Tile | Description on the tile | Used in this course |
+   |------|------------------------|---------------------|
+   | Automated cloud flow | Triggered by a designated event | Yes |
+   | Instant cloud flow | Triggered manually as needed | Yes |
+   | Scheduled cloud flow | You choose when and how often it runs | Yes |
+   | Describe it to design it | Describe the flow you want and AI builds it for you | Chapter 9 |
+   | Desktop flow | Automates processes on your desktop environment | No |
+   | Process mining | Evaluate and optimize your existing processes and tasks | No |
 
-![The Create page with the five Start from blank tiles: Automated, Instant, Scheduled cloud flow, Desktop flow and Process mining](./images/01-03-create-tiles.png)
+   ![The Create page with the six Start from blank tiles](./images/01-03-create-tiles.png)
 
-*The three cloud-flow tiles come first under Start from blank. Describe it to design it is the Copilot option you'll try in Chapter 9.*
+   *The three cloud-flow tiles come first under Start from blank. Describe it to design it is the Copilot option you'll try in Chapter 9.*
 
-> **Note:** The heading **Three ways to make a flow** refers to the three sections of the page: Start from blank, Start from a template and Start from a connector. Those aren't the three cloud-flow types. The types are three of the six tiles inside the first section.
+   > **Note:** The heading **Three ways to make a flow** refers to the three sections of the page: Start from blank, Start from a template and Start from a connector. Those aren't the three cloud-flow types. The types are three of the six tiles inside the first section.
 
 3. Decide which tile you'd use for a flow that starts when someone submits a form. The answer is **Automated cloud flow**: a form submission is an event that happens without you starting it. Instant means *you* start the flow.
 
@@ -136,9 +137,10 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
 1. Find **My flows** in the left navigation. You'll come back here to find every flow you build.
 
-![Left navigation with My flows highlighted](./images/01-04-my-flows.png)
+   ![Left navigation with My flows highlighted](./images/01-04-my-flows.png)
 
-*My flows lists every flow you've built.*
+   *My flows lists every flow you've built.*
+
 2. Select **Home** to return to the start page.
 
 ---

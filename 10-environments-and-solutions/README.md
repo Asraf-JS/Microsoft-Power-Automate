@@ -118,9 +118,10 @@ Open **Overview** and check the name, version, package type, publisher and inclu
 1. Select **Export**. If a **Before you export** panel offers **Publish**, select it so the latest changes are included, and wait for **Published**.
 2. Select **Next**.
 
-![Export solution panel with Unmanaged selected and the suggested version number](./images/10-04-export.png)
+   ![Export solution panel with Unmanaged selected and the suggested version number](./images/10-04-export.png)
 
-*Unmanaged suits a learning exercise. The version number goes up with each export.*
+   *Unmanaged suits a learning exercise. The version number goes up with each export.*
+
 3. Confirm the version, select **Unmanaged**, and select **Export**. Power Automate suggests the next version number (for example 1.0.0.1), so every exported package has its own version.
 4. When the success message appears, select **Download** and store the ZIP in the trainer-approved location. The worked example produced `PowerAutomateTrainingMigration_1_0_0_1.zip`.
 

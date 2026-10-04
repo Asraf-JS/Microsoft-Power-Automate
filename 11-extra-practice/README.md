@@ -19,7 +19,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 | C. Save an email to OneDrive | Automated | Trigger filters, file actions | Office 365 Outlook, OneDrive for Business |
 | D. News digest | Automated | A non-Microsoft 365 trigger | RSS, Office 365 Outlook |
 
-> **Tip:** Turn each flow off when you've finished testing, unless you want to keep using it. Go to **My flows**, select the **...** next to the flow, and choose **Turn off**.
+> **Tip:** Turn each flow off when you've finished testing, unless you want to keep using it. Open it from **My flows** and select **Turn off** in the toolbar, where **Turn on** was.
 
 ---
 
@@ -32,15 +32,15 @@ Four small flows for when you finish early, or for practice back at your desk. E
 3. In the trigger, set **Folder** to **Inbox**.
 4. Add **Add a to-do (V3)** (Microsoft To Do (Business)):
 
-| Field | Value |
-|-------|-------|
-| To-do List | Tasks |
-| Title | Type `Follow up: ` then insert **Subject** |
-| Body Content | Type `From ` then insert **From** |
+   | Field | Value |
+   |-------|-------|
+   | To-do List | Tasks |
+   | Title | Type `Follow up: ` then insert **Subject** |
+   | Body Content | Type `From ` then insert **From** |
 
-![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/11-01-todo.png)
+   ![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/11-01-todo.png)
 
-*The flagged email's subject becomes the task title.*
+   *The flagged email's subject becomes the task title.*
 
 5. Save, then **Test** > **Manually** > **Test**. Flag any email in your Outlook inbox. Within a minute, the task appears in Microsoft To Do.
 
@@ -54,18 +54,18 @@ Four small flows for when you finish early, or for practice back at your desk. E
 2. Choose **Manually trigger a flow** and select **Create**.
 3. Select the trigger, then **+ Add an input** > **Text**. Rename the input from *Input* to `Message`.
 
-![Manually trigger a flow with a Text input named Message](./images/11-02-input.png)
+   ![Manually trigger a flow with a Text input named Message](./images/11-02-input.png)
 
-*A trigger input asks the person running the flow to type something first.*
+   *A trigger input asks the person running the flow to type something first.*
 
 4. Add **Post message in a chat or channel** (Microsoft Teams):
 
-| Field | Value |
-|-------|-------|
-| Post as | Flow bot |
-| Post in | Chat with Flow bot |
-| Recipient | Your own email address |
-| Message | Type `Reminder: ` then insert **Message** from the trigger |
+   | Field | Value |
+   |-------|-------|
+   | Post as | Flow bot |
+   | Post in | Chat with Flow bot |
+   | Recipient | Your own email address |
+   | Message | Type `Reminder: ` then insert **Message** from the trigger |
 
 5. Save, then **Test** > **Manually** > **Test**. Type a short message and select **Run flow**. The message appears in Teams, in your chat with Flow bot.
 
@@ -83,15 +83,15 @@ Four small flows for when you finish early, or for practice back at your desk. E
 4. Add **Export email (V2)** (Office 365 Outlook). In **Message Id**, insert **Message Id** from the trigger.
 5. Add **Create file** (OneDrive for Business):
 
-| Field | Value |
-|-------|-------|
-| Folder Path | `/Power Automate Training/Reports` |
-| File Name | Insert **Subject**, then type `.eml` |
-| File Content | Insert **Body** from *Export email (V2)* |
+   | Field | Value |
+   |-------|-------|
+   | Folder Path | `/Power Automate Training/Reports` |
+   | File Name | Insert **Subject**, then type `.eml` |
+   | File Content | Insert **Body** from *Export email (V2)* |
 
-![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/11-03-save-email.png)
+   ![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/11-03-save-email.png)
 
-*Export email turns the message into a file. Create file saves it.*
+   *Export email turns the message into a file. Create file saves it.*
 
 6. Save and **Test**. Send yourself an email with the subject `[PA SAVE] Booking confirmation`. A `.eml` file appears in Reports. Double-click it to open it in Outlook.
 
@@ -106,17 +106,21 @@ Four small flows for when you finish early, or for practice back at your desk. E
 3. In **The RSS feed URL**, paste the Microsoft Power Platform blog feed from the copy-paste page.
 4. Add **Send an email (V2)** (Office 365 Outlook):
 
-| Field | Value |
-|-------|-------|
-| To | Your own email address |
-| Subject | Type `New post: ` then insert **Feed title** |
-| Body | Insert **Feed summary**, press Enter, then insert **Primary feed link** |
+   | Field | Value |
+   |-------|-------|
+   | To | Your own email address |
+   | Subject | Type `New post: ` then insert **Feed title** |
+   | Body | Insert **Feed summary**, press Enter, then insert **Primary feed link** |
 
-![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/11-04-rss.png)
+   ![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/11-04-rss.png)
 
-*The RSS connector watches a public web feed. It reads, and never writes, anything.*
+   *The RSS connector watches a public web feed. It reads, and never writes, anything.*
 
-5. Save and turn the flow on. The next new blog post arrives in your inbox. The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
+5. Save, then select **Back** (top left) to reach the flow's details page, and select **Turn on** in the toolbar. The next new blog post arrives in your inbox.
+
+   ![The flow details toolbar with Turn on](./images/11-05-turn-on.png)
+
+   *Turn on is in the toolbar of the flow's details page.* The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
 
 > **Note:** If the feed URL stops working, open the blog in your browser and look for its RSS link, or try any other news site that offers an RSS feed.
 

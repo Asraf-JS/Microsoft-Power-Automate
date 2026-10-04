@@ -43,7 +43,11 @@ Complete Chapter 5.
 1. Go to **My flows** and open `PA - Weekly training reminders`.
 2. Select **Save As** (in the **...** menu if it isn't visible).
 3. Name the copy `PA - Weekly training capstone` and select **Save**. The copy starts turned off.
-4. Go back to **My flows** and open the capstone copy.
+4. Go back to **My flows** and select the capstone copy's name. Its details page opens; select **Edit** at the top left to open it in the designer.
+
+   ![The flow details toolbar with Edit at the left](./images/07-00-flow-details.png)
+
+   *A flow's details page. Edit opens the designer.*
 
 ![Save As dialog naming the copy PA - Weekly training capstone](./images/07-01-save-as.png)
 
@@ -168,7 +172,7 @@ In the **True** branch, add **Send an email (V2)** and rename it `Send coordinat
 
 | Field | Value |
 |-------|-------|
-| To | coordinator@example.com |
+| To | Type `coordinator@example.com`, then select it from the list (it shows as a custom value) |
 | Subject | `[PA TRAINING] Weekly reminder summary` |
 | Body | Type `The weekly training reminder flow prepared `, insert **ReminderCount**, then type ` reminder(s) for upcoming sessions in the next 14 days.` |
 
