@@ -83,12 +83,13 @@ Then select **Create**. The display name is the friendly label. The unique name 
 1. Open the new solution. Its object list is empty: a new solution is just a container.
 2. Select **Add existing** and point to **Automation**.
 3. Under Automation, select **Cloud flow**.
-4. Select **Outside Dataverse** and find `PA - Weekly training capstone`. Flows that aren't in a solution yet are listed here.
+4. Find `PA - Weekly training capstone`. Depending on how your environment stores flows, it's on the **From Dataverse** tab or the **Outside Dataverse** tab.
 5. Select the capstone, then **Add**.
+6. If only the flow appears in the solution, select it, then **Advanced** > **Add required objects**. This adds the connection references it needs.
 
-![Add existing cloud flow panel on the Outside Dataverse tab with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
+![Add existing cloud flows panel with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
 
-*Flows that aren't in a solution yet are listed under Outside Dataverse.*
+*Pick the capstone from the list. Here it's on the From Dataverse tab.*
 
 Power Automate may also add **connection references**. A connection reference is a solution component that points to a connection. The target environment still needs a valid connection and an authorised account.
 
@@ -114,8 +115,8 @@ Open **Overview** and check the name, version, package type, publisher and inclu
 
 ## 10.10 to 10.12 Publish and Export
 
-1. Select **Export**. On **Before you export**, select **Publish** so the latest changes are included.
-2. Wait for **Published**, then select **Next**.
+1. Select **Export**. If a **Before you export** panel offers **Publish**, select it so the latest changes are included, and wait for **Published**.
+2. Select **Next**.
 
 ![Export solution panel with Unmanaged selected and the suggested version number](./images/10-04-export.png)
 
@@ -169,7 +170,8 @@ Create a migration checklist for one of the earlier flows. Name its trigger, con
 | Symptom | What to check |
 |---------|---------------|
 | Solutions is missing or unavailable | Environment type, Dataverse, licence, security role and maker permissions |
-| The flow isn't in the list | Current environment, the Outside Dataverse tab, flow ownership, and whether it's already in another solution |
+| The flow isn't in the list | Current environment, both the From Dataverse and Outside Dataverse tabs, flow ownership, and whether it's already in another solution |
+| Connection references are missing | Select the flow in the solution, then Advanced > Add required objects |
 | Extra components appear | Connection references and other dependencies may be added automatically. Review each one |
 | Export stays pending | Refresh Solutions, open export history, and confirm publishing finished |
 | Import says the solution already exists | Check you're in the intended target, and whether this is an upgrade or an accidental same-environment import |

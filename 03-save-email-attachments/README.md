@@ -77,13 +77,14 @@ The value appears in the field as a coloured token. To remove it, select the **x
 4. Select **Show all** under **Advanced parameters**.
 5. In **Subject Filter**, enter `[PA TRAINING]`.
 6. Set **Only with Attachments** to **Yes**.
-7. Select **Save** at the top right.
+
+Don't save yet. Power Automate won't save a flow that has only a trigger, so you'll save once the first action is in place.
 
 ![Trigger Parameters tab with Include Attachments Yes, Folder Inbox, Subject Filter PA TRAINING and Only with Attachments Yes](./images/03-02-trigger.png)
 
 *All four trigger fields set. Use Show all if a field is hidden.*
 
-**Checkpoint:** The trigger saves without a red validation message. The flow only starts for *new* matching messages. It doesn't go back and process mail already in the inbox.
+**Checkpoint:** No field shows a red validation message. The flow only starts for *new* matching messages. It doesn't go back and process mail already in the inbox.
 
 ---
 

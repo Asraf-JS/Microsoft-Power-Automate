@@ -56,7 +56,7 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 ![Excel for the web with a cell selected in tblTraining and the Table Design tab showing the table name](./images/04-01-table-name.png)
 
-*The table name, not the sheet name, is what Power Automate looks for.*
+*Select any cell in the table, then open the Table Design tab to see its name. The table name, not the sheet name, is what Power Automate looks for.*
 
 > **Key point:** A worksheet name and a table name are different things. If the Table dropdown is empty later, a missing or misnamed table is almost always why.
 
@@ -108,7 +108,7 @@ If **Table** shows *No items*, stop. The workbook has no formatted table. Go bac
 
 ![Select action with From set to the Excel value and four key and value rows mapped with dynamic content](./images/04-04-select.png)
 
-*Each key becomes a column heading. Email and the internal row data are left out.*
+*Each key becomes a column heading. Email and the internal row data are left out. (This screenshot's Session date already uses the date format from the Going further box. Yours shows a plain SessionDate token.)*
 
 Select handles every row for you, so you don't need an Apply to each here.
 
@@ -174,11 +174,11 @@ The expression reads `length(body('Select'))`. You can also paste it from the co
 1. Select **Test** > **Manually** > **Test**, then **Run flow**. This sends a real email to you, so follow your trainer's instruction first.
 2. Open the completed run. Every action has a green tick, and Send an email (V2) ran once.
 3. Select **Select** and then **Show raw outputs**. You see six records with real names and courses.
-4. Open the email. You should see the sentence *This report lists 6 sessions.*, four headings, and six rows.
+4. Open the email. You should see the sentence *This report lists 6 sessions.*, four headings, and six rows. The number always matches the rows in your table, so if you added a row it goes up too.
 
 ![The received email showing the count sentence and the HTML table with six rows](./images/04-09-email-received.png)
 
-*One email, one table, counted by your first expression.*
+*One email, one table, counted by your first expression. This workbook had a seventh test row, so it reads 7.*
 
 Each manual run sends one current report. Earlier emails stay as historical snapshots.
 

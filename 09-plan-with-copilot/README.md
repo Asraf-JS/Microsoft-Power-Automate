@@ -86,9 +86,9 @@ In **Add more details to improve the flow**, paste prompt 2 and select **Send**.
 
 ## 9.5 Identify an Unnecessary Action
 
-The second suggestion now has a proper Count and still one email, but it adds **Get file metadata using path** before List rows present in a table. You don't need it: List rows present in a table can select the workbook directly. The extra action is just another dependency.
+Copilot's answers vary from run to run. Check whether the second suggestion added anything you didn't ask for. A common one is **Get file metadata using path** before List rows present in a table. You don't need it: List rows present in a table can select the workbook directly, so the extra action is just another dependency. If your suggestion is already clean, as in the screenshot below, note that and still send prompt 3: it locks in the exact structure.
 
-![Copilot's second suggestion with an extra Get file metadata using path step](./images/09-04-second-suggestion.png)
+![Copilot's second suggestion with Recurrence, List rows, FilteredRows, Count and Send an email](./images/09-04-second-suggestion.png)
 
 *The count improved, but an unneeded step appeared.*
 

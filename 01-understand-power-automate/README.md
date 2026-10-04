@@ -115,21 +115,22 @@ The manual has a screenshot for each step (Figures 1.1 to 1.12).
 **Find the three cloud-flow choices**
 
 1. Expand the left navigation if it's collapsed, then select **Create**.
-2. Under **Start from blank** you see five tiles. Three of them create cloud flows, and those are what this course uses:
+2. Under **Start from blank** you see six tiles. Three of them create cloud flows from scratch, and those are what this course uses:
 
 | Tile | Description on the tile | Used in this course |
 |------|------------------------|---------------------|
 | Automated cloud flow | Triggered by a designated event | Yes |
 | Instant cloud flow | Triggered manually as needed | Yes |
 | Scheduled cloud flow | You choose when and how often it runs | Yes |
+| Describe it to design it | Describe the flow you want and AI builds it for you | Chapter 9 |
 | Desktop flow | Automates processes on your desktop environment | No |
 | Process mining | Evaluate and optimize your existing processes and tasks | No |
 
 ![The Create page with the five Start from blank tiles: Automated, Instant, Scheduled cloud flow, Desktop flow and Process mining](./images/01-03-create-tiles.png)
 
-*The three cloud-flow tiles come first under Start from blank.*
+*The three cloud-flow tiles come first under Start from blank. Describe it to design it is the Copilot option you'll try in Chapter 9.*
 
-> **Note:** The heading **Three ways to make a flow** refers to the three sections of the page: Start from blank, Start from a template and Start from a connector. Those aren't the three cloud-flow types. The types are three of the five tiles inside the first section.
+> **Note:** The heading **Three ways to make a flow** refers to the three sections of the page: Start from blank, Start from a template and Start from a connector. Those aren't the three cloud-flow types. The types are three of the six tiles inside the first section.
 
 3. Decide which tile you'd use for a flow that starts when someone submits a form. The answer is **Automated cloud flow**: a form submission is an event that happens without you starting it. Instant means *you* start the flow.
 

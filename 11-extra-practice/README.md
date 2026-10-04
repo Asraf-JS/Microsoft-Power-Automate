@@ -15,7 +15,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 | Exercise | Flow type | Practises | Connectors |
 |----------|-----------|-----------|------------|
 | A. Flagged email to To Do | Automated | Triggers and dynamic content | Office 365 Outlook, Microsoft To Do (Business) |
-| B. Send me a note | Instant | Trigger inputs | Notifications |
+| B. Send me a note | Instant | Trigger inputs | Microsoft Teams (your own Flow bot chat) |
 | C. Save an email to OneDrive | Automated | Trigger filters, file actions | Office 365 Outlook, OneDrive for Business |
 | D. News digest | Automated | A non-Microsoft 365 trigger | RSS, Office 365 Outlook |
 
@@ -48,9 +48,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 ## B. Send Me a Note
 
-**The problem:** You think of something on the go and want a reminder on your phone. This instant flow asks you for a message and sends it to the Power Automate mobile app as a notification.
-
-You need the **Power Automate** mobile app installed and signed in with your training account.
+**The problem:** You think of something and want a quick reminder where you'll see it. This instant flow asks you for a message and sends it to you as a Teams chat from Flow bot. It only posts in your own chat with Flow bot.
 
 1. Select **Create** > **Instant cloud flow**. Name it `PA - Send me a note`.
 2. Choose **Manually trigger a flow** and select **Create**.
@@ -60,10 +58,18 @@ You need the **Power Automate** mobile app installed and signed in with your tra
 
 *A trigger input asks the person running the flow to type something first.*
 
-4. Add **Send me a mobile notification** (Notifications). In **Text**, insert **Message** from the trigger.
-5. Save, then **Test** > **Manually** > **Test**. Type a short message and select **Run flow**. The notification appears on your phone.
+4. Add **Post message in a chat or channel** (Microsoft Teams):
 
-You can also run it from the **Flows** tab in the mobile app, which is where an instant flow is most useful.
+| Field | Value |
+|-------|-------|
+| Post as | Flow bot |
+| Post in | Chat with Flow bot |
+| Recipient | Your own email address |
+| Message | Type `Reminder: ` then insert **Message** from the trigger |
+
+5. Save, then **Test** > **Manually** > **Test**. Type a short message and select **Run flow**. The message appears in Teams, in your chat with Flow bot.
+
+> **Note:** Earlier versions of this exercise used **Send me a mobile notification**. During testing that action reported that the Power Automate mobile app had been retired and notifications had nowhere to go, so this version uses Teams instead.
 
 ---
 

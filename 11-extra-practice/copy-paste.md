@@ -32,6 +32,12 @@ Input name:
 Message
 ```
 
+Teams message start (insert **Message** after it):
+
+```text
+Reminder: 
+```
+
 ## C. Save an email to OneDrive
 
 Flow name:

@@ -66,3 +66,26 @@ Finish:
 - git add CHAPTER/images _design/shots && git commit -m "Add CHAPTER screenshots" && git push
 - Reply with only: files saved, and the NOTES.md lines you added.
 ```
+
+---
+
+## Recapture prompt (round 2)
+
+Five shots need redoing after review. Paste this into one Codex conversation.
+
+```text
+Recapture 5 screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, mask the account avatar. Keep output short. Read only 08-morning-briefing/README.md, 11-extra-practice/README.md and _design/shots/.
+
+Before capturing, fix two flows (leave both turned OFF, don't test):
+A. "PA - My morning briefing": the meetings Apply to each currently has Run after set to the weather and email branches, so the branches join too early. Remove those extra Run after entries from the meetings Apply to each. Then on the "Busy day" condition, Settings > Run after, select: Get current weather, the meetings Apply to each, and the email Apply to each 1 (each "Is successful"). Confirm on the canvas that three lines lead into Busy day. Save; Flow checker 0 errors.
+B. "PA - Send me a note": delete "Send me a mobile notification". Add Microsoft Teams "Post message in a chat or channel": Post as Flow bot, Post in Chat with Flow bot, Recipient = the signed-in account, Message = "Reminder: " then the trigger's Message token. Save.
+
+Capture (overwrite the files). For canvas shots, zoom in until action names are readable (designer zoom about 100%) and pan so the named part fills the canvas; the left parameter panel may be closed:
+1. 08-morning-briefing/images/08-02-variables.png: first Initialize variable selected, parameters panel open, the four Initialize variable actions visible on the canvas.
+2. 08-morning-briefing/images/08-05-meetings-branch.png: the meetings branch (Current time, Get future time, Get calendar view of events, Apply to each with Increment variable and Append to string variable) readable.
+3. 08-morning-briefing/images/08-06-three-branches.png: the three branches side by side, from the split down to the end of each branch.
+4. 08-morning-briefing/images/08-07-join.png: Busy day selected with Settings > Run after open, and the three incoming lines visible on the canvas.
+5. 11-extra-practice/images/11-02-input.png: trigger selected showing the Message input; canvas shows the Teams action below it.
+
+Then: node _design/check-screenshots.mjs, commit "Recapture briefing and note screenshots", push. Reply with the files saved and anything that didn't match.
+```

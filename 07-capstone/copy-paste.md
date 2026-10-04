@@ -44,6 +44,14 @@ ReminderCount
 Is the session in the next 14 days
 ```
 
+## Current row's session date (section 7.6)
+
+Type `/` in the left box of each condition row, choose **Insert expression**, paste, then select **Add**.
+
+```
+items('Apply_to_each')?['SessionDate']
+```
+
 ## Summary condition name (text, section 7.8)
 
 ```text

@@ -122,14 +122,16 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 1. Inside Apply to each, select **+** above **Send an email (V2)**, then **Add an action**, and add a **Condition**.
 2. Rename it `Is the session in the next 14 days`.
-3. First row: insert **SessionDate**, choose **is greater than or equal to**, insert **Current time**.
-4. Select **+ New item** > **Add row**. Second row: insert **SessionDate**, choose **is less than or equal to**, insert **Future time**.
+3. First row, left box: type `/`, choose **Insert expression**, paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) Choose **is greater or equal to**, then insert **Current time** on the right.
+4. Select **Add row**. Second row: insert the same expression on the left, choose **is less or equal to**, and insert **Future time** on the right.
 5. Make sure the rows are joined by **AND**, so both must be true.
 6. Drag **Send an email (V2)** into the **True** branch. (Or delete it and add it again inside True with the same settings.)
 
 ![Condition inside the loop with two AND rows comparing SessionDate to Current time and Future time, and the email in the True branch](./images/07-06-date-condition.png)
 
 *Two rules joined by AND: on or after now, and on or before 14 days from now.*
+
+> **Key point: why an expression here?** Once the loop runs over Filter array's **Body**, the dynamic content picker no longer lists the Excel columns. If you pick **SessionDate** from *List rows present in a table* anyway, the designer wraps the condition in a second, unwanted loop. The expression `items('Apply_to_each')?['SessionDate']` simply means "the SessionDate of the row this loop is on right now". It's on the copy-paste page. The email tokens you added in Chapter 5 keep working, because they already point at the loop's current row.
 
 This works because the Excel dates are in ISO 8601 format (set in Chapter 5), the same format as Current time and Future time. Same format means they compare correctly.
 
@@ -187,7 +189,7 @@ That records a clear outcome in run history without sending an unnecessary email
 ## 7.11 Save and Check the Capstone
 
 1. Select **Save**, open **Flow checker**, and confirm zero errors and zero warnings.
-2. Close Flow checker and select **Fit view** (the zoom button at the bottom). Check the shape: filter before the loop, date check and count inside the loop, decision after the loop.
+2. Close Flow checker and select **Zoom view to fit** (in the zoom controls at the bottom left). Check the shape: filter before the loop, date check and count inside the loop, decision after the loop.
 
 ![The complete capstone flow zoomed to fit, showing the filter, the loop with its condition, and the final condition with both branches](./images/07-10-full-flow.png)
 
@@ -224,6 +226,7 @@ Without running the flow, change the window from 14 days to 7 by editing only **
 |---------|---------------|
 | A completed row still gets a reminder | Filter array right value is exactly `Completed`, and the loop uses Filter's **Body** |
 | Every date fails the condition | DateTime Format is ISO 8601 in List rows present in a table |
+| A second Apply to each appears inside the loop | You picked SessionDate from the Excel action. Delete the extra loop and use the expression from section 7.6 |
 | No date passes the condition | The sample dates may be in the past. Ask the trainer to update SessionDate |
 | ReminderCount stays at zero | Increment variable is inside the True branch of the date condition |
 | Initialize variable can't be added | You're inside the loop. Variables are created at the top level |

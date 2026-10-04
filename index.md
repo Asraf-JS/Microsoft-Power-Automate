@@ -21,7 +21,7 @@ You do not need a GitHub account to use anything on this page.
 
 ## How to Use This Site
 
-Each chapter has a **Notes** page with point-and-click steps and screenshots, and a **Copy-paste** page with every flow name and text value you type during the exercises. You'll write just two short expressions on the main path (Chapters 4 and 5). Anything more is in optional *Going further* boxes.
+Each chapter has a **Notes** page with point-and-click steps and screenshots, and a **Copy-paste** page with every flow name and text value you type during the exercises. You'll write just a few short expressions on the main path: one each in Chapters 4, 5 and 7, each with a step-by-step explanation. Anything more is in optional *Going further* boxes.
 
 To copy a value: open the chapter's copy-paste page, find the value, and click the copy icon in the top-right corner of the grey box. Then paste it into Power Automate. Copying from the box is safer than copying from the PDF, which can add line breaks or change the quotation marks.
 

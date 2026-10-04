@@ -74,7 +74,7 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 | Base time | **Current time** from dynamic content |
 | Source time zone | (UTC) Coordinated Universal Time |
 | Destination time zone | (UTC+08:00) Kuala Lumpur, Singapore |
-| Format string | Full date/time pattern (short time) |
+| Format string (may be labelled **Time unit**) | Full date/time pattern (short time) |
 
 ![Convert time zone with Base time set to Current time, UTC to Kuala Lumpur, and the Full date/time pattern (short time) format](./images/05-03-convert-time.png)
 
@@ -87,6 +87,8 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 ## 5.3 Read the Excel Rows
 
 Add **List rows present in a table** (Excel Online (Business)) and set it exactly as in Chapter 4: OneDrive for Business, OneDrive, `/Power Automate Training/TrainingRegister.xlsx`, `tblTraining`, and **DateTime Format** set to **ISO 8601**.
+
+> **Tip:** In the file browser, clicking a folder's name selects it but doesn't open it. Select the **>** arrow on the right of `Power Automate Training` to go inside, then pick the workbook.
 
 ![List rows present in a table pointing to TrainingRegister.xlsx and tblTraining with DateTime Format ISO 8601](./images/05-04-list-rows.png)
 
@@ -111,7 +113,7 @@ Add **List rows present in a table** (Excel Online (Business)) and set it exactl
 
 Inside Apply to each, add **Send an email (V2)** (Office 365 Outlook).
 
-1. **To:** insert **Email** from dynamic content.
+1. **To:** this field opens a people picker. Select the small **settings** (gear) icon beside it and choose **Use dynamic content**, then insert **Email**.
 2. **Subject:** type `[PA TRAINING] Reminder: ` then insert **CourseTitle**.
 3. **Body:** type the message and insert the values where they belong:
 

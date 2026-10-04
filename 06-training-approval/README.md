@@ -94,7 +94,7 @@ Add **Approvals > Start and wait for an approval**:
 
 | Field | Value |
 |-------|-------|
-| Approval type | Approve/Reject - First to respond |
+| Approval type | Approve/Reject - First to respond (if your list doesn't have it, choose **Basic**) |
 | Title | `[PA TRAINING] Training request` |
 | Assigned to | Trainer-approved approver |
 | Details | Requester name, Course, Preferred date and Business reason from Get response details |

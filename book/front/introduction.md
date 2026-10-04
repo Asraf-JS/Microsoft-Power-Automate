@@ -7,7 +7,7 @@ Each chapter matches one chapter of the course and has two parts:
 - **Notes** explain the concepts and walk you through each build step by step, mostly point and click, with screenshots, checkpoints and troubleshooting.
 - **Hands-on exercises** give you every flow name and text value you type, ready to copy.
 
-You'll write just two short expressions on the main path, in Chapters 4 and 5. More are waiting in optional *Going further* boxes for when you're ready.
+You'll write just a few short expressions on the main path, one each in Chapters 4, 5 and 7, each with a step-by-step explanation. More are waiting in optional *Going further* boxes for when you're ready.
 
 Look out for the coloured boxes. Blue boxes are notes, teal boxes are tips, purple boxes are things to try, and orange boxes are key points and warnings.
 

@@ -92,7 +92,7 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 This branch starts *beside* the weather, not below it.
 
-1. Hover over the arrow between the last **Initialize variable** and **Get current weather**. Select **+** > **Add a parallel branch**.
+1. Select the **+** between the last **Initialize variable** and **Get current weather** (right-click it if a menu doesn't open), then choose **Add a parallel branch**.
 
 ![The plus menu between two actions showing Add an action and Add a parallel branch](./images/08-04-add-parallel.png)
 
@@ -108,8 +108,9 @@ This branch starts *beside* the weather, not below it.
 | Start Time | **Current time** from dynamic content |
 | End Time | **Future time** from dynamic content |
 
-5. Below it, add **Increment variable**. Select **MeetingCount**, value `1`. Because you're working with a list of events, the designer wraps it in an **Apply to each** for you. If it doesn't, add Apply to each first with **value** from *Get calendar view of events (V3)*, then put Increment inside it.
-6. Inside the same loop, below Increment, add **Append to string variable**. Select **MeetingList**. In **Value**, type `<br>• ` and then insert **Subject** from *Get calendar view of events (V3)*.
+5. Below it, add **Apply to each** (under **Control**). In **Select an output from previous steps**, insert **body/value** from *Get calendar view of events (V3)*. That's the list of events.
+6. Inside the loop, add **Increment variable**. Select **MeetingCount**, value `1`.
+7. Inside the same loop, below Increment, add **Append to string variable**. Select **MeetingList**. In **Value**, type `<br>• ` and then insert **Subject** from *Get calendar view of events (V3)*.
 
 ![The meetings branch: Current time, Get future time, Get calendar view of events, and a loop with Increment variable and Append to string variable](./images/08-05-meetings-branch.png)
 
@@ -131,7 +132,8 @@ This branch starts *beside* the weather, not below it.
 | Importance | High |
 | Top | 5 |
 
-3. Below it, add **Append to string variable**. Select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`. The designer wraps it in an Apply to each.
+3. Below it, add **Apply to each** and insert **body/value** from *Get emails (V3)*.
+4. Inside the loop, add **Append to string variable**. Select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`.
 
 ![Three branches side by side: weather, meetings and email](./images/08-06-three-branches.png)
 
