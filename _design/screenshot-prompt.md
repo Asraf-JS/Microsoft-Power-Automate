@@ -91,3 +91,27 @@ Capture (overwrite the files). For canvas shots, zoom in until action names are 
 
 Then: node _design/check-screenshots.mjs, commit "Recapture briefing and note screenshots", push. Reply with the files saved and anything that didn't match.
 ```
+
+---
+
+## Gap-fill prompt (round 3)
+
+A beginner walkthrough found steps where a first-time user can't see where to click. Paste this into one Codex conversation. Claude adds the image lines and red boxes afterwards.
+
+```text
+Capture 11 new screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, mask the account avatar. Keep output short. Save each clean capture to BOTH <chapter>/images/<file> and _design/shots/raw/<file>. Don't edit any README. Don't run, test or turn on any flow; open existing flows only to show a panel, then leave without saving.
+
+1. 02-prepare-workspace/images/02-00-create-menu.png: OneDrive My files with the Create or upload menu open (Folder, Files upload, Excel workbook visible).
+2. 02-prepare-workspace/images/02-05-insert-table.png: TrainingRegister in Excel for the web, Insert tab selected, the Create Table dialog open with "My table has headers" ticked. Cancel the dialog afterwards.
+3. 03-save-email-attachments/images/03-00-add-action.png: in "PA - Save training PDF attachments", the Add an action panel open with "Apply to each" typed in its search box and results grouped by connector.
+4. 03-save-email-attachments/images/03-05-folder-picker.png: same flow, Create file selected, the Folder Path folder browser open listing OneDrive folders with the > arrows visible.
+5. 03-save-email-attachments/images/03-06-test-panel.png: same flow, the Test panel open with Manually selected and the Test button visible. Close it without testing.
+6. 04-excel-summary/images/04-08-run-flow.png: "PA - Training register summary", after Test > Manually > Test, the Run flow panel showing the Run flow button. Close it WITHOUT selecting Run flow.
+7. 05-weekly-reminders/images/05-06-use-dynamic.png: "PA - Weekly training reminders", Send an email (V2) selected, the gear menu beside To open showing "Use dynamic content".
+8. 06-training-approval/images/06-00-forms-question.png: the Training Request form in edit mode with one question selected, showing its question type and the Required toggle. Change nothing.
+9. 08-morning-briefing/images/08-04-calendar.png: "PA - My morning briefing", Get calendar view of events (V3) selected with Calendar Id, Start Time and End Time visible. Mask any real meeting titles.
+10. 08-morning-briefing/images/08-05-get-emails.png: same flow, Get emails (V3) selected with Folder, Fetch Only Unread Messages, Importance and Top visible.
+11. 11-extra-practice/images/11-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news", showing Turn on. Close the menu without selecting it.
+
+Then commit "Add round 3 gap-fill screenshots" and push. Reply with the files saved and anything that didn't match.
+```

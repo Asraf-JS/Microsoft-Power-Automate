@@ -25,11 +25,11 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 
 ## 2.1 Create the Training Folders in OneDrive
 
-1. Open OneDrive for Business and select **My files**.
-2. Select **Create or upload**, then **Folder**.
+1. Open OneDrive for Business (go to [onedrive.com](https://onedrive.com) and sign in with your work account, or select OneDrive from the Microsoft 365 app launcher, the nine dots at the top left) and select **My files** on the left.
+2. Select the blue **Create or upload** button at the top left, then **Folder**.
 3. Name the folder `Power Automate Training` and select **Create**.
-4. Open the new folder.
-5. Inside it, create two subfolders: `Attachments` and `Reports`.
+4. Select the new folder's name to open it. The path at the top now reads **My files > Power Automate Training**.
+5. Inside it, create two subfolders the same way (**Create or upload** > **Folder**): `Attachments` and `Reports`.
 
 ![OneDrive showing the Attachments and Reports folders inside Power Automate Training](./images/02-01-folders.png)
 
@@ -43,17 +43,19 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 
 1. Inside `Power Automate Training`, select **Create or upload**, then **Excel workbook**. Check the breadcrumb first: the workbook is created in whichever folder you're viewing.
 2. When Excel for the web opens, select the file name in the title bar and rename it `TrainingRegister`. Excel adds `.xlsx` for you.
-3. In Sheet1, enter these headers in row 1:
+3. Select cell **A1**, then paste the six column headers from the copy-paste page. Each one lands in its own column: TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status.
 
-| TrainingID | ParticipantName | Email | CourseTitle | SessionDate | Status |
-|---|---|---|---|---|---|
+4. Enter six fictional rows below the headers. Include at least two upcoming sessions, one completed session, and one session outside the training week. Use the trainer's approved test addresses in the Email column.
 
-4. Enter six fictional rows. Include at least two upcoming sessions, one completed session, and one session outside the training week. Use the trainer's approved test addresses in the Email column.
+   > **Tip:** Short on time? Your trainer may tell you to upload the ready-made [TrainingRegister.xlsx](./TrainingRegister.xlsx) to `Power Automate Training` instead (**Create or upload** > **Files upload**). It already has the `tblTraining` table and six fictional records, so you can skip to the checkpoint.
 
-![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
+   ![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
 
-*Six fictional rows. The example.com addresses can't receive mail.*
-5. Select any cell in the range, choose **Insert > Table**, confirm **My table has headers** is ticked, and select **OK**. Then on the **Table Design** tab, replace the default table name with `tblTraining` and press Enter.
+   *Fictional rows. The example.com addresses can't receive mail. (This workbook has a seventh test row; yours needs six.)*
+
+5. Select any cell with data in it, then select the **Insert** tab and **Table**. In the box that opens, make sure **My table has headers** is ticked, and select **OK**. The rows turn into a striped table.
+6. With a cell in the table still selected, select the **Table Design** tab that has appeared at the end of the ribbon.
+7. At the far left of that tab, select the name box (it reads something like **Table1**), type `tblTraining` and press Enter.
 
 ![Table Design tab in Excel for the web with the table name set to tblTraining](./images/02-03-table-name.png)
 
@@ -61,17 +63,17 @@ Forms and Teams preparation in this chapter are trainer-led readiness checks, be
 
 **Checkpoint:** The workbook is named `TrainingRegister.xlsx`, the data is a formatted table named `tblTraining`, and the table has six fictional records.
 
-> **Tip:** Short on time? Your trainer may tell you to use the ready-made [TrainingRegister.xlsx](./TrainingRegister.xlsx) in this folder instead. It already has the `tblTraining` table and six fictional records. Upload it to `Power Automate Training` in OneDrive. Only do this if your trainer says so.
-
 If Power Automate can't find the table later, check three things: the workbook is in OneDrive for Business, the range is formatted as a table, and the table name is exactly `tblTraining`.
 
 ---
 
 ## 2.3 Prepare a Test Email
 
-1. Open Outlook on the web with the training account.
-2. Create a message to your own training mailbox, the one you connect to Power Automate in Chapter 3. Use the subject `[PA TRAINING] Attachment test`.
-3. Attach `CourseOutline.pdf` and `TrainerPhoto.jpg` from the [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder in this chapter. **Don't send it yet.** Close the message so it's saved in Drafts.
+1. Get the two test files onto your computer. They're in the course ZIP you downloaded at the start, inside `02-prepare-workspace/test-files`. (No ZIP? Open the [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder, select a file, then select the **Download raw file** button at the top right.)
+2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail**.
+3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter `[PA TRAINING] Attachment test`.
+4. Select **Attach file** on the ribbon, then **Browse this computer**, and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`.
+5. **Don't send it.** Close the message window. Outlook keeps it in **Drafts**.
 
 ![Outlook on the web draft with subject PA TRAINING Attachment test and two attachments](./images/02-04-draft-email.png)
 

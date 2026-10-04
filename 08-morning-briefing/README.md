@@ -94,19 +94,19 @@ This branch starts *beside* the weather, not below it.
 
 1. Select the **+** between the last **Initialize variable** and **Get current weather** (right-click it if a menu doesn't open), then choose **Add a parallel branch**.
 
-![The plus menu between two actions showing Add an action and Add a parallel branch](./images/08-04-add-parallel.png)
+   ![The plus menu between two actions showing Add an action and Add a parallel branch](./images/08-04-add-parallel.png)
 
-*Add a parallel branch starts a new column next to the existing one.*
+   *Add a parallel branch starts a new column next to the existing one.*
 
 2. In the new branch, add **Current time** (under **Date Time**).
 3. Below it, add **Get future time** (under **Date Time**). Set **Interval** `12`, **Time unit** **Hour**.
 4. Below it, add **Get calendar view of events (V3)** (Office 365 Outlook):
 
-| Field | Value |
-|-------|-------|
-| Calendar Id | Calendar |
-| Start Time | **Current time** from dynamic content |
-| End Time | **Future time** from dynamic content |
+   | Field | Value |
+   |-------|-------|
+   | Calendar Id | Calendar |
+   | Start Time | **Current time** from dynamic content |
+   | End Time | **Future time** from dynamic content |
 
 5. Below it, add **Apply to each** (under **Control**). In **Select an output from previous steps**, insert **body/value** from *Get calendar view of events (V3)*. That's the list of events.
 6. Inside the loop, add **Increment variable**. Select **MeetingCount**, value `1`.
@@ -125,12 +125,12 @@ This branch starts *beside* the weather, not below it.
 1. Add a third parallel branch the same way: **+** on the arrow below the last **Initialize variable** > **Add a parallel branch**.
 2. Add **Get emails (V3)** (Office 365 Outlook):
 
-| Field | Value |
-|-------|-------|
-| Folder | Inbox |
-| Fetch Only Unread Messages | Yes |
-| Importance | High |
-| Top | 5 |
+   | Field | Value |
+   |-------|-------|
+   | Folder | Inbox |
+   | Fetch Only Unread Messages | Yes |
+   | Importance | High |
+   | Top | 5 |
 
 3. Below it, add **Apply to each** and insert **body/value** from *Get emails (V3)*.
 4. Inside the loop, add **Append to string variable**. Select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`.
@@ -178,17 +178,17 @@ The next step must wait until all three branches have finished.
 3. **Subject:** insert **BriefingSubject**.
 4. **Body:** type the text below and insert the tokens shown in brackets. The weather values come from *Get current weather*. The rest are under *Variables*.
 
-> Good morning,
->
-> Weather in Kuala Lumpur: **[Conditions]**, **[Temperature]**°C
->
-> Meetings in the next 12 hours (**[MeetingCount]**):**[MeetingList]**
->
-> Important unread email:**[EmailList]**
+   > Good morning,
+   >
+   > Weather in Kuala Lumpur: **[Conditions]**, **[Temperature]**°C
+   >
+   > Meetings in the next 12 hours (**[MeetingCount]**):**[MeetingList]**
+   >
+   > Important unread email:**[EmailList]**
 
-![Send an email (V2) with BriefingSubject in the subject and the body built from weather values and variables](./images/08-09-email.png)
+   ![Send an email (V2) with BriefingSubject in the subject and the body built from weather values and variables](./images/08-09-email.png)
 
-*Variables drop into the email like any other dynamic content.*
+   *Variables drop into the email like any other dynamic content.*
 
 5. Select **Save** and open **Flow checker**. Fix anything it reports.
 

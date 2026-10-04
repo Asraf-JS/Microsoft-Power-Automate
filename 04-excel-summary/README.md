@@ -64,7 +64,7 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 ## 4.2 Create an Instant Cloud Flow
 
-1. Confirm the training environment and select **Create** > **Instant cloud flow**.
+1. Confirm the training environment, select **Create** on the left, then the **Instant cloud flow** tile.
 2. In **Flow name**, enter `PA - Training register summary`.
 3. Select **Manually trigger a flow**, then **Create**.
 
@@ -82,11 +82,11 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 4. Set **Document Library** to **OneDrive**.
 5. In **File**, select the folder icon and browse to `Power Automate Training` > `TrainingRegister.xlsx`.
 6. In **Table**, select `tblTraining`.
-7. Under **Advanced parameters**, select **DateTime Format** and choose **ISO 8601**. This returns dates as dates instead of serial numbers like `46286`.
+7. Under **Advanced parameters**, open the dropdown (it reads **Showing 0 of 6**) and tick **DateTime Format**. A new **DateTime Format** box appears: choose **ISO 8601**. This returns dates as dates instead of serial numbers like `46286`.
 
 ![List rows present in a table with Location, Document Library, File, Table tblTraining and DateTime Format ISO 8601](./images/04-03-list-rows.png)
 
-*Pick the file by browsing, then the table from the dropdown.*
+*Pick the file by browsing, then the table from the dropdown. Once saved, Location, Document Library and Table show internal IDs like `me` or `{4672…}` instead of the names you picked. That's normal.*
 
 If **Table** shows *No items*, stop. The workbook has no formatted table. Go back to section 2.2.
 
@@ -97,7 +97,7 @@ If **Table** shows *No items*, stop. The workbook has no formatted table. Go bac
 1. Add a **Select** action (under **Data Operation**) after the Excel action.
 2. Click into **From** and insert **body/value** from *List rows present in a table*. This is the list of all rows. (Depending on your version it may be labelled **value**.)
 3. In the **Map** area, type `Participant` in the first **Enter key** box. In its **Enter value** box, insert **ParticipantName** from the dynamic content picker.
-4. Add three more rows the same way:
+4. A new empty row appears underneath. Fill three more rows the same way:
 
 | Enter key | Enter value (dynamic content) |
 |-----------|-------------------------------|
@@ -131,10 +131,10 @@ Select handles every row for you, so you don't need an Apply to each here.
 ## 4.6 Send the Coordinator Summary
 
 1. Add **Send an email (V2)** under **Office 365 Outlook** after Create HTML table.
-2. In **To**, enter your own training email address.
+2. In **To**, start typing your name or email address, then select yourself from the list that appears.
 3. In **Subject**, enter `[PA TRAINING] Training register summary`.
 4. In **Body**, type `Here is the current training register.` then press Enter.
-5. Insert **Output** from *Create HTML table* on the next line.
+5. Insert **Output** from *Create HTML table* on the next line. The picker lists two values called **Output**: pick the one under the *Create HTML table* heading, not the one under *Select*.
 
 ![Send an email (V2) with To, Subject, and the Body containing an introduction and the Create HTML table Output token](./images/04-06-email.png)
 
@@ -150,16 +150,16 @@ The coordinator wants a line like *"This report lists 6 sessions."* None of the 
 2. Type `/` and choose **Insert expression**.
 3. In the expression box, type `length(`
 4. Switch to the **Dynamic content** tab in the same panel and select **Output** under *Select*. It drops into the expression.
-5. Type `)` to close the bracket, then select **Add**.
+5. Type `)` to close the bracket, then select **Add** (it reads **Update** if you're editing an expression that's already there).
 6. After the new token, type ` sessions.`
 
-![Expression editor showing length(body('Select')) with the Add button](./images/04-07-expression.png)
+   ![Expression editor showing length(body('Select')) with the Add button](./images/04-07-expression.png)
 
-*length() counts the items in a list. Here it counts the rows Select produced.*
+   *length() counts the items in a list. Here it counts the rows Select produced.*
 
-The expression reads `length(body('Select'))`. You can also paste it from the copy-paste page. `length()` is a **function**: you give it something inside the brackets and it gives back an answer.
+   The expression reads `length(body('Select'))`. You can also paste it from the copy-paste page. `length()` is a **function**: you give it something inside the brackets and it gives back an answer.
 
-> **Tip:** If you renamed the Select action, the name inside the quotes changes too. Picking Output from the Dynamic content tab handles that for you, which is why step 4 picks it instead of typing it.
+   > **Tip:** If you renamed the Select action, the name inside the quotes changes too. Picking Output from the Dynamic content tab handles that for you, which is why step 4 picks it instead of typing it.
 
 7. Select **Save**, then **Flow checker**, and fix anything it reports.
 
@@ -171,12 +171,12 @@ The expression reads `length(body('Select'))`. You can also paste it from the co
 
 ## 4.8 Test and Inspect
 
-1. Select **Test** > **Manually** > **Test**, then **Run flow**. This sends a real email to you, so follow your trainer's instruction first.
+1. Select **Test** > **Manually** > **Test**. A **Run flow** panel opens; select **Continue** if it asks about connections, then **Run flow**, then **Done**. This sends a real email to you, so follow your trainer's instruction first.
 2. Open the completed run. Every action has a green tick, and Send an email (V2) ran once.
-3. Select **Select** and then **Show raw outputs**. You see six records with real names and courses.
+3. Select the **Select** step on the canvas. In the panel on the left, scroll to **Outputs** and select **Show raw outputs**. You see six records with real names and courses.
 4. Open the email. You should see the sentence *This report lists 6 sessions.*, four headings, and six rows. The number always matches the rows in your table, so if you added a row it goes up too.
 
-![The received email showing the count sentence and the HTML table with six rows](./images/04-09-email-received.png)
+![The received email showing the count sentence and the HTML table](./images/04-09-email-received.png)
 
 *One email, one table, counted by your first expression. This workbook had a seventh test row, so it reads 7.*
 

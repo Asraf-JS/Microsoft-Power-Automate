@@ -53,12 +53,23 @@ You'll do this in every chapter, so learn it once. **Dynamic content** is a valu
 
 The value appears in the field as a coloured token. To remove it, select the **x** on the token.
 
+> **Note:** After you save and come back, some tokens show their technical name instead of the friendly one: **Attachments Name** shows as `name`, **Attachments Content** as `contentBytes`, **value** as `body/value`, and Forms answers as codes like `body/r96281c9…`. That's normal, and the screenshots in this course show them that way too. They still point at the right value.
+
+## How to Add an Action and Check Your Flow
+
+You'll also do these in every chapter.
+
+- **Add an action:** select the **+** on the line where the new step should go (below the last step, or between two steps), then **Add an action**. A panel opens on the left with a search box. Type the action's name; results are grouped by connector, such as **Office 365 Outlook** or **Control**. Select the action you want.
+- **Save:** the **Save** button is at the top right of the designer.
+- **Flow checker:** the small stethoscope icon just left of **Save**. It opens a panel listing errors and warnings. Close it with the **X**.
+- **Test:** the **Test** button next to **Save**. A panel opens on the right; choose **Manually**, then select **Test**.
+
 ---
 
 ## 3.1 Create the Automated Cloud Flow
 
 1. Open Power Automate and confirm the correct environment.
-2. Select **Create**, then **Automated cloud flow**.
+2. Select **Create** on the left, then the **Automated cloud flow** tile (shown in Chapter 1, section 1.5).
 3. In **Flow name**, enter `PA - Save training PDF attachments`.
 4. In the trigger search box, type `new email`, then select **When a new email arrives (V3)** under **Office 365 Outlook**.
 5. Select **Create**. The designer opens with only the trigger on the canvas.
@@ -71,7 +82,10 @@ The value appears in the field as a coloured token. To remove it, select the **x
 
 ## 3.2 Configure the Trigger
 
-1. Select the trigger to open its settings.
+1. Select the trigger (**When a new email arrives (V3)**) on the canvas. Its settings open in a panel on the left.
+
+   The fields below may sit in a different order on your screen. Find each one by its name.
+
 2. Set **Include Attachments** to **Yes**.
 3. Set **Folder** to **Inbox**.
 4. Select **Show all** under **Advanced parameters**.
@@ -92,7 +106,7 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
 
 1. Select the **+** below the trigger, then **Add an action**.
 2. Search for `Apply to each` and select it (it's under **Control**).
-3. Click into **Select an output from previous steps**, open the dynamic content picker, and select **Attachments** under *When a new email arrives (V3)*.
+3. The loop's settings open on the left. Click into **Select an output from previous steps**, open the dynamic content picker (the lightning bolt), and select **Attachments** under *When a new email arrives (V3)*.
 
 ![Apply to each with the Attachments token in Select an output from previous steps](./images/03-03-apply-to-each.png)
 
@@ -104,9 +118,9 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 ## 3.4 Add the PDF Condition
 
-1. Inside the loop, select **+**, then **Add an action**.
+1. Select the **+** inside the **Apply to each** box (not the one below it), then **Add an action**.
 2. Search for `Condition` and select it (under **Control**).
-3. Click into the left **Choose a value** box. Open the dynamic content picker and select **Attachments Name**.
+3. Click into the left **Choose a value** box. Open the dynamic content picker and select **Attachments Name**. (After saving it shows as `name`.)
 4. Set the middle box to **ends with**.
 5. In the right box, type `.pdf`.
 
@@ -120,21 +134,21 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 ## 3.5 Create the OneDrive File
 
-1. In the **True** branch, select **+**, then **Add an action**.
+1. Select the **+** inside the green **True** box, then **Add an action**.
 2. Search for `OneDrive for Business`, then select **Create file** from that connector's group.
 
-> **Tip:** Search by connector name, not action name. Several connectors have an action called Create file, and it's easy to grab the wrong one.
+   > **Tip:** Search by connector name, not action name. Several connectors have an action called Create file, and it's easy to grab the wrong one.
 
-3. In **Folder Path**, select the folder icon and browse to `Power Automate Training` > `Attachments`.
+3. In **Folder Path**, select the folder icon at the right end of the box. A list of your OneDrive folders opens: select the **>** arrow beside `Power Automate Training` to open it, then select `Attachments`.
 4. In **File Name**, insert **Attachments Name** from the dynamic content picker.
 5. In **File Content**, insert **Attachments Content**.
 6. Leave the **False** branch empty. That's the deliberate decision to skip non-PDF files.
 
-![Create file in the True branch with Folder Path, File Name set to Attachments Name, and File Content set to Attachments Content](./images/03-05-create-file.png)
+   ![Create file in the True branch with Folder Path, File Name set to Attachments Name, and File Content set to Attachments Content](./images/03-05-create-file.png)
 
-*Create file sits inside True. False stays empty.*
+   *Create file sits inside True. False stays empty.*
 
-7. Select **Save**, then **Flow checker**. Confirm 0 errors and 0 warnings.
+7. Select **Save** (top right), then the **Flow checker** icon (the stethoscope just left of **Save**). Confirm **Errors (0)** and **Warnings (0)**, then close the panel.
 
 ![The completed flow on the canvas with Flow checker showing 0 errors and 0 warnings](./images/03-06-flow-checker.png)
 
@@ -144,15 +158,15 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 ## 3.6 Test a Positive Case
 
-1. Select **Test**, choose **Manually**, then **Test**.
+1. Select **Test** (top right). In the panel that opens, choose **Manually**, then select **Test**.
 2. Wait for the banner asking you to send a new email. The flow is now listening.
 3. Open the draft from section 2.3 in Outlook and send it.
 4. Back in Power Automate, wait for the run to finish. Every step shows a green tick.
 5. Select **Apply to each**. The counter reads **2 of 2** (or 1 of 2). Select **Create file** to see that it succeeded.
 
-![Completed run with green ticks, Apply to each showing 2 of 2, and Create file succeeded](./images/03-07-run-success.png)
+   ![Completed run with green ticks, Apply to each showing 2 of 2, and Create file succeeded](./images/03-07-run-success.png)
 
-*The run processed both attachments.*
+   *The run processed both attachments.*
 
 6. Open the Attachments folder in OneDrive. The PDF is there. No image file was created.
 

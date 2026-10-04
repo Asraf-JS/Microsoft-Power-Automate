@@ -36,6 +36,19 @@ PA - Training request approval
 [PA TRAINING] Training request
 ```
 
+## Approval details template (text, section 6.5)
+
+Paste into **Details**, then insert the matching answer from *Get response details* after each label.
+
+```text
+**Requester:** 
+**Course:** 
+**Preferred date:** 
+**Business reason:** 
+```
+
+The `**` marks make the labels bold on the approval card.
+
 ## Condition right value (text, section 6.6)
 
 ```text

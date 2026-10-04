@@ -38,14 +38,14 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 
 ## 5.1 Create the Weekly Schedule
 
-1. Select **Create** > **Scheduled cloud flow**.
+1. Select **Create** on the left, then the **Scheduled cloud flow** tile.
 2. In **Flow name**, enter `PA - Weekly training reminders`.
 3. Set **Repeat every** to **1 Week**, tick **M** (Monday), and set the start time to **9:00 AM**. Your starting date will differ.
 4. Select **Create**.
 
-![Build a scheduled cloud flow dialog with the name, 1 Week, Monday selected and 9:00 AM](./images/05-01-create-flow.png)
+   ![Build a scheduled cloud flow dialog with the name, 1 Week, Monday selected and 9:00 AM](./images/05-01-create-flow.png)
 
-*The dialog creates the Recurrence trigger for you.*
+   *The dialog creates the Recurrence trigger for you.*
 
 5. Select **Recurrence** and check these values. Open **Advanced parameters** > **Show all** to see the time zone fields.
 
@@ -111,7 +111,7 @@ Add **List rows present in a table** (Excel Online (Business)) and set it exactl
 
 ## 5.5 Prepare the Reminder Email
 
-Inside Apply to each, add **Send an email (V2)** (Office 365 Outlook).
+Select the **+** inside the **Apply to each** box and add **Send an email (V2)** (Office 365 Outlook).
 
 1. **To:** this field opens a people picker. Select the small **settings** (gear) icon beside it and choose **Use dynamic content**, then insert **Email**.
 2. **Subject:** type `[PA TRAINING] Reminder: ` then insert **CourseTitle**.
@@ -146,13 +146,13 @@ Run the flow now and the session date reads `2026-09-21T00:00:00.000Z`. That's c
 4. Switch to the **Dynamic content** tab and select **SessionDate**.
 5. Type `, 'dd MMM yyyy')` and select **Add**.
 
-![Expression editor showing formatDateTime with the SessionDate value and 'dd MMM yyyy'](./images/05-07-format-date.png)
+   ![Expression editor showing formatDateTime with the SessionDate value and 'dd MMM yyyy'](./images/05-07-format-date.png)
 
-*formatDateTime() takes a date and a pattern, and gives back the date written in that pattern.*
+   *formatDateTime() takes a date and a pattern, and gives back the date written in that pattern.*
 
-The finished expression is on the copy-paste page if you'd rather paste it. The pattern `dd MMM yyyy` means two-digit day, short month name, four-digit year, so `21 Sep 2026`.
+   The finished expression is on the copy-paste page if you'd rather paste it. The pattern `dd MMM yyyy` means two-digit day, short month name, four-digit year, so `21 Sep 2026`.
 
-> **Tip:** Compare this with Chapter 4. `length()` counted a list, `formatDateTime()` reshapes a date. Both follow the same shape: a function name, then what you give it in brackets.
+   > **Tip:** Compare this with Chapter 4. `length()` counted a list, `formatDateTime()` reshapes a date. Both follow the same shape: a function name, then what you give it in brackets.
 
 6. Select **Save**, open **Flow checker**, and fix any error.
 
