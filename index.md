@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 # Microsoft Power Automate for End Users
 
 Participant resources for the two-day **Microsoft Power Automate for End Users** course: chapter notes, copy-paste expressions, the participant manual and a sample workbook.

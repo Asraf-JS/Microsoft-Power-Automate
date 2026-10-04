@@ -1,10 +1,8 @@
-# Copilot prompts (Chapter 8)
+# 08 - Plan an Automation with Copilot: Copy-paste
 
 Hover over a grey box and click the copy icon in its top-right corner, then paste into Copilot.
 
 These prompts use fictional details only. Never put confidential information, personal data, passwords or real recipients into a training prompt.
-
-[← Back to course home](../README.md)
 
 ---
 
@@ -30,6 +28,4 @@ Use Filter array to keep rows where Status is Registered and SessionDate is betw
 Remove Get file metadata using path because List rows present in a table can select the workbook directly. Keep only Recurrence, List rows present in a table, Filter array named FilteredRows, Compose named Count using length(body('FilteredRows')), and one Send an email action to coordinator@example.com.
 ```
 
-Remember: select **Cancel** at the end (section 8.8). This exercise is planning only.
-
-[← Back to course home](../README.md)
+> **Remember:** select **Cancel** at the end (section 8.8). This exercise is planning only.

@@ -1,0 +1,160 @@
+{
+  "palette": "power-automate",
+  "kicker": "Microsoft Power Platform",
+  "titleLines": [
+    "Microsoft",
+    {
+      "highlight": "Power Automate"
+    },
+    "for End Users"
+  ],
+  "runningTitle": "Microsoft Power Automate for End Users",
+  "subtitle": "Two-day course book",
+  "blurb": "Collect, report, remind, approve and release: automate a training coordinator's routine with automated, instant and scheduled cloud flows, Copilot and solutions.",
+  "coverIcons": [
+    "play",
+    "lines",
+    "check",
+    "nodes"
+  ],
+  "edition": "Participant edition",
+  "year": "2026",
+  "version": "1.1",
+  "author": "Asraf Jaafar Sidik",
+  "authorShort": "Asraf",
+  "credential": "Microsoft Certified Trainer",
+  "repoUrl": "https://github.com/Asraf-JS/Microsoft-Power-Automate",
+  "trademark": "Microsoft, Microsoft 365, Power Automate, Power Platform, Copilot, Excel, Outlook, Teams, Forms, OneDrive and SharePoint are trademarks of the Microsoft group of companies. This book is independent training material and is not published or endorsed by Microsoft.",
+  "output": "../Microsoft-Power-Automate-Course-Book.pdf",
+  "front": [
+    {
+      "title": "About the author",
+      "file": "kit:front/about-the-author.md",
+      "class": "about"
+    }
+  ],
+  "intro": {
+    "title": "Before you begin",
+    "file": "front/introduction.md"
+  },
+  "chapters": [
+    {
+      "notes": "../01-understand-power-automate/README.md",
+      "exercises": "../01-understand-power-automate/copy-paste.md"
+    },
+    {
+      "notes": "../02-prepare-workspace/README.md",
+      "exercises": "../02-prepare-workspace/copy-paste.md"
+    },
+    {
+      "notes": "../03-save-email-attachments/README.md",
+      "exercises": "../03-save-email-attachments/copy-paste.md"
+    },
+    {
+      "notes": "../04-excel-summary/README.md",
+      "exercises": "../04-excel-summary/copy-paste.md"
+    },
+    {
+      "notes": "../05-weekly-reminders/README.md",
+      "exercises": "../05-weekly-reminders/copy-paste.md"
+    },
+    {
+      "notes": "../06-training-approval/README.md",
+      "exercises": "../06-training-approval/copy-paste.md"
+    },
+    {
+      "notes": "../07-capstone/README.md",
+      "exercises": "../07-capstone/copy-paste.md"
+    },
+    {
+      "notes": "../08-plan-with-copilot/README.md",
+      "exercises": "../08-plan-with-copilot/copy-paste.md"
+    },
+    {
+      "notes": "../09-environments-and-solutions/README.md",
+      "exercises": "../09-environments-and-solutions/copy-paste.md"
+    }
+  ],
+  "backCover": "This book accompanies the two-day Microsoft Power Automate for End Users course. It follows one training coordinator's routine, from saving email attachments and sending an Excel summary, through weekly reminders and a Forms approval, to a filtered capstone flow, a Copilot-planned design and a solution ready to move. Every chapter pairs short notes with copy-ready names and expressions you can use during the session and back at your desk.",
+  "programFlow": {
+    "title": "Your Power Automate training journey",
+    "lead": "One coordinator's routine, start to finish: turn each repeated manual task into a cloud flow.",
+    "foundations": [
+      {
+        "n": 1,
+        "name": "Understand Power Automate",
+        "desc": "Triggers, actions, flow types and planning"
+      },
+      {
+        "n": 2,
+        "name": "Prepare your workspace",
+        "desc": "OneDrive folders, the Excel register and test data"
+      }
+    ],
+    "steps": [
+      {
+        "n": 3,
+        "app": "Outlook + OneDrive",
+        "icon": "O",
+        "color": "#0f6cbd",
+        "stage": "Collect",
+        "desc": "Save PDF attachments from training emails",
+        "output": "Automated flow"
+      },
+      {
+        "n": 4,
+        "app": "Excel",
+        "icon": "X",
+        "color": "#107c41",
+        "stage": "Report",
+        "desc": "Email one summary table on demand",
+        "output": "Instant flow"
+      },
+      {
+        "n": 5,
+        "app": "Recurrence",
+        "icon": "play",
+        "color": "#2f7bec",
+        "stage": "Remind",
+        "desc": "Send weekly reminders for each row",
+        "output": "Scheduled flow"
+      },
+      {
+        "n": 6,
+        "app": "Forms + Approvals",
+        "icon": "check",
+        "color": "#077568",
+        "stage": "Approve",
+        "desc": "Route a request and post the result to Teams",
+        "output": "Approval flow"
+      },
+      {
+        "n": 7,
+        "app": "Capstone",
+        "icon": "lines",
+        "color": "#5b6cf0",
+        "stage": "Refine",
+        "desc": "Filter, count and summarise the week",
+        "output": "Capstone flow"
+      },
+      {
+        "n": 8,
+        "app": "Copilot",
+        "icon": "spark",
+        "color": "#7b4be6",
+        "stage": "Design",
+        "desc": "Plan a flow and correct the suggestion",
+        "output": "Reviewed plan"
+      },
+      {
+        "n": 9,
+        "app": "Solutions",
+        "icon": "nodes",
+        "color": "#6b4fbb",
+        "stage": "Release",
+        "desc": "Package the flow for another environment",
+        "output": "Solution package"
+      }
+    ]
+  }
+}

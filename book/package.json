@@ -1,0 +1,11 @@
+{
+  "name": "microsoft-power-automate-book",
+  "private": true,
+  "description": "Builds the participant book PDF",
+  "scripts": {
+    "build": "build-book"
+  },
+  "dependencies": {
+    "training-book-kit": "github:Asraf-JS/training-book-kit"
+  }
+}
