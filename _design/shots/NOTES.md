@@ -25,3 +25,9 @@
 
 - 10, sections 10.3-10.8: Capstone is listed under From Dataverse. Adding it did not automatically include references; Advanced > Add required objects added its exact Excel and Outlook references, resulting in three objects. Used the existing Asraf publisher.
 - 10, sections 10.10-10.12: Selected Next without global Publish all changes because the saved cloud-flow objects were already available. Captured Unmanaged export options, selected Cancel, and deleted only the unmanaged demonstration solution container. No export/import occurred; objects were preserved.
+
+- 11B, step 3: The default Text input name is Text rather than Input; renamed it Message.
+- 11B, step 5: One permitted manual test failed. The action reports that the Power Automate mobile app was retired on August 31, 2026 and notifications no longer have a destination. Kept the lesson action for documentation and turned the flow OFF.
+- 11C, step 6: One fictional [PA SAVE] Booking confirmation email was sent to the signed-in account. Run succeeded; Create file returned /Power Automate Training/Reports/[PA SAVE] Booking confirmation.eml (4369 bytes). Flow turned OFF.
+- 11D: Configured the supplied public feed and self-addressed email; saved and turned OFF without Test/Run. The new designer shows one action's parameters at a time.
+- 11A: To Do connection requires manual sign-in; final action screenshot is pending. No flagged-email test was performed.
