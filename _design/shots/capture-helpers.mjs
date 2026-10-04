@@ -8,6 +8,7 @@ export async function session() {
     const browser = await chromium.connectOverCDP('http://127.0.0.1:9223');
     const context = browser.contexts()[0];
     context.setDefaultTimeout(10000);
+    context.setDefaultNavigationTimeout(30000);
     return context;
   } catch {
     return chromium.launchPersistentContext(resolve(root, '.pa-profile'), {
@@ -19,7 +20,7 @@ export async function open(context, url) {
   const existing = context.pages().find(p => p.url() === url);
   if (existing) return existing;
   const page = await context.newPage();
-  await page.goto(url);
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   return page;
 }
 export async function capture(page, chapter, filename) {
