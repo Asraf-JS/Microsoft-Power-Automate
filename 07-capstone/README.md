@@ -40,18 +40,20 @@ Complete Chapter 5.
 
 ## 7.1 Make a Safe Capstone Copy
 
-1. Go to **My flows** and open `PA - Weekly training reminders`.
-2. Select **Save As** (in the **...** menu if it isn't visible).
-3. Name the copy `PA - Weekly training capstone` and select **Save**. The copy starts turned off.
-4. Go back to **My flows** and select the capstone copy's name. Its details page opens; select **Edit** at the top left to open it in the designer.
+1. In the left navigation, select **My flows**. Select the flow's name `PA - Weekly training reminders` (not the pencil) to open its details page.
 
-   ![The flow details toolbar with Edit at the left](./images/07-00-flow-details.png)
+   ![The original flow's details page with Edit and Save As in the toolbar](./images/07-00-flow-details.png)
 
-   *A flow's details page. Edit opens the designer.*
+   *The original flow's details page. Save As and Edit are in this toolbar.*
 
-![Save As dialog naming the copy PA - Weekly training capstone](./images/07-01-save-as.png)
+2. In the toolbar at the top, select **Save As** (in the **...** menu if it isn't visible).
+3. In **Flow name**, enter `PA - Weekly training capstone` and select **Save**. The copy starts turned off.
 
-*Working on a copy keeps your Chapter 5 flow safe.*
+   ![Save As dialog naming the copy PA - Weekly training capstone](./images/07-01-save-as.png)
+
+   *Working on a copy keeps your Chapter 5 flow safe.*
+
+4. Go back to **My flows** and select the capstone copy's name (not the pencil). Its details page opens. Select **Edit** at the left of the toolbar to open it in the designer.
 
 **Checkpoint:** The name at the top of the designer reads `PA - Weekly training capstone` before you change anything.
 
@@ -59,13 +61,13 @@ Complete Chapter 5.
 
 ## 7.2 Remove Completed Rows with Filter Array
 
-1. Select **+** between **List rows present in a table** and **Apply to each**, then **Add an action**.
-2. Search for `Filter array` (under **Data Operation**) and select it.
-3. Rename it: select the action's title and type `Filter out completed training`.
-4. In **From**, insert **body/value** (or **value**) from *List rows present in a table*.
-5. In the left box, insert **Status** from dynamic content.
-6. Set the middle box to **is not equal to**.
-7. In the right box, type `Completed`.
+1. On the canvas, select the **+** between **List rows present in a table** and **Apply to each**, then **Add an action**.
+2. In the search box at the top of the panel, type `Filter array`. Under the **Data Operation** heading, select **Filter array**. Its settings open on the left.
+3. Rename it: select the action's title at the top of the panel and type `Filter out completed training`.
+4. Click into the **From** box. Select the lightning bolt icon beside it (or type `/` and choose **Insert dynamic content**), then select **body/value** under *List rows present in a table*. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
+5. Under **Filter Query**, click the left box, open the lightning bolt, and select **Status** under *List rows present in a table*. Type `Status` in the picker's search box if it isn't listed.
+6. Open the middle dropdown and select **is not equal to**.
+7. Click the right box and type `Completed`.
 
 ![Filter array renamed Filter out completed training with From set to the Excel value list and Status is not equal to Completed](./images/07-02-filter-array.png)
 
@@ -77,8 +79,9 @@ Complete Chapter 5.
 
 ## 7.3 Work Out the End of the Window
 
-1. Below Filter array, add **Get future time** (under **Date Time**).
-2. Set **Interval** to `14` and **Time unit** to **Day**.
+1. On the canvas, select the **+** below **Filter out completed training**, then **Add an action**.
+2. Search for `Get future time` and select it under **Date Time**.
+3. In **Interval**, enter `14`. Open the **Time unit** dropdown and select **Day**.
 
 ![Get future time with Interval 14 and Time unit Day](./images/07-03-future-time.png)
 
@@ -90,9 +93,9 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 ## 7.4 Start the Reminder Counter
 
-1. Below Get future time, add **Initialize variable** (under **Variables**).
-2. Rename it `Initialize reminder count`.
-3. Set:
+1. On the canvas, select the **+** below **Get future time**, then **Add an action**. Search for `Initialize variable` and select it under **Variables**.
+2. Rename it: select the title at the top of the panel and type `Initialize reminder count`.
+3. Fill in the boxes below. For **Type**, open the dropdown and select **Integer**.
 
 | Field | Value |
 |-------|-------|
@@ -110,9 +113,9 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 ## 7.5 Loop Through the Remaining Rows
 
-1. Select **Apply to each**.
-2. Remove the current input (select the **x** on the token).
-3. Insert **Body** from *Filter out completed training*.
+1. On the canvas, select the **Apply to each** card to open its panel.
+2. In **Select an output from previous steps**, select the **x** on the current token to remove it.
+3. Click into the empty box, open the lightning bolt, and select **Body** under *Filter out completed training*.
 
 ![Apply to each with Body from Filter out completed training as its input](./images/07-05-loop-input.png)
 
@@ -124,16 +127,17 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 ## 7.6 Check the Date Window
 
-1. Inside Apply to each, select **+** above **Send an email (V2)**, then **Add an action**, and add a **Condition**.
-2. Rename it `Is the session in the next 14 days`.
-3. First row, left box: type `/`, choose **Insert expression**, paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) Choose **is greater or equal to**, then insert **Current time** on the right.
-4. Select **Add row**. Second row: insert the same expression on the left, choose **is less or equal to**, and insert **Future time** on the right.
-5. Make sure the rows are joined by **AND**, so both must be true.
-6. Drag **Send an email (V2)** into the **True** branch. (Or delete it and add it again inside True with the same settings.)
+1. On the canvas, inside the **Apply to each** box, select the **+** just above **Send an email (V2)**, then **Add an action**. Search for `Condition` and select it under **Control**.
+2. Rename it: select the title at the top of the panel and type `Is the session in the next 14 days`.
+3. First row: click the left **Choose a value** box, type `/` and choose **Insert expression**. Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a token labelled **SessionDate**. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
+4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
+5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
+6. Check the dropdown above the rows reads **And**, so both rules must be true.
+7. Drag the **Send an email (V2)** card that now sits below the condition and drop it on the **+** inside the green **True** box. (Or delete it and add it again inside True with the same settings.)
 
-![Condition inside the loop with two AND rows comparing SessionDate to Current time and Future time, and the email in the True branch](./images/07-06-date-condition.png)
+![Condition panel with two AND rows comparing SessionDate to Current time and Future time](./images/07-06-date-condition.png)
 
-*Two rules joined by AND: on or after now, and on or before 14 days from now.*
+*Two rules joined by AND.*
 
 > **Key point: why an expression here?** Once the loop runs over Filter array's **Body**, the dynamic content picker no longer lists the Excel columns. If you pick **SessionDate** from *List rows present in a table* anyway, the designer wraps the condition in a second, unwanted loop. The expression `items('Apply_to_each')?['SessionDate']` simply means "the SessionDate of the row this loop is on right now". It's on the copy-paste page. The email tokens you added in Chapter 5 keep working, because they already point at the loop's current row.
 
@@ -143,10 +147,10 @@ This works because the Excel dates are in ISO 8601 format (set in Chapter 5), th
 
 ## 7.7 Count Each Reminder
 
-1. In the **True** branch, below **Send an email (V2)**, add **Increment variable** (under **Variables**).
-2. Select **ReminderCount** and enter `1` for **Value**.
+1. On the canvas, inside the green **True** box, select the **+** below **Send an email (V2)**, then **Add an action**. Search for `Increment variable` and select it under **Variables**.
+2. Open the **Name** dropdown and select **ReminderCount**. In **Value**, enter `1`.
 
-![Increment variable below the email in the True branch with ReminderCount and value 1](./images/07-07-increment.png)
+![Increment variable with Name ReminderCount and Value 1](./images/07-07-increment.png)
 
 *Each reminder adds one to the counter.*
 
@@ -156,11 +160,13 @@ Keep the increment *after* the email, so the count only includes reminders that 
 
 ## 7.8 Decide Whether a Summary Is Needed
 
-1. Below **Apply to each**, outside the loop, add a **Condition**.
+1. On the canvas, select the **+** below the **Apply to each** box (outside it, not one of the **+** inside the loop), then **Add an action**. Search for `Condition` and select it under **Control**.
 2. Rename it `If reminders were prepared`.
-3. Insert **ReminderCount** (under *Variables*), choose **is greater than**, type `0`.
+3. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **ReminderCount** under *Variables*.
+4. Open the middle dropdown and select **is greater than**. Click the right box and type `0`.
+5. If an empty extra row appears, select its **...** and then **Delete**.
 
-![Condition below the loop with ReminderCount is greater than 0](./images/07-08-summary-condition.png)
+![Condition with ReminderCount is greater than 0](./images/07-08-summary-condition.png)
 
 *A positive count goes to True. Zero goes to False.*
 
@@ -168,13 +174,13 @@ Keep the increment *after* the email, so the count only includes reminders that 
 
 ## 7.9 Prepare the Coordinator Summary
 
-In the **True** branch, add **Send an email (V2)** and rename it `Send coordinator summary`:
+On the canvas, inside the green **True** box under **If reminders were prepared**, select the **+**, then **Add an action**. Search for `Send an email`, select **Send an email (V2)** under **Office 365 Outlook**, and rename it `Send coordinator summary`:
 
 | Field | Value |
 |-------|-------|
 | To | Type `coordinator@example.com`, then select it from the list (it shows as a custom value) |
 | Subject | `[PA TRAINING] Weekly reminder summary` |
-| Body | Type `The weekly training reminder flow prepared `, insert **ReminderCount**, then type ` reminder(s) for upcoming sessions in the next 14 days.` |
+| Body | Type `The weekly training reminder flow prepared `, then select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick **ReminderCount** under *Variables*. Then type ` reminder(s) for upcoming sessions in the next 14 days.` |
 
 ![Send coordinator summary with the ReminderCount token in the body](./images/07-09-summary-email.png)
 
@@ -184,7 +190,7 @@ In the **True** branch, add **Send an email (V2)** and rename it `Send coordinat
 
 ## 7.10 Handle a Week with No Matching Rows
 
-In the **False** branch, add **Compose** (under **Data Operation**), rename it `No upcoming records`, and type `No upcoming training records were found for the next 14 days.` in **Inputs**.
+On the canvas, inside the red **False** box, select the **+**, then **Add an action**. Search for `Compose` and select it under **Data Operation**. Rename it `No upcoming records`, and type `No upcoming training records were found for the next 14 days.` in **Inputs**.
 
 That records a clear outcome in run history without sending an unnecessary email.
 
@@ -192,8 +198,8 @@ That records a clear outcome in run history without sending an unnecessary email
 
 ## 7.11 Save and Check the Capstone
 
-1. Select **Save**, open **Flow checker**, and confirm zero errors and zero warnings.
-2. Close Flow checker and select **Zoom view to fit** (in the zoom controls at the bottom left). Check the shape: filter before the loop, date check and count inside the loop, decision after the loop.
+1. Select **Save** in the toolbar at the top right. Then select **Flow checker** in the same toolbar and confirm zero errors and zero warnings.
+2. Close Flow checker. In the column of buttons at the bottom left of the canvas, select **Zoom view to fit**. Check the shape: filter before the loop, date check and count inside the loop, decision after the loop.
 
 ![The complete capstone flow zoomed to fit, showing the filter, the loop with its condition, and the final condition with both branches](./images/07-10-full-flow.png)
 

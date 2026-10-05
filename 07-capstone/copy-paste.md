@@ -46,7 +46,7 @@ Is the session in the next 14 days
 
 ## Current row's session date (section 7.6)
 
-Type `/` in the left box of each condition row, choose **Insert expression**, paste, then select **Add**.
+Click the left **Choose a value** box of each condition row, type `/` and choose **Insert expression**. Paste, then select **Add**. The box shows a token labelled **SessionDate**.
 
 ```
 items('Apply_to_each')?['SessionDate']
@@ -72,7 +72,7 @@ Subject:
 [PA TRAINING] Weekly reminder summary
 ```
 
-Body: paste the first part, insert **ReminderCount**, then paste the second part.
+Body: paste the first part. Select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick **ReminderCount** under *Variables*. Then paste the second part.
 
 ```text
 The weekly training reminder flow prepared 

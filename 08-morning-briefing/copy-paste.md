@@ -48,23 +48,23 @@ Paste, then insert **Subject** after it.
 <br>• 
 ```
 
-## Busy day subject (text, section 8.7)
-
-Paste, insert **MeetingCount**, then type ` meetings`.
-
-```text
-Busy day ahead: 
-```
-
 ## Condition name (text, section 8.6)
 
 ```text
 Busy day
 ```
 
+## Busy day subject (text, section 8.7)
+
+Paste, insert **MeetingCount** (lightning bolt, under *Variables*), then type ` meetings`.
+
+```text
+Busy day ahead: 
+```
+
 ## Briefing email body (text, section 8.8)
 
-Paste, then replace each `[Name]` with the matching dynamic content token.
+Paste, then replace each `[Name]` with the matching dynamic content token: delete the `[Name]` text, leave the cursor there, select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick the value. Conditions and Temperature are under *Get current weather*. The rest are under *Variables*.
 
 ```text
 Good morning,
