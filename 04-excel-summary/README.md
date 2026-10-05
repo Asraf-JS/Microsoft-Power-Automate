@@ -4,7 +4,7 @@ The coordinator wants a readable list of training sessions on demand, without co
 
 > **Copy-paste values:** the flow name, subject and your first expression are on the [copy-paste page](./copy-paste.md).
 
-**Estimated time:** 90 minutes
+**Estimated time:** 60 minutes
 
 **Your result:** An instant cloud flow that reads the training register, picks useful columns, counts the rows and sends one summary email. A Teams update is an optional extension.
 
@@ -78,12 +78,12 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 ## 4.3 Read the Excel Records
 
-1. Select **+** below the trigger, then **Add an action**.
-2. Search for `List rows present in a table` and select it under **Excel Online (Business)**.
-3. Set **Location** to **OneDrive for Business**.
-4. Set **Document Library** to **OneDrive**.
-5. In **File**, select the folder icon and browse to `Power Automate Training` > `TrainingRegister.xlsx`.
-6. In **Table**, select `tblTraining`.
+1. On the canvas, select the **+** below **Manually trigger a flow**, then **Add an action**.
+2. In the search box at the top of the panel, type `List rows present in a table`. Under the **Excel Online (Business)** heading, select **List rows present in a table**. Its settings open on the left.
+3. Open the **Location** dropdown and select **OneDrive for Business**.
+4. Open the **Document Library** dropdown and select **OneDrive**.
+5. In **File**, select the folder icon at the right end of the box. Select the **>** beside `Power Automate Training`, then select `TrainingRegister.xlsx`.
+6. Open the **Table** dropdown and select `tblTraining`.
 7. Under **Advanced parameters**, open the dropdown (it reads **Showing 0 of 6**) and tick **DateTime Format**. A new **DateTime Format** box appears: choose **ISO 8601**. This returns dates as dates instead of serial numbers like `46286`.
 
 ![List rows present in a table with Location, Document Library, File, Table tblTraining and DateTime Format ISO 8601](./images/04-03-list-rows.png)
@@ -96,10 +96,12 @@ If **Table** shows *No items*, stop. The workbook has no formatted table. Go bac
 
 ## 4.4 Choose the Report Columns
 
-1. Add a **Select** action (under **Data Operation**) after the Excel action.
-2. Click into **From** and insert **body/value** from *List rows present in a table*. This is the list of all rows. (Depending on your version it may be labelled **value**.)
-3. In the **Map** area, type `Participant` in the first **Enter key** box. In its **Enter value** box, insert **ParticipantName** from the dynamic content picker.
-4. A new empty row appears underneath. Fill three more rows the same way:
+1. On the canvas, select the **+** below **List rows present in a table**, then **Add an action**.
+2. Search for `Select`. Under the **Data Operation** heading, select **Select**.
+3. Click into the **From** box. Select the lightning bolt icon that appears beside it to open the dynamic content picker. Under *List rows present in a table*, select **body/value**. This is the list of all rows. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
+4. In the **Map** area, click the first **Enter key** box (left) and type `Participant`.
+5. Click the **Enter value** box beside it (right), open the lightning bolt, and select **ParticipantName** under *List rows present in a table*. Type `Participant` in the picker's search box if it isn't listed. Don't type the value yourself: it must be the green token from the picker.
+6. A new empty row appears underneath. Fill three more rows the same way, typing the key and picking the value:
 
 | Enter key | Enter value (dynamic content) |
 |-----------|-------------------------------|
@@ -110,7 +112,9 @@ If **Table** shows *No items*, stop. The workbook has no formatted table. Go bac
 
 ![Select action with From set to the Excel value and four key and value rows mapped with dynamic content](./images/04-04-select.png)
 
-*Each key becomes a column heading. Email and the internal row data are left out. (This screenshot's Session date already uses the date format from the Going further box. Yours shows a plain SessionDate token.)*
+*Each key becomes a column heading. Every value is a green Excel token you picked, not typed. Email and the internal row data are left out.*
+
+The Session date comes through as `2026-09-21T00:00:00.000Z`. That's fine for now: the Going further box at the end of the chapter shows how to tidy it.
 
 Select handles every row for you, so you don't need an Apply to each here.
 
@@ -118,9 +122,10 @@ Select handles every row for you, so you don't need an Apply to each here.
 
 ## 4.5 Build One HTML Table
 
-1. Add **Create HTML table** (under **Data Operation**) after Select.
-2. In **From**, insert **Output** from *Select*.
-3. Leave **Columns** on **Automatic**. Select already defined the headings.
+1. On the canvas, select the **+** below **Select**, then **Add an action**.
+2. Search for `Create HTML table` and select it under **Data Operation**.
+3. Click into **From**, open the lightning bolt, and select **Output** under *Select*.
+4. Leave everything else as it is. Select already defined the headings.
 
 ![Create HTML table with From set to the Output of Select](./images/04-05-html-table.png)
 
@@ -132,11 +137,13 @@ Select handles every row for you, so you don't need an Apply to each here.
 
 ## 4.6 Send the Coordinator Summary
 
-1. Add **Send an email (V2)** under **Office 365 Outlook** after Create HTML table.
+1. On the canvas, select the **+** below **Create HTML table**, then **Add an action**. Search for `Send an email`, then select **Send an email (V2)** under **Office 365 Outlook**.
 2. In **To**, start typing your name or email address, then select yourself from the list that appears.
 3. In **Subject**, enter `[PA TRAINING] Training register summary`.
-4. In **Body**, type `Here is the current training register.` then press Enter.
-5. Insert **Output** from *Create HTML table* on the next line. The picker lists two values called **Output**: pick the one under the *Create HTML table* heading, not the one under *Select*.
+4. Click into **Body** and type `Here is the current training register.` then press Enter.
+5. On the new line, type `/` and choose **Insert dynamic content** (or select the lightning bolt). Select **Output** under the *Create HTML table* heading. The picker lists two values called **Output**: pick the one under *Create HTML table*, not the one under *Select*.
+
+   Leave the body as these two lines for now. You add the count sentence in 4.7.
 
 ![Send an email (V2) with To, Subject, and the Body containing an introduction and the Create HTML table Output token](./images/04-06-email.png)
 
@@ -148,10 +155,10 @@ Select handles every row for you, so you don't need an Apply to each here.
 
 The coordinator wants a line like *"This report lists 6 sessions."* None of the dynamic content values is a count. Dynamic content gives you values that already exist. When you need a value *calculated*, you write an **expression**.
 
-1. In the email **Body**, click at the end of the introduction line and type ` This report lists ` (with spaces).
+1. On the canvas, select **Send an email (V2)** to open it again. In **Body**, click right after `register.` at the end of the first line and type ` This report lists ` (with a space before and after).
 2. Type `/` and choose **Insert expression**.
 3. In the expression box, type `length(`
-4. Switch to the **Dynamic content** tab in the same panel and select **Output** under *Select*. It drops into the expression.
+4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **Output** under *Select*. It drops into the expression.
 5. Type `)` to close the bracket, then select **Add** (it reads **Update** if you're editing an expression that's already there).
 6. After the new token, type ` sessions.`
 
