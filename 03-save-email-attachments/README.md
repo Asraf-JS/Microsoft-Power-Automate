@@ -114,6 +114,10 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
 
 1. Select the **+** below the trigger, then **Add an action**.
 2. Search for `Apply to each` and select it (it's under **Control**).
+
+   ![Add an action panel with Apply to each typed in the search box and Apply to each listed under Control](./images/03-03-add-action.png)
+
+   *Search by name, then pick the result under Control.*
 3. The loop's settings open on the left. Click into **Select an output from previous steps**, open the dynamic content picker (the lightning bolt), and select **Attachments** under *When a new email arrives (V3)*.
 
 ![Apply to each with the Attachments token in Select an output from previous steps](./images/03-03-apply-to-each.png)
@@ -130,9 +134,19 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 2. Search for `Condition` and select it (under **Control**).
 3. Click into the left **Choose a value** box. Open the dynamic content picker and select **Attachments Name**. (After saving it shows as `name`.)
 
-   > **Can't see Attachments Name?** The picker only shows a few values per step at first. Select **See more** under *When a new email arrives (V3)*, or type `name` in the picker's search box.
+   > **Can't see Attachments Name?** The picker only shows a few values per step at first. Select **See more** beside *When a new email arrives (V3)*, or type `name` in the picker's search box.
+
+   ![Dynamic content picker with See more boxed beside When a new email arrives (V3)](./images/03-04-see-more.png)
+
+   *See more lists every value from the trigger.*
+
+   ![The picker search box with name typed and Attachments Name in the results](./images/03-04-search-name.png)
+
+   *Or search: typing name brings Attachments Name straight up.*
 4. Set the middle box to **ends with**.
 5. In the right box, type `.pdf`.
+
+   If a second, empty row appears below yours, select its **...** and then **Delete**.
 
 ![Condition inside Apply to each: Attachments Name, ends with, .pdf](./images/03-04-condition.png)
 
@@ -194,6 +208,12 @@ You don't need another email. The mixed test already produced both outcomes.
 2. Select **Condition**. The result is **false**, Create file shows as skipped, and the False branch has nothing to run.
 
    > **The panel still shows the old result?** The run view sometimes doesn't refresh the details panel when you change the iteration. Select a different step (such as **Apply to each**), then select **Condition** again. You can also trust the canvas: on this iteration **Create file** shows a grey skip icon instead of a green tick. If it still won't update, switch **New view** off at the top right of the run page to use the classic run view, where each iteration opens inline.
+
+   ![The New view toggle at the top right of the run page](./images/03-08-new-view-toggle.png)
+
+   ![Classic run view: iteration 2 of 2, Expression result false, and Create file skipped under If yes](./images/03-08-classic-view.png)
+
+   *The classic view: True and False show as If yes and If no, and the skipped Create file has a grey cross.*
 
 ![Iteration of the run where the condition is false and Create file is skipped](./images/03-08-run-skipped.png)
 
