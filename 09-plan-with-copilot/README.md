@@ -59,7 +59,7 @@ A strong prompt states the event, the data source, the rule, the output and the 
 
 ## 9.3 Review the First Suggestion
 
-Read the trigger and every proposed action before you select anything. In the example below, the first version suggested Recurrence, List rows present in a table, FilteredRows, Initialise Count and Send an email. It looks plausible, but **Initialise Count** doesn't say how the count is calculated.
+Copilot takes a few seconds to answer. Scroll down to **Suggested flow** and read the trigger and every action before you select anything. In the example below, the first version suggested Recurrence, List rows present in a table, FilteredRows, Initialise Count and Send an email. It looks plausible, but **Initialise Count** doesn't say how the count is calculated.
 
 ![Copilot's first suggested flow with Recurrence, List rows, FilteredRows, Initialise Count and Send an email](./images/09-03-first-suggestion.png)
 
@@ -80,7 +80,7 @@ Use these questions on any AI-generated flow plan:
 
 ## 9.4 Clarify the Filter and Count
 
-In **Add more details for Copilot to work with** (the box below the suggestion), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email.
+In **Add more details for Copilot to work with** (the box below the suggestion, to the right of **Keep it and continue**), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email.
 
 ---
 
@@ -96,7 +96,7 @@ Copilot's answers vary from run to run. Check whether the second suggestion adde
 
 ## 9.6 Request a Streamlined Design
 
-Paste prompt 3 into the same box and send it. It says what to remove, why, and exactly which structure to keep.
+Paste prompt 3 into the same **Add more details for Copilot to work with** box and select the arrow icon at its right end to send it. It says what to remove, why, and exactly which structure to keep. Copilot keeps each answer as a version. To compare them, use the small arrows beside **Version** (for example **Version 3 of 3**) below the suggestion.
 
 ---
 
@@ -109,12 +109,12 @@ The third suggestion should have exactly these steps:
 | 1 | Recurrence |
 | 2 | List rows present in a table |
 | 3 | FilteredRows |
-| 4 | Compose Count |
+| 4 | Count (a Compose action) |
 | 5 | Send an email |
 
-![Copilot's final suggestion with five steps: Recurrence, List rows, FilteredRows, Compose Count and Send an email](./images/09-05-final-suggestion.png)
+![Copilot's final suggestion with five steps: Recurrence, List rows, FilteredRows, Count and Send an email](./images/09-05-final-suggestion.png)
 
-*The outline matches the intended plan.*
+*The outline matches the intended plan. Copilot shows the Compose action by its name, **Count**.*
 
 This only checks the outline. If you continued, you'd still need to configure the Friday schedule and time zone, the workbook and table, the filter and count expressions, the recipient, subject and body, error handling, and test data.
 
@@ -122,7 +122,7 @@ This only checks the outline. If you continued, you'd still need to configure th
 
 ## 9.8 Exit Without Creating the Flow
 
-Select **Cancel**, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
+Select **Cancel** at the bottom right of the page, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
 
 ---
 

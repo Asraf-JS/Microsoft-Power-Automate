@@ -41,11 +41,11 @@ The three lookups don't depend on each other. The weather doesn't need your cale
 
 ## 8.1 Create the Scheduled Flow
 
-1. Select **Create** > **Scheduled cloud flow**.
+1. In the left navigation, select **Create**, then **Scheduled cloud flow**.
 2. In **Flow name**, enter `PA - My morning briefing`.
 3. Set **Repeat every** to **1 Week**, tick **M T W T F**, and set the time to **8:00 AM**.
-4. Select **Create**.
-5. Open **Recurrence** and confirm the **Time zone** is **(UTC+08:00) Kuala Lumpur, Singapore** and the preview reads 8:00 on Monday to Friday.
+4. Select **Create**. The designer opens with a **Recurrence** card on the canvas.
+5. Select the **Recurrence** card on the canvas to open its panel. If **Time zone** is blank, open the dropdown, type `Kuala` and pick **(UTC+08:00) Kuala Lumpur, Singapore**. Check that **At these hours** is `8` and the **Preview** at the bottom reads 8:00 on Monday to Friday. **Start time** and **At these minutes** are filled in for you; leave them.
 
 ![Recurrence set to weekly on Monday to Friday at 8:00 in the Kuala Lumpur time zone](./images/08-01-recurrence.png)
 
@@ -64,11 +64,11 @@ A **variable** is a named box that holds a value and can change while the flow r
 | EmailList | String | *(leave empty)* | Collects the important email subjects |
 | BriefingSubject | String | `Your day ahead` | The email subject. May change later |
 
-1. Below Recurrence, add **Initialize variable** (under **Variables**).
-2. Set **Name** `MeetingCount`, **Type** **Integer**, **Value** `0`.
-3. Add three more **Initialize variable** actions, one below the other, for the other rows in the table.
+1. On the canvas, select the **+** below **Recurrence**, then **Add an action**. Search for `Initialize variable` and select it under **Variables**.
+2. In **Name**, enter `MeetingCount`. Open the **Type** dropdown and select **Integer**. In **Value**, enter `0`.
+3. Select the **+** below the variable you just made, then **Add an action** and search for `Initialize variable` again. Repeat until all four rows of the table are done. For the String rows, leave **Value** empty.
 
-![Four Initialize variable actions stacked below Recurrence](./images/08-02-variables.png)
+![The first Initialize variable set to MeetingCount, Integer, 0, with four Initialize variable actions on the canvas](./images/08-02-variables.png)
 
 *All four variables are created before anything else happens.*
 
@@ -78,9 +78,9 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 ## 8.3 Branch 1: The Weather
 
-1. Below the last **Initialize variable**, select **+** > **Add an action**.
-2. Search for `MSN Weather` and select **Get current weather**.
-3. Set **Location** to `Kuala Lumpur` and **Units** to **Metric**.
+1. On the canvas, select the **+** below the last **Initialize variable** (named **Initialize variable 3**), then **Add an action**.
+2. Search for `Get current weather`. Under the **MSN Weather** heading, select **Get current weather**.
+3. In **Location**, type `Kuala Lumpur`. Open the **Units** dropdown and select **Metric**.
 
 ![Get current weather with Location Kuala Lumpur and Units Metric](./images/08-03-weather.png)
 
@@ -98,19 +98,19 @@ This branch starts *beside* the weather, not below it.
 
    *Add a parallel branch starts a new column next to the existing one.*
 
-2. In the new branch, add **Current time** (under **Date Time**).
-3. Below it, add **Get future time** (under **Date Time**). Set **Interval** `12`, **Time unit** **Hour**.
-4. Below it, add **Get calendar view of events (V3)** (Office 365 Outlook):
+2. The action search opens for the new branch. Search for `Current time` and select it under **Date Time**.
+3. On the canvas, select the **+** below **Current time**, then **Add an action**. Search for `Get future time` and select it under **Date Time**. In **Interval**, enter `12`. Open **Time unit** and select **Hour**.
+4. Select the **+** below **Get future time**, then **Add an action**. Search for `Get calendar view` and select **Get calendar view of events (V3)** under **Office 365 Outlook**. For **Start Time** and **End Time**, click into the box, select the lightning bolt icon beside it (or type `/` and choose **Insert dynamic content**), and pick the value:
 
    | Field | Value |
    |-------|-------|
-   | Calendar Id | Calendar |
-   | Start Time | **Current time** from dynamic content |
-   | End Time | **Future time** from dynamic content |
+   | Calendar Id | Open the dropdown and select **Calendar** |
+   | Start Time | **Current time** under *Current time* |
+   | End Time | **Future time** under *Get future time* |
 
-5. Below it, add **Apply to each** (under **Control**). In **Select an output from previous steps**, insert **body/value** from *Get calendar view of events (V3)*. That's the list of events.
-6. Inside the loop, add **Increment variable**. Select **MeetingCount**, value `1`.
-7. Inside the same loop, below Increment, add **Append to string variable**. Select **MeetingList**. In **Value**, type `<br>• ` and then insert **Subject** from *Get calendar view of events (V3)*.
+5. Select the **+** below **Get calendar view of events (V3)**, then **Add an action**. Search for `Apply to each` and select it under **Control**. Click into **Select an output from previous steps**, open the lightning bolt, and select **body/value** under *Get calendar view of events (V3)*. That's the list of events. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
+6. Inside the loop, select the **+**, then **Add an action**. Search for `Increment variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingCount**. In **Value**, enter `1`.
+7. Inside the same loop, select the **+** below **Increment variable**, then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingList**. In **Value**, type `<br>• `, then open the lightning bolt and select **Subject** under *Get calendar view of events (V3)*. If Subject isn't listed, select **See more** under *Get calendar view of events (V3)*.
 
 ![The meetings branch: Current time, Get future time, Get calendar view of events, and a loop with Increment variable and Append to string variable](./images/08-05-meetings-branch.png)
 
@@ -122,8 +122,8 @@ This branch starts *beside* the weather, not below it.
 
 ## 8.5 Branch 3: Important Unread Email
 
-1. Add a third parallel branch the same way: **+** on the arrow below the last **Initialize variable** > **Add a parallel branch**.
-2. Add **Get emails (V3)** (Office 365 Outlook):
+1. Add a third parallel branch the same way: select the **+** on the arrow below the last **Initialize variable**, then **Add a parallel branch**.
+2. Search for `Get emails` and select **Get emails (V3)** under **Office 365 Outlook**. Set the fields below. If a field isn't shown, open the **Advanced parameters** dropdown and tick it.
 
    | Field | Value |
    |-------|-------|
@@ -132,8 +132,8 @@ This branch starts *beside* the weather, not below it.
    | Importance | High |
    | Top | 5 |
 
-3. Below it, add **Apply to each** and insert **body/value** from *Get emails (V3)*.
-4. Inside the loop, add **Append to string variable**. Select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`.
+3. On the canvas, select the **+** below **Get emails (V3)**, then **Add an action**. Search for `Apply to each` and select it under **Control**. Click into **Select an output from previous steps**, open the lightning bolt, and select **body/value** under *Get emails (V3)*.
+4. Inside the loop, select the **+**, then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`. Subject and From are under *Get emails (V3)* in the picker (select **See more** if they're hidden).
 
 ![Three branches side by side: weather, meetings and email](./images/08-06-three-branches.png)
 
@@ -147,11 +147,11 @@ This branch starts *beside* the weather, not below it.
 
 The next step must wait until all three branches have finished.
 
-1. At the bottom of the **meetings** branch, below its loop, add a **Condition**. Rename it `Busy day`.
-2. Open the Condition's **Settings** tab. Under **Run after**, select **Select actions** and tick the last action of each branch: **Get current weather**, the meetings **Apply to each**, and the email **Apply to each 1**. Leave **Is successful** ticked for each.
-3. Check the **Run after** list shows all three actions, then **Save**.
+1. On the canvas, select the **+** below the meetings **Apply to each** box (outside it), then **Add an action**. Search for `Condition` and select it under **Control**. Rename it: select the title at the top of the panel and type `Busy day`.
+2. Select the **Busy day** card to open its panel, then the **Settings** tab at the top of the panel. **Apply to each** is already listed under **Run after**. Open the **Select actions** dropdown and tick **Get current weather** and **Apply to each 1**.
+3. Leave **Is successful** ticked for each. Check the **Run after** list shows all three actions, then select **Save**.
 
-![Busy day selected with Settings open, showing Run after set to Apply to each, Get current weather and Apply to each 1](./images/08-07-join.png)
+![Busy day with the Settings tab open, showing Run after set to Apply to each, Get current weather and Apply to each 1](./images/08-07-join.png)
 
 *Run after lists one action from each branch, so Busy day waits for the slowest branch.*
 
@@ -161,11 +161,11 @@ The next step must wait until all three branches have finished.
 
 ## 8.7 Change the Subject on a Busy Day
 
-1. In **Busy day**, insert **MeetingCount**, choose **is greater than**, type `4`.
-2. In the **True** branch, add **Set variable**. Select **BriefingSubject**. In **Value**, type `Busy day ahead: `, insert **MeetingCount**, type ` meetings`.
+1. In the **Busy day** panel, select the **Parameters** tab. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **MeetingCount** under *Variables*. Open the middle dropdown and select **is greater than**. Click the right box and type `4`. If an empty extra row appears, select its **...** and then **Delete**.
+2. On the canvas, inside the green **True** box, select the **+**, then **Add an action**. Search for `Set variable` and select it under **Variables**. Open the **Name** dropdown and select **BriefingSubject**. In **Value**, type `Busy day ahead: `, insert **MeetingCount** (under *Variables*), then type ` meetings`.
 3. Leave **False** empty. The subject keeps its starting value, *Your day ahead*.
 
-![Busy day condition with MeetingCount is greater than 4 and Set variable in the True branch](./images/08-08-set-variable.png)
+![Busy day condition with MeetingCount is greater than 4](./images/08-08-set-variable.png)
 
 *Set variable replaces a variable's value. Append adds to it. Increment adds to a number.*
 
@@ -173,10 +173,10 @@ The next step must wait until all three branches have finished.
 
 ## 8.8 Send the Briefing
 
-1. Below **Busy day** (outside it), add **Send an email (V2)** (Office 365 Outlook).
-2. **To:** your own email address.
-3. **Subject:** insert **BriefingSubject**.
-4. **Body:** type the text below and insert the tokens shown in brackets. The weather values come from *Get current weather*. The rest are under *Variables*.
+1. On the canvas, select the **+** below the **Busy day** box (outside it), then **Add an action**. Search for `Send an email`, then select **Send an email (V2)** under **Office 365 Outlook**.
+2. **To:** start typing your name or email address, then select yourself from the list that appears.
+3. **Subject:** click into the box, select the lightning bolt, and pick **BriefingSubject** under *Variables*.
+4. **Body:** type the text below and insert the tokens shown in brackets. To insert a token, place the cursor where it goes, then select the lightning bolt (or type `/` and choose **Insert dynamic content**). **Conditions** and **Temperature** are under *Get current weather* (select **See more** if they're hidden). The rest are under *Variables*.
 
    > Good morning,
    >
@@ -190,7 +190,7 @@ The next step must wait until all three branches have finished.
 
    *Variables drop into the email like any other dynamic content.*
 
-5. Select **Save** and open **Flow checker**. Fix anything it reports.
+5. Select **Save** in the toolbar at the top right, then **Flow checker** in the same toolbar. Fix anything it reports.
 
 ---
 
@@ -198,10 +198,10 @@ The next step must wait until all three branches have finished.
 
 This flow only emails you, so you can test it yourself.
 
-1. Select **Test** > **Manually** > **Test** > **Run flow**.
+1. In the toolbar at the top right, select **Test**, choose **Manually**, select **Test**, then **Run flow**.
 2. Open the run. Notice that the three branches started at almost the same moment.
 3. Select **Busy day** and check which branch it took. Select a **Set variable** or **Increment variable** step to see the value it stored.
-4. Open the email in Outlook.
+4. In Outlook, find the email with the subject **Your day ahead** (or **Busy day ahead...**) in your Inbox. If it isn't near the top, type the subject in the search box at the top.
 
 ![The briefing email in Outlook showing weather, the meeting list and important unread email](./images/08-10-email-received.png)
 

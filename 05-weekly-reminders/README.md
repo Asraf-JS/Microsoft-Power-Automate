@@ -47,13 +47,14 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 
    *The dialog creates the Recurrence trigger for you.*
 
-5. Select **Recurrence** and check these values. Open **Advanced parameters** > **Show all** to see the time zone fields.
+5. The designer opens. On the canvas, select the **Recurrence** card to open its settings on the left, and check these values. If you can't see the time zone fields, open **Advanced parameters** and select **Show all**.
 
 | Setting | Value |
 |---------|-------|
 | Interval | 1 |
 | Frequency | Week |
 | Time zone | (UTC+08:00) Kuala Lumpur, Singapore |
+| Start time | Filled in by the dialog. Leave it. |
 | On these days | Monday |
 | At these hours | 9 |
 | At these minutes | 0 |
@@ -66,12 +67,14 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 
 ## 5.2 Produce a Readable Local Timestamp
 
-1. Below Recurrence, add **Current time** (under **Date Time**). It needs no settings.
-2. Add **Convert time zone** (under **Date Time**) and set:
+1. On the canvas, select the **+** below **Recurrence**, then **Add an action**. In the search box, type `Current time`. Under the **Date Time** heading, select **Current time**. It needs no settings.
+2. Select the **+** below **Current time**, then **Add an action**. Search for `Convert time zone` and select it under **Date Time**.
+3. Click into **Base time**, select the lightning bolt icon beside it, and pick **Current time** under *Current time*.
+4. Set the other boxes from their dropdowns:
 
 | Setting | Value |
 |---------|-------|
-| Base time | **Current time** from dynamic content |
+| Base time | **Current time** (the token from step 3) |
 | Source time zone | (UTC) Coordinated Universal Time |
 | Destination time zone | (UTC+08:00) Kuala Lumpur, Singapore |
 | Format string (may be labelled **Time unit**) | Full date/time pattern (short time) |
@@ -86,20 +89,30 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 
 ## 5.3 Read the Excel Rows
 
-Add **List rows present in a table** (Excel Online (Business)) and set it exactly as in Chapter 4: OneDrive for Business, OneDrive, `/Power Automate Training/TrainingRegister.xlsx`, `tblTraining`, and **DateTime Format** set to **ISO 8601**.
+The settings are the same as Chapter 4, section 4.3.
 
-> **Tip:** In the file browser, clicking a folder's name selects it but doesn't open it. Select the **>** arrow on the right of `Power Automate Training` to go inside, then pick the workbook.
+1. On the canvas, select the **+** below **Convert time zone**, then **Add an action**. Search for `List rows present in a table` and select it under **Excel Online (Business)**.
+2. Open the **Location** dropdown and select **OneDrive for Business**.
+3. Open the **Document Library** dropdown and select **OneDrive**.
+4. In **File**, select the folder icon at the right end of the box. Select the **>** beside `Power Automate Training`, then select `TrainingRegister.xlsx`.
+
+   > **Tip:** Clicking a folder's name selects it but doesn't open it. Use the **>** arrow on the right to go inside.
+
+5. Open the **Table** dropdown and select `tblTraining`.
+6. Under **Advanced parameters**, open the dropdown (it reads **Showing 0 of 6**) and tick **DateTime Format**. In the new **DateTime Format** box, choose **ISO 8601**.
+
+After you pick them, **Location** shows `me`, **Document Library** shows a long code, and **Table** shows an ID in braces like `{46727A35-…}`. That's normal.
 
 ![List rows present in a table pointing to TrainingRegister.xlsx and tblTraining with DateTime Format ISO 8601](./images/05-04-list-rows.png)
 
-*Same settings as Chapter 4.*
+*Same settings as Chapter 4. The codes in Location, Document Library and Table stand for the names you picked.*
 
 ---
 
 ## 5.4 Process One Row at a Time
 
-1. Add **Apply to each** (under **Control**).
-2. In **Select an output from previous steps**, insert **body/value** (or **value**) from *List rows present in a table*.
+1. On the canvas, select the **+** below **List rows present in a table**, then **Add an action**. Search for `Apply to each` and select it under **Control**.
+2. Click into **Select an output from previous steps**, select the lightning bolt icon beside it, and under *List rows present in a table* pick **body/value** (it may be labelled **value**). If you can't see it, select **See more** or type `value` in the picker's search box.
 
 ![Apply to each with the Excel value list as its input](./images/05-05-apply-to-each.png)
 
@@ -111,15 +124,16 @@ Add **List rows present in a table** (Excel Online (Business)) and set it exactl
 
 ## 5.5 Prepare the Reminder Email
 
-Select the **+** inside the **Apply to each** box and add **Send an email (V2)** (Office 365 Outlook).
+On the canvas, select the **+** inside the **Apply to each** box (below its header), then **Add an action**. Search for `Send an email`, then select **Send an email (V2)** under **Office 365 Outlook**.
 
-1. **To:** this field opens a people picker. Select the small **settings** (gear) icon beside it and choose **Use dynamic content**, then insert **Email**.
+1. **To:** this box opens a people picker, so it needs switching first. Select the small **settings** (gear) icon above the right end of the **To** box, on the same line as the **To** label. Choose **Use dynamic content**. Then click into the box, select the lightning bolt icon, and pick **Email** under *List rows present in a table* (select **See more** or type `Email` in the search box if it isn't listed).
 
    ![The settings gear above the right end of the To field](./images/05-06-gear.png)
 
    *The gear switches To from picking people to accepting dynamic content.*
-2. **Subject:** type `[PA TRAINING] Reminder: ` then insert **CourseTitle**.
-3. **Body:** type the message and insert the values where they belong:
+
+2. **Subject:** click into the box and type `[PA TRAINING] Reminder: ` (with the space at the end). Select the lightning bolt icon and pick **CourseTitle** under *List rows present in a table*.
+3. **Body:** click into the box and type the message below. Where a value belongs, put the cursor there, type `/` and choose **Insert dynamic content** (or select the lightning bolt), then pick the value:
 
 > Hello **[ParticipantName]**,
 >
@@ -132,9 +146,9 @@ Select the **+** inside the **Apply to each** box and add **Send an email (V2)**
 >
 > Please contact the training coordinator if your plans change.
 
-Each **[bold name]** is a dynamic content token. **Converted time** comes from *Convert time zone*. The rest come from *List rows present in a table*.
+Each **[bold name]** is a dynamic content token. **Converted time** comes from *Convert time zone*. The rest come from *List rows present in a table*. If a value isn't listed, select **See more** or type its name in the picker's search box. You can also paste the whole body from the copy-paste page and replace each `[Name]` with its token.
 
-![Send an email (V2) inside Apply to each with the Email token in To, a subject with CourseTitle, and the body text with tokens](./images/05-06-email.png)
+![Send an email (V2) with the Email token in To, a subject with CourseTitle, and the body text with tokens](./images/05-06-email.png)
 
 *Type the words, insert the tokens. The email reads like a normal message.*
 
@@ -144,11 +158,11 @@ Each **[bold name]** is a dynamic content token. **Converted time** comes from *
 
 Run the flow now and the session date reads `2026-09-21T00:00:00.000Z`. That's correct, but nobody wants to read it. There's no dynamic content value for "the date, written nicely", so this is a job for an expression.
 
-1. In the body, select the **x** on the **SessionDate** token to remove it, leaving the cursor where it was.
-2. Type `/` and choose **Insert expression**.
-3. Type `formatDateTime(`
-4. Switch to the **Dynamic content** tab and select **SessionDate**.
-5. Type `, 'dd MMM yyyy')` and select **Add**.
+1. In the **Body** of **Send an email (V2)**, select the **x** on the **SessionDate** token to remove it. Make sure the cursor stays right after `Session date: ` on that line (click there if it moved).
+2. Type `/` and choose **Insert expression** (or select the **fx** button that appears at the right edge of the Body box).
+3. In the expression box, type `formatDateTime(`
+4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **SessionDate** (type `Session` in its search box if it isn't listed). It drops into the expression.
+5. Type `, 'dd MMM yyyy')` and select **Add** (it reads **Update** if you're editing an expression that's already there).
 
    ![Expression editor showing formatDateTime with the SessionDate value and 'dd MMM yyyy'](./images/05-07-format-date.png)
 
@@ -158,7 +172,7 @@ Run the flow now and the session date reads `2026-09-21T00:00:00.000Z`. That's c
 
    > **Tip:** Compare this with Chapter 4. `length()` counted a list, `formatDateTime()` reshapes a date. Both follow the same shape: a function name, then what you give it in brackets.
 
-6. Select **Save**, open **Flow checker**, and fix any error.
+6. On the toolbar at the top, select **Save**, then **Flow checker**, and fix any error it reports.
 
 ![The complete saved flow with five top-level steps and the email inside Apply to each](./images/05-08-full-flow.png)
 

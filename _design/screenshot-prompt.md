@@ -148,3 +148,52 @@ Then run node _design/check-screenshots.mjs, commit "Recapture Chapter 3 stage-b
 ```
 
 When Codex is done, tell Claude: it adds the red boxes and numbers in `annotations.json`, drops the temporary crops for 03-02, 03-03 and 03-04, and adds the new images (add-action, see-more, search-name, classic view) to the README.
+
+---
+
+## Whole-course stage-by-stage prompt (round 5)
+
+An audit of every chapter found more shots taken from a finished flow or a later state. Most are now fixed by cropping the canvas out or a small patch, but these need a real recapture. Paste this into one Codex conversation.
+
+```text
+Recapture screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1, mask the account avatar. Keep output short. Save each clean capture to BOTH <chapter>/images/<file> and _design/shots/raw/<file> (overwrite). Don't edit any README or _design/shots/annotations.json. Read only the README.md and copy-paste.md of the chapters named below, plus _design/shots/NOTES.md.
+
+Golden rule: every screenshot shows ONLY what a learner has done up to that step. Nothing from later steps on the canvas, in any field, or in any list.
+
+Part A, Chapter 2 (OneDrive and Outlook, sandboxed):
+In OneDrive My files create a temporary folder "PA Shots", and inside it a folder "Power Automate Training" containing only "Attachments" and "Reports". Work only inside PA Shots.
+1. 02-prepare-workspace/images/02-01-folders.png: inside PA Shots > Power Automate Training, showing only Attachments and Reports.
+2. 02-prepare-workspace/images/02-02-workbook-rows.png: a new workbook TrainingRegister.xlsx in that folder, opened in Excel for the web, with the header row and the six sample rows from 02-prepare-workspace/copy-paste.md pasted in. Plain cells, NOT yet formatted as a table.
+3. 02-prepare-workspace/images/02-05-insert-tab.png: same workbook, a cell in the data selected, the Insert tab open with the Table button visible. Before creating the table.
+4. 02-prepare-workspace/images/02-03-table-name.png: after Insert > Table with defaults (My table has headers ticked), renamed tblTraining, the Table Design tab showing the name.
+5. 02-prepare-workspace/images/02-04-draft-email.png: in Outlook on the web, a NEW draft to the signed-in account, subject from copy-paste.md, CourseOutline.pdf and TrainerPhoto.jpg (from 02-prepare-workspace/test-files) attached as attachment chips under the subject (not inline), body exactly as the README says. Do NOT send. Discard the draft afterwards.
+Then delete the PA Shots folder (and empty it from the recycle bin is not needed).
+
+Part B, Chapter 4 (throwaway flow, NEVER save):
+Create an instant cloud flow "PA - Shots Excel build" with Manually trigger a flow, and follow 4.3 to 4.6 using the REAL Power Automate Training/TrainingRegister.xlsx. Do not select Save. The canvas must show only what has been built so far.
+6. 04-excel-summary/images/04-03-list-rows.png: end of 4.3, List rows present in a table selected, fields filled, DateTime Format ISO 8601 visible.
+7. 04-excel-summary/images/04-04-select.png: end of 4.4, Select selected, From = body/value, four Map rows with plain tokens (SessionDate is the plain green token, no expression).
+8. 04-excel-summary/images/04-05-html-table.png: end of 4.5, Create HTML table selected, From = Output.
+9. 04-excel-summary/images/04-06-email.png: end of 4.6, Send an email (V2) selected, To = signed-in account, Subject filled, Body = "Here is the current training register." and the Output token on the next line. NO count sentence.
+Leave without saving (Back, then Leave/Discard). Confirm the flow isn't in My flows.
+
+Part C, Chapter 5 (throwaway, NEVER save):
+Create a scheduled flow "PA - Shots reminders build" and follow 5.1 to 5.5. Do not save.
+10. 05-weekly-reminders/images/05-06-email.png: end of 5.5, email inside Apply to each selected, body with the plain SessionDate token (no expression).
+11. 05-weekly-reminders/images/05-07-format-date.png: 5.6 at step 5: SessionDate token removed from the body, expression editor open with formatDateTime(...SessionDate..., 'dd MMM yyyy') typed and the Add button visible (not Update).
+Leave without saving.
+
+Part D, Chapter 8 (throwaway, NEVER save):
+Create a scheduled flow "PA - Shots briefing build" and follow 8.1 to 8.4 (weather branch and meetings branch only). Do not save.
+12. 08-morning-briefing/images/08-04-add-parallel.png: the + between the last Initialize variable and Get current weather open, with "Add a parallel branch" visible. Canvas shows only Recurrence, the four variables and Get current weather.
+13. 08-morning-briefing/images/08-05-meetings-branch.png: canvas only, after 8.4: the weather branch and the meetings branch side by side (Current time, Get future time, Get calendar view of events, Apply to each with Increment variable and Append to string variable). No email branch, no Busy day, no join lines. Designer zoom about 100%.
+Leave without saving.
+
+Part E, existing flows (open, look, don't change):
+14. 06-training-approval/images/06-03-trigger.png: "PA - Training request approval", trigger selected, Form Id visible, wait until no "Loading connection" spinner shows.
+15. 11-extra-practice/images/11-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news" showing Turn on, no warning banner. Close the menu without selecting.
+
+If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then run node _design/check-screenshots.mjs, commit "Recapture stage-by-stage screenshots (round 5)", and push. Reply with only the files saved and any NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it removes the temporary patches and crops for these files, re-sets the red boxes, and checks each one against its step.

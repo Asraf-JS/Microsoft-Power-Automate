@@ -66,21 +66,20 @@ Sign in to each one with your **work or school account**, the same one every tim
 
 1. Inside `Power Automate Training`, select **Create or upload**, then **Excel workbook**. Check the breadcrumb first: the workbook is created in whichever folder you're viewing.
 2. When Excel for the web opens, select the file name in the title bar and rename it `TrainingRegister`. Excel adds `.xlsx` for you.
-3. Select cell **A1**, then paste the six column headers from the copy-paste page. Each one lands in its own column: TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status.
-
-4. Enter six fictional rows below the headers. Include at least two upcoming sessions, one completed session, and one session outside the training week. Use the trainer's approved test addresses in the Email column.
+3. Select cell **A1**, then paste the headers and sample rows from the [copy-paste page](./copy-paste.md) (section 2.2). Each header lands in its own column (TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status), and the six fictional rows fill rows 2 to 7.
+4. If your trainer gave you approved test addresses, type them over the addresses in the **Email** column. If your trainer asks you to change the session dates, keep at least two upcoming sessions, one completed session and one session outside the training week.
 
    > **Tip:** Short on time? Your trainer may tell you to upload the ready-made [TrainingRegister.xlsx](./TrainingRegister.xlsx) to `Power Automate Training` instead (**Create or upload** > **Files upload**). It already has the `tblTraining` table and six fictional records, so you can skip to the checkpoint.
 
    ![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
 
-   *Fictional rows. The example.com addresses can't receive mail. (This workbook has a seventh test row; yours needs six.)*
+   *Fictional rows. The example.com addresses can't receive mail. (This workbook has a seventh test row; yours needs six.) This screenshot shows the data already formatted as a table. Yours looks plain until you format it in the next step.*
 
 5. Select any cell with data in it, then select the **Insert** tab and **Table**. In the box that opens, make sure **My table has headers** is ticked, and select **OK**. The rows turn into a striped table.
 
    ![The Insert tab on the Excel for the web ribbon](./images/02-05-insert-tab.png)
 
-   *Table is on the Insert tab, near its left end.*
+   *Insert is the third tab, after File and Home. Table is near the left end of the Insert tab.*
 6. With a cell in the table still selected, select the **Table Design** tab that has appeared at the end of the ribbon.
 7. At the far left of that tab, select the name box (it reads something like **Table1**), type `tblTraining` and press Enter.
 
@@ -99,8 +98,9 @@ If Power Automate can't find the table later, check three things: the workbook i
 1. Download the test files: **[test-files.zip](./test-files.zip)** (one click, all three files). Open your Downloads folder, right-click the ZIP and choose **Extract All**.
 2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail**.
 3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter `[PA TRAINING] Attachment test`.
-4. Select **Attach file** on the ribbon, then **Browse this computer**, and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`.
-5. **Don't send it.** Close the message window. Outlook keeps it in **Drafts**.
+4. Select the large empty area under the subject line (the message body) and type `Training attachment test.`
+5. On the **Message** tab of the ribbon, select **Attach file** > **Browse this computer**, go to the extracted test files and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`. If Outlook asks whether to attach the picture or insert it inline, choose to attach it.
+6. **Don't send it.** Outlook saves the message automatically (you see **Draft saved** at the right of the subject line). Select **Inbox** in the folder list to leave it. The message waits in **Drafts**.
 
 ![Outlook on the web draft with subject PA TRAINING Attachment test and two attachments](./images/02-04-draft-email.png)
 
@@ -129,7 +129,7 @@ The Teams connector is standard, but your organisation may restrict posting or r
 ## 2.6 Confirm the Power Automate Environment
 
 1. Return to Power Automate.
-2. Check the environment selector near the top of the page.
+2. Look at the top right of the blue bar. The small word **Environments** sits above your environment's name.
 3. Confirm it matches the environment your trainer gave you.
 
 > **Key point:** OneDrive files, Excel workbooks, Forms and Teams destinations aren't packaged automatically when a solution is moved. Keep a note of where each resource lives. Your trainer demonstrates moving flows in Chapter 10.

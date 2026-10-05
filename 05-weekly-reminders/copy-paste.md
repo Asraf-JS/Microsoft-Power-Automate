@@ -37,7 +37,7 @@ Please contact the training coordinator if your plans change.
 
 ## Readable session date (section 5.6)
 
-Type `/` where the SessionDate token was, choose **Insert expression**, paste, then select **Add**.
+With the cursor right after `Session date: ` (where the SessionDate token was), type `/`, choose **Insert expression**, paste, then select **Add**.
 
 ```
 formatDateTime(items('Apply_to_each')?['SessionDate'], 'dd MMM yyyy')
