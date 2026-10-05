@@ -4,7 +4,7 @@ Every flow in this course reads from or writes to something: a folder, a table, 
 
 > **Copy-paste values:** the Excel headers, table name and email subject are on the [copy-paste page](./copy-paste.md).
 
-**Estimated time:** 90 minutes
+**Estimated time:** 30 minutes
 
 **Your result:** A training folder, an Excel workbook with a table, and safe test data for the first two build exercises.
 
@@ -96,7 +96,7 @@ If Power Automate can't find the table later, check three things: the workbook i
 
 ## 2.3 Prepare a Test Email
 
-1. Get the two test files onto your computer. They're in the course ZIP you downloaded at the start, inside `02-prepare-workspace/test-files`. (No ZIP? Open the [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder, select a file, then select the **Download raw file** button at the top right.)
+1. Download the test files: **[test-files.zip](./test-files.zip)** (one click, all three files). Open your Downloads folder, right-click the ZIP and choose **Extract All**.
 2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail**.
 3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter `[PA TRAINING] Attachment test`.
 4. Select **Attach file** on the ribbon, then **Browse this computer**, and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`.
