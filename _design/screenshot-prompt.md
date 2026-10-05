@@ -115,3 +115,36 @@ Capture 11 new screenshots for this repo's Power Automate guide. Same setup as b
 
 Then commit "Add round 3 gap-fill screenshots" and push. Reply with the files saved and anything that didn't match.
 ```
+
+---
+
+## Chapter 3 stage-by-stage prompt (round 4)
+
+After the first class, people got lost in 3.2 to 3.4 because each screenshot showed the finished flow on the canvas, including steps they hadn't built yet. The crops hide that for now. This round recaptures those shots properly by building a throwaway copy of the flow one stage at a time, and adds the See more picker and the classic run view. Paste this into one Codex conversation.
+
+```text
+Recapture Chapter 3 screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1, mask the account avatar. Keep output short. Read only 03-save-email-attachments/README.md, 03-save-email-attachments/copy-paste.md and _design/shots/NOTES.md. Save each clean capture to BOTH 03-save-email-attachments/images/<file> and _design/shots/raw/<file> (overwrite). Don't edit any README or annotations.json.
+
+Part 1: build a throwaway flow, NEVER save it.
+Create a new automated cloud flow named "PA - Shots stage build" with the trigger When a new email arrives (V3), following README sections 3.1 to 3.5 with the copy-paste values. Do not select Save at any point (an unsaved flow can't trigger on real email). For canvas shots, keep designer zoom about 100% and pan so every action on the canvas is visible. The canvas must show ONLY what has been built so far.
+
+1. 03-02-trigger.png: after 3.2. Trigger selected, Parameters tab showing Include Attachments Yes, Folder Inbox, Subject Filter PA TRAINING, Only with Attachments Yes. Canvas shows the trigger alone.
+2. 03-03-add-action.png: start of 3.3. The + below the trigger selected, Add an action panel open with "Apply to each" typed in the search box and Apply to each visible under Control.
+3. 03-03-apply-to-each.png: end of 3.3. Apply to each selected, Attachments token in "Select an output from previous steps". Canvas shows the trigger and an EMPTY Apply to each, nothing else.
+4. 03-04-see-more.png: during 3.4. Condition added inside Apply to each, cursor in the left "Choose a value" box, dynamic content picker open with the When a new email arrives (V3) group visible and its "See more" link showing. Don't type in the search box for this one.
+5. 03-04-search-name.png: same moment, "name" typed in the picker's search box so Attachments Name is listed. Then select Attachments Name.
+6. 03-04-condition.png: end of 3.4. Condition selected, Attachments Name / ends with / .pdf filled in. Canvas shows trigger, Apply to each, Condition with EMPTY True and False.
+7. 03-05-create-file.png: end of 3.5 step 5. Create file selected with Folder Path /Power Automate Training/Attachments, File Name = Attachments Name, File Content = Attachments Content. Canvas shows Create file in True, False empty.
+
+Then leave the designer WITHOUT saving (Back, then Leave or Discard if asked). Confirm "PA - Shots stage build" is not in My flows; if it is, delete it.
+
+Part 2: classic run view (no new tests).
+8. 03-08-classic-view.png: open the existing "PA - Save training PDF attachments" run history, open the latest successful run that processed 2 attachments, turn the "New view" toggle (top right) OFF. Expand Apply to each, step to the iteration whose Condition is false, and expand Condition so the false result and the skipped Create file are both visible. Turn New view back ON afterwards.
+9. 03-08-new-view-toggle.png: the same run page with New view ON, used only to show where the toggle sits; any state is fine.
+
+If a screen doesn't match the description, use the closest equivalent and add one line to _design/shots/NOTES.md (shot, what you expected, what the UI showed).
+
+Then run node _design/check-screenshots.mjs, commit "Recapture Chapter 3 stage-by-stage screenshots", and push. Reply with only the files saved and any NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it adds the red boxes and numbers in `annotations.json`, drops the temporary crops for 03-02, 03-03 and 03-04, and adds the new images (add-action, see-more, search-name, classic view) to the README.
