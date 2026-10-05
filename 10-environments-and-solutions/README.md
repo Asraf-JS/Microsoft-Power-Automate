@@ -55,13 +55,13 @@ Power Automate, Power Apps and Copilot Studio all sit on the Power Platform, so 
 
 ## 10.1 Confirm the Current Environment
 
-Check the environment selector before you create or import anything, and confirm with the trainer that it's the development or training environment. If a flow or solution seems to be missing, check the environment before rebuilding it.
+Check the environment selector before you create or import anything (top right of the blue bar, under the small word **Environments**), and confirm with the trainer that it's the development or training environment. If a flow or solution seems to be missing, check the environment before rebuilding it.
 
 ---
 
 ## 10.2 Create the Solution
 
-Open **Solutions**, select **New solution**, and enter:
+In the left navigation, select **Solutions** (if you don't see it, select **More** to find it). Then select **+ New solution** at the left end of the toolbar. The **New solution** panel opens on the right. Enter:
 
 | Field | Value |
 |-------|-------|
@@ -70,7 +70,7 @@ Open **Solutions**, select **New solution**, and enter:
 | Publisher | The trainer-approved publisher |
 | Version | 1.0.0.0 |
 
-Then select **Create**. The display name is the friendly label. The unique name is used internally and normally shouldn't change later.
+For **Publisher**, open the dropdown and pick the publisher your trainer names. Then select **Create** at the bottom of the panel. The display name is the friendly label. The unique name is used internally and normally shouldn't change later.
 
 ![New solution panel with display name Power Automate Training Migration, name, publisher and version 1.0.0.0](./images/10-01-new-solution.png)
 
@@ -80,12 +80,12 @@ Then select **Create**. The display name is the friendly label. The unique name 
 
 ## 10.3 to 10.7 Add the Capstone Flow
 
-1. Open the new solution. Its object list is empty: a new solution is just a container.
-2. Select **Add existing** and point to **Automation**.
+1. Open the new solution: in the **Solutions** list, select its display name, `Power Automate Training Migration`. Its object list is empty: a new solution is just a container.
+2. In the toolbar at the top, select **Add existing** and point to **Automation**.
 3. Under Automation, select **Cloud flow**.
-4. Find `PA - Weekly training capstone`. Depending on how your environment stores flows, it's on the **From Dataverse** tab or the **Outside Dataverse** tab.
-5. Select the capstone, then **Add**.
-6. If only the flow appears in the solution, select it, then **Advanced** > **Add required objects**. This adds the connection references it needs.
+4. Find `PA - Weekly training capstone`. Depending on how your environment stores flows, it's on the **From Dataverse** tab or the **Outside Dataverse** tab. Scroll the list, or type its name in **Search cloud flows** at the top right of the panel.
+5. Select the circle to the left of the capstone's name, then select **Add** at the bottom of the panel.
+6. If only the flow appears in the solution, select the circle beside it, then in the toolbar select **Advanced** > **Add required objects**. This adds the connection references it needs.
 
 ![Add existing cloud flows panel with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
 
@@ -109,13 +109,13 @@ Confirm the solution has three objects: the capstone cloud flow and the Excel On
 
 ## 10.9 Review the Solution Before Export
 
-Open **Overview** and check the name, version, package type, publisher and included items.
+Inside a solution, the far-left rail shows icons only. Select the **Overview** icon, the page-shaped icon just under the back arrow (hover over an icon to see its name). Check the name, version, package type, publisher and included items. **Export** is in the toolbar at the top of the Overview page.
 
 ---
 
 ## 10.10 to 10.12 Publish and Export
 
-1. Select **Export**. If a **Before you export** panel offers **Publish**, select it so the latest changes are included, and wait for **Published**.
+1. In the toolbar at the top of the Overview page, select **Export**. If a **Before you export** panel offers **Publish**, select it so the latest changes are included, and wait for **Published**.
 2. Select **Next**.
 
    ![Export solution panel with Unmanaged selected and the suggested version number](./images/10-04-export.png)
@@ -133,8 +133,8 @@ An unmanaged package suits this exercise because its components can be edited af
 
 ## 10.13 and 10.14 Switch Environment and Start the Import
 
-1. Use the environment selector to choose the trainer-approved target environment, and confirm its name before opening **Solutions**.
-2. Select **Import solution**, then **Browse** to the exported ZIP. Select **Next** only after confirming the package name and the target environment.
+1. Select the environment name at the top right of the blue bar and choose the trainer-approved target environment. Confirm its name before opening **Solutions** in the left navigation.
+2. Select **Import solution** in the toolbar at the top of the Solutions page, then **Browse** to the exported ZIP. Select **Next** only after confirming the package name and the target environment.
 
 The demonstration stops here. No file is uploaded and nothing is imported. Your trainer may not switch environments at all if there's no second training environment. **Never use production as a stand-in for a training target.**
 

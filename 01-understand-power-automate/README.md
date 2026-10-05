@@ -104,7 +104,7 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
    *The Power Automate home page.*
 
-3. Find the environment name near the top of the page, under **Environments**. An environment is a workspace that holds Power Platform resources, including flows.
+3. Look at the top right of the blue bar. The small word **Environments** sits above your environment's name. An environment is a workspace that holds Power Platform resources, including flows.
 4. Compare it with the environment your trainer gave you. If they differ, ask before you build anything.
 
 ![The Environments selector at the top right of Power Automate showing the current environment](./images/01-02-environment.png)
@@ -113,7 +113,7 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
 **Find the three cloud-flow choices**
 
-1. Expand the left navigation if it's collapsed, then select **Create**.
+1. If you see only icons on the left, select the three-line menu icon at the top left (above **Home**) to show the labels. Then select **Create** in the left navigation.
 2. Under **Start from blank** you see six tiles. Three of them create cloud flows from scratch, and those are what this course uses:
 
    | Tile | Description on the tile | Used in this course |
@@ -139,9 +139,9 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
    ![Left navigation with My flows highlighted](./images/01-04-my-flows.png)
 
-   *My flows lists every flow you've built.*
+   *My flows lists every flow you've built. Your list is probably empty for now. The flows you build in Chapters 3 to 8 appear here, like the ones in this screenshot.*
 
-2. Select **Home** to return to the start page.
+2. Select **Home** at the top of the left navigation to return to the start page.
 
 ---
 
@@ -183,7 +183,7 @@ A good plan uses a scheduled flow with a local time zone, needs values like emai
 | A different Microsoft account opens automatically | Check the account shown on the page. Use the Edge profile meant for training |
 | You can't open Power Automate | Check the address and connection, then ask the trainer to verify access. Note the error message |
 | The environment name is unfamiliar | Compare it with the class instructions before creating anything |
-| Create isn't visible | Expand the left navigation. If it's still missing, ask the trainer to check access |
+| Create isn't visible | Select the three-line menu icon at the top left to show the navigation labels. If it's still missing, ask the trainer to check access |
 | The page looks different from the screenshot | Look for the named command. Layouts vary |
 | A trial or upgrade prompt appears | Check what you selected. The core lessons use the Free baseline |
 | You can't decide which flow type to use | Finish the sentence "This process should begin when..." and match it to a type |

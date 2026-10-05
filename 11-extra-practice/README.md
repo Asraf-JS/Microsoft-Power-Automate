@@ -21,28 +21,35 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 > **Tip:** Turn each flow off when you've finished testing, unless you want to keep using it. Open it from **My flows** and select **Turn off** in the toolbar, where **Turn on** was.
 
+> **How the steps work:** the designer basics are the same as in Chapter 3.
+>
+> - **Add an action:** on the canvas, select the **+** under the last step, then **Add an action**. Type the action's name in the search box and pick it under the named connector.
+> - **Insert a value:** click into the field, then select the lightning bolt icon beside the box (or type `/` and choose **Insert dynamic content**) and pick the value. If you can't see it, select **See more** under the step's name, or type the value's name in the picker's search box.
+> - **Save** and **Test** are at the top right of the designer.
+
 ---
 
 ## A. Flagged Email to To Do
 
 **The problem:** You flag emails to come back to, then forget about them. This flow adds every flagged email to your personal To Do list.
 
-1. Select **Create** > **Automated cloud flow**. Name it `PA - Flagged email to To Do`.
-2. Choose the trigger **When an email is flagged (V4)** (Office 365 Outlook) and select **Create**.
-3. In the trigger, set **Folder** to **Inbox**.
-4. Add **Add a to-do (V3)** (Microsoft To Do (Business)):
+1. Select **Create** in the left navigation, then the **Automated cloud flow** tile. In **Flow name**, enter `PA - Flagged email to To Do`.
+2. In the trigger search box, type `flagged`, select **When an email is flagged (V4)** under **Office 365 Outlook**, and select **Create**.
+3. Select the trigger card on the canvas to open its panel on the left, and set **Folder** to **Inbox**.
+4. Under the trigger, select **+** > **Add an action**, search `to-do`, and choose **Add a to-do (V3)** under **Microsoft To Do (Business)**. Open the **To-do List** dropdown and pick **Tasks**, then fill in the other two fields:
 
    | Field | Value |
    |-------|-------|
-   | To-do List | Tasks |
-   | Title | Type `Follow up: ` then insert **Subject** |
+   | Title | Type `Follow up: ` (with a space at the end), then insert **Subject** |
    | Body Content | Type `From ` then insert **From** |
 
    ![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/11-01-todo.png)
 
    *The flagged email's subject becomes the task title.*
 
-5. Save, then **Test** > **Manually** > **Test**. Flag any email in your Outlook inbox. Within a minute, the task appears in Microsoft To Do.
+   > **Note:** After you pick **Tasks**, the To-do List field may show a long ID instead of the name. That's normal.
+
+5. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, flag any email in your inbox. Within a minute, the task appears in Microsoft To Do.
 
 ---
 
@@ -50,24 +57,24 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **The problem:** You think of something and want a quick reminder where you'll see it. This instant flow asks you for a message and sends it to you as a Teams chat from Flow bot. It only posts in your own chat with Flow bot.
 
-1. Select **Create** > **Instant cloud flow**. Name it `PA - Send me a note`.
-2. Choose **Manually trigger a flow** and select **Create**.
-3. Select the trigger, then **+ Add an input** > **Text**. Rename the input from *Input* to `Message`.
+1. Select **Create** in the left navigation, then the **Instant cloud flow** tile. In **Flow name**, enter `PA - Send me a note`.
+2. Under **Choose how to trigger this flow**, select **Manually trigger a flow**, then select **Create**.
+3. Select the trigger card on the canvas. In its panel, select **+ Add an input**, then **Text**. Select the first box, which reads *Input*, delete that word and type `Message`.
 
    ![Manually trigger a flow with a Text input named Message](./images/11-02-input.png)
 
    *A trigger input asks the person running the flow to type something first.*
 
-4. Add **Post message in a chat or channel** (Microsoft Teams):
+4. Under the trigger, select **+** > **Add an action**, search `post message`, and choose **Post message in a chat or channel** under **Microsoft Teams**. Fill in the fields in this order, because **Recipient** only appears after you choose **Post in**:
 
    | Field | Value |
    |-------|-------|
    | Post as | Flow bot |
    | Post in | Chat with Flow bot |
    | Recipient | Your own email address |
-   | Message | Type `Reminder: ` then insert **Message** from the trigger |
+   | Message | Type `Reminder: ` (with a space at the end), then insert **Message** from *Manually trigger a flow* |
 
-5. Save, then **Test** > **Manually** > **Test**. Type a short message and select **Run flow**. The message appears in Teams, in your chat with Flow bot.
+5. Select **Save**, then **Test** > **Manually** > **Test**. In the panel that opens, type a short message, then select **Run flow**. The message appears in Teams, in your chat with Flow bot.
 
 > **Note:** Earlier versions of this exercise used **Send me a mobile notification**. During testing that action reported that the Power Automate mobile app had been retired and notifications had nowhere to go, so this version uses Teams instead.
 
@@ -77,23 +84,23 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **The problem:** Some emails need keeping as files: a confirmation, a booking, an agreement. This flow saves any email you send yourself with `[PA SAVE]` in the subject as a file in your training folder.
 
-1. Select **Create** > **Automated cloud flow**. Name it `PA - Save email to OneDrive`.
-2. Choose **When a new email arrives (V3)** (Office 365 Outlook) and select **Create**.
-3. In the trigger, set **Folder** to **Inbox**. Under **Show all**, set **Subject Filter** to `[PA SAVE]`.
-4. Add **Export email (V2)** (Office 365 Outlook). In **Message Id**, insert **Message Id** from the trigger.
-5. Add **Create file** (OneDrive for Business):
+1. Select **Create** in the left navigation, then the **Automated cloud flow** tile. In **Flow name**, enter `PA - Save email to OneDrive`.
+2. In the trigger search box, type `new email`, select **When a new email arrives (V3)** under **Office 365 Outlook**, and select **Create**.
+3. Select the trigger card on the canvas to open its panel, and set **Folder** to **Inbox**. Near the bottom of the panel, next to **Advanced parameters**, select **Show all**, then type `[PA SAVE]` in **Subject Filter**.
+4. Under the trigger, select **+** > **Add an action**, search `export email`, and choose **Export email (V2)** under **Office 365 Outlook**. Click into **Message Id** and insert **Message Id** from *When a new email arrives (V3)*.
+5. Under **Export email (V2)**, select **+** > **Add an action**, search `create file`, and choose **Create file** under **OneDrive for Business**:
 
    | Field | Value |
    |-------|-------|
-   | Folder Path | `/Power Automate Training/Reports` |
-   | File Name | Insert **Subject**, then type `.eml` |
+   | Folder Path | Type `/Power Automate Training/Reports`, or select the folder icon at the right of the box and browse to **Reports** |
+   | File Name | Insert **Subject** from the trigger, then type `.eml` straight after it |
    | File Content | Insert **Body** from *Export email (V2)* |
 
    ![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/11-03-save-email.png)
 
    *Export email turns the message into a file. Create file saves it.*
 
-6. Save and **Test**. Send yourself an email with the subject `[PA SAVE] Booking confirmation`. A `.eml` file appears in Reports. Double-click it to open it in Outlook.
+6. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, send yourself an email with the subject `[PA SAVE] Booking confirmation`. A `.eml` file appears in Reports. Double-click it to open it in Outlook.
 
 ---
 
@@ -101,22 +108,22 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **The problem:** You want to keep up with Power Automate news without checking the blog. This flow emails you whenever a new post is published.
 
-1. Select **Create** > **Automated cloud flow**. Name it `PA - Power Platform news`.
-2. Search for `RSS`, choose **When a feed item is published**, and select **Create**.
-3. In **The RSS feed URL**, paste the Microsoft Power Platform blog feed from the copy-paste page.
-4. Add **Send an email (V2)** (Office 365 Outlook):
+1. Select **Create** in the left navigation, then the **Automated cloud flow** tile. In **Flow name**, enter `PA - Power Platform news`.
+2. In the trigger search box, type `RSS`, select **When a feed item is published**, and select **Create**.
+3. Select the trigger card on the canvas. In **The RSS feed URL**, paste the Microsoft Power Platform blog feed from the copy-paste page.
+4. Under the trigger, select **+** > **Add an action**, search `send an email`, and choose **Send an email (V2)** under **Office 365 Outlook**:
 
    | Field | Value |
    |-------|-------|
-   | To | Your own email address |
-   | Subject | Type `New post: ` then insert **Feed title** |
+   | To | Type your own email address and select it from the suggestions |
+   | Subject | Type `New post: ` (with a space at the end), then insert **Feed title** |
    | Body | Insert **Feed summary**, press Enter, then insert **Primary feed link** |
 
    ![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/11-04-rss.png)
 
-   *The RSS connector watches a public web feed. It reads, and never writes, anything.*
+   *The RSS connector watches a public web feed. It reads, and never writes, anything. Ignore any extra fields such as **Importance**; leave them as they are.*
 
-5. Save, then select **Back** (top left) to reach the flow's details page, and select **Turn on** in the toolbar. The next new blog post arrives in your inbox.
+5. Select **Save**, then select **Back** (top left) to reach the flow's details page, and select **Turn on** in the toolbar. The next new blog post arrives in your inbox.
 
    ![The flow details toolbar with Turn on](./images/11-05-turn-on.png)
 
