@@ -38,3 +38,7 @@
 - Round four, 03-04-condition.png: expected one filled comparison; the UI adds an empty comparison placeholder row and truncates the Attachments Name token label.
 - Round four, 03-05-create-file.png: expected full Attachments Name and Attachments Content labels; the UI truncates both token chips with ellipses, while their picker labels confirm the selected values.
 - Round four, 03-08-classic-view.png: expected True and False branches; the classic run view labels them If yes and If no and marks the skipped Create file with a grey skip icon.
+
+- Round five, 02-04-draft-email.png: Outlook uses New rather than New mail; the JPG appears as a thumbnail attachment above the body instead of a compact chip. Its menu offers Move image to the message body, confirming it is not inline.
+- Round five, 02-02-workbook-rows.png and 02-05-insert-tab.png: Excel's clipboard bridge dropped the paste; entered the supplied headers and six sample rows with keyboard input, then used Auto Fit Column Width to show every value.
+- Round five, 04-04-select.png: Select adds a blank Map placeholder after the four filled rows.
