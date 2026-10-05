@@ -38,12 +38,12 @@ PA - Training request approval
 
 ## Approval details template (text, section 6.5)
 
-Paste into **Details**, then insert the matching answer from *Get response details* after each label.
+Paste into **Details**. Put the cursor after each label, select the lightning bolt icon, and pick the matching answer under *Get response details*.
 
 ```text
 **Requester:** 
 **Course:** 
-**Preferred date:** 
+**Preferred Date:** 
 **Business reason:** 
 ```
 
