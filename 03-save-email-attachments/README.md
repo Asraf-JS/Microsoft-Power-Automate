@@ -4,7 +4,7 @@ Your first build: an automated flow that watches for training emails and saves o
 
 > **Copy-paste values:** the flow name and subject filter are on the [copy-paste page](./copy-paste.md).
 
-**Estimated time:** 90 minutes
+**Estimated time:** 50 minutes
 
 **Your result:** An automated cloud flow that examines new training emails and saves only PDF attachments to OneDrive for Business.
 
@@ -129,6 +129,8 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 1. Select the **+** inside the **Apply to each** box (not the one below it), then **Add an action**.
 2. Search for `Condition` and select it (under **Control**).
 3. Click into the left **Choose a value** box. Open the dynamic content picker and select **Attachments Name**. (After saving it shows as `name`.)
+
+   > **Can't see Attachments Name?** The picker only shows a few values per step at first. Select **See more** under *When a new email arrives (V3)*, or type `name` in the picker's search box.
 4. Set the middle box to **ends with**.
 5. In the right box, type `.pdf`.
 
@@ -152,8 +154,8 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
    ![The folder icon at the right end of the Folder Path box](./images/03-05-folder-icon.png)
 
    *The folder icon opens your OneDrive folders.*
-4. In **File Name**, insert **Attachments Name** from the dynamic content picker.
-5. In **File Content**, insert **Attachments Content**.
+4. In **File Name**, insert **Attachments Name** from the dynamic content picker (use **See more** or search `name` if it isn't listed).
+5. In **File Content**, insert **Attachments Content** (search `content` if it isn't listed).
 6. Leave the **False** branch empty. That's the deliberate decision to skip non-PDF files.
 
    ![Create file in the True branch with Folder Path, File Name set to Attachments Name, and File Content set to Attachments Content](./images/03-05-create-file.png)
@@ -162,7 +164,7 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 7. Select **Save** (top right), then the **Flow checker** icon (the stethoscope just left of **Save**). Confirm **Errors (0)** and **Warnings (0)**, then close the panel.
 
-![The completed flow on the canvas with Flow checker showing 0 errors and 0 warnings](./images/03-06-flow-checker.png)
+![The finished flow on the canvas: trigger, Apply to each, Condition, and Create file in the True branch](./images/03-06-finished-flow.png)
 
 *The finished flow: trigger, loop, condition, and one action in True.*
 
@@ -190,6 +192,8 @@ You don't need another email. The mixed test already produced both outcomes.
 
 1. In the same run, use the arrows on **Apply to each** to switch to the other iteration.
 2. Select **Condition**. The result is **false**, Create file shows as skipped, and the False branch has nothing to run.
+
+   > **The panel still shows the old result?** The run view sometimes doesn't refresh the details panel when you change the iteration. Select a different step (such as **Apply to each**), then select **Condition** again. You can also trust the canvas: on this iteration **Create file** shows a grey skip icon instead of a green tick. If it still won't update, switch **New view** off at the top right of the run page to use the classic run view, where each iteration opens inline.
 
 ![Iteration of the run where the condition is false and Create file is skipped](./images/03-08-run-skipped.png)
 

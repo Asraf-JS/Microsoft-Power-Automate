@@ -60,8 +60,8 @@ Each chapter takes one of those manual tasks and turns it into a flow:
 | Day | # | Chapter | Copy-paste | What you will do | Time |
 |-----|---|---------|------------|------------------|------|
 | 1 | 01 | [Understand Power Automate](./01-understand-power-automate/) | [Copy-paste](./01-understand-power-automate/copy-paste.md) | Learn triggers, actions and flow types, find your way around Power Automate, and plan an automation | 45 min |
-| 1 | 02 | [Prepare your training workspace](./02-prepare-workspace/) | [Copy-paste](./02-prepare-workspace/copy-paste.md) | Create the OneDrive folders, the Excel register and a test email | 90 min |
-| 1 | 03 | [Save email attachments automatically](./03-save-email-attachments/) | [Copy-paste](./03-save-email-attachments/copy-paste.md) | Build an automated flow that saves PDF attachments to OneDrive | 90 min |
+| 1 | 02 | [Prepare your training workspace](./02-prepare-workspace/) | [Copy-paste](./02-prepare-workspace/copy-paste.md) | Create the OneDrive folders, the Excel register and a test email | 30 min |
+| 1 | 03 | [Save email attachments automatically](./03-save-email-attachments/) | [Copy-paste](./03-save-email-attachments/copy-paste.md) | Build an automated flow that saves PDF attachments to OneDrive | 50 min |
 | 1 | 04 | [Create and distribute an Excel summary](./04-excel-summary/) | [Copy-paste](./04-excel-summary/copy-paste.md) | Build an instant flow that emails one summary table from Excel, and write your first expression | 90 min |
 | 1 | 05 | [Send weekly training reminders](./05-weekly-reminders/) | [Copy-paste](./05-weekly-reminders/copy-paste.md) | Build a scheduled flow that sends a personalised reminder for each row | 75 min |
 | 2 | 06 | [Process a training approval](./06-training-approval/) | [Copy-paste](./06-training-approval/copy-paste.md) | Connect Forms, Approvals and Teams in one flow | 75 min |
@@ -77,7 +77,7 @@ Each chapter takes one of those manual tasks and turns it into a flow:
 
 The file [TrainingRegister.xlsx](./02-prepare-workspace/TrainingRegister.xlsx) in the Chapter 2 folder is a ready-made Excel workbook with the `tblTraining` table and six fictional records. Only use it if your trainer tells you to, instead of building it yourself. Chapters 2 to 7 use it.
 
-The [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder in Chapter 2 holds the fictional email attachments for Chapters 2 and 3: `CourseOutline.pdf`, `TrainerPhoto.jpg` and `SessionNotes.docx`.
+**[test-files.zip](./02-prepare-workspace/test-files.zip)** holds the fictional email attachments for Chapters 2 and 3: `CourseOutline.pdf`, `TrainerPhoto.jpg` and `SessionNotes.docx`.
 
 ---
 
