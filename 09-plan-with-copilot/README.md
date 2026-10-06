@@ -2,7 +2,7 @@
 
 Copilot in Power Automate can turn a plain-language description into a suggested flow. A suggestion isn't a finished design, though. In this chapter you review what Copilot proposes, correct it precisely, and walk away without creating anything.
 
-> **Copy-paste values:** the three prompts for this chapter are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 30 minutes
 
@@ -47,7 +47,11 @@ On the Power Automate home page, select **Create with Copilot**. The Create page
 
 ## 9.2 Describe the Complete Business Outcome
 
-In **What will your flow do?**, paste prompt 1 from the copy-paste page and select the arrow icon at the bottom right of the box to send it.
+In **What will your flow do?**, paste prompt 1 and select the arrow icon at the bottom right of the box to send it. Copy it from the box below.
+
+```text
+Every Friday at 4:00 PM Singapore time, read rows from the tblTraining table in TrainingRegister.xlsx in OneDrive for Business. Keep rows whose Status is Registered and SessionDate is within the next 14 days. Email the training coordinator a summary count. Do not send participant emails.
+```
 
 ![Copilot prompt box containing the weekly coordinator summary prompt](./images/09-02-first-prompt.png)
 
@@ -80,7 +84,11 @@ Use these questions on any AI-generated flow plan:
 
 ## 9.4 Clarify the Filter and Count
 
-In **Add more details for Copilot to work with** (the box below the suggestion, to the right of **Keep it and continue**), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email.
+In **Add more details for Copilot to work with** (the box below the suggestion, to the right of **Keep it and continue**), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email. Copy it from the box below.
+
+```text
+Use a Filter array named FilteredRows to keep rows where Status is Registered and SessionDate is between today and 14 days from today. Calculate the count with length(body('FilteredRows')). Send one summary email only to coordinator@example.com. Do not add an Apply to each or any participant email.
+```
 
 ---
 
@@ -96,7 +104,11 @@ Copilot's answers vary from run to run. Check whether the second suggestion adde
 
 ## 9.6 Request a Streamlined Design
 
-Paste prompt 3 into the same **Add more details for Copilot to work with** box and select the arrow icon at its right end to send it. It says what to remove, why, and exactly which structure to keep. Copilot keeps each answer as a version. To compare them, use the small arrows beside **Version** (for example **Version 3 of 3**) below the suggestion.
+Paste prompt 3 into the same **Add more details for Copilot to work with** box and select the arrow icon at its right end to send it. It says what to remove, why, and exactly which structure to keep. Copilot keeps each answer as a version. To compare them, use the small arrows beside **Version** (for example **Version 3 of 3**) below the suggestion. Copy prompt 3 from the box below.
+
+```text
+Remove Get file metadata using path because List rows present in a table can select the workbook directly. Keep only Recurrence, List rows present in a table, Filter array named FilteredRows, Compose named Count using length(body('FilteredRows')), and one Send an email action to coordinator@example.com.
+```
 
 ---
 

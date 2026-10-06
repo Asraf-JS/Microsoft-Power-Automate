@@ -2,7 +2,7 @@
 
 A flow that works in one environment can still be hard to move safely. It depends on connections, tables and other components, and copying them one at a time makes it easy to miss something. Solutions package those pieces together.
 
-> **Copy-paste values:** the solution names are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 60 minutes (trainer demonstration)
 
@@ -65,10 +65,10 @@ In the left navigation, select **Solutions** (if you don't see it, select **More
 
 | Field | Value |
 |-------|-------|
-| Display name | Power Automate Training Migration |
-| Name | PowerAutomateTrainingMigration |
+| Display name | `Power Automate Training Migration` |
+| Name | `PowerAutomateTrainingMigration` |
 | Publisher | The trainer-approved publisher |
-| Version | 1.0.0.0 |
+| Version | `1.0.0.0` |
 
 For **Publisher**, open the dropdown and pick the publisher your trainer names. Then select **Create** at the bottom of the panel. The display name is the friendly label. The unique name is used internally and normally shouldn't change later.
 

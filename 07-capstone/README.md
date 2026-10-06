@@ -2,7 +2,7 @@
 
 Chapter 5 sent a reminder to every row, including people who had already finished. The capstone turns that into a process a coordinator would actually use: skip completed training, limit the window to the next 14 days, count what was sent, and handle the week when nothing matches.
 
-> **Copy-paste values:** action names, the variable name and summary text are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 65 minutes
 
@@ -112,9 +112,9 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 | Field | Value |
 |-------|-------|
-| Name | ReminderCount |
+| Name | `ReminderCount` |
 | Type | Integer |
-| Value | 0 |
+| Value | `0` |
 
 ![Initialize variable named Initialize reminder count with ReminderCount, Integer, 0](./images/07-04-variable.png)
 
@@ -156,7 +156,13 @@ You now have both ends of the window: **Current time** (already in the flow from
 
    > **Note:** The new condition appears *above* the email, and the email stays where it was, underneath the condition rather than inside it. You move it into **True** in step 7.
 2. Rename it: select the title at the top of the panel and type `Is the session in the next 14 days`.
-3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater than or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
+3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste the expression (copy it from the box below) and select **Add**.
+
+   ```text
+   items('Apply_to_each')?['SessionDate']
+   ```
+
+   (See the key point below for why.) If your loop has a different name (for example Apply_to_each_1), change the name in the expression to match. The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater than or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
 4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less than or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
 5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
 6. Check the dropdown above the rows reads **And**, so both rules must be true.
@@ -170,7 +176,7 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 *Two rules joined by AND. Your boxes show pink fx tokens from the expression; the picture shows the same values. The screenshot still shows the empty row; delete it on yours.*
 
-> **Key point: why an expression here?** Once the loop runs over Filter array's **Body**, the dynamic content picker no longer lists the Excel columns. If you pick **SessionDate** from *List rows present in a table* anyway, the designer wraps the condition in a second, unwanted loop. The expression `items('Apply_to_each')?['SessionDate']` simply means "the SessionDate of the row this loop is on right now". It's on the copy-paste page. The email tokens you added in Chapter 5 keep working, because they already point at the loop's current row.
+> **Key point: why an expression here?** Once the loop runs over Filter array's **Body**, the dynamic content picker no longer lists the Excel columns. If you pick **SessionDate** from *List rows present in a table* anyway, the designer wraps the condition in a second, unwanted loop. The expression `items('Apply_to_each')?['SessionDate']` simply means "the SessionDate of the row this loop is on right now". The email tokens you added in Chapter 5 keep working, because they already point at the loop's current row.
 
 This works because the Excel dates are in ISO 8601 format (set in Chapter 5), the same format as Current time and Future time. Same format means they compare correctly.
 
@@ -231,7 +237,19 @@ On the canvas, inside the green **True** box under **If reminders were prepared*
 |-------|-------|
 | To | Type your own email address, then select it from the list. (The screenshot shows `coordinator@example.com`, a placeholder: see the warning below.) |
 | Subject | `[PA TRAINING] Weekly reminder summary` |
-| Body | Type `The weekly training reminder flow prepared `, then select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick **ReminderCount** under *Variables*. Then type ` reminder(s) for upcoming sessions in the next 14 days.` |
+| Body | Type `The weekly training reminder flow prepared `, then select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick **ReminderCount** under *Variables*. Then type ` reminder(s) for upcoming sessions in the next 14 days.` (with the space at the start). Both text pieces are in the boxes below the table. |
+
+Body, first part (paste before the **ReminderCount** token, keep the space at the end):
+
+```text
+The weekly training reminder flow prepared 
+```
+
+Body, second part (paste after the token, keep the space at the start):
+
+```text
+ reminder(s) for upcoming sessions in the next 14 days.
+```
 
 ![Send coordinator summary with the ReminderCount token in the body](./images/07-09-summary-email.png)
 
@@ -249,7 +267,11 @@ On the canvas, inside the green **True** box under **If reminders were prepared*
 
 ## 7.10 Handle a Week with No Matching Rows
 
-On the canvas, inside the red **False** box, select the **+**, then **Add an action**. Search for `Compose` and select it under **Data Operation**. Rename it `No upcoming records`, and type `No upcoming training records were found for the next 14 days.` in **Inputs**.
+On the canvas, inside the red **False** box, select the **+**, then **Add an action**. Search for `Compose` and select it under **Data Operation**. Rename it `No upcoming records`, and paste the text below in **Inputs**. Copy it from the box below.
+
+```text
+No upcoming training records were found for the next 14 days.
+```
 
 That records a clear outcome in run history without sending an unnecessary email.
 
@@ -291,7 +313,15 @@ Without running the flow, change the window from 14 days to 7 by editing only **
 
 ---
 
-> **Going further: one filter that does it all.** Experienced makers often replace the filter and the date condition with a single Filter array in **advanced mode**, using an expression that also ignores capital letters and stray spaces. The expression is on the copy-paste page. You'll build flows like that in the advanced course. Optional.
+> **Going further: one filter that does it all.** Experienced makers often replace the filter and the date condition with a single Filter array in **advanced mode**, using an expression that also ignores capital letters and stray spaces. You'll build flows like that in the advanced course. Optional. To try it, in Filter array choose **Edit in advanced mode** and paste the expression below.
+
+```text
+@and(
+not(equals(toLower(trim(item()?['Status'])), 'completed')),
+greaterOrEquals(ticks(item()?['SessionDate']), ticks(startOfDay(utcNow()))),
+lessOrEquals(ticks(item()?['SessionDate']), ticks(addDays(startOfDay(utcNow()), 14)))
+)
+```
 
 ---
 
