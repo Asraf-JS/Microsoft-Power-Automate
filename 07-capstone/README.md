@@ -4,7 +4,7 @@ Chapter 5 sent a reminder to every row, including people who had already finishe
 
 > **Copy-paste values:** action names, the variable name and summary text are on the [copy-paste page](./copy-paste.md).
 
-**Estimated time:** 90 minutes
+**Estimated time:** 65 minutes
 
 **Your result:** A copy of the weekly reminder flow that keeps only upcoming incomplete records, counts the reminders, and follows a clear summary or no-records branch.
 
@@ -229,13 +229,15 @@ On the canvas, inside the green **True** box under **If reminders were prepared*
 
 | Field | Value |
 |-------|-------|
-| To | Type `coordinator@example.com`, then select it from the list (it shows as a custom value) |
+| To | Type your own email address, then select it from the list. (The screenshot shows `coordinator@example.com`, a placeholder: see the warning below.) |
 | Subject | `[PA TRAINING] Weekly reminder summary` |
 | Body | Type `The weekly training reminder flow prepared `, then select the lightning bolt (or type `/` and choose **Insert dynamic content**) and pick **ReminderCount** under *Variables*. Then type ` reminder(s) for upcoming sessions in the next 14 days.` |
 
 ![Send coordinator summary with the ReminderCount token in the body](./images/07-09-summary-email.png)
 
 *The variable drops into the email like any other dynamic content.*
+
+> **Warning: `coordinator@example.com` is not a real mailbox.** It stands in for the training coordinator. Mail sent to it bounces, so the summary would never arrive. Put your own email address in **To**, so the summary comes to you when you test. The learner reminders inside the loop go to the Email column in the workbook, so put your own address in the rows you test with too (Chapter 5 has the same warning).
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -272,20 +274,20 @@ That records a clear outcome in run history without sending an unnecessary email
 
 ## Trainer-Controlled Test
 
-A test can send one learner reminder per matching row plus, when the count is positive, a coordinator summary. With the sample data on 17 September 2026, four rows match (21, 22, 24 and 28 September). The trainer replaces every `example.com` address, saves the workbook, confirms the coordinator address and authorises the run first.
+A test can send one learner reminder per matching row plus, when the count is positive, a coordinator summary. With dates set as in Chapter 2 (section 2.2, step 4), at least two rows match. Before testing, replace every `example.com` address with your own, both in the workbook's Email column and in **Send coordinator summary**, save the workbook, and wait for the trainer's go-ahead.
 
 Afterwards, check the run history:
 
-- Filter out completed training returned four rows
-- Apply to each ran four times, and the date condition was true each time
-- ReminderCount ended at 4
+- Filter out completed training returned only the rows that aren't Completed (four with the sample data)
+- Apply to each ran once for each of those rows, and the date condition was true for the ones dated within the next 14 days
+- ReminderCount matches the number of true results
 - The final condition took True and prepared the coordinator summary
 
 ---
 
 ## Independent Practice
 
-Without running the flow, change the window from 14 days to 7 by editing only **Get future time**. Which sample rows would match on 17 September 2026? Then change it back to 14.
+Without running the flow, change the window from 14 days to 7 by editing only **Get future time**. Which of your rows would match today? Then change it back to 14.
 
 ---
 
