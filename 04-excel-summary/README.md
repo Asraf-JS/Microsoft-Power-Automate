@@ -92,6 +92,12 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 If **Table** shows *No items*, stop. The workbook has no formatted table. Go back to section 2.2.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 4.3: the settings panel on the left and the canvas on the right](./images/04-03-so-far.png)
+
+*The trigger and List rows present in a table.*
+
 ---
 
 ## 4.4 Choose the Report Columns
@@ -118,6 +124,12 @@ The Session date comes through as `2026-09-21T00:00:00.000Z`. That's fine for no
 
 Select handles every row for you, so you don't need an Apply to each here.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 4.4: the settings panel on the left and the canvas on the right](./images/04-04-so-far.png)
+
+*Select comes after List rows present in a table.*
+
 ---
 
 ## 4.5 Build One HTML Table
@@ -132,6 +144,12 @@ Select handles every row for you, so you don't need an Apply to each here.
 *The whole list goes in, one table comes out.*
 
 **Checkpoint:** If an Apply to each suddenly wraps this action, you picked a single column instead of the whole Output. Delete the loop and pick **Output** again.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 4.5: the settings panel on the left and the canvas on the right](./images/04-05-so-far.png)
+
+*Create HTML table comes after Select.*
 
 ---
 
@@ -148,6 +166,12 @@ Select handles every row for you, so you don't need an Apply to each here.
 ![Send an email (V2) with To, Subject, and the Body containing an introduction and the Create HTML table Output token](./images/04-06-email.png)
 
 *The table token goes in the body below a short introduction.*
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 4.6: the settings panel on the left and the canvas on the right](./images/04-06-so-far.png)
+
+*Five steps, with Send an email (V2) last. No count sentence yet.*
 
 ---
 

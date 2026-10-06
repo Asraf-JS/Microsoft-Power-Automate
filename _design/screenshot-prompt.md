@@ -197,3 +197,67 @@ If something doesn't match the README, use the closest equivalent and add one li
 ```
 
 When Codex is done, tell Claude: it removes the temporary patches and crops for these files, re-sets the red boxes, and checks each one against its step.
+
+---
+
+## "Your flow so far" checkpoints (round 6)
+
+At the end of each build section the guide shows a checkpoint: the whole screen, with the settings panel of the action just added open on the left and the flow so far on the canvas. Claude draws the big box around the panel, the box on the card and the arrow. Chapters 3, 4 and 5.5 are done from earlier captures. Paste this into one Codex conversation.
+
+```text
+Capture "flow so far" checkpoint screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1. Mask the account avatar AND anything that shows the signed-in email address (To chips with your address, "Connected to <email>" lines). Keep output short. Save each capture to BOTH <chapter>/images/<file> and _design/shots/raw/<file>. Don't edit any README or _design/shots/annotations.json. Read only the README.md and copy-paste.md of the chapters below, plus _design/shots/NOTES.md.
+
+What every checkpoint shows:
+- The whole designer, not cropped.
+- On the left, the settings panel of the action named below, open (select its card).
+- On the canvas, ONLY what the learner has built up to the end of that section, with every card readable (designer zoom about 100%; if the flow is taller than the screen, zoom out just enough to fit it, or pan so the selected card and everything above it in its branch is visible).
+- No dropdowns, pickers or tooltips open.
+
+Build each chapter in a throwaway flow, following its README step by step, and capture at the end of each listed section. NEVER save a throwaway flow (an unsaved flow can't run). At the end of each chapter leave without saving and confirm it isn't in My flows.
+
+Chapter 5, new scheduled flow "PA - Shots reminders build":
+1. 05-weekly-reminders/images/05-01-so-far.png: end of 5.1, Recurrence selected.
+2. 05-weekly-reminders/images/05-02-so-far.png: end of 5.2, Convert time zone selected.
+3. 05-weekly-reminders/images/05-03-so-far.png: end of 5.3, List rows present in a table selected.
+4. 05-weekly-reminders/images/05-04-so-far.png: end of 5.4, Apply to each selected (empty loop).
+
+Chapter 6, new automated flow "PA - Shots approval build" (Forms trigger, Training Request form). Do not submit the form or approve anything:
+5. 06-training-approval/images/06-03-so-far.png: end of 6.3, trigger selected.
+6. 06-training-approval/images/06-04-so-far.png: end of 6.4, Get response details selected.
+7. 06-training-approval/images/06-05-so-far.png: end of 6.5, Start and wait for an approval selected.
+8. 06-training-approval/images/06-06-so-far.png: end of 6.6, Condition selected (True and False empty).
+9. 06-training-approval/images/06-07-so-far.png: end of 6.7, the Teams action in True selected (False still empty).
+10. 06-training-approval/images/06-08-so-far.png: end of 6.8, the Teams action in False selected.
+
+Chapter 7: on My flows, Save As "PA - Weekly training reminders" with the name "PA - Shots capstone build" (the copy stays off). Open the copy and follow 7.2 to 7.10. Never select Save or Test in it.
+11. 07-capstone/images/07-02-so-far.png: end of 7.2, Filter array (renamed Filter out completed training) selected.
+12. 07-capstone/images/07-03-so-far.png: end of 7.3, Get future time selected.
+13. 07-capstone/images/07-04-so-far.png: end of 7.4, Initialize variable (ReminderCount) selected.
+14. 07-capstone/images/07-05-so-far.png: end of 7.5, Apply to each selected.
+15. 07-capstone/images/07-06-so-far.png: end of 7.6, the date Condition selected, Send an email (V2) inside True.
+16. 07-capstone/images/07-07-so-far.png: end of 7.7, Increment variable selected.
+17. 07-capstone/images/07-08-so-far.png: end of 7.8, the summary Condition selected.
+18. 07-capstone/images/07-09-so-far.png: end of 7.9, Send coordinator summary selected.
+19. 07-capstone/images/07-10-so-far.png: end of 7.10, the False-branch action selected.
+Then leave without saving and DELETE "PA - Shots capstone build".
+
+Chapter 8, new scheduled flow "PA - Shots briefing build":
+20. 08-morning-briefing/images/08-01-so-far.png: end of 8.1, Recurrence selected.
+21. 08-morning-briefing/images/08-02-so-far.png: end of 8.2, the last Initialize variable selected.
+22. 08-morning-briefing/images/08-03-so-far.png: end of 8.3, Get current weather selected.
+23. 08-morning-briefing/images/08-04-so-far.png: end of 8.4, Append to string variable selected.
+24. 08-morning-briefing/images/08-05-so-far.png: end of 8.5, the email branch's Append to string variable selected.
+25. 08-morning-briefing/images/08-06-so-far.png: end of 8.6, Busy day selected.
+26. 08-morning-briefing/images/08-07-so-far.png: end of 8.7, Set variable selected.
+27. 08-morning-briefing/images/08-08-so-far.png: end of 8.8, Send an email (V2) selected.
+
+Chapter 11, one throwaway flow per exercise, each named "PA - Shots 11X":
+28. 11-extra-practice/images/11-a-so-far.png: end of exercise A, Add a to-do (V3) selected.
+29. 11-extra-practice/images/11-b-so-far.png: end of exercise B, the Teams action selected.
+30. 11-extra-practice/images/11-c-so-far.png: end of exercise C, Create file selected.
+31. 11-extra-practice/images/11-d-so-far.png: end of exercise D, Send an email (V2) selected.
+
+If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then commit "Add flow-so-far checkpoints (round 6)" and push. Reply with only the files saved and any NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it adds the checkpoint boxes and arrows and puts each image at the end of its section.
