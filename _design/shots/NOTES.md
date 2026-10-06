@@ -50,3 +50,6 @@
 - Round seven, Forms: the app redirects to forms.cloud.microsoft and opens a Draft with Copilot pane; closed the pane. Before the first question, the question-type picker is labelled Quick start with instead of Add new question.
 - Round seven, 06-01-form.png: used 85% display zoom to fit all four required questions in the 1600x900 viewport; kept the default theme.
 - Round seven, Forms cleanup: Delete is available under My forms; Recent offers Remove from Recent instead. Deleted only the form created for these captures and preserved the older Training Request form.
+
+- Chapter 8 Scope revision: grouped the three parallel branches inside Gather briefing data, with variables before it and Busy day after it. Busy day Run after lists only the Scope with Is successful selected. Refreshed 17 designer captures and fitted canvas checkpoints; masked the account avatar and recipient address.
+- Chapter 8 Scope validation: Flow checker reported 0 errors and 0 warnings; a manual test succeeded with all three branches successful and Busy day false. Deleted only the separate validation flow after testing; the existing demo flow remains off.

@@ -15,7 +15,7 @@ Every morning you check the weather, your calendar and your inbox before the day
 - Create variables with **Initialize variable** and explain why they live at the top of a flow
 - Change variables with **Increment variable**, **Append to string variable** and **Set variable**
 - Run independent steps side by side with **parallel branches**
-- Bring parallel branches back together before a final step
+- Group parallel branches in a **Scope** and wait for the whole group before a final step
 - Use a variable's value in a condition and an email
 
 ---
@@ -25,15 +25,16 @@ Every morning you check the weather, your calendar and your inbox before the day
 ```
 Recurrence
   > Initialize four variables
-  > Three parallel branches:
-      Weather:  Get current weather
-      Meetings: Current time > Get future time > Get calendar view > loop (count + list)
-      Email:    Get emails > loop (list)
+  > Scope: Gather briefing data
+      > Three parallel branches:
+          Weather:  Get current weather
+          Meetings: Current time > Get future time > Get calendar view > loop (count + list)
+          Email:    Get emails > loop (list)
   > Condition: more than 4 meetings? > Set the subject
   > Send me the briefing
 ```
 
-The three lookups don't depend on each other. The weather doesn't need your calendar and your calendar doesn't need your inbox. When steps are independent, they can run **in parallel**, side by side, instead of waiting in a queue. The flow only moves on to the email once all three branches have finished.
+The three lookups don't depend on each other. The weather doesn't need your calendar and your calendar doesn't need your inbox. When steps are independent, they can run **in parallel**, side by side, instead of waiting in a queue. The **Gather briefing data** scope contains all three branches. The flow only moves on to **Busy day** and the email after the scope succeeds, once all three branches have finished.
 
 > **Note:** Your trainer has confirmed that MSN Weather, Office 365 Outlook and the Date Time actions are allowed in your environment. Nothing in this flow changes your calendar or mailbox.
 
@@ -76,9 +77,9 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 ![The first Initialize variable set to MeetingCount, Integer, 0, with four Initialize variable actions on the canvas](./images/08-02-variables.png)
 
-*All four variables are created before anything else happens. The canvas in the picture already shows the branches you add later; at this point you only have Recurrence and the four variables (see the checkpoint below).*
+*Recurrence and four variables, before the scope and branches are added.*
 
-> **Key point:** Initialize variable only works at the top level of a flow, not inside a loop, condition or branch. So every variable is created first, even ones you won't use until later.
+> **Key point:** Initialize variable only works at the top level of a flow, not inside a scope, loop or condition. So every variable is created first, even ones you won't use until later.
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -88,11 +89,14 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 ---
 
-## 8.3 Branch 1: The Weather
+## 8.3 Create the Scope and Branch 1: The Weather
 
-1. On the canvas, select the **+** below the last **Initialize variable** (named **Initialize variable 3**), then **Add an action**.
-2. Search for `Get current weather`. Under the **MSN Weather** heading, select **Get current weather**.
-3. In **Location**, type `Kuala Lumpur`. Open the **Units** dropdown and select **Metric**.
+A **Scope** is a container for related actions. We will put the weather, meetings and email branches inside one scope, so the next step can wait for the whole group. The scope groups the work; **Add a parallel branch** makes the lookups run side by side.
+
+1. On the canvas, select the **+** below the last **Initialize variable** (named **Initialize variable 3**), then **Add an action**. Search for `Scope` and select it under **Control**.
+2. Select the scope's title at the top of its panel, type `Gather briefing data`, then click away to finish renaming it. Keep all four Initialize variable actions outside the scope.
+3. Select the **+** inside **Gather briefing data**, then **Add an action**. Search for `Get current weather` and select it under **MSN Weather**.
+4. In **Location**, type `Kuala Lumpur`. Open the **Units** dropdown and select **Metric**.
 
 ![Get current weather with Location Kuala Lumpur and Units Metric](./images/08-03-weather.png)
 
@@ -100,17 +104,17 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.3: the settings panel on the left and the canvas on the right](./images/08-03-so-far.png)
+![Your flow so far after 8.3: the weather action inside Gather briefing data](./images/08-03-so-far.png)
 
-*Get current weather under the last variable.*
+*Gather briefing data below the variables, with Get current weather inside it.*
 
 ---
 
 ## 8.4 Branch 2: Your Meetings
 
-This branch starts *beside* the weather, not below it.
+This branch starts *beside* the weather, inside **Gather briefing data**.
 
-1. Select the **+** between the last **Initialize variable** and **Get current weather** (right-click it if a menu doesn't open), then choose **Add a parallel branch**.
+1. Inside **Gather briefing data**, select the **+** above **Get current weather** (right-click it if a menu doesn't open), then choose **Add a parallel branch**.
 
    ![The plus menu between two actions showing Add an action and Add a parallel branch](./images/08-04-add-parallel.png)
 
@@ -144,15 +148,15 @@ This branch starts *beside* the weather, not below it.
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.4: the settings panel on the left and the canvas on the right](./images/08-04-so-far.png)
+![Your flow so far after 8.4: weather and meetings branches inside Gather briefing data](./images/08-04-so-far.png)
 
-*The meetings branch runs beside the weather.*
+*The meetings branch runs beside the weather inside Gather briefing data.*
 
 ---
 
 ## 8.5 Branch 3: Important Unread Email
 
-1. Add a third parallel branch the same way: select the **+** on the arrow below the last **Initialize variable**, then **Add a parallel branch**.
+1. Add a third parallel branch the same way: inside **Gather briefing data**, select the **+** above the existing branches, then **Add a parallel branch**.
 2. Search for `Get emails` and select **Get emails (V3)** under **Office 365 Outlook**. Set the fields below. If a field isn't shown, open the **Advanced parameters** dropdown and tick it.
 
    | Field | Value |
@@ -179,37 +183,37 @@ This branch starts *beside* the weather, not below it.
 
 ![Three branches side by side: weather, meetings and email](./images/08-06-three-branches.png)
 
-*Three independent branches, running at the same time. The lines curving into the meetings loop are explained in section 8.6.*
+*Three independent branches inside Gather briefing data, running at the same time.*
 
 > **Key point:** Each branch writes to its **own** variable. If all three appended to one shared variable, the sections would arrive in whatever order the branches happened to finish. Separate variables keep the email in a fixed order.
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.5: the settings panel on the left and the canvas on the right](./images/08-05-so-far.png)
+![Your flow so far after 8.5: all three parallel branches inside Gather briefing data](./images/08-05-so-far.png)
 
-*Three branches side by side.*
+*Three branches side by side inside Gather briefing data.*
 
 ---
 
-## 8.6 Bring the Branches Back Together
+## 8.6 Wait for the Scope
 
-The next step must wait until all three branches have finished.
+The next step must wait until all three branches have finished. The scope gives us one completion point for the whole group.
 
-1. On the canvas, select the **+** below the meetings **Apply to each** box (outside it), then **Add an action**. Search for `Condition` and select it under **Control**. Rename it: select the title at the top of the panel and type `Busy day`.
-2. Select the **Busy day** card to open its panel, then the **Settings** tab at the top of the panel. **Apply to each** is already listed under **Run after**. Open the **Select actions** dropdown and tick **Get current weather** and **Apply to each 1**.
-3. Leave **Is successful** ticked for each. Check the **Run after** list shows all three actions, then select **Save**. (After saving, the panel may go blank: select the **Busy day** card again to reopen it.)
+1. On the canvas, select the **+** below the **Gather briefing data** box, **outside** it, then **Add an action**. Search for `Condition` and select it under **Control**. Rename it: select the title at the top of the panel and type `Busy day`.
+2. Select **Busy day**, then the **Settings** tab. Under **Run after**, check that **Gather briefing data** is the only action listed. Expand it and leave only **Is successful** ticked. If another action is listed, use **Select actions** to select the scope instead.
+3. Select **Save**. After saving, if the panel goes blank, select **Busy day** again to reopen it.
 
-![Busy day with the Settings tab open, showing Run after set to Apply to each, Get current weather and Apply to each 1](./images/08-07-join.png)
+![Busy day settings with Run after set to Gather briefing data, Is successful](./images/08-07-join.png)
 
-*Run after lists one action from each branch, so Busy day waits for the slowest branch.*
+*Busy day waits for the whole scope to succeed.*
 
-> **Note:** The designer draws the lines from the weather and email branches into the side of the meetings loop, not into Busy day. That's just how it lays out the picture. The **Run after** list is what actually controls the order, so trust that, not the lines.
+> **Check:** Busy day must be outside the scope. If it sits inside, it may depend on only one branch. Waiting for the scope's successful completion also means a failed lookup stops the briefing; this lab does not add error handling.
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.6: the settings panel on the left and the canvas on the right](./images/08-06-so-far.png)
+![Your flow so far after 8.6: three branches inside Gather briefing data and Busy day outside below it](./images/08-06-so-far.png)
 
-*Busy day sits below, after all three branches.*
+*One scope, then Busy day.*
 
 ---
 
@@ -227,11 +231,11 @@ The next step must wait until all three branches have finished.
 
 ![Busy day condition with MeetingCount is greater than 4](./images/08-08-set-variable.png)
 
-*Set variable replaces a variable's value. Append adds to it. Increment adds to a number. The screenshot still shows the empty row; delete it on yours.*
+*Set variable replaces a variable's value. Append adds to it. Increment adds to a number. An empty placeholder row may remain in the designer.*
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.7: the settings panel on the left and the canvas on the right](./images/08-07-so-far.png)
+![Your flow so far after 8.7: Busy day after the Scope with Set variable in its True branch](./images/08-07-so-far.png)
 
 *Set variable sits in True.*
 
@@ -282,7 +286,7 @@ The next step must wait until all three branches have finished.
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after 8.8: the settings panel on the left and the canvas on the right](./images/08-08-so-far.png)
+![Your flow so far after 8.8: the complete flow with Send an email after Busy day](./images/08-08-so-far.png)
 
 *Send an email (V2) at the bottom. That is the whole briefing.*
 
@@ -293,7 +297,7 @@ The next step must wait until all three branches have finished.
 This flow only emails you, so you can test it yourself.
 
 1. In the toolbar at the top right, select **Test**, choose **Manually**, select **Test**, then **Run flow**, then **Done**.
-2. The run opens on the canvas. Notice that the three branches started at almost the same moment.
+2. The run opens on the canvas. Expand **Gather briefing data** if it is collapsed. Check that the scope and all three branches succeeded, and notice that the branches started at almost the same moment.
 3. Select **Busy day** and open **Run results** to see whether it was true or false. Select **Increment variable** inside the meetings loop to see the `1` it added each time (it shows no outputs, which is normal). If Busy day was false, **Set variable** shows as skipped. That's expected: the email's count is the final check.
 4. In Outlook, find the email with the subject **Your day ahead** (or **Busy day ahead...**) in your Inbox. If it isn't near the top, type the subject in the search box at the top. If you've tested before, Outlook may group the briefings into one conversation: open it and check the newest message's time.
 
@@ -307,7 +311,7 @@ If you have no meetings or no important unread email, those lists are simply emp
 
 ## Independent Practice
 
-Add a fourth parallel branch that counts up to 25 unread emails of any importance. Create an Integer variable `UnreadCount` at the top, use **Get emails (V3)** with **Fetch Only Unread Messages** set to Yes and **Top** set to 25, and increment the variable for each email. Add a line to the briefing: *Unread email: [UnreadCount]*.
+Inside **Gather briefing data**, add a fourth parallel branch that counts up to 25 unread emails of any importance. Create an Integer variable `UnreadCount` at the top, use **Get emails (V3)** with **Fetch Only Unread Messages** set to Yes and **Top** set to 25, and increment the variable for each email. Add a line to the briefing: *Unread email: [UnreadCount]*.
 
 ---
 
@@ -323,7 +327,7 @@ Add a fourth parallel branch that counts up to 25 unread emails of any importanc
 | Get current weather is blocked | Your environment may block MSN Weather. Ask the trainer, or skip branch 1 |
 | The meeting list is empty but you have meetings | Start Time is **Current time**, End Time is **Future time**, Calendar Id is **Calendar** |
 | Meetings and email appear on one line | The `<br>` is missing at the start of the Append value |
-| The email sends before a branch finishes | Busy day's **Run after** must include the last action of every branch |
+| The email sends before a branch finishes | Busy day must sit outside Gather briefing data, with **Run after** set to that scope's successful completion |
 | The subject never changes | Set variable is in the True branch, and the condition uses MeetingCount *is greater than* 4 |
 | Times look eight hours off | The meeting window uses UTC from Current time. For a briefing, a 12-hour window still covers your day |
 
@@ -331,4 +335,4 @@ Add a fourth parallel branch that counts up to 25 unread emails of any importanc
 
 ## Lesson Summary
 
-Variables give a flow named boxes that change as it runs. You created four at the top, then used **Increment** to count, **Append** to build lists and **Set** to replace a value. Parallel branches let independent lookups run side by side, each writing to its own variable, and a join makes the final email wait for all of them. Next, you'll ask Copilot to plan a flow for you, and review what it suggests.
+Variables give a flow named boxes that change as it runs. You created four at the top, then used **Increment** to count, **Append** to build lists and **Set** to replace a value. Parallel branches let independent lookups run side by side, each writing to its own variable. A scope groups the branches, so Busy day and the final email wait for all of them. Next, you'll ask Copilot to plan a flow for you, and review what it suggests.
