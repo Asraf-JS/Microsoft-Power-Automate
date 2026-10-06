@@ -49,14 +49,14 @@ Sign in to each one with your **work or school account**, the same one every tim
 
    ![The Create or upload button at the top left of OneDrive](./images/02-00-create-upload.png)
 
-   *Create or upload makes folders, uploads files and creates new Office documents.*
+   *Create or upload makes folders, uploads files and creates new Office documents. The picture was taken inside Power Automate Training, but the button is in the same place in My files.*
 3. Name the folder `Power Automate Training` and select **Create**.
 4. Select the new folder's name to open it. The path at the top now reads **My files > Power Automate Training**.
 5. Inside it, create two subfolders the same way (**Create or upload** > **Folder**): `Attachments` and `Reports`.
 
 ![OneDrive showing the Attachments and Reports folders inside Power Automate Training](./images/02-01-folders.png)
 
-*Both subfolders inside Power Automate Training.*
+*Both subfolders inside Power Automate Training. The breadcrumb in the picture includes an extra PA Shots folder used for the screenshots. Yours reads My files > Power Automate Training.*
 
 **Checkpoint:** You can see `Attachments` and `Reports` inside `Power Automate Training`. The Chapter 3 flow writes to Attachments. Summary outputs can go to Reports.
 
@@ -67,9 +67,16 @@ Sign in to each one with your **work or school account**, the same one every tim
 1. Inside `Power Automate Training`, select **Create or upload**, then **Excel workbook**. Check the breadcrumb first: the workbook is created in whichever folder you're viewing.
 2. When Excel for the web opens, select the file name in the title bar and rename it `TrainingRegister`. Excel adds `.xlsx` for you.
 3. Select cell **A1**, then paste the headers and sample rows from the [copy-paste page](./copy-paste.md) (section 2.2). Each header lands in its own column (TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status), and the six fictional rows fill rows 2 to 7.
-4. If your trainer gave you approved test addresses, type them over the addresses in the **Email** column. If your trainer asks you to change the session dates, keep at least two upcoming sessions, one completed session and one session outside the training week.
+4. If your trainer gave you approved test addresses, type them over the addresses in the **Email** column. Then change the **SessionDate** values so they fit your class week, because the sample dates (21 September to 5 October 2026) may already be in the past. Count from today and make sure you have:
+   - at least two **Registered** rows with a date within the next 14 days
+   - one **Completed** row
+   - one row with a date more than 14 days away
 
-   > **Tip:** Short on time? Your trainer may tell you to upload the ready-made [TrainingRegister.xlsx](./TrainingRegister.xlsx) to `Power Automate Training` instead (**Create or upload** > **Files upload**). It already has the `tblTraining` table and six fictional records, so you can skip to the checkpoint.
+   Chapter 7 needs this mix to show which rows the 14-day window keeps and which it leaves out.
+
+   > **Tip:** If the dates paste left-aligned, Excel has stored them as text. Retype them in your local date format (for example, `21/09/2026` instead of `9/21/2026`) and they line up on the right.
+
+   > **Tip:** Short on time? Your trainer may tell you to upload the ready-made [TrainingRegister.xlsx](./TrainingRegister.xlsx) to `Power Automate Training` instead (**Create or upload** > **Files upload**). It already has the `tblTraining` table and six fictional records, so you can skip steps 5 to 7. You still need to update its SessionDate values as described in this step.
 
    ![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
 
@@ -138,7 +145,7 @@ The Teams connector is standard, but your organisation may restrict posting or r
 
 ## Independent Practice
 
-Find the row in `tblTraining` whose Status is Completed. Which later reminder test should exclude it, and why? Then write a second test email without the `[PA TRAINING]` marker, save it as a draft, and predict whether the attachment flow should process it once it's sent.
+Find the rows in `tblTraining` whose Status is Completed (there are two: TR-003 and TR-006). Which later reminder test should exclude them, and why? Then write a second test email without the `[PA TRAINING]` marker, save it as a draft, and predict whether the attachment flow should process it once it's sent.
 
 ---
 

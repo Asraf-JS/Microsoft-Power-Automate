@@ -18,6 +18,12 @@ Title start (insert **Subject** after it):
 Follow up: 
 ```
 
+Body Content start, with a space at the end (insert **From** after it):
+
+```text
+From 
+```
+
 ## B. Send me a note
 
 Flow name:
@@ -83,3 +89,5 @@ Subject start (insert **Feed title** after it):
 ```text
 New post: 
 ```
+
+Body: there's no typed text, only the tokens. Insert **Feed summary**, press Enter, then insert **Primary feed link**.

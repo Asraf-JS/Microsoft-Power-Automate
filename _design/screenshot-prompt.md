@@ -292,3 +292,31 @@ If something doesn't match the README, use the closest equivalent and add one li
 ```
 
 When Codex is done, tell Claude: it adds the red boxes and numbers and places each screenshot under its step in 6.1.
+
+---
+
+## Student walkthrough retakes (round 8)
+
+A walkthrough of every chapter as a student found a few shots that captions can only patch. These retakes replace them. Optional: the guide works without them. Paste this into one Codex conversation.
+
+```text
+Recapture screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1. Mask the account avatar and any email address. Move the mouse away from the flow name before each capture, so no "PA - ..." tooltip shows. Keep output short. Save each clean capture to BOTH <chapter>/images/<file> and _design/shots/raw/<file> (overwrite). Don't edit any README or annotations.json. Read only 07-capstone/README.md, 08-morning-briefing/README.md, 04-excel-summary/README.md and _design/shots/NOTES.md.
+
+Name every throwaway flow with its real name from the README (not "PA - Shots ..."), and NEVER save it. Leave without saving at the end and confirm it isn't in My flows.
+
+Chapter 7: on My flows, Save As "PA - Weekly training reminders" to a copy named "PA - Weekly training capstone (shots)", open it, and follow 7.2 to 7.6 without saving. Rename the flow in the designer header to "PA - Weekly training capstone" only if the designer allows it without saving; otherwise leave it.
+1. 07-capstone/images/07-06-date-condition.png: end of 7.6 step 5. The date condition selected, two rows with the pink fx expression tokens on the left (from the expression in step 3), is greater than or equal to Current time, is less than or equal to Future time, and the empty extra row deleted.
+2. 07-capstone/images/07-06-drag.png: 7.6 step 7 in progress. Start dragging Send an email (V2) from below the date condition into its True box, and capture while the dashed blue drop zone shows inside True. Canvas only, zoomed so the condition, True/False and the dragged card fill the frame.
+3. 07-capstone/images/07-00-flow-details.png: the details page of the COPY, with Edit visible in the toolbar.
+Then delete the copy.
+
+Chapter 8, new scheduled flow named "PA - My morning briefing", unsaved:
+4. 08-morning-briefing/images/08-02-variables.png: end of 8.2. The first Initialize variable selected, its panel open, and the canvas showing only Recurrence and the four Initialize variable actions.
+
+Chapter 4, new instant flow named "PA - Training register summary", unsaved, following 4.3 to 4.7:
+5. 04-excel-summary/images/04-07-expression.png: 4.7 at step 5, before step 6. The expression editor open with length(body('Select')) and the Add button visible (not Update). The body shows "Here is the current training register. This report lists " with nothing after it yet.
+
+If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then commit "Student walkthrough retakes (round 8)" and push to claude/compassionate-maxwell-evreqg. Reply with only the files saved and any NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it redraws the boxes, then removes the caption patches these retakes make unnecessary.

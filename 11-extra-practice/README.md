@@ -149,7 +149,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 > **Note:** If the feed URL stops working, open the blog in your browser and look for its RSS link, or try any other news site that offers an RSS feed.
 
-**Check your flow so far.** Your screen should look like this.
+**Check your flow so far.** Before step 5, your designer should look like this.
 
 ![Your flow so far after D: the settings panel on the left and the canvas on the right](./images/11-d-so-far.png)
 

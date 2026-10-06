@@ -78,51 +78,52 @@ For **Publisher**, open the dropdown and pick the publisher your trainer names. 
 
 ---
 
-## 10.3 to 10.7 Add the Capstone Flow
+## 10.3 Add the Capstone Flow
 
 1. Open the new solution: in the **Solutions** list, select its display name, `Power Automate Training Migration`. Its object list is empty: a new solution is just a container.
 2. In the toolbar at the top, select **Add existing** and point to **Automation**.
 3. Under Automation, select **Cloud flow**.
 4. Find `PA - Weekly training capstone`. Depending on how your environment stores flows, it's on the **From Dataverse** tab or the **Outside Dataverse** tab. Scroll the list, or type its name in **Search cloud flows** at the top right of the panel.
 5. Select the circle to the left of the capstone's name, then select **Add** at the bottom of the panel.
+
+   ![Add existing cloud flows panel with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
+
+   *Pick the capstone from the list. Here it's on the From Dataverse tab.*
+
 6. If only the flow appears in the solution, select the circle beside it, then in the toolbar select **Advanced** > **Add required objects**. This adds the connection references it needs.
 
-![Add existing cloud flows panel with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
+   ![Solution object list showing the capstone cloud flow and two connection references](./images/10-03-components.png)
 
-*Pick the capstone from the list. Here it's on the From Dataverse tab.*
+   *Three objects: the flow and its two connection references.*
 
 Power Automate may also add **connection references**. A connection reference is a solution component that points to a connection. The target environment still needs a valid connection and an authorised account.
 
 ---
 
-## 10.8 Verify the Solution Components
+## 10.4 Verify the Solution Components
 
-Confirm the solution has three objects: the capstone cloud flow and the Excel Online (Business) and Office 365 Outlook connection references.
-
-![Solution object list showing the capstone cloud flow and two connection references](./images/10-03-components.png)
-
-*Three objects: the flow and its two connection references.*
+Confirm the solution has three objects: the capstone cloud flow and the Excel Online (Business) and Office 365 Outlook connection references (see the picture under step 6 of 10.3).
 
 > **Key point:** Showing up in the object list doesn't mean a dependency is ready. File locations, table names, recipients, connection accounts, environment variables and permissions can all differ in the target environment.
 
 ---
 
-## 10.9 Review the Solution Before Export
+## 10.5 Review the Solution Before Export
 
 Inside a solution, the far-left rail shows icons only. Select the **Overview** icon, the page-shaped icon just under the back arrow (hover over an icon to see its name). Check the name, version, package type, publisher and included items. **Export** is in the toolbar at the top of the Overview page.
 
 ---
 
-## 10.10 to 10.12 Publish and Export
+## 10.6 Publish and Export
 
 1. In the toolbar at the top of the Overview page, select **Export**. If a **Before you export** panel offers **Publish**, select it so the latest changes are included, and wait for **Published**.
 2. Select **Next**.
+3. Confirm the version, select **Unmanaged**, and select **Export**. Power Automate suggests the next version number (for example 1.0.0.1), so every exported package has its own version.
 
    ![Export solution panel with Unmanaged selected and the suggested version number](./images/10-04-export.png)
 
    *Unmanaged suits a learning exercise. The version number goes up with each export.*
 
-3. Confirm the version, select **Unmanaged**, and select **Export**. Power Automate suggests the next version number (for example 1.0.0.1), so every exported package has its own version.
 4. When the success message appears, select **Download** and store the ZIP in the trainer-approved location. The worked example produced `PowerAutomateTrainingMigration_1_0_0_1.zip`.
 
 An unmanaged package suits this exercise because its components can be edited after import. Managed solutions are normally used for controlled distribution where recipients shouldn't edit the components. That's an organisational decision, so don't switch package types casually in an established process.
@@ -131,7 +132,7 @@ An unmanaged package suits this exercise because its components can be edited af
 
 ---
 
-## 10.13 and 10.14 Switch Environment and Start the Import
+## 10.7 Switch Environment and Start the Import
 
 1. Select the environment name at the top right of the blue bar and choose the trainer-approved target environment. Confirm its name before opening **Solutions** in the left navigation.
 2. Select **Import solution** in the toolbar at the top of the Solutions page, then **Browse** to the exported ZIP. Select **Next** only after confirming the package name and the target environment.
@@ -140,7 +141,7 @@ The demonstration stops here. No file is uploaded and nothing is imported. Your 
 
 ---
 
-## 10.15 Repair Connections and Settings
+## 10.8 Repair Connections and Settings
 
 After the package is selected, Power Platform may ask for connection mappings or environment-specific values. Before import or first use:
 
@@ -152,7 +153,7 @@ After the package is selected, Power Platform may ask for connection mappings or
 
 ---
 
-## 10.16 Verify and Test Safely
+## 10.9 Verify and Test Safely
 
 After an authorised import, open the solution and confirm the expected components are there. Run Flow checker, review every connection and setting, and use fictional data and approved destinations for the first test.
 

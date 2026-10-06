@@ -58,7 +58,7 @@ You need `Power Automate Training/TrainingRegister.xlsx` in OneDrive for Busines
 
 ![Excel for the web with a cell selected in tblTraining and the Table Design tab showing the table name](./images/04-01-table-name.png)
 
-*Select any cell in the table, then open the Table Design tab to see its name. The table name, not the sheet name, is what Power Automate looks for.*
+*Select any cell in the table, then open the Table Design tab to see its name. The table name, not the sheet name, is what Power Automate looks for. The screenshot has an extra test row, TR-007; yours has six.*
 
 > **Key point:** A worksheet name and a table name are different things. If the Table dropdown is empty later, a missing or misnamed table is almost always why.
 
@@ -186,7 +186,7 @@ The coordinator wants a line like *"This report lists 6 sessions."* None of the 
 5. Type `)` to close the bracket, then select **Add** (it reads **Update** if you're editing an expression that's already there).
 6. After the new token, type ` sessions.`
 
-   ![Expression editor showing length(body('Select')) with the Add button](./images/04-07-expression.png)
+   ![Expression editor showing length(body('Select')) with the Add button (it reads Update when editing)](./images/04-07-expression.png)
 
    *length() counts the items in a list. Here it counts the rows Select produced.*
 
@@ -211,7 +211,7 @@ The coordinator wants a line like *"This report lists 6 sessions."* None of the 
 
 ![The received email showing the count sentence and the HTML table](./images/04-09-email-received.png)
 
-*One email, one table, counted by your first expression. This workbook had a seventh test row, so it reads 7.*
+*One email, one table, counted by your first expression. This workbook had a seventh test row, so it reads 7. Its dates were already formatted with the Going further tip; yours show values like 2026-09-21T00:00:00.000Z.*
 
 Each manual run sends one current report. Earlier emails stay as historical snapshots.
 

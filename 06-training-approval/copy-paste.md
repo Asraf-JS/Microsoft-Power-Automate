@@ -41,9 +41,9 @@ PA - Training request approval
 Paste into **Details**. Put the cursor after each label, select the lightning bolt icon, and pick the matching answer under *Get response details*.
 
 ```text
-**Requester:** 
+**Requester name:** 
 **Course:** 
-**Preferred Date:** 
+**Preferred date:** 
 **Business reason:** 
 ```
 

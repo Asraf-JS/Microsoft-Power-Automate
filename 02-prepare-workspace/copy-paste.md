@@ -32,6 +32,8 @@ TrainingRegister
 
 Click cell A1 in Sheet1, then paste. Each value lands in its own column: the headers fill row 1 and the six fictional rows fill rows 2 to 7.
 
+The sample dates may already be in the past on your class day. After pasting, change the SessionDate values as described in step 4 of section 2.2 (at least two Registered rows within the next 14 days, one Completed row, and one row more than 14 days away). If the dates paste left-aligned, retype them in your local date format.
+
 ```text
 TrainingID	ParticipantName	Email	CourseTitle	SessionDate	Status
 TR-001	Aisha Rahman	learner1@example.com	Power Automate Basics	9/21/2026	Registered

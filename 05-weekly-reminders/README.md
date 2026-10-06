@@ -154,9 +154,9 @@ On the canvas, select the **+** inside the **Apply to each** box (below its head
 
    ![The settings gear above the right end of the To field](./images/05-06-gear.png)
 
-   *The gear switches To from picking people to accepting dynamic content.*
+   *The gear switches To from picking people to accepting dynamic content (shown here after Email was inserted).*
 
-2. **Subject:** click into the box and type `[PA TRAINING] Reminder: ` (with the space at the end). Select the lightning bolt icon and pick **CourseTitle** under *List rows present in a table*.
+2. **Subject:** click into the box and type `[PA TRAINING] Reminder: ` (with the space at the end). Select the lightning bolt icon and pick **CourseTitle** under *List rows present in a table*. If the trailing space disappears after typing or pasting, type a space before inserting CourseTitle.
 3. **Body:** click into the box and type the message below. Where a value belongs, put the cursor there, type `/` and choose **Insert dynamic content** (or select the lightning bolt), then pick the value:
 
 > Hello **[ParticipantName]**,
