@@ -89,7 +89,7 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 ---
 
-## 8.3 Create the Scope and Weather Branch
+## 8.3 Create the Scope and Branch 1: The Weather
 
 A **Scope** is a container for related actions. We will put the weather, meetings and email branches inside one scope, so the next step can wait for the whole group. The scope groups the work; **Add a parallel branch** makes the lookups run side by side.
 
