@@ -153,12 +153,18 @@ You now have both ends of the window: **Current time** (already in the flow from
 ## 7.6 Check the Date Window
 
 1. On the canvas, inside the **Apply to each** box, select the **+** just above **Send an email (V2)**, then **Add an action**. Search for `Condition` and select it under **Control**.
+
+   > **Note:** The new condition appears *above* the email, and the email stays where it was, underneath the condition rather than inside it. You move it into **True** in step 7.
 2. Rename it: select the title at the top of the panel and type `Is the session in the next 14 days`.
 3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
 4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
 5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
 6. Check the dropdown above the rows reads **And**, so both rules must be true.
-7. Drag the **Send an email (V2)** card that now sits below the condition and drop it on the **+** inside the green **True** box. (Or delete it and add it again inside True with the same settings.)
+7. Move the email into **True**: press and hold on the **Send an email (V2)** card below the condition, drag it up into the green **True** box, and let go when a dashed blue drop zone appears there. On the canvas, the email now sits inside **True**, and nothing is left below the condition inside the loop. (If dragging won't work, delete the email and add it again inside **True** with the same settings.)
+
+   ![Dragging a card from below a condition into its True box, where a dashed blue drop zone appears](./images/07-06-drag.png)
+
+   *The same move from 7.9: hold the card (the dotted handle at its left edge is easiest to grab), drag it over True, and let go on the dashed blue drop zone.*
 
 ![Condition panel with two AND rows comparing SessionDate to Current time and Future time](./images/07-06-date-condition.png)
 
@@ -197,7 +203,9 @@ Keep the increment *after* the email, so the count only includes reminders that 
 
 ## 7.8 Decide Whether a Summary Is Needed
 
-1. On the canvas, select the **+** below the **Apply to each** box (outside it, not one of the **+** inside the loop), then **Add an action**. Search for `Condition` and select it under **Control**.
+1. On the canvas, select the **+** below the **Apply to each** box, then **Add an action**. Search for `Condition` and select it under **Control**.
+
+   > **Warning: use the + outside the loop.** The loop's grey box has its own **+** at the bottom, just inside its border. Use the one *below* the grey border, the last **+** on the canvas. If the new condition appears inside the grey box, it would run once per row: delete it and add it again from the right **+**.
 2. Rename it `If reminders were prepared`.
 3. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **ReminderCount** under *Variables*.
 4. Open the middle dropdown and select **is greater than**. Click the right box and type `0`.
@@ -217,7 +225,7 @@ Keep the increment *after* the email, so the count only includes reminders that 
 
 ## 7.9 Prepare the Coordinator Summary
 
-On the canvas, inside the green **True** box under **If reminders were prepared**, select the **+**, then **Add an action**. Search for `Send an email`, select **Send an email (V2)** under **Office 365 Outlook**, and rename it `Send coordinator summary`:
+On the canvas, inside the green **True** box under **If reminders were prepared**, select the **+**, then **Add an action**. (If the email lands below the condition instead, drag it into **True** the same way as in 7.6.) Search for `Send an email`, select **Send an email (V2)** under **Office 365 Outlook**, and rename it `Send coordinator summary`:
 
 | Field | Value |
 |-------|-------|
