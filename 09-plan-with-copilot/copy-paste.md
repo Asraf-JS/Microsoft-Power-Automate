@@ -31,3 +31,34 @@ Remove Get file metadata using path because List rows present in a table can sel
 ```
 
 > **Remember:** select **Cancel** at the end (section 9.8). This exercise is planning only.
+
+## 4. Plan your own automation (section 9.9)
+
+Replace each part in square brackets with your details.
+
+```text
+I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+Trigger: [when should it start: a new email, a schedule, a button, a form response]
+Data: [where the information lives: Excel table name and columns, SharePoint list, Outlook folder]
+Rule: [what decision it makes: for example, only rows where Status is not Completed and the date is in the next 14 days]
+Output: [what it produces: one email per row, a summary to me, a Teams message]
+Boundary: [what it must never do: for example, send to anyone outside the company, delete anything]
+
+First ask me up to five questions about anything unclear. Then give me:
+1. The trigger and each action in order, using Power Automate action names
+2. Where a condition, loop or variable is needed and why
+3. Which connectors are standard and which may need a premium licence
+4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+5. A safe test plan that only sends to me
+```
+
+Example, filled in for the Chapter 7 capstone:
+
+```text
+Trigger: every Monday at 9:00 Malaysia time.
+Data: Excel table tblTraining in OneDrive (ParticipantName, Email, CourseTitle, SessionDate, Status).
+Rule: only rows where Status is not Completed and SessionDate is within the next 14 days.
+Output: one reminder email per matching row, then one summary email to me with the count.
+Boundary: never email anyone while testing; send everything to me until I approve it.
+```

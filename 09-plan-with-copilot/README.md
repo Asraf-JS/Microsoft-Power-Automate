@@ -16,6 +16,7 @@ Copilot in Power Automate can turn a plain-language description into a suggested
 - Review an AI-generated flow plan against the business rule
 - Refine a suggestion by naming the exact change you need
 - Leave the planning experience without creating a flow
+- Plan your own automation with Copilot before you build it
 
 ---
 
@@ -135,6 +136,50 @@ This only checks the outline. If you continued, you'd still need to configure th
 ## 9.8 Exit Without Creating the Flow
 
 Select **Cancel** at the bottom right of the page, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
+
+---
+
+## 9.9 Plan Your Own Automation
+
+The exercise above used prompts written for you. For your own work, plan in plain words first and let Copilot draft the flow second. Planning is where most of the gaps get caught, while they're still cheap to fix.
+
+1. Before you open Copilot, write the job down as you'd explain it to a colleague. You need five things: what **starts** it, where the **data** lives, the **rule** it follows, the **output** it produces, and one **boundary** (what it must never do). If you can't fill one in, the automation isn't ready yet.
+2. Ask Copilot to plan it, not build it. Use Microsoft 365 Copilot chat, or **Create with Copilot** without selecting **Keep it and continue**. Copy the template below, replace each part in square brackets with your details, and send it.
+
+   ```text
+   I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+   Trigger: [when should it start: a new email, a schedule, a button, a form response]
+   Data: [where the information lives: Excel table name and columns, SharePoint list, Outlook folder]
+   Rule: [what decision it makes: for example, only rows where Status is not Completed and the date is in the next 14 days]
+   Output: [what it produces: one email per row, a summary to me, a Teams message]
+   Boundary: [what it must never do: for example, send to anyone outside the company, delete anything]
+
+   First ask me up to five questions about anything unclear. Then give me:
+   1. The trigger and each action in order, using Power Automate action names
+   2. Where a condition, loop or variable is needed and why
+   3. Which connectors are standard and which may need a premium licence
+   4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+   5. A safe test plan that only sends to me
+   ```
+
+   Saying "don't build anything yet" matters: without it, Copilot jumps straight to a draft and skips the questions.
+
+3. Answer Copilot's questions, then refine in small, specific turns. Ask for one exact change each time, for example "add a condition that skips Completed rows", not "make it better".
+4. Review the plan with the six questions from 9.3: trigger, data, logic, output, licensing and testing. Look out for a loop you don't need and a missing condition: they're the most common mistakes in Copilot drafts.
+5. When the plan looks right, take the trigger and action list into **Create with Copilot** (or build it yourself, as in Chapters 3 to 8) in a test environment, with every recipient set to you. Test with a few rows before anyone else receives anything.
+
+Here's the template filled in for the Chapter 7 capstone, as an example:
+
+```text
+Trigger: every Monday at 9:00 Malaysia time.
+Data: Excel table tblTraining in OneDrive (ParticipantName, Email, CourseTitle, SessionDate, Status).
+Rule: only rows where Status is not Completed and SessionDate is within the next 14 days.
+Output: one reminder email per matching row, then one summary email to me with the count.
+Boundary: never email anyone while testing; send everything to me until I approve it.
+```
+
+> **Tip:** Use the real names of your table, columns and folders in the prompt, and ask for Power Automate action names. Vague prompts get placeholder actions you have to rewire, and action names let you find each step in the designer.
 
 ---
 
