@@ -79,6 +79,12 @@ Forms saves as you go. There's no Save button.
 
 If the form isn't listed, check that you own or can access it, refresh the list, and confirm the Forms connection uses the right account.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.3: the settings panel on the left and the canvas on the right](./images/06-03-so-far.png)
+
+*Only the trigger so far.*
+
 ---
 
 ## 6.4 Retrieve the Answers
@@ -92,6 +98,12 @@ If the form isn't listed, check that you own or can access it, refresh the list,
 *The Response Id token links this step to the exact submission that started the flow. As in 6.3, Form Id shows the form's internal ID after saving.*
 
 The trigger only says a response exists. Get response details returns the individual answers so later actions can use them.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.4: the settings panel on the left and the canvas on the right](./images/06-04-so-far.png)
+
+*Get response details sits under the trigger.*
 
 ---
 
@@ -109,6 +121,12 @@ The trigger only says a response exists. Get response details returns the indivi
 
 **Checkpoint:** Use the values from **Get response details**, not similarly named values from another action.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.5: the settings panel on the left and the canvas on the right](./images/06-05-so-far.png)
+
+*Start and wait for an approval comes next.*
+
 ---
 
 ## 6.6 Branch on the Outcome
@@ -125,6 +143,12 @@ The trigger only says a response exists. Get response details returns the indivi
 
 > **Key point:** The text must be exactly `Approve`. A typo or a trailing space sends every approval down the False branch.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.6: the settings panel on the left and the canvas on the right](./images/06-06-so-far.png)
+
+*The Condition, with True and False still empty.*
+
 ---
 
 ## 6.7 Prepare the Approved Message
@@ -138,6 +162,12 @@ The trigger only says a response exists. Get response details returns the indivi
 
 *The True branch posts the approved message. After saving, the Course token shows as a code like `body/rc6d429a1…`. That's normal. Replace `approver@example.com` with your trainer-approved account.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.7: the settings panel on the left and the canvas on the right](./images/06-07-so-far.png)
+
+*A Teams message in True. False is still empty.*
+
 ---
 
 ## 6.8 Prepare the Rejected Message
@@ -147,6 +177,12 @@ The trigger only says a response exists. Get response details returns the indivi
 3. In **Message**, type `Training request rejected for ` and insert **Course** from *Get response details* with the lightning bolt, as in 6.7.
 
 A production process would also handle outcomes like cancelled or timed-out approvals. This exercise sticks to the two standard Approve and Reject buttons.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 6.8: the settings panel on the left and the canvas on the right](./images/06-08-so-far.png)
+
+*A Teams message in each branch.*
 
 ---
 

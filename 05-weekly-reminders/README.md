@@ -63,6 +63,12 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 
 *Read the preview line at the bottom. It should say 9:00 on Monday every week.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 5.1: the settings panel on the left and the canvas on the right](./images/05-01-so-far.png)
+
+*Only Recurrence so far.*
+
 ---
 
 ## 5.2 Produce a Readable Local Timestamp
@@ -84,6 +90,12 @@ You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` 
 *Pick the format from the dropdown. No expression needed.*
 
 > **Key point:** The two time zone settings do different jobs. Recurrence decides *when the flow starts*. Convert time zone only changes a timestamp shown in the message.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 5.2: the settings panel on the left and the canvas on the right](./images/05-02-so-far.png)
+
+*Recurrence, Current time and Convert time zone.*
 
 ---
 
@@ -107,6 +119,12 @@ After you pick them, **Location** shows `me`, **Document Library** shows a long 
 
 *Same settings as Chapter 4. The codes in Location, Document Library and Table stand for the names you picked.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 5.3: the settings panel on the left and the canvas on the right](./images/05-03-so-far.png)
+
+*List rows present in a table comes next.*
+
 ---
 
 ## 5.4 Process One Row at a Time
@@ -119,6 +137,12 @@ After you pick them, **Location** shows `me`, **Document Library** shows a long 
 *The loop runs once per row in the table.*
 
 **Checkpoint:** The input must be the whole list (**value**). A single column such as Email isn't a list of rows.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 5.4: the settings panel on the left and the canvas on the right](./images/05-04-so-far.png)
+
+*An empty Apply to each at the bottom.*
 
 ---
 
