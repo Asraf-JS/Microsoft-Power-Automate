@@ -101,7 +101,7 @@ If **Table** shows *No items*, stop. The workbook has no formatted table. Go bac
 3. Click into the **From** box. Select the lightning bolt icon that appears beside it to open the dynamic content picker. Under *List rows present in a table*, select **body/value**. This is the list of all rows. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
 4. In the **Map** area, click the first **Enter key** box (left) and type `Participant`.
 5. Click the **Enter value** box beside it (right), open the lightning bolt, and select **ParticipantName** under *List rows present in a table*. Type `Participant` in the picker's search box if it isn't listed. Don't type the value yourself: it must be the green token from the picker.
-6. A new empty row appears underneath. Fill three more rows the same way, typing the key and picking the value:
+6. A new empty row appears underneath. Fill three more rows the same way, typing the key and picking the value. Leave the last empty row blank:
 
 | Enter key | Enter value (dynamic content) |
 |-----------|-------------------------------|

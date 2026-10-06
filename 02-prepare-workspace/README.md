@@ -73,7 +73,7 @@ Sign in to each one with your **work or school account**, the same one every tim
 
    ![Excel for the web with the six column headers and six fictional rows](./images/02-02-workbook-rows.png)
 
-   *Fictional rows. The example.com addresses can't receive mail. (This workbook has a seventh test row; yours needs six.) This screenshot shows the data already formatted as a table. Yours looks plain until you format it in the next step.*
+   *Fictional rows. The example.com addresses can't receive mail. The cells look plain until you format them as a table in the next step.*
 
 5. Select any cell with data in it, then select the **Insert** tab and **Table**. In the box that opens, make sure **My table has headers** is ticked, and select **OK**. The rows turn into a striped table.
 
@@ -96,7 +96,7 @@ If Power Automate can't find the table later, check three things: the workbook i
 ## 2.3 Prepare a Test Email
 
 1. Download the test files: **[test-files.zip](./test-files.zip)** (one click, all three files). Open your Downloads folder, right-click the ZIP and choose **Extract All**.
-2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail**.
+2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail** (it may just say **New**) at the top left.
 3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter `[PA TRAINING] Attachment test`.
 4. Select the large empty area under the subject line (the message body) and type `Training attachment test.`
 5. On the **Message** tab of the ribbon, select **Attach file** > **Browse this computer**, go to the extracted test files and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`. If Outlook asks whether to attach the picture or insert it inline, choose to attach it.
@@ -104,7 +104,7 @@ If Power Automate can't find the table later, check three things: the workbook i
 
 ![Outlook on the web draft with subject PA TRAINING Attachment test and two attachments](./images/02-04-draft-email.png)
 
-*The test email waits in Drafts until Chapter 3.*
+*The picture shows as a thumbnail and the PDF as a smaller chip. Both are attachments. The test email waits in Drafts until Chapter 3.*
 
 > **Important:** Don't attach real course materials or any file whose name contains a person's name. The filename shows up in run history and in your OneDrive folder.
 
