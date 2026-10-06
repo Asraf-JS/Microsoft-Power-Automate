@@ -154,7 +154,7 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 1. On the canvas, inside the **Apply to each** box, select the **+** just above **Send an email (V2)**, then **Add an action**. Search for `Condition` and select it under **Control**.
 2. Rename it: select the title at the top of the panel and type `Is the session in the next 14 days`.
-3. First row: click the left **Choose a value** box, type `/` and choose **Insert expression**. Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a token labelled **SessionDate**. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
+3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
 4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
 5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
 6. Check the dropdown above the rows reads **And**, so both rules must be true.
