@@ -261,3 +261,34 @@ If something doesn't match the README, use the closest equivalent and add one li
 ```
 
 When Codex is done, tell Claude: it adds the checkpoint boxes and arrows and puts each image at the end of its section.
+
+---
+
+## Chapter 6 Forms step-by-step prompt (round 7)
+
+Section 6.1 builds the Microsoft Form with only one picture, of the finished form. This round adds one screenshot per step. Codex builds a temporary copy of the form and deletes it at the end, so the forms list and the Chapter 6 flow's Form Id picker aren't left with an extra "Training Request". Paste this into one Codex conversation.
+
+```text
+Capture step-by-step screenshots for section 6.1 of this repo's Power Automate guide (building a Microsoft Form). Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1. Mask the account avatar and anything showing the signed-in email address. Keep output short. Save each capture to BOTH 06-training-approval/images/<file> and _design/shots/raw/<file> (overwrite). Don't edit any README or _design/shots/annotations.json. Read only 06-training-approval/README.md, 06-training-approval/copy-paste.md and _design/shots/NOTES.md.
+
+Rules:
+- Work at https://forms.office.com with the default theme. Don't change the theme, share the form, collect responses or submit it.
+- Each screenshot shows ONLY what the steps have done so far. Close menus and tooltips unless the description mentions them.
+- Use the exact values from copy-paste.md.
+
+Follow 6.1 step by step and capture:
+1. 06-training-approval/images/06-01-new-form.png: the Forms home page with the New Form button visible (before selecting it).
+2. 06-training-approval/images/06-01-title.png: the new form with the title "Training Request" and the description from copy-paste.md entered. No questions yet.
+3. 06-training-approval/images/06-01-add-question.png: + Add new question selected, with the question types (Choice, Text, Rating, Date and so on) showing.
+4. 06-training-approval/images/06-01-requester.png: the Text question "Requester name" being edited, with the Required switch on and visible.
+5. 06-training-approval/images/06-01-course.png: the Choice question "Course" being edited, with the three options from copy-paste.md and Required on.
+6. 06-training-approval/images/06-01-date.png: the Date question "Preferred date" being edited, with Required on.
+7. 06-training-approval/images/06-01-reason.png: the Text question "Business reason" being edited, with Long answer and Required both on and visible.
+8. 06-training-approval/images/06-01-form.png: the finished form, nothing selected, all four questions showing their red required asterisk, default theme, no responses badge.
+
+Then go back to the Forms home page and DELETE the form you just made (... > Delete). Only delete the form you created in this conversation. Keep any older "Training Request" form, because the Chapter 6 flow uses it.
+
+If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then commit "Add Chapter 6 form screenshots (round 7)" and push to claude/compassionate-maxwell-evreqg. Reply with only the files saved and any NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it adds the red boxes and numbers and places each screenshot under its step in 6.1.

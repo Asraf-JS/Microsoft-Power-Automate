@@ -46,3 +46,7 @@
 - Round six, 06-03-so-far.png and 06-04-so-far.png: the Form Id dropdown lists two Training Request forms with internal IDs; selected the same form used by the existing training approval flow.
 - Round six, condition checkpoints: the editor retains an empty comparison placeholder that reappears after Delete; the SessionDate expressions display as items(...) chips rather than SessionDate.
 - Round six, 11-b-so-far.png and 11-d-so-far.png: recipient lookup returned no suggestion; accepted the signed-in address as a custom value and masked it.
+
+- Round seven, Forms: the app redirects to forms.cloud.microsoft and opens a Draft with Copilot pane; closed the pane. Before the first question, the question-type picker is labelled Quick start with instead of Add new question.
+- Round seven, 06-01-form.png: used 85% display zoom to fit all four required questions in the 1600x900 viewport; kept the default theme.
+- Round seven, Forms cleanup: Delete is available under My forms; Recent offers Remove from Recent instead. Deleted only the form created for these captures and preserved the older Training Request form.

@@ -37,19 +37,38 @@ You need Microsoft Forms, Approvals and Microsoft Teams through your work or sch
 
 ## 6.1 Prepare the Request Form
 
-1. Go to [forms.office.com](https://forms.office.com) and sign in with your training account.
-2. Select **New Form**.
+1. Go to [forms.office.com](https://forms.office.com) and sign in with your training account. It may open as forms.cloud.microsoft, which is the same app.
+2. Select **New Form**. If a **Draft with Copilot** pane opens, close it.
+
+   ![The Forms home page with New Form boxed](./images/06-01-new-form.png)
+
 3. Select **Untitled form** at the top and type `Training Request`. In the description box under it, paste the description from the copy-paste page.
-4. Scroll to the bottom of the form and select **+ Add new question**, then **Text**. Type `Requester name` as the question. Switch on **Required**: it's a switch along the bottom edge of the question you're editing.
-5. Select **+ Add new question** > **Choice**. Type `Course` as the question, then type the three options from the copy-paste page (Power Automate Basics, Approval Workflows, Excel Reporting), one per option box. Select **Add option** if you need a third box. Switch on **Required**.
+
+   ![The new form with the title Training Request and the description](./images/06-01-title.png)
+
+4. Select **+ Add new question** (on a brand-new form it reads **Quick start with**), then **Text**. Type `Requester name` as the question. Switch on **Required**: it's a switch along the bottom edge of the question you're editing.
+
+   ![Quick start with selected, showing the question types with Text boxed](./images/06-01-add-question.png)
+
+   ![The Requester name question with the Required switch on](./images/06-01-requester.png)
+
+5. Scroll to the bottom of the form and select **+ Add new question** > **Choice**. Type `Course` as the question, then type the three options from the copy-paste page (Power Automate Basics, Approval Workflows, Excel Reporting), one per option box. Select **Add option** if you need a third box. Switch on **Required**.
+
+   ![The Course question with its three options and Required on](./images/06-01-course.png)
+
 6. Select **+ Add new question** > **Date**. Type `Preferred date` and switch on **Required**.
+
+   ![The Preferred date question with Required on](./images/06-01-date.png)
+
 7. Select **+ Add new question** > **Text**. Type `Business reason`. Switch on **Long answer** and **Required**, both along the bottom edge of the question.
+
+   ![The Business reason question with Long answer and Required on](./images/06-01-reason.png)
 
 Forms saves as you go. There's no Save button.
 
 ![Microsoft Forms editor showing the Training Request form with four required questions](./images/06-01-form.png)
 
-*Four required questions. The red asterisk marks each one as required. Your form uses the plain default theme. The background picture is optional.*
+*Four required questions. The red asterisk marks each one as required.*
 
 **Checkpoint:** All four questions show the red required marker. A missing answer gives the approver an incomplete card.
 
