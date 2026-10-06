@@ -53,12 +53,45 @@ First ask me up to five questions about anything unclear. Then give me:
 5. A safe test plan that only sends to me
 ```
 
-Example, filled in for the Chapter 7 capstone:
+Example with every value filled in (Chapter 7 capstone):
 
 ```text
-Trigger: every Monday at 9:00 Malaysia time.
-Data: Excel table tblTraining in OneDrive (ParticipantName, Email, CourseTitle, SessionDate, Status).
-Rule: only rows where Status is not Completed and SessionDate is within the next 14 days.
-Output: one reminder email per matching row, then one summary email to me with the count.
-Boundary: never email anyone while testing; send everything to me until I approve it.
+I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+Trigger: every Monday at 9:00 Malaysia time (UTC+08:00).
+Data: Excel table tblTraining in the file Power Automate Training/TrainingRegister.xlsx in my OneDrive for Business. Columns: ParticipantName, Email, CourseTitle, SessionDate, Status.
+Rule: only rows where Status is not Completed and SessionDate is between today and 14 days from today.
+Output: one reminder email per matching row, then one summary email to me with the number of reminders sent.
+Boundary: never email anyone while testing; send every email to me until I approve it.
+
+First ask me up to five questions about anything unclear. Then give me:
+1. The trigger and each action in order, using Power Automate action names
+2. Where a condition, loop or variable is needed and why
+3. Which connectors are standard and which may need a premium licence
+4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+5. A safe test plan that only sends to me
+```
+
+## 5. Turn the plan into a lab (section 9.9, step 5)
+
+Send this in the same chat once the plan looks right.
+
+```text
+The plan looks good. Now write it as a hands-on lab for a beginner who has never used Power Automate, in the new designer at make.powerautomate.com.
+
+Rules:
+- Number every step. One action per step: where to click, what to search for, what to type or pick.
+- Use the exact button and field names a beginner sees on screen, in bold.
+- To add an action, always say: "On the canvas, select the + below [card], then Add an action. Search for `[name]` and select it under [connector]."
+- To insert a value from an earlier step, say: "Click into the box, select the lightning bolt, and pick [value] under [step]."
+- For an expression, say: "Select the fx button beside the box, type the expression, and select Add." Put the expression in a code block.
+- Put every value I need to type in backticks or a code block.
+- Group steps into short sections with a heading for each action. End each section with "Check: your canvas should now show ..." listing the cards in order.
+- Include any setting a beginner would miss (for example DateTime Format set to ISO 8601 on List rows present in a table).
+- End with a safe test section: how to run it, where to look in the run history, and what a correct result looks like. All emails go to me only.
+- Don't use code view or @{...} syntax.
+
+Here is one step written in the style I want:
+
+1. On the canvas, select the **+** below **List rows present in a table**, then **Add an action**. Search for `Filter array` and select it under **Data Operation**. Its settings open on the left.
 ```
