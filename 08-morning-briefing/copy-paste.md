@@ -34,6 +34,12 @@ Starting value for BriefingSubject:
 Your day ahead
 ```
 
+## Scope name (text, section 8.3)
+
+```text
+Gather briefing data
+```
+
 ## Weather location (text, section 8.3)
 
 ```text
