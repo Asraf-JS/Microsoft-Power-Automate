@@ -2,7 +2,7 @@
 
 Copilot in Power Automate can turn a plain-language description into a suggested flow. A suggestion isn't a finished design, though. In this chapter you review what Copilot proposes, correct it precisely, and walk away without creating anything.
 
-> **Copy-paste values:** the three prompts for this chapter are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 30 minutes
 
@@ -16,6 +16,7 @@ Copilot in Power Automate can turn a plain-language description into a suggested
 - Review an AI-generated flow plan against the business rule
 - Refine a suggestion by naming the exact change you need
 - Leave the planning experience without creating a flow
+- Plan your own automation with Copilot before you build it
 
 ---
 
@@ -47,7 +48,11 @@ On the Power Automate home page, select **Create with Copilot**. The Create page
 
 ## 9.2 Describe the Complete Business Outcome
 
-In **What will your flow do?**, paste prompt 1 from the copy-paste page and select the arrow icon at the bottom right of the box to send it.
+In **What will your flow do?**, paste prompt 1 and select the arrow icon at the bottom right of the box to send it. Copy it from the box below.
+
+```text
+Every Friday at 4:00 PM Singapore time, read rows from the tblTraining table in TrainingRegister.xlsx in OneDrive for Business. Keep rows whose Status is Registered and SessionDate is within the next 14 days. Email the training coordinator a summary count. Do not send participant emails.
+```
 
 ![Copilot prompt box containing the weekly coordinator summary prompt](./images/09-02-first-prompt.png)
 
@@ -80,7 +85,11 @@ Use these questions on any AI-generated flow plan:
 
 ## 9.4 Clarify the Filter and Count
 
-In **Add more details for Copilot to work with** (the box below the suggestion, to the right of **Keep it and continue**), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email.
+In **Add more details for Copilot to work with** (the box below the suggestion, to the right of **Keep it and continue**), paste prompt 2 and select the arrow icon at its right end to send it. It names the actions, gives the counting expression, and draws a clear line around who gets email. Copy it from the box below.
+
+```text
+Use a Filter array named FilteredRows to keep rows where Status is Registered and SessionDate is between today and 14 days from today. Calculate the count with length(body('FilteredRows')). Send one summary email only to coordinator@example.com. Do not add an Apply to each or any participant email.
+```
 
 ---
 
@@ -96,7 +105,11 @@ Copilot's answers vary from run to run. Check whether the second suggestion adde
 
 ## 9.6 Request a Streamlined Design
 
-Paste prompt 3 into the same **Add more details for Copilot to work with** box and select the arrow icon at its right end to send it. It says what to remove, why, and exactly which structure to keep. Copilot keeps each answer as a version. To compare them, use the small arrows beside **Version** (for example **Version 3 of 3**) below the suggestion.
+Paste prompt 3 into the same **Add more details for Copilot to work with** box and select the arrow icon at its right end to send it. It says what to remove, why, and exactly which structure to keep. Copilot keeps each answer as a version. To compare them, use the small arrows beside **Version** (for example **Version 3 of 3**) below the suggestion. Copy prompt 3 from the box below.
+
+```text
+Remove Get file metadata using path because List rows present in a table can select the workbook directly. Keep only Recurrence, List rows present in a table, Filter array named FilteredRows, Compose named Count using length(body('FilteredRows')), and one Send an email action to coordinator@example.com.
+```
 
 ---
 
@@ -123,6 +136,50 @@ This only checks the outline. If you continued, you'd still need to configure th
 ## 9.8 Exit Without Creating the Flow
 
 Select **Cancel** at the bottom right of the page, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
+
+---
+
+## 9.9 Plan Your Own Automation
+
+The exercise above used prompts written for you. For your own work, plan in plain words first and let Copilot draft the flow second. Planning is where most of the gaps get caught, while they're still cheap to fix.
+
+1. Before you open Copilot, write the job down as you'd explain it to a colleague. You need five things: what **starts** it, where the **data** lives, the **rule** it follows, the **output** it produces, and one **boundary** (what it must never do). If you can't fill one in, the automation isn't ready yet.
+2. Ask Copilot to plan it, not build it. Use Microsoft 365 Copilot chat, or **Create with Copilot** without selecting **Keep it and continue**. Copy the template below, replace each part in square brackets with your details, and send it.
+
+   ```text
+   I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+   Trigger: [when should it start: a new email, a schedule, a button, a form response]
+   Data: [where the information lives: Excel table name and columns, SharePoint list, Outlook folder]
+   Rule: [what decision it makes: for example, only rows where Status is not Completed and the date is in the next 14 days]
+   Output: [what it produces: one email per row, a summary to me, a Teams message]
+   Boundary: [what it must never do: for example, send to anyone outside the company, delete anything]
+
+   First ask me up to five questions about anything unclear. Then give me:
+   1. The trigger and each action in order, using Power Automate action names
+   2. Where a condition, loop or variable is needed and why
+   3. Which connectors are standard and which may need a premium licence
+   4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+   5. A safe test plan that only sends to me
+   ```
+
+   Saying "don't build anything yet" matters: without it, Copilot jumps straight to a draft and skips the questions.
+
+3. Answer Copilot's questions, then refine in small, specific turns. Ask for one exact change each time, for example "add a condition that skips Completed rows", not "make it better".
+4. Review the plan with the six questions from 9.3: trigger, data, logic, output, licensing and testing. Look out for a loop you don't need and a missing condition: they're the most common mistakes in Copilot drafts.
+5. When the plan looks right, take the trigger and action list into **Create with Copilot** (or build it yourself, as in Chapters 3 to 8) in a test environment, with every recipient set to you. Test with a few rows before anyone else receives anything.
+
+Here's the template filled in for the Chapter 7 capstone, as an example:
+
+```text
+Trigger: every Monday at 9:00 Malaysia time.
+Data: Excel table tblTraining in OneDrive (ParticipantName, Email, CourseTitle, SessionDate, Status).
+Rule: only rows where Status is not Completed and SessionDate is within the next 14 days.
+Output: one reminder email per matching row, then one summary email to me with the count.
+Boundary: never email anyone while testing; send everything to me until I approve it.
+```
+
+> **Tip:** Use the real names of your table, columns and folders in the prompt, and ask for Power Automate action names. Vague prompts get placeholder actions you have to rewire, and action names let you find each step in the designer.
 
 ---
 

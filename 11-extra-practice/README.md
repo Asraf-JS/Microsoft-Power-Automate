@@ -2,7 +2,7 @@
 
 Four small flows for when you finish early, or for practice back at your desk. Each one only reads your own data or writes to your own OneDrive training folder, and only notifies you. None of them touches shared sites, lists, teams or other people's mailboxes.
 
-> **Copy-paste values:** flow names and text for every exercise are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 15 to 20 minutes each, self-paced
 
@@ -41,7 +41,19 @@ Four small flows for when you finish early, or for practice back at your desk. E
    | Field | Value |
    |-------|-------|
    | Title | Type `Follow up: ` (with a space at the end), then insert **Subject** |
-   | Body Content | Type `From ` then insert **From** |
+   | Body Content | Type `From ` (with a space at the end), then insert **From** |
+
+   Title start (ends with a space):
+
+   ```text
+   Follow up: 
+   ```
+
+   Body Content start (ends with a space):
+
+   ```text
+   From 
+   ```
 
    ![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/11-01-todo.png)
 
@@ -80,6 +92,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
    | Recipient | Your own email address |
    | Message | Type `Reminder: ` (with a space at the end), then insert **Message** from *Manually trigger a flow* |
 
+   Message start (ends with a space):
+
+   ```text
+   Reminder: 
+   ```
+
 5. Select **Save**, then **Test** > **Manually** > **Test**. In the panel that opens, type a short message, then select **Run flow**. The message appears in Teams, in your chat with Flow bot.
 
 > **Note:** Earlier versions of this exercise used **Send me a mobile notification**. During testing that action reported that the Power Automate mobile app had been retired and notifications had nowhere to go, so this version uses Teams instead.
@@ -108,11 +126,23 @@ Four small flows for when you finish early, or for practice back at your desk. E
    | File Name | Insert **Subject** from the trigger, then type `.eml` straight after it |
    | File Content | Insert **Body** from *Export email (V2)* |
 
+   Folder Path:
+
+   ```text
+   /Power Automate Training/Reports
+   ```
+
    ![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/11-03-save-email.png)
 
    *Export email turns the message into a file. Create file saves it.*
 
-6. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, send yourself an email with the subject `[PA SAVE] Booking confirmation`. A `.eml` file appears in Reports. Double-click it to open it in Outlook.
+6. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, send yourself an email with the subject below. Copy it from the box below.
+
+   ```text
+   [PA SAVE] Booking confirmation
+   ```
+
+   A `.eml` file appears in Reports. Double-click it to open it in Outlook.
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -128,7 +158,11 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 1. Select **Create** in the left navigation, then the **Automated cloud flow** tile. In **Flow name**, enter `PA - Power Platform news`.
 2. In the trigger search box, type `RSS`, select **When a feed item is published**, and select **Create**.
-3. Select the trigger card on the canvas. In **The RSS feed URL**, paste the Microsoft Power Platform blog feed from the copy-paste page.
+3. Select the trigger card on the canvas. In **The RSS feed URL**, paste the Microsoft Power Platform blog feed. Copy it from the box below.
+
+   ```text
+   https://www.microsoft.com/en-us/power-platform/blog/feed/
+   ```
 4. Under the trigger, select **+** > **Add an action**, search `send an email`, and choose **Send an email (V2)** under **Office 365 Outlook**:
 
    | Field | Value |
@@ -136,6 +170,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
    | To | Type your own email address and select it from the suggestions |
    | Subject | Type `New post: ` (with a space at the end), then insert **Feed title** |
    | Body | Insert **Feed summary**, press Enter, then insert **Primary feed link** |
+
+   Subject start (ends with a space):
+
+   ```text
+   New post: 
+   ```
 
    ![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/11-04-rss.png)
 

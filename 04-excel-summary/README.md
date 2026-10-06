@@ -2,7 +2,7 @@
 
 The coordinator wants a readable list of training sessions on demand, without copying cells into an email by hand. An instant flow reads the register and sends one summary table. Along the way you write your first expression.
 
-> **Copy-paste values:** the flow name, subject and your first expression are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 60 minutes
 
@@ -157,8 +157,18 @@ Select handles every row for you, so you don't need an Apply to each here.
 
 1. On the canvas, select the **+** below **Create HTML table**, then **Add an action**. Search for `Send an email`, then select **Send an email (V2)** under **Office 365 Outlook**.
 2. In **To**, start typing your name or email address, then select yourself from the list that appears.
-3. In **Subject**, enter `[PA TRAINING] Training register summary`.
-4. Click into **Body** and type `Here is the current training register.` then press Enter.
+3. In **Subject**, enter the subject. Copy it from the box below.
+
+   ```text
+   [PA TRAINING] Training register summary
+   ```
+
+4. Click into **Body**, type the introduction below, then press Enter.
+
+   ```text
+   Here is the current training register.
+   ```
+
 5. On the new line, type `/` and choose **Insert dynamic content** (or select the lightning bolt). Select **Output** under the *Create HTML table* heading. The picker lists two values called **Output**: pick the one under *Create HTML table*, not the one under *Select*.
 
    Leave the body as these two lines for now. You add the count sentence in 4.7.
@@ -179,7 +189,7 @@ Select handles every row for you, so you don't need an Apply to each here.
 
 The coordinator wants a line like *"This report lists 6 sessions."* None of the dynamic content values is a count. Dynamic content gives you values that already exist. When you need a value *calculated*, you write an **expression**.
 
-1. On the canvas, select **Send an email (V2)** to open it again. In **Body**, click right after `register.` at the end of the first line and type ` This report lists ` (with a space before and after).
+1. On the canvas, select **Send an email (V2)** to open it again. In **Body**, click right after `register.` at the end of the first line, then type a space, then `This report lists`, then another space.
 2. Select the **fx** button that appears at the right edge of the Body box, just below the lightning bolt. The expression editor opens. (Typing `/` and choosing **Insert expression** works on some screens too, but not all.)
 3. In the expression box, type `length(`
 4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **Output** under *Select*. It drops into the expression.
@@ -190,7 +200,13 @@ The coordinator wants a line like *"This report lists 6 sessions."* None of the 
 
    *length() counts the items in a list. Here it counts the rows Select produced.*
 
-   The expression reads `length(body('Select'))`. You can also paste it from the copy-paste page. `length()` is a **function**: you give it something inside the brackets and it gives back an answer.
+   The expression reads as below. You can also paste it into the expression box instead: copy it from the box below.
+
+   ```text
+   length(body('Select'))
+   ```
+
+   `length()` is a **function**: you give it something inside the brackets and it gives back an answer.
 
    > **Tip:** If you renamed the Select action, the name inside the quotes changes too. Picking Output from the Dynamic content tab handles that for you, which is why step 4 picks it instead of typing it.
 

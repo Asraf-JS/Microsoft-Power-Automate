@@ -2,7 +2,7 @@
 
 Every week the coordinator opens the register and writes the same reminder for each participant. A scheduled flow can do that at a predictable local time.
 
-> **Copy-paste values:** the flow name, email text and the date expression are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 40 minutes
 
@@ -156,8 +156,16 @@ On the canvas, select the **+** inside the **Apply to each** box (below its head
 
    *The gear switches To from picking people to accepting dynamic content (shown here after Email was inserted).*
 
-2. **Subject:** click into the box and type `[PA TRAINING] Reminder: ` (with the space at the end). Select the lightning bolt icon and pick **CourseTitle** under *List rows present in a table*. If the trailing space disappears after typing or pasting, type a space before inserting CourseTitle.
-3. **Body:** click into the box and type the message below. Where a value belongs, put the cursor there, type `/` and choose **Insert dynamic content** (or select the lightning bolt), then pick the value:
+2. **Subject:** click into the box and paste the subject start (it ends with a space). Copy it from the box below.
+
+   ```text
+   [PA TRAINING] Reminder: 
+   ```
+
+   Select the lightning bolt icon and pick **CourseTitle** under *List rows present in a table*. If the trailing space disappears after typing or pasting, type a space before inserting CourseTitle.
+3. **Body:** click into the box and type the message below. Where a value belongs, put the cursor there, type `/` and choose **Insert dynamic content** (or select the lightning bolt), then pick the value.
+
+**Type this, inserting the tokens where shown:**
 
 > Hello **[ParticipantName]**,
 >
@@ -170,7 +178,19 @@ On the canvas, select the **+** inside the **Apply to each** box (below its head
 >
 > Please contact the training coordinator if your plans change.
 
-Each **[bold name]** is a dynamic content token. **Converted time** comes from *Convert time zone*. The rest come from *List rows present in a table*. If a value isn't listed, select **See more** or type its name in the picker's search box. You can also paste the whole body from the copy-paste page and replace each `[Name]` with its token.
+Each **[bold name]** is a dynamic content token. **Converted time** comes from *Convert time zone*. The rest come from *List rows present in a table*. If a value isn't listed, select **See more** or type its name in the picker's search box.
+
+The two plain sentences contain no tokens, so you can copy them from the boxes below:
+
+```text
+This is your weekly training reminder.
+```
+
+```text
+Please contact the training coordinator if your plans change.
+```
+
+The [copy-paste page](./copy-paste.md) also has the whole body with `[Name]` placeholders, if you'd rather paste it and replace each placeholder with its token.
 
 ![Send an email (V2) with the Email token in To, a subject with CourseTitle, and the body text with tokens](./images/05-06-email.png)
 
@@ -198,7 +218,13 @@ Run the flow now and the session date reads `2026-09-21T00:00:00.000Z`. That's c
 
    *formatDateTime() takes a date and a pattern, and gives back the date written in that pattern.*
 
-   The finished expression is on the copy-paste page if you'd rather paste it. The pattern `dd MMM yyyy` means two-digit day, short month name, four-digit year, so `21 Sep 2026`.
+   If you'd rather paste the finished expression, copy it from the box below. It works if your loop still has its default name, **Apply to each**.
+
+   ```text
+   formatDateTime(items('Apply_to_each')?['SessionDate'], 'dd MMM yyyy')
+   ```
+
+   The pattern `dd MMM yyyy` means two-digit day, short month name, four-digit year, so `21 Sep 2026`.
 
    > **Tip:** Compare this with Chapter 4. `length()` counted a list, `formatDateTime()` reshapes a date. Both follow the same shape: a function name, then what you give it in brackets.
 

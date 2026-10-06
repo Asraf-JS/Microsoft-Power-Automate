@@ -2,7 +2,7 @@
 
 Every morning you check the weather, your calendar and your inbox before the day starts. This flow does all three at once and sends you one email. It only reads your own data and only emails you, so it's safe to build in a live environment.
 
-> **Copy-paste values:** the variable names, branch text and email body are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 60 minutes
 
@@ -65,10 +65,10 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 | Name | Type | Starting value | What it's for |
 |------|------|----------------|---------------|
-| MeetingCount | Integer | `0` | Counts today's meetings |
-| MeetingList | String | *(leave empty)* | Collects the meeting names |
-| EmailList | String | *(leave empty)* | Collects the important email subjects |
-| BriefingSubject | String | `Your day ahead` | The email subject. May change later |
+| `MeetingCount` | Integer | `0` | Counts today's meetings |
+| `MeetingList` | String | *(leave empty)* | Collects the meeting names |
+| `EmailList` | String | *(leave empty)* | Collects the important email subjects |
+| `BriefingSubject` | String | `Your day ahead` | The email subject. May change later |
 
 1. On the canvas, select the **+** below **Recurrence**, then **Add an action**. Search for `Initialize variable` and select it under **Variables**.
 2. In **Name**, enter `MeetingCount`. Open the **Type** dropdown and select **Integer**. In **Value**, enter `0`.
@@ -128,7 +128,13 @@ This branch starts *beside* the weather, not below it.
 
 5. Select the **+** below **Get calendar view of events (V3)**, then **Add an action**. Search for `Apply to each` and select it under **Control**. Click into **Select an output from previous steps**, open the lightning bolt, and select **body/value** under *Get calendar view of events (V3)*. That's the list of events. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
 6. Inside the loop, select the **+**, then **Add an action**. Search for `Increment variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingCount**. In **Value**, enter `1`.
-7. Inside the same loop, select the **+** below **Increment variable** (if it's out of view, close the panel with **<<** and use **Zoom view to fit** at the bottom left of the canvas), then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingList**. In **Value**, type `<br>• `, then open the lightning bolt and select **Subject** under *Get calendar view of events (V3)*. If Subject isn't listed, select **See more** under *Get calendar view of events (V3)*.
+7. Inside the same loop, select the **+** below **Increment variable** (if it's out of view, close the panel with **<<** and use **Zoom view to fit** at the bottom left of the canvas), then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingList**. In **Value**, paste the text below (it ends with a space). Copy it from the box below.
+
+   ```text
+   <br>• 
+   ```
+
+   Then open the lightning bolt and select **Subject** under *Get calendar view of events (V3)*. If Subject isn't listed, select **See more** under *Get calendar view of events (V3)*.
 
 ![The meetings branch: Current time, Get future time, Get calendar view of events, and a loop with Increment variable and Append to string variable](./images/08-05-meetings-branch.png)
 
@@ -157,7 +163,19 @@ This branch starts *beside* the weather, not below it.
    | Top | 5 |
 
 3. On the canvas, select the **+** below **Get emails (V3)**, then **Add an action**. Search for `Apply to each` and select it under **Control**. Click into **Select an output from previous steps**, open the lightning bolt, and select **body/value** under *Get emails (V3)*.
-4. Inside the loop, select the **+**, then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **EmailList**. In **Value**, type `<br>• `, insert **Subject**, type ` (from `, insert **From**, type `)`. Subject and From are under *Get emails (V3)* in the picker (select **See more** if they're hidden).
+4. Inside the loop, select the **+**, then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **EmailList**. In **Value**, paste the start of the line (it ends with a space). Copy it from the box below.
+
+   ```text
+   <br>• 
+   ```
+
+   Insert **Subject**, then paste the text below (it starts and ends with a space).
+
+   ```text
+    (from 
+   ```
+
+   Insert **From**, then type `)`. Subject and From are under *Get emails (V3)* in the picker (select **See more** if they're hidden).
 
 ![Three branches side by side: weather, meetings and email](./images/08-06-three-branches.png)
 
@@ -198,7 +216,13 @@ The next step must wait until all three branches have finished.
 ## 8.7 Change the Subject on a Busy Day
 
 1. In the **Busy day** panel, select the **Parameters** tab. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **MeetingCount** under *Variables*. Open the middle dropdown and select **is greater than**. Click the right box and type `4`. If an empty extra row appears, select its **...** and then **Delete**. The designer may show an empty placeholder row again straight away: that's fine, only the filled row is saved.
-2. On the canvas, inside the green **True** box, select the **+**, then **Add an action**. Search for `Set variable` and select it under **Variables**. Open the **Name** dropdown and select **BriefingSubject**. In **Value**, type `Busy day ahead: `, insert **MeetingCount** (under *Variables*), then type ` meetings`.
+2. On the canvas, inside the green **True** box, select the **+**, then **Add an action**. Search for `Set variable` and select it under **Variables**. Open the **Name** dropdown and select **BriefingSubject**. In **Value**, paste the text below (it ends with a space). Copy it from the box below.
+
+   ```text
+   Busy day ahead: 
+   ```
+
+   Insert **MeetingCount** (under *Variables*), then type ` meetings` (with the space at the start).
 3. Leave **False** empty. The subject keeps its starting value, *Your day ahead*.
 
 ![Busy day condition with MeetingCount is greater than 4](./images/08-08-set-variable.png)
@@ -227,6 +251,28 @@ The next step must wait until all three branches have finished.
    > Meetings in the next 12 hours (**[MeetingCount]**):**[MeetingList]**
    >
    > Important unread email:**[EmailList]**
+
+   The plain text pieces are in the boxes below, in order. Paste each one, then insert the token that follows it. Press **Enter** twice between lines to leave a blank line.
+
+   ```text
+   Good morning,
+   ```
+
+   ```text
+   Weather in Kuala Lumpur: 
+   ```
+
+   After **[Conditions]**, type a comma and a space, insert **[Temperature]**, then type `°C`.
+
+   ```text
+   Meetings in the next 12 hours (
+   ```
+
+   After **[MeetingCount]**, type `):` and then insert **[MeetingList]**.
+
+   ```text
+   Important unread email:
+   ```
 
    ![Send an email (V2) with BriefingSubject in the subject and the body built from weather values and variables](./images/08-09-email.png)
 

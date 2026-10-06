@@ -2,7 +2,7 @@
 
 A training request needs a person to say yes or no before anything is confirmed. This flow collects the request with Microsoft Forms, asks an approver to decide, and posts a different Teams message for each outcome.
 
-> **Copy-paste values:** the flow name, form text, approval title and messages are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 75 minutes
 
@@ -42,7 +42,11 @@ You need Microsoft Forms, Approvals and Microsoft Teams through your work or sch
 
    ![The Forms home page with New Form boxed](./images/06-01-new-form.png)
 
-3. Select **Untitled form** at the top and type `Training Request`. In the description box under it, paste the description from the copy-paste page.
+3. Select **Untitled form** at the top and type `Training Request`. In the description box under it, paste the description. Copy it from the box below.
+
+   ```text
+   Submit a fictional training request for the Power Automate approval exercise.
+   ```
 
    ![The new form with the title Training Request and the description](./images/06-01-title.png)
 
@@ -52,7 +56,7 @@ You need Microsoft Forms, Approvals and Microsoft Teams through your work or sch
 
    ![The Requester name question with the Required switch on](./images/06-01-requester.png)
 
-5. Scroll to the bottom of the form and select **+ Add new question** > **Choice**. Type `Course` as the question, then type the three options from the copy-paste page (Power Automate Basics, Approval Workflows, Excel Reporting), one per option box. Select **Add option** if you need a third box. Switch on **Required**.
+5. Scroll to the bottom of the form and select **+ Add new question** > **Choice**. Type `Course` as the question, then type the three options, one per option box: `Power Automate Basics`, `Approval Workflows`, `Excel Reporting`. Select **Add option** if you need a third box. Switch on **Required**.
 
    ![The Course question with its three options and Required on](./images/06-01-course.png)
 
@@ -132,7 +136,16 @@ The trigger only says a response exists. Get response details returns the indivi
 2. Set **Approval type** to **Approve/Reject - First to respond**. If your list doesn't have it, choose **Basic**.
 3. In **Title**, enter `[PA TRAINING] Training request`.
 4. In **Assigned to**, type the trainer-approved approver's name or email and select them from the list.
-5. In **Details**, paste the details template from the copy-paste page. Put the cursor after each label, select the lightning bolt icon, and under *Get response details* pick the matching answer: **Requester name**, **Course**, **Preferred date**, **Business reason**. If the list is cut short, select **See more** or type the question name in the picker's search box.
+5. In **Details**, paste the details template. Copy it from the box below.
+
+   ```text
+   **Requester name:** 
+   **Course:** 
+   **Preferred date:** 
+   **Business reason:** 
+   ```
+
+   Put the cursor after each label, select the lightning bolt icon, and under *Get response details* pick the matching answer: **Requester name**, **Course**, **Preferred date**, **Business reason**. If the list is cut short, select **See more** or type the question name in the picker's search box.
 
 ![Start and wait for an approval with type, title, assigned to and Details containing the four answers](./images/06-05-approval.png)
 
@@ -175,7 +188,13 @@ The trigger only says a response exists. Get response details returns the indivi
 1. On the canvas, select the **+** inside the green **True** box, then **Add an action**. Search for `Post message in a chat or channel` and select it under **Microsoft Teams**.
 2. Open the **Post as** dropdown and select **Flow bot**. Open **Post in** and select **Chat with Flow bot**.
 3. In **Recipient**, type the trainer-approved Teams account and select it from the list.
-4. Click into **Message** and type `Training request approved for ` (with the space at the end). Select the lightning bolt icon and pick **Course** under *Get response details*.
+4. Click into **Message** and type the text below, with the space at the end. Copy it from the box below.
+
+   ```text
+   Training request approved for 
+   ```
+
+   Select the lightning bolt icon and pick **Course** under *Get response details*.
 
 ![Post message in a chat or channel with Flow bot settings and the approved message](./images/06-07-teams-approved.png)
 
@@ -193,7 +212,13 @@ The trigger only says a response exists. Get response details returns the indivi
 
 1. On the canvas, select the **+** inside the red **False** box, then **Add an action**, and add a second **Post message in a chat or channel** (Microsoft Teams).
 2. Use the same **Post as**, **Post in** and **Recipient** as section 6.7.
-3. In **Message**, type `Training request rejected for ` and insert **Course** from *Get response details* with the lightning bolt, as in 6.7.
+3. In **Message**, type the text below, with the space at the end. Copy it from the box below.
+
+   ```text
+   Training request rejected for 
+   ```
+
+   Then insert **Course** from *Get response details* with the lightning bolt, as in 6.7.
 
 A production process would also handle outcomes like cancelled or timed-out approvals. This exercise sticks to the two standard Approve and Reject buttons.
 

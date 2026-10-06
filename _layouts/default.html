@@ -379,6 +379,36 @@ body{
   color:var(--navy);
 }
 
+.main-inner code.click-copy{
+  cursor:pointer;
+  position:relative;
+  transition:background .15s, border-color .15s;
+}
+.main-inner code.click-copy:hover{
+  border-color:var(--teal);
+  background:var(--teal-light);
+}
+.main-inner code.click-copy.copied{
+  border-color:var(--teal);
+  background:var(--teal);
+  color:#fff;
+}
+.main-inner code.click-copy.copied::after{
+  content:"Copied";
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 6px);
+  transform:translateX(-50%);
+  background:var(--navy);
+  color:#fff;
+  font-family:inherit;
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:4px;
+  white-space:nowrap;
+  pointer-events:none;
+}
+
 .pre-wrap{
   position:relative;
   margin:12px 0 22px;
@@ -627,6 +657,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     wrapper.appendChild(button);
+  });
+
+  // Inline values (the short code spans in steps and tables) copy when clicked.
+  document.querySelectorAll(".main-inner code").forEach(function (code) {
+    if (code.closest("pre")) return;
+    code.classList.add("click-copy");
+    code.title = "Click to copy";
+    code.addEventListener("click", async function () {
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+        code.classList.add("copied");
+        setTimeout(function () { code.classList.remove("copied"); }, 1200);
+      } catch (err) { /* clipboard blocked: the value can still be selected by hand */ }
+    });
   });
 });
 </script>

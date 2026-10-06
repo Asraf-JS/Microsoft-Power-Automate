@@ -2,7 +2,7 @@
 
 Every flow in this course reads from or writes to something: a folder, a table, a mailbox, a form, a Teams chat. Set those up first and the later build steps become predictable.
 
-> **Copy-paste values:** the Excel headers, table name and email subject are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 30 minutes
 
@@ -66,7 +66,18 @@ Sign in to each one with your **work or school account**, the same one every tim
 
 1. Inside `Power Automate Training`, select **Create or upload**, then **Excel workbook**. Check the breadcrumb first: the workbook is created in whichever folder you're viewing.
 2. When Excel for the web opens, select the file name in the title bar and rename it `TrainingRegister`. Excel adds `.xlsx` for you.
-3. Select cell **A1**, then paste the headers and sample rows from the [copy-paste page](./copy-paste.md) (section 2.2). Each header lands in its own column (TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status), and the six fictional rows fill rows 2 to 7.
+3. Select cell **A1**, then paste the headers and sample rows. Copy them from the box below. Each header lands in its own column (TrainingID, ParticipantName, Email, CourseTitle, SessionDate, Status), and the six fictional rows fill rows 2 to 7.
+
+   ```text
+   TrainingID	ParticipantName	Email	CourseTitle	SessionDate	Status
+   TR-001	Aisha Rahman	learner1@example.com	Power Automate Basics	9/21/2026	Registered
+   TR-002	Daniel Lee	learner2@example.com	Excel Reporting	9/22/2026	Registered
+   TR-003	Mei Chen	learner3@example.com	Microsoft Forms	9/23/2026	Completed
+   TR-004	Ravi Kumar	learner4@example.com	Teams Collaboration	9/24/2026	Registered
+   TR-005	Sofia Martinez	learner5@example.com	Approval Workflows	9/28/2026	Registered
+   TR-006	Noah Williams	learner6@example.com	Cloud Flow Essentials	10/5/2026	Completed
+   ```
+
 4. If your trainer gave you approved test addresses, type them over the addresses in the **Email** column. Then change the **SessionDate** values so they fit your class week, because the sample dates (21 September to 5 October 2026) may already be in the past. Count from today and make sure you have:
    - at least two **Registered** rows with a date within the next 14 days
    - one **Completed** row
@@ -104,8 +115,18 @@ If Power Automate can't find the table later, check three things: the workbook i
 
 1. Download the test files: **[test-files.zip](./test-files.zip)** (one click, all three files). Open your Downloads folder, right-click the ZIP and choose **Extract All**.
 2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail** (it may just say **New**) at the top left.
-3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter `[PA TRAINING] Attachment test`.
-4. Select the large empty area under the subject line (the message body) and type `Training attachment test.`
+3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter the subject below.
+
+   ```text
+   [PA TRAINING] Attachment test
+   ```
+
+4. Select the large empty area under the subject line (the message body) and type the text below.
+
+   ```text
+   Training attachment test.
+   ```
+
 5. On the **Message** tab of the ribbon, select **Attach file** > **Browse this computer**, go to the extracted test files and pick `CourseOutline.pdf`. Repeat for `TrainerPhoto.jpg`. If Outlook asks whether to attach the picture or insert it inline, choose to attach it.
 6. **Don't send it.** Outlook saves the message automatically (you see **Draft saved** at the right of the subject line). Select **Inbox** in the folder list to leave it. The message waits in **Drafts**.
 
