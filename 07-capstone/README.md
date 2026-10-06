@@ -65,9 +65,10 @@ Complete Chapter 5.
 2. In the search box at the top of the panel, type `Filter array`. Under the **Data Operation** heading, select **Filter array**. Its settings open on the left.
 3. Rename it: select the action's title at the top of the panel and type `Filter out completed training`.
 4. Click into the **From** box. Select the lightning bolt icon beside it (or type `/` and choose **Insert dynamic content**), then select **body/value** under *List rows present in a table*. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
-5. Under **Filter Query**, click the left box, open the lightning bolt, and select **Status** under *List rows present in a table*. Type `Status` in the picker's search box if it isn't listed.
-6. Open the middle dropdown and select **is not equal to**.
-7. Click the right box and type `Completed`.
+5. Fill the row of three boxes under **Filter Query**, left to right:
+   - Left box: open the lightning bolt and select **Status** under *List rows present in a table*. Type `Status` in the picker's search box if it isn't listed.
+   - Middle dropdown: select **is not equal to**.
+   - Right box: type `Completed`.
 
 ![Filter array renamed Filter out completed training with From set to the Excel value list and Status is not equal to Completed](./images/07-02-filter-array.png)
 
