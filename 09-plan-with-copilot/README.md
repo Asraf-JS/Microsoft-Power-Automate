@@ -16,6 +16,7 @@ Copilot in Power Automate can turn a plain-language description into a suggested
 - Review an AI-generated flow plan against the business rule
 - Refine a suggestion by naming the exact change you need
 - Leave the planning experience without creating a flow
+- Plan your own automation with Copilot before you build it
 
 ---
 
@@ -135,6 +136,82 @@ This only checks the outline. If you continued, you'd still need to configure th
 ## 9.8 Exit Without Creating the Flow
 
 Select **Cancel** at the bottom right of the page, not **Keep it and continue**. Power Automate returns to the Create page. This exercise is planning only.
+
+---
+
+## 9.9 Plan Your Own Automation
+
+The exercise above used prompts written for you. For your own work, plan in plain words first and let Copilot draft the flow second. Planning is where most of the gaps get caught, while they're still cheap to fix.
+
+1. Before you open Copilot, write the job down as you'd explain it to a colleague. You need five things: what **starts** it, where the **data** lives, the **rule** it follows, the **output** it produces, and one **boundary** (what it must never do). If you can't fill one in, the automation isn't ready yet.
+2. Ask Copilot to plan it, not build it. Use Microsoft 365 Copilot chat, or **Create with Copilot** without selecting **Keep it and continue**. Copy the template below, replace each part in square brackets with your details, and send it.
+
+   ```text
+   I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+   Trigger: [when should it start: a new email, a schedule, a button, a form response]
+   Data: [where the information lives: Excel table name and columns, SharePoint list, Outlook folder]
+   Rule: [what decision it makes: for example, only rows where Status is not Completed and the date is in the next 14 days]
+   Output: [what it produces: one email per row, a summary to me, a Teams message]
+   Boundary: [what it must never do: for example, send to anyone outside the company, delete anything]
+
+   First ask me up to five questions about anything unclear. Then give me:
+   1. The trigger and each action in order, using Power Automate action names
+   2. Where a condition, loop or variable is needed and why
+   3. Which connectors are standard and which may need a premium licence
+   4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+   5. A safe test plan that only sends to me
+   ```
+
+   Saying "don't build anything yet" matters: without it, Copilot jumps straight to a draft and skips the questions.
+
+3. Answer Copilot's questions, then refine in small, specific turns. Ask for one exact change each time, for example "add a condition that skips Completed rows", not "make it better".
+4. Review the plan with the six questions from 9.3: trigger, data, logic, output, licensing and testing. Look out for a loop you don't need and a missing condition: they're the most common mistakes in Copilot drafts.
+5. When the plan looks right, turn it into steps you can follow. In the same chat, copy and send the prompt below. It asks Copilot for a click-by-click lab in the same style as this book, without screenshots.
+
+   ```text
+   The plan looks good. Now write it as a hands-on lab for a beginner who has never used Power Automate, in the new designer at make.powerautomate.com.
+
+   Rules:
+   - Number every step. One action per step: where to click, what to search for, what to type or pick.
+   - Use the exact button and field names a beginner sees on screen, in bold.
+   - To add an action, always say: "On the canvas, select the + below [card], then Add an action. Search for `[name]` and select it under [connector]."
+   - To insert a value from an earlier step, say: "Click into the box, select the lightning bolt, and pick [value] under [step]."
+   - For an expression, say: "Select the fx button beside the box, type the expression, and select Add." Put the expression in a code block.
+   - Put every value I need to type in backticks or a code block.
+   - Group steps into short sections with a heading for each action. End each section with "Check: your canvas should now show ..." listing the cards in order.
+   - Include any setting a beginner would miss (for example DateTime Format set to ISO 8601 on List rows present in a table).
+   - End with a safe test section: how to run it, where to look in the run history, and what a correct result looks like. All emails go to me only.
+   - Don't use code view or @{...} syntax.
+
+   Here is one step written in the style I want:
+
+   1. On the canvas, select the **+** below **List rows present in a table**, then **Add an action**. Search for `Filter array` and select it under **Data Operation**. Its settings open on the left.
+   ```
+
+   The sample step at the end is what makes the difference: Copilot copies its shape for the rest of the lab. Copilot can't see your screen, so treat the lab as a first draft. Button names are sometimes slightly off, and the "Check: your canvas should now show" lines help you spot when something has gone wrong.
+6. Build it in a test environment with every recipient set to you, following the lab (or with **Create with Copilot**, or yourself as in Chapters 3 to 8). Test with a few rows before anyone else receives anything.
+
+Here's the planning prompt from step 2 with every value filled in, using the Chapter 7 capstone as the example. Copy it to see the whole conversation: Copilot asks its questions, you answer them, then you send the lab prompt from step 5.
+
+```text
+I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.
+
+Trigger: every Monday at 9:00 Malaysia time (UTC+08:00).
+Data: Excel table tblTraining in the file Power Automate Training/TrainingRegister.xlsx in my OneDrive for Business. Columns: ParticipantName, Email, CourseTitle, SessionDate, Status.
+Rule: only rows where Status is not Completed and SessionDate is between today and 14 days from today.
+Output: one reminder email per matching row, then one summary email to me with the number of reminders sent.
+Boundary: never email anyone while testing; send every email to me until I approve it.
+
+First ask me up to five questions about anything unclear. Then give me:
+1. The trigger and each action in order, using Power Automate action names
+2. Where a condition, loop or variable is needed and why
+3. Which connectors are standard and which may need a premium licence
+4. What could go wrong (empty data, duplicates, timing, permissions) and how to guard against it
+5. A safe test plan that only sends to me
+```
+
+> **Tip:** Use the real names of your table, columns and folders in the prompt, and ask for Power Automate action names. Vague prompts get placeholder actions you have to rewire, and action names let you find each step in the designer.
 
 ---
 
