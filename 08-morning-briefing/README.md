@@ -43,9 +43,9 @@ The three lookups don't depend on each other. The weather doesn't need your cale
 
 1. In the left navigation, select **Create**, then **Scheduled cloud flow**.
 2. In **Flow name**, enter `PA - My morning briefing`.
-3. Set **Repeat every** to **1 Week**, tick **M T W T F**, and set the time to **8:00 AM**.
+3. Set **Repeat every** to **1 Week**. Make sure only **M T W T F** are selected: if **S** and **S** (the weekend) are already highlighted, select them to turn them off. Set the time to **8:00 AM**.
 4. Select **Create**. The designer opens with a **Recurrence** card on the canvas.
-5. Select the **Recurrence** card on the canvas to open its panel. If **Time zone** is blank, open the dropdown, type `Kuala` and pick **(UTC+08:00) Kuala Lumpur, Singapore**. Check that **At these hours** is `8` and the **Preview** at the bottom reads 8:00 on Monday to Friday. **Start time** and **At these minutes** are filled in for you; leave them.
+5. Select the **Recurrence** card on the canvas to open its panel. If **Time zone** is blank, open the dropdown, type `Kuala` and pick **(UTC+08:00) Kuala Lumpur, Singapore**. If **At these hours** is blank, open it and select `8`. Leave **At these minutes** as it is (blank or `0` both work). Check the **Preview** at the bottom reads 8:00 on Monday to Friday. **Start time** is filled in for you; leave it.
 
 ![Recurrence set to weekly on Monday to Friday at 8:00 in the Kuala Lumpur time zone](./images/08-01-recurrence.png)
 
@@ -72,7 +72,7 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 1. On the canvas, select the **+** below **Recurrence**, then **Add an action**. Search for `Initialize variable` and select it under **Variables**.
 2. In **Name**, enter `MeetingCount`. Open the **Type** dropdown and select **Integer**. In **Value**, enter `0`.
-3. Select the **+** below the variable you just made, then **Add an action** and search for `Initialize variable` again. Repeat until all four rows of the table are done. For the String rows, leave **Value** empty.
+3. Select the **+** below the variable you just made, then **Add an action** and search for `Initialize variable` again. Repeat until all four rows of the table are done. Leave **Value** empty for **MeetingList** and **EmailList**. For **BriefingSubject**, type `Your day ahead`.
 
 ![The first Initialize variable set to MeetingCount, Integer, 0, with four Initialize variable actions on the canvas](./images/08-02-variables.png)
 
@@ -128,7 +128,7 @@ This branch starts *beside* the weather, not below it.
 
 5. Select the **+** below **Get calendar view of events (V3)**, then **Add an action**. Search for `Apply to each` and select it under **Control**. Click into **Select an output from previous steps**, open the lightning bolt, and select **body/value** under *Get calendar view of events (V3)*. That's the list of events. (It may be labelled **value**. If you can't see it, select **See more** or type `value` in the picker's search box.)
 6. Inside the loop, select the **+**, then **Add an action**. Search for `Increment variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingCount**. In **Value**, enter `1`.
-7. Inside the same loop, select the **+** below **Increment variable**, then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingList**. In **Value**, type `<br>• `, then open the lightning bolt and select **Subject** under *Get calendar view of events (V3)*. If Subject isn't listed, select **See more** under *Get calendar view of events (V3)*.
+7. Inside the same loop, select the **+** below **Increment variable** (if it's out of view, close the panel with **<<** and use **Zoom view to fit** at the bottom left of the canvas), then **Add an action**. Search for `Append to string variable` and select it under **Variables**. Open the **Name** dropdown and select **MeetingList**. In **Value**, type `<br>• `, then open the lightning bolt and select **Subject** under *Get calendar view of events (V3)*. If Subject isn't listed, select **See more** under *Get calendar view of events (V3)*.
 
 ![The meetings branch: Current time, Get future time, Get calendar view of events, and a loop with Increment variable and Append to string variable](./images/08-05-meetings-branch.png)
 
@@ -179,7 +179,7 @@ The next step must wait until all three branches have finished.
 
 1. On the canvas, select the **+** below the meetings **Apply to each** box (outside it), then **Add an action**. Search for `Condition` and select it under **Control**. Rename it: select the title at the top of the panel and type `Busy day`.
 2. Select the **Busy day** card to open its panel, then the **Settings** tab at the top of the panel. **Apply to each** is already listed under **Run after**. Open the **Select actions** dropdown and tick **Get current weather** and **Apply to each 1**.
-3. Leave **Is successful** ticked for each. Check the **Run after** list shows all three actions, then select **Save**.
+3. Leave **Is successful** ticked for each. Check the **Run after** list shows all three actions, then select **Save**. (After saving, the panel may go blank: select the **Busy day** card again to reopen it.)
 
 ![Busy day with the Settings tab open, showing Run after set to Apply to each, Get current weather and Apply to each 1](./images/08-07-join.png)
 
@@ -197,7 +197,7 @@ The next step must wait until all three branches have finished.
 
 ## 8.7 Change the Subject on a Busy Day
 
-1. In the **Busy day** panel, select the **Parameters** tab. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **MeetingCount** under *Variables*. Open the middle dropdown and select **is greater than**. Click the right box and type `4`. If an empty extra row appears, select its **...** and then **Delete**.
+1. In the **Busy day** panel, select the **Parameters** tab. Click the left **Choose a value** box, select the lightning bolt (or type `/` and choose **Insert dynamic content**), and pick **MeetingCount** under *Variables*. Open the middle dropdown and select **is greater than**. Click the right box and type `4`. If an empty extra row appears, select its **...** and then **Delete**. The designer may show an empty placeholder row again straight away: that's fine, only the filled row is saved.
 2. On the canvas, inside the green **True** box, select the **+**, then **Add an action**. Search for `Set variable` and select it under **Variables**. Open the **Name** dropdown and select **BriefingSubject**. In **Value**, type `Busy day ahead: `, insert **MeetingCount** (under *Variables*), then type ` meetings`.
 3. Leave **False** empty. The subject keeps its starting value, *Your day ahead*.
 
@@ -216,7 +216,7 @@ The next step must wait until all three branches have finished.
 ## 8.8 Send the Briefing
 
 1. On the canvas, select the **+** below the **Busy day** box (outside it), then **Add an action**. Search for `Send an email`, then select **Send an email (V2)** under **Office 365 Outlook**.
-2. **To:** start typing your name or email address, then select yourself from the list that appears.
+2. **To:** start typing your name or email address, then select yourself from the list that appears. If no suggestion appears, type your full email address and press **Enter**.
 3. **Subject:** click into the box, select the lightning bolt, and pick **BriefingSubject** under *Variables*.
 4. **Body:** type the text below and insert the tokens shown in brackets. To insert a token, place the cursor where it goes, then select the lightning bolt (or type `/` and choose **Insert dynamic content**). **Conditions** and **Temperature** are under *Get current weather* (select **See more** if they're hidden). The rest are under *Variables*.
 
@@ -246,10 +246,10 @@ The next step must wait until all three branches have finished.
 
 This flow only emails you, so you can test it yourself.
 
-1. In the toolbar at the top right, select **Test**, choose **Manually**, select **Test**, then **Run flow**.
-2. Open the run. Notice that the three branches started at almost the same moment.
-3. Select **Busy day** and check which branch it took. Select a **Set variable** or **Increment variable** step to see the value it stored.
-4. In Outlook, find the email with the subject **Your day ahead** (or **Busy day ahead...**) in your Inbox. If it isn't near the top, type the subject in the search box at the top.
+1. In the toolbar at the top right, select **Test**, choose **Manually**, select **Test**, then **Run flow**, then **Done**.
+2. The run opens on the canvas. Notice that the three branches started at almost the same moment.
+3. Select **Busy day** and open **Run results** to see whether it was true or false. Select **Increment variable** inside the meetings loop to see the `1` it added each time (it shows no outputs, which is normal). If Busy day was false, **Set variable** shows as skipped. That's expected: the email's count is the final check.
+4. In Outlook, find the email with the subject **Your day ahead** (or **Busy day ahead...**) in your Inbox. If it isn't near the top, type the subject in the search box at the top. If you've tested before, Outlook may group the briefings into one conversation: open it and check the newest message's time.
 
 ![The briefing email in Outlook showing weather, the meeting list and important unread email](./images/08-10-email-received.png)
 
