@@ -42,3 +42,7 @@
 - Round five, 02-04-draft-email.png: Outlook uses New rather than New mail; the JPG appears as a thumbnail attachment above the body instead of a compact chip. Its menu offers Move image to the message body, confirming it is not inline.
 - Round five, 02-02-workbook-rows.png and 02-05-insert-tab.png: Excel's clipboard bridge dropped the paste; entered the supplied headers and six sample rows with keyboard input, then used Auto Fit Column Width to show every value.
 - Round five, 04-04-select.png: Select adds a blank Map placeholder after the four filled rows.
+
+- Round six, 06-03-so-far.png and 06-04-so-far.png: the Form Id dropdown lists two Training Request forms with internal IDs; selected the same form used by the existing training approval flow.
+- Round six, condition checkpoints: the editor retains an empty comparison placeholder that reappears after Delete; the SessionDate expressions display as items(...) chips rather than SessionDate.
+- Round six, 11-b-so-far.png and 11-d-so-far.png: recipient lookup returned no suggestion; accepted the signed-in address as a custom value and masked it.
