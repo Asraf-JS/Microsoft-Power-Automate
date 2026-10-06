@@ -76,6 +76,12 @@ Complete Chapter 5.
 
 > **Tip:** The comparison is exact, including capital letters. `Completed` and `completed` count as different. The sample data uses `Completed`.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.2: the settings panel on the left and the canvas on the right](./images/07-02-so-far.png)
+
+*Filter out completed training sits between List rows and Apply to each.*
+
 ---
 
 ## 7.3 Work Out the End of the Window
@@ -89,6 +95,12 @@ Complete Chapter 5.
 *This gives you "14 days from now" without any expression.*
 
 You now have both ends of the window: **Current time** (already in the flow from Chapter 5) and **Future time** from this step.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.3: the settings panel on the left and the canvas on the right](./images/07-03-so-far.png)
+
+*Get future time comes after the filter.*
 
 ---
 
@@ -110,6 +122,12 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 > **Key point:** Variables must be created at the top level of the flow, never inside a loop or a condition. That's why this step comes before Apply to each.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.4: the settings panel on the left and the canvas on the right](./images/07-04-so-far.png)
+
+*Initialize reminder count sits just above the loop.*
+
 ---
 
 ## 7.5 Loop Through the Remaining Rows
@@ -123,6 +141,12 @@ You now have both ends of the window: **Current time** (already in the flow from
 *The loop now only sees rows that aren't completed.*
 
 > **Key point:** Don't leave the original Excel value here. That brings back the Chapter 5 behaviour and includes completed rows.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.5: the settings panel on the left and the canvas on the right](./images/07-05-so-far.png)
+
+*Apply to each now loops over the filtered rows. If the loop shows Invalid parameters straight after the change, select another card and then the loop again. Flow checker in 7.11 confirms there are no errors.*
 
 ---
 
@@ -144,6 +168,12 @@ You now have both ends of the window: **Current time** (already in the flow from
 
 This works because the Excel dates are in ISO 8601 format (set in Chapter 5), the same format as Current time and Future time. Same format means they compare correctly.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.6: the settings panel on the left and the canvas on the right](./images/07-06-so-far.png)
+
+*The date condition sits inside the loop, with the email in True.*
+
 ---
 
 ## 7.7 Count Each Reminder
@@ -156,6 +186,12 @@ This works because the Excel dates are in ISO 8601 format (set in Chapter 5), th
 *Each reminder adds one to the counter.*
 
 Keep the increment *after* the email, so the count only includes reminders that reached the email step.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.7: the settings panel on the left and the canvas on the right](./images/07-07-so-far.png)
+
+*Increment variable sits under the email in True.*
 
 ---
 
@@ -170,6 +206,12 @@ Keep the increment *after* the email, so the count only includes reminders that 
 ![Condition with ReminderCount is greater than 0](./images/07-08-summary-condition.png)
 
 *A positive count goes to True. Zero goes to False.*
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.8: the settings panel on the left and the canvas on the right](./images/07-08-so-far.png)
+
+*The summary condition sits below the loop.*
 
 ---
 
@@ -187,6 +229,12 @@ On the canvas, inside the green **True** box under **If reminders were prepared*
 
 *The variable drops into the email like any other dynamic content.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.9: the settings panel on the left and the canvas on the right](./images/07-09-so-far.png)
+
+*Send coordinator summary sits in True.*
+
 ---
 
 ## 7.10 Handle a Week with No Matching Rows
@@ -194,6 +242,12 @@ On the canvas, inside the green **True** box under **If reminders were prepared*
 On the canvas, inside the red **False** box, select the **+**, then **Add an action**. Search for `Compose` and select it under **Data Operation**. Rename it `No upcoming records`, and type `No upcoming training records were found for the next 14 days.` in **Inputs**.
 
 That records a clear outcome in run history without sending an unnecessary email.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 7.10: the settings panel on the left and the canvas on the right](./images/07-10-so-far.png)
+
+*No upcoming records sits in False. That is the whole capstone.*
 
 ---
 

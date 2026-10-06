@@ -51,6 +51,12 @@ The three lookups don't depend on each other. The weather doesn't need your cale
 
 *Weekday mornings at 8:00, Malaysia time.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.1: the settings panel on the left and the canvas on the right](./images/08-01-so-far.png)
+
+*Only Recurrence so far.*
+
 ---
 
 ## 8.2 Create the Variables
@@ -74,6 +80,12 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 > **Key point:** Initialize variable only works at the top level of a flow, not inside a loop, condition or branch. So every variable is created first, even ones you won't use until later.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.2: the settings panel on the left and the canvas on the right](./images/08-02-so-far.png)
+
+*Recurrence and four Initialize variable actions.*
+
 ---
 
 ## 8.3 Branch 1: The Weather
@@ -85,6 +97,12 @@ A **variable** is a named box that holds a value and can change while the flow r
 ![Get current weather with Location Kuala Lumpur and Units Metric](./images/08-03-weather.png)
 
 *One action. Its values (conditions, temperature) are used in the email later.*
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.3: the settings panel on the left and the canvas on the right](./images/08-03-so-far.png)
+
+*Get current weather under the last variable.*
 
 ---
 
@@ -118,6 +136,12 @@ This branch starts *beside* the weather, not below it.
 
 > **Tip:** Email bodies are written in HTML, the language of web pages. `<br>` is HTML for "new line", so each meeting starts on its own line in the email.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.4: the settings panel on the left and the canvas on the right](./images/08-04-so-far.png)
+
+*The meetings branch runs beside the weather.*
+
 ---
 
 ## 8.5 Branch 3: Important Unread Email
@@ -141,6 +165,12 @@ This branch starts *beside* the weather, not below it.
 
 > **Key point:** Each branch writes to its **own** variable. If all three appended to one shared variable, the sections would arrive in whatever order the branches happened to finish. Separate variables keep the email in a fixed order.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.5: the settings panel on the left and the canvas on the right](./images/08-05-so-far.png)
+
+*Three branches side by side.*
+
 ---
 
 ## 8.6 Bring the Branches Back Together
@@ -157,6 +187,12 @@ The next step must wait until all three branches have finished.
 
 > **Note:** The designer draws the lines from the weather and email branches into the side of the meetings loop, not into Busy day. That's just how it lays out the picture. The **Run after** list is what actually controls the order, so trust that, not the lines.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.6: the settings panel on the left and the canvas on the right](./images/08-06-so-far.png)
+
+*Busy day sits below, after all three branches.*
+
 ---
 
 ## 8.7 Change the Subject on a Busy Day
@@ -168,6 +204,12 @@ The next step must wait until all three branches have finished.
 ![Busy day condition with MeetingCount is greater than 4](./images/08-08-set-variable.png)
 
 *Set variable replaces a variable's value. Append adds to it. Increment adds to a number.*
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.7: the settings panel on the left and the canvas on the right](./images/08-07-so-far.png)
+
+*Set variable sits in True.*
 
 ---
 
@@ -191,6 +233,12 @@ The next step must wait until all three branches have finished.
    *Variables drop into the email like any other dynamic content.*
 
 5. Select **Save** in the toolbar at the top right, then **Flow checker** in the same toolbar. Fix anything it reports.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 8.8: the settings panel on the left and the canvas on the right](./images/08-08-so-far.png)
+
+*Send an email (V2) at the bottom. That is the whole briefing.*
 
 ---
 

@@ -51,6 +51,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 5. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, flag any email in your inbox. Within a minute, the task appears in Microsoft To Do.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after A: the settings panel on the left and the canvas on the right](./images/11-a-so-far.png)
+
+*Two steps: the trigger and Add a to-do (V3).*
+
 ---
 
 ## B. Send Me a Note
@@ -78,6 +84,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 > **Note:** Earlier versions of this exercise used **Send me a mobile notification**. During testing that action reported that the Power Automate mobile app had been retired and notifications had nowhere to go, so this version uses Teams instead.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after B: the settings panel on the left and the canvas on the right](./images/11-b-so-far.png)
+
+*Two steps: the trigger and the Teams message.*
+
 ---
 
 ## C. Save an Email to OneDrive
@@ -101,6 +113,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
    *Export email turns the message into a file. Create file saves it.*
 
 6. Select **Save**, then **Test** > **Manually** > **Test**. In Outlook, send yourself an email with the subject `[PA SAVE] Booking confirmation`. A `.eml` file appears in Reports. Double-click it to open it in Outlook.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after C: the settings panel on the left and the canvas on the right](./images/11-c-so-far.png)
+
+*Three steps: the trigger, Export email (V2) and Create file.*
 
 ---
 
@@ -130,6 +148,12 @@ Four small flows for when you finish early, or for practice back at your desk. E
    *Turn on is in the flow's ... menu in My flows.* The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
 
 > **Note:** If the feed URL stops working, open the blog in your browser and look for its RSS link, or try any other news site that offers an RSS feed.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after D: the settings panel on the left and the canvas on the right](./images/11-d-so-far.png)
+
+*Two steps: the feed trigger and Send an email (V2).*
 
 ---
 
