@@ -46,7 +46,7 @@ Is the session in the next 14 days
 
 ## Current row's session date (section 7.6)
 
-Click the left **Choose a value** box of each condition row, type `/` and choose **Insert expression**. Paste, then select **Add**. The box shows a token labelled **SessionDate**.
+Click the left **Choose a value** box of each condition row and select the **fx** button beside it (or type `/` and choose **Insert expression**). Paste, then select **Add**. The box shows a token labelled **SessionDate**.
 
 ```
 items('Apply_to_each')?['SessionDate']

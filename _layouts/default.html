@@ -301,6 +301,28 @@ body{
 }
 
 .main-inner blockquote strong{color:var(--teal);}
+.main-inner blockquote.warn{
+  position:relative;
+  background:#fdecec;
+  border-left-color:#d13438;
+  padding-left:52px;
+}
+.main-inner blockquote.warn::before{
+  content:"!";
+  position:absolute;
+  left:14px;
+  top:14px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#d13438;
+  color:#fff;
+  font-weight:700;
+  font-size:15px;
+  line-height:24px;
+  text-align:center;
+}
+.main-inner blockquote.warn strong{color:#a4262c;}
 
 .main-inner table{
   width:100%;
@@ -565,6 +587,12 @@ body{
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+  // A blockquote that starts with a bold "Warning", "Stop" or "Caution" label gets the red style.
+  document.querySelectorAll(".main-inner blockquote").forEach(function (q) {
+    const first = q.querySelector("p > strong:first-child");
+    if (first && /^(warning|stop|caution)/i.test(first.textContent.trim())) q.classList.add("warn");
+  });
+
   const codeBlocks = document.querySelectorAll(".main-inner pre");
 
   codeBlocks.forEach(function (pre) {

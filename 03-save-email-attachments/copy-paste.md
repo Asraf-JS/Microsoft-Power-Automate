@@ -28,7 +28,7 @@ PA - Save training PDF attachments
 
 ### Unique file name with a timestamp
 
-Paste into the expression editor (type `/` in File Name, then choose **Insert expression**).
+Paste into the expression editor (click File Name, then select the **fx** button beside it, or type `/` and choose **Insert expression**).
 
 ```
 concat(formatDateTime(utcNow(),'yyyyMMdd-HHmmss'), '-', item()?['name'])

@@ -4,7 +4,7 @@ Every week the coordinator opens the register and writes the same reminder for e
 
 > **Copy-paste values:** the flow name, email text and the date expression are on the [copy-paste page](./copy-paste.md).
 
-**Estimated time:** 75 minutes
+**Estimated time:** 40 minutes
 
 **Your result:** A scheduled cloud flow that runs every Monday at 9:00 AM Malaysia time, reads the training register, and prepares one personalised reminder email for each row.
 
@@ -32,7 +32,7 @@ Recurrence decides when the flow starts. Current time and Convert time zone prod
 
 You need `Power Automate Training/TrainingRegister.xlsx` with the `tblTraining` table. This chapter uses every column: ParticipantName for the greeting, Email as the recipient, CourseTitle in the subject and body, SessionDate and Status in the body.
 
-> **Important:** The sample register uses addresses like `learner1@example.com`. They can't receive mail, which is what you want while learning. Replace them with trainer-approved addresses only when the trainer authorises a live test.
+> **Warning: the email addresses in the workbook are not real.** The Email column holds made-up addresses like `learner1@example.com`. If you test the flow with them, Outlook can't deliver the reminders: you get an undeliverable message or an address that won't resolve. To test, first type your own email address into the Email column of the rows you want to try, and only when the trainer says so.
 
 ---
 
@@ -113,11 +113,11 @@ The settings are the same as Chapter 4, section 4.3.
 5. Open the **Table** dropdown and select `tblTraining`.
 6. Under **Advanced parameters**, open the dropdown (it reads **Showing 0 of 6**) and tick **DateTime Format**. In the new **DateTime Format** box, choose **ISO 8601**.
 
-After you pick them, **Location** shows `me`, **Document Library** shows a long code, and **Table** shows an ID in braces like `{46727A35-…}`. That's normal.
+> **Note:** After you pick them, some boxes may switch to an internal value: **Location** to `me`, **Document Library** to a long code, and **Table** to an ID in braces like `{46727A35-…}`. It doesn't happen every time. Names or codes, both are fine.
 
 ![List rows present in a table pointing to TrainingRegister.xlsx and tblTraining with DateTime Format ISO 8601](./images/05-04-list-rows.png)
 
-*Same settings as Chapter 4. The codes in Location, Document Library and Table stand for the names you picked.*
+*Same settings as Chapter 4. If your boxes show codes instead of names, they stand for the same choices.*
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -189,7 +189,7 @@ Each **[bold name]** is a dynamic content token. **Converted time** comes from *
 Run the flow now and the session date reads `2026-09-21T00:00:00.000Z`. That's correct, but nobody wants to read it. There's no dynamic content value for "the date, written nicely", so this is a job for an expression.
 
 1. In the **Body** of **Send an email (V2)**, select the **x** on the **SessionDate** token to remove it. Make sure the cursor stays right after `Session date: ` on that line (click there if it moved).
-2. Type `/` and choose **Insert expression** (or select the **fx** button that appears at the right edge of the Body box).
+2. Select the **fx** button that appears at the right edge of the Body box, just below the lightning bolt. The expression editor opens. (Typing `/` and choosing **Insert expression** works on some screens too, but not all.)
 3. In the expression box, type `formatDateTime(`
 4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **SessionDate** (type `Session` in its search box if it isn't listed). It drops into the expression.
 5. Type `, 'dd MMM yyyy')` and select **Add** (it reads **Update** if you're editing an expression that's already there).

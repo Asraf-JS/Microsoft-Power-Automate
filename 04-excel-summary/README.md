@@ -180,7 +180,7 @@ Select handles every row for you, so you don't need an Apply to each here.
 The coordinator wants a line like *"This report lists 6 sessions."* None of the dynamic content values is a count. Dynamic content gives you values that already exist. When you need a value *calculated*, you write an **expression**.
 
 1. On the canvas, select **Send an email (V2)** to open it again. In **Body**, click right after `register.` at the end of the first line and type ` This report lists ` (with a space before and after).
-2. Type `/` and choose **Insert expression**.
+2. Select the **fx** button that appears at the right edge of the Body box, just below the lightning bolt. The expression editor opens. (Typing `/` and choosing **Insert expression** works on some screens too, but not all.)
 3. In the expression box, type `length(`
 4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **Output** under *Select*. It drops into the expression.
 5. Type `)` to close the bracket, then select **Add** (it reads **Update** if you're editing an expression that's already there).

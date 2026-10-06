@@ -44,7 +44,7 @@ Here is the current training register.
 
 ## Your first expression: count the rows (section 4.7)
 
-Type `/` in the Body, choose **Insert expression**, paste, then select **Add**. Works if the Select action still has its default name.
+In the Body, select the **fx** button (or type `/` and choose **Insert expression**), paste, then select **Add**. Works if the Select action still has its default name.
 
 ```
 length(body('Select'))

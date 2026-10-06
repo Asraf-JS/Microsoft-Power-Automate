@@ -249,7 +249,7 @@ Change the condition to save `.docx` attachments instead of PDFs. Send one test 
 
 ---
 
-> **Going further: your first look at an expression.** Send the same PDF twice and OneDrive numbers the copy or refuses it. To give every file a unique name, replace the **File Name** token with an expression that adds the date and time in front: type `/`, choose **Insert expression**, and paste the timestamp expression from the copy-paste page. It produces names like `20260913-094512-CourseOutline.pdf`. You'll meet expressions properly in Chapters 4 and 5. Optional.
+> **Going further: your first look at an expression.** Send the same PDF twice and OneDrive numbers the copy or refuses it. To give every file a unique name, replace the **File Name** token with an expression that adds the date and time in front: select the **fx** button beside the box (or type `/` and choose **Insert expression**) and paste the timestamp expression from the copy-paste page. It produces names like `20260913-094512-CourseOutline.pdf`. You'll meet expressions properly in Chapters 4 and 5. Optional.
 
 ---
 
