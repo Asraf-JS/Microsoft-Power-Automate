@@ -4,7 +4,7 @@ Every morning you check the weather, your calendar and your inbox before the day
 
 > **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
-**Estimated time:** 60 minutes
+**Estimated time:** 70 minutes
 
 **Your result:** A scheduled flow that runs on weekday mornings, looks up the weather, your meetings and your important unread email in three parallel branches, and sends you one briefing email.
 
