@@ -60,7 +60,7 @@ Each chapter takes one of those manual tasks and turns it into a flow:
 | 1 | 04 | [Create and distribute an Excel summary](./04-excel-summary/) | [Copy-paste](./04-excel-summary/copy-paste.md) | Build an instant flow that emails one summary table from Excel, and write your first expression | 60 min |
 | 1 | 05 | [Send weekly training reminders](./05-weekly-reminders/) | [Copy-paste](./05-weekly-reminders/copy-paste.md) | Build a scheduled flow that sends a personalised reminder for each row | 40 min |
 | 2 | 06 | [Process a training approval](./06-training-approval/) | [Copy-paste](./06-training-approval/copy-paste.md) | Connect Forms, Approvals and Teams in one flow | 75 min |
-| 2 | 07 | [Capstone](./07-capstone/) | [Copy-paste](./07-capstone/copy-paste.md) | Filter weekly reminders, count them with a variable and send a coordinator summary | 90 min |
+| 2 | 07 | [Capstone](./07-capstone/) | [Copy-paste](./07-capstone/copy-paste.md) | Filter weekly reminders, count them with a variable and send a coordinator summary | 65 min |
 | 2 | 08 | [My morning briefing](./08-morning-briefing/) | [Copy-paste](./08-morning-briefing/copy-paste.md) | Use variables and parallel branches to email yourself a daily briefing | 60 min |
 | 2 | 09 | [Plan an automation with Copilot](./09-plan-with-copilot/) | [Copy-paste](./09-plan-with-copilot/copy-paste.md) | Review and refine a Copilot flow plan | 30 min |
 | 2 | 10 | [Move automations with solutions](./10-environments-and-solutions/) | [Copy-paste](./10-environments-and-solutions/copy-paste.md) | Watch a flow being packaged for another environment (trainer demo) | 60 min |
