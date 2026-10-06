@@ -2,7 +2,7 @@
 
 Before you build anything, learn the vocabulary of a flow, the three ways a cloud flow can start, and where the main pages live in Power Automate.
 
-> **Copy-paste values:** the planning template for this chapter is on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 45 minutes
 
@@ -157,6 +157,17 @@ A short plan makes the designer much easier to use. Here's the plan for the atta
 | What rule applies? | Save PDF attachments; skip other file types |
 | Where should the output go? | The training attachments folder in OneDrive for Business |
 | How will I test it? | Use an email with a PDF and an image, then check the folder |
+
+Copy this template into your notes and fill in each line before you build a flow. You use the same questions for the independent practice below.
+
+```text
+What task repeats?
+What starts it?
+What information is needed?
+What rule applies?
+Where should the output go?
+How will I test it?
+```
 
 Chapter 2 prepares the resources this plan refers to. Chapter 3 turns it into a working flow.
 

@@ -2,7 +2,7 @@
 
 Your first build: an automated flow that watches for training emails and saves only the PDF attachments to OneDrive. Everything in this chapter is point and click.
 
-> **Copy-paste values:** the flow name and subject filter are on the [copy-paste page](./copy-paste.md).
+> **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
 **Estimated time:** 50 minutes
 
@@ -250,7 +250,11 @@ Change the condition to save `.docx` attachments instead of PDFs. Select **Save*
 
 ---
 
-> **Going further: your first look at an expression.** Send the same PDF twice and OneDrive numbers the copy or refuses it. To give every file a unique name, replace the **File Name** token with an expression that adds the date and time in front: select the **fx** button beside the box (or type `/` and choose **Insert expression**) and paste the timestamp expression from the copy-paste page. It produces names like `20260913-094512-CourseOutline.pdf`. You'll meet expressions properly in Chapters 4 and 5. Optional.
+> **Going further: your first look at an expression.** Send the same PDF twice and OneDrive numbers the copy or refuses it. To give every file a unique name, replace the **File Name** token with an expression that adds the date and time in front: select the **fx** button beside the box (or type `/` and choose **Insert expression**) and paste the timestamp expression. Copy it from the box below. It produces names like `20260913-094512-CourseOutline.pdf`. You'll meet expressions properly in Chapters 4 and 5. Optional.
+>
+> ```text
+> concat(formatDateTime(utcNow(),'yyyyMMdd-HHmmss'), '-', item()?['name'])
+> ```
 
 ---
 
