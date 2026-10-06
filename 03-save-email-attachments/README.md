@@ -108,6 +108,12 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
 
 **Checkpoint:** No field shows a red validation message. The flow only starts for *new* matching messages. It doesn't go back and process mail already in the inbox.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 3.2: the settings panel on the left and the canvas on the right](./images/03-02-so-far.png)
+
+*Only the trigger so far. Its settings are open on the left.*
+
 ---
 
 ## 3.3 Add Apply to Each
@@ -125,6 +131,12 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
 *The loop runs once for every attachment in the email.*
 
 If **Attachments** isn't in the list, go back to the trigger and confirm Include Attachments is set to Yes.
+
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 3.3: the settings panel on the left and the canvas on the right](./images/03-03-so-far.png)
+
+*The trigger, then an empty Apply to each.*
 
 ---
 
@@ -154,6 +166,12 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 > **Tip:** Make sure you picked **Attachments Name** (the current attachment's name), not **Subject** or another text value. Inside a loop, the "Attachments ..." values always refer to the item the loop is currently on.
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 3.4: the settings panel on the left and the canvas on the right](./images/03-04-so-far.png)
+
+*The Condition sits inside Apply to each, with empty True and False boxes.*
+
 ---
 
 ## 3.5 Create the OneDrive File
@@ -178,9 +196,11 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 7. Select **Save** (top right), then the **Flow checker** icon (the stethoscope just left of **Save**). Confirm **Errors (0)** and **Warnings (0)**, then close the panel.
 
-![The finished flow on the canvas: trigger, Apply to each, Condition, and Create file in the True branch](./images/03-06-finished-flow.png)
+**Check your flow so far.** Your screen should look like this.
 
-*The finished flow: trigger, loop, condition, and one action in True.*
+![Your flow so far after 3.5: the settings panel on the left and the canvas on the right](./images/03-05-so-far.png)
+
+*Create file sits inside True. False stays empty.*
 
 ---
 

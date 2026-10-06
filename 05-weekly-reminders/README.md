@@ -152,6 +152,12 @@ Each **[bold name]** is a dynamic content token. **Converted time** comes from *
 
 *Type the words, insert the tokens. The email reads like a normal message.*
 
+**Check your flow so far.** Your screen should look like this.
+
+![Your flow so far after 5.5: the settings panel on the left and the canvas on the right](./images/05-05-so-far.png)
+
+*Send an email (V2) sits inside Apply to each.*
+
 ---
 
 ## 5.6 Make the Date Readable with an Expression
