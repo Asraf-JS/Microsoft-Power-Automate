@@ -19,7 +19,7 @@ Every Friday at 4:00 PM Singapore time, read rows from the tblTraining table in 
 Paste into **Add more details for Copilot to work with** (below the suggested flow) and select the arrow icon at the right end of the box.
 
 ```text
-Use Filter array to keep rows where Status is Registered and SessionDate is between today and 14 days from today. Calculate the count with length(body('FilteredRows')). Send one summary email only to coordinator@example.com. Do not add an Apply to each or any participant email.
+Use a Filter array named FilteredRows to keep rows where Status is Registered and SessionDate is between today and 14 days from today. Calculate the count with length(body('FilteredRows')). Send one summary email only to coordinator@example.com. Do not add an Apply to each or any participant email.
 ```
 
 ## 3. Request a streamlined design (section 9.6)

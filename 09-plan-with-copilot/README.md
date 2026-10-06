@@ -114,7 +114,7 @@ The third suggestion should have exactly these steps:
 
 ![Copilot's final suggestion with five steps: Recurrence, List rows, FilteredRows, Count and Send an email](./images/09-05-final-suggestion.png)
 
-*The outline matches the intended plan. Copilot shows the Compose action by its name, **Count**.*
+*The outline matches the intended plan. Copilot shows the Compose action by its name, **Count**. Cancel is for 9.8; don't select it yet.*
 
 This only checks the outline. If you continued, you'd still need to configure the Friday schedule and time zone, the workbook and table, the filter and count expressions, the recipient, subject and body, error handling, and test data.
 

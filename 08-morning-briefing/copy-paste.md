@@ -42,10 +42,22 @@ Kuala Lumpur
 
 ## Start of each list line (text, sections 8.4 and 8.5)
 
-Paste, then insert **Subject** after it.
+Paste, then insert **Subject** after it. For 8.5, then type ` (from `, insert **From**, and type `)`.
 
 ```text
 <br>• 
+```
+
+For 8.5 only, after **Subject**:
+
+```text
+ (from 
+```
+
+Then insert **From** and finish with:
+
+```text
+)
 ```
 
 ## Condition name (text, section 8.6)

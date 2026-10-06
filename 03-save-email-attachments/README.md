@@ -25,7 +25,7 @@ Your first build: an automated flow that watches for training emails and saves o
 
 ## Before You Begin
 
-Complete Chapter 2. Check that the `Attachments` folder exists and the test email from section 2.3 is saved in Drafts. That draft uses the subject `[PA TRAINING] Attachment test` and has two fictional attachments from the Chapter 2 [test-files](https://github.com/Asraf-JS/Microsoft-Power-Automate/tree/main/02-prepare-workspace/test-files) folder:
+Complete Chapter 2. Check that the `Attachments` folder exists and the test email from section 2.3 is saved in Drafts. That draft uses the subject `[PA TRAINING] Attachment test` and has two of the three files from the Chapter 2 [test files](../02-prepare-workspace/test-files.zip) attached:
 
 | File | Purpose |
 |------|---------|
@@ -96,11 +96,11 @@ You'll also do these in every chapter.
 
 2. Set **Include Attachments** to **Yes**.
 3. Set **Folder** to **Inbox**.
-4. Select **Show all** under **Advanced parameters**.
+4. Select **Show all** under **Advanced parameters** (if the advanced fields are already showing, skip this).
 5. In **Subject Filter**, enter `[PA TRAINING]`.
 6. Set **Only with Attachments** to **Yes**.
 
-Don't save yet. Power Automate won't save a flow that has only a trigger, so you'll save once the first action is in place.
+Don't save yet. Power Automate won't save a flow that has only a trigger, so you'll save at the end of section 3.3, once the first action is in place.
 
 ![Trigger Parameters tab with Include Attachments Yes, Folder Inbox, Subject Filter PA TRAINING and Only with Attachments Yes](./images/03-02-trigger.png)
 
@@ -126,11 +126,12 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
    *Search by name, then pick the result under Control.*
 3. The loop's settings open on the left. Click into **Select an output from previous steps**, open the dynamic content picker (the lightning bolt), and select **Attachments** under *When a new email arrives (V3)*.
 
-![Apply to each with the Attachments token in Select an output from previous steps](./images/03-03-apply-to-each.png)
+   ![Apply to each with the Attachments token in Select an output from previous steps](./images/03-03-apply-to-each.png)
 
-*The loop runs once for every attachment in the email.*
+   *The loop runs once for every attachment in the email.*
 
-If **Attachments** isn't in the list, go back to the trigger and confirm Include Attachments is set to Yes.
+   If **Attachments** isn't in the list, go back to the trigger and confirm Include Attachments is set to Yes.
+4. Select **Save** (top right). Now that there's an action, the flow can be saved.
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -162,7 +163,7 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 ![Condition inside Apply to each: Attachments Name, ends with, .pdf](./images/03-04-condition.png)
 
-*The condition asks one question about the current attachment: does its name end in .pdf?*
+*The condition asks one question about the current attachment: does its name end in .pdf? The screenshot still shows the empty row; delete it on yours.*
 
 > **Tip:** Make sure you picked **Attachments Name** (the current attachment's name), not **Subject** or another text value. Inside a loop, the "Attachments ..." values always refer to the item the loop is currently on.
 
@@ -200,7 +201,7 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 
 ![Your flow so far after 3.5: the settings panel on the left and the canvas on the right](./images/03-05-so-far.png)
 
-*Create file sits inside True. False stays empty.*
+*Your finished flow: trigger, Apply to each, Condition, and Create file in True.*
 
 ---
 
@@ -210,9 +211,9 @@ If **Attachments** isn't in the list, go back to the trigger and confirm Include
 2. Wait for the banner asking you to send a new email. The flow is now listening.
 3. Open the draft from section 2.3 in Outlook and send it.
 4. Back in Power Automate, wait for the run to finish. Every step shows a green tick.
-5. Select **Apply to each**. The counter reads **2 of 2** (or 1 of 2). Select **Create file** to see that it succeeded.
+5. Select **Apply to each**. The counter shows which attachment you're looking at, out of 2. Use the arrows to find the iteration where **Create file** has a green tick, then select **Create file** to see that it succeeded.
 
-   ![Completed run with green ticks, Apply to each showing 2 of 2, and Create file succeeded](./images/03-07-run-success.png)
+   ![Completed run with green ticks, Apply to each showing 1 of 2, and Create file succeeded](./images/03-07-run-success.png)
 
    *The run processed both attachments.*
 
@@ -227,6 +228,10 @@ You don't need another email. The mixed test already produced both outcomes.
 1. In the same run, use the arrows on **Apply to each** to switch to the other iteration.
 2. Select **Condition**. The result is **false**, Create file shows as skipped, and the False branch has nothing to run.
 
+   ![Iteration of the run where the condition is false and Create file is skipped](./images/03-08-run-skipped.png)
+
+   *The image attachment took the False branch, so nothing was created.*
+
    > **The panel still shows the old result?** The run view sometimes doesn't refresh the details panel when you change the iteration. Select a different step (such as **Apply to each**), then select **Condition** again. You can also trust the canvas: on this iteration **Create file** shows a grey skip icon instead of a green tick. If it still won't update, switch **New view** off at the top right of the run page to use the classic run view, where each iteration opens inline.
 
    ![The New view toggle at the top right of the run page](./images/03-08-new-view-toggle.png)
@@ -235,17 +240,13 @@ You don't need another email. The mixed test already produced both outcomes.
 
    *The classic view: True and False show as If yes and If no, and the skipped Create file has a grey cross.*
 
-![Iteration of the run where the condition is false and Create file is skipped](./images/03-08-run-skipped.png)
-
-*The image attachment took the False branch, so nothing was created.*
-
 > **Key point:** A run can succeed while deliberately producing nothing. *Succeeded* means the process completed, not that every branch created an output.
 
 ---
 
 ## Independent Practice
 
-Change the condition to save `.docx` attachments instead of PDFs. Send one test email with both `SessionNotes.docx` and `CourseOutline.pdf`. Predict which file appears, run it, then change the condition back to `.pdf`.
+Change the condition to save `.docx` attachments instead of PDFs. Select **Save**, then **Test** > **Manually** > **Test**. Predict which file will appear, then send a new email to yourself with the subject `[PA TRAINING] Docx test` and both `SessionNotes.docx` and `CourseOutline.pdf` attached. Check the run and the Attachments folder, then change the condition back to `.pdf` and save.
 
 ---
 
@@ -258,7 +259,7 @@ Change the condition to save `.docx` attachments instead of PDFs. Send one test 
 | Problem | Check |
 |---------|-------|
 | The flow doesn't run | The message must be new, contain `[PA TRAINING]` in the subject, and reach the mailbox used by the Outlook connection |
-| Attachments isn't in the dynamic content list | Turn on Include Attachments in the trigger, save, and reopen the loop |
+| Attachments isn't in the dynamic content list | Turn on Include Attachments in the trigger, save (once the flow has an action), and reopen the loop |
 | The loop runs but creates nothing | Check the condition: left is **Attachments Name**, middle is *ends with*, right is `.pdf` |
 | Create file fails | OneDrive connection, folder path, file name and file content |
 | Duplicate file error | Delete the old file from Attachments, or try the Going further box |

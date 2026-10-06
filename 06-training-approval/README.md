@@ -158,7 +158,7 @@ The trigger only says a response exists. Get response details returns the indivi
 
 ![Condition with the Outcome token, is equal to, and Approve](./images/06-06-condition.png)
 
-*An Approve outcome goes to True. Anything else goes to False.*
+*An Approve outcome goes to True. Anything else goes to False. The screenshot still shows the empty row; delete it on yours.*
 
 > **Key point:** The text must be exactly `Approve`. A typo or a trailing space sends every approval down the False branch.
 
@@ -218,7 +218,7 @@ A production process would also handle outcomes like cancelled or timed-out appr
 
 ## Trainer-Controlled Test
 
-Testing creates an approval request and may post to Teams. Replace both `approver@example.com` placeholders first and confirm the recipient is ready. Then, with the trainer's go-ahead:
+Testing creates an approval request and may post to Teams. Replace all three `approver@example.com` placeholders first (**Assigned to** in 6.5 and the **Recipient** in each Teams action in 6.7 and 6.8) and confirm the recipient is ready. Then, with the trainer's go-ahead:
 
 1. Submit one fictional Training Request response.
 2. Approve it, and check the True branch and the approved Teams message.

@@ -34,7 +34,7 @@ Complete Chapter 5.
 
 > **Important:** The sample register uses `example.com` addresses, which can't receive mail. Keep the capstone turned off and don't test it until the trainer has replaced every recipient with an approved destination.
 
-> **Note:** The sample sessions run from 21 September to 5 October 2026. If your class is on a different date, ask your trainer to shift the SessionDate values so some fall in the next 14 days.
+> **Note:** The sample sessions run from 21 September to 5 October 2026. The SessionDate values in your workbook must include at least two **Registered** rows within the next 14 days of today. Otherwise the capstone finds nothing and goes to **False**. To update the dates, see Chapter 2, section 2.2, step 4, or ask your trainer.
 
 ---
 
@@ -44,7 +44,7 @@ Complete Chapter 5.
 
    ![The original flow's details page with Edit and Save As in the toolbar](./images/07-00-flow-details.png)
 
-   *The original flow's details page. Save As and Edit are in this toolbar.*
+   *The original flow's details page. Use Save As here. Don't select Edit on this page: you edit the copy in step 4.*
 
 2. In the toolbar at the top, select **Save As** (in the **...** menu if it isn't visible).
 3. In **Flow name**, enter `PA - Weekly training capstone` and select **Save**. The copy starts turned off.
@@ -156,19 +156,19 @@ You now have both ends of the window: **Current time** (already in the flow from
 
    > **Note:** The new condition appears *above* the email, and the email stays where it was, underneath the condition rather than inside it. You move it into **True** in step 7.
 2. Rename it: select the title at the top of the panel and type `Is the session in the next 14 days`.
-3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
-4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
+3. First row: click the left **Choose a value** box and select the **fx** button that appears beside it (or type `/` and choose **Insert expression**). Paste `items('Apply_to_each')?['SessionDate']` and select **Add**. (See the box below for why.) The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater than or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
+4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less than or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
 5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
 6. Check the dropdown above the rows reads **And**, so both rules must be true.
 7. Move the email into **True**: press and hold on the **Send an email (V2)** card below the condition, drag it up into the green **True** box, and let go when a dashed blue drop zone appears there. On the canvas, the email now sits inside **True**, and nothing is left below the condition inside the loop. (If dragging won't work, delete the email and add it again inside **True** with the same settings.)
 
    ![Dragging a card from below a condition into its True box, where a dashed blue drop zone appears](./images/07-06-drag.png)
 
-   *The same move from 7.9: hold the card (the dotted handle at its left edge is easiest to grab), drag it over True, and let go on the dashed blue drop zone.*
+   *The drag shown here is from 7.9, a later step; the move is the same. Hold the card (the dotted handle at its left edge is easiest to grab), drag it over True, and let go on the dashed blue drop zone.*
 
 ![Condition panel with two AND rows comparing SessionDate to Current time and Future time](./images/07-06-date-condition.png)
 
-*Two rules joined by AND.*
+*Two rules joined by AND. Your boxes show pink fx tokens from the expression; the picture shows the same values. The screenshot still shows the empty row; delete it on yours.*
 
 > **Key point: why an expression here?** Once the loop runs over Filter array's **Body**, the dynamic content picker no longer lists the Excel columns. If you pick **SessionDate** from *List rows present in a table* anyway, the designer wraps the condition in a second, unwanted loop. The expression `items('Apply_to_each')?['SessionDate']` simply means "the SessionDate of the row this loop is on right now". It's on the copy-paste page. The email tokens you added in Chapter 5 keep working, because they already point at the loop's current row.
 
@@ -213,7 +213,7 @@ Keep the increment *after* the email, so the count only includes reminders that 
 
 ![Condition with ReminderCount is greater than 0](./images/07-08-summary-condition.png)
 
-*A positive count goes to True. Zero goes to False.*
+*A positive count goes to True. Zero goes to False. The screenshot still shows the empty row; delete it on yours.*
 
 **Check your flow so far.** Your screen should look like this.
 

@@ -76,7 +76,7 @@ A **variable** is a named box that holds a value and can change while the flow r
 
 ![The first Initialize variable set to MeetingCount, Integer, 0, with four Initialize variable actions on the canvas](./images/08-02-variables.png)
 
-*All four variables are created before anything else happens.*
+*All four variables are created before anything else happens. The canvas in the picture already shows the branches you add later; at this point you only have Recurrence and the four variables (see the checkpoint below).*
 
 > **Key point:** Initialize variable only works at the top level of a flow, not inside a loop, condition or branch. So every variable is created first, even ones you won't use until later.
 
@@ -203,7 +203,7 @@ The next step must wait until all three branches have finished.
 
 ![Busy day condition with MeetingCount is greater than 4](./images/08-08-set-variable.png)
 
-*Set variable replaces a variable's value. Append adds to it. Increment adds to a number.*
+*Set variable replaces a variable's value. Append adds to it. Increment adds to a number. The screenshot still shows the empty row; delete it on yours.*
 
 **Check your flow so far.** Your screen should look like this.
 
@@ -232,7 +232,7 @@ The next step must wait until all three branches have finished.
 
    *Variables drop into the email like any other dynamic content.*
 
-5. Select **Save** in the toolbar at the top right, then **Flow checker** in the same toolbar. Fix anything it reports.
+5. Select **Save** in the toolbar at the top right, then the **Flow checker** icon (the stethoscope just left of **Save**; hover to see its name). Fix anything it reports.
 
 **Check your flow so far.** Your screen should look like this.
 

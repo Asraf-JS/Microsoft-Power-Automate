@@ -139,7 +139,7 @@ The core exercises use standard connectors only. Power Automate Free can create 
 
    ![Left navigation with My flows highlighted](./images/01-04-my-flows.png)
 
-   *My flows lists every flow you've built. Your list is probably empty for now. The flows you build in Chapters 3 to 8 appear here, like the ones in this screenshot.*
+   *My flows lists every flow you've built. Your list is probably empty for now. The flows you build in Chapters 3 to 8 appear here. This screenshot shows the trainer's flows, so the names may differ slightly from the ones you build (for example, Save PDF Attachments instead of Save training PDF attachments).*
 
 2. Select **Home** at the top of the left navigation to return to the start page.
 
