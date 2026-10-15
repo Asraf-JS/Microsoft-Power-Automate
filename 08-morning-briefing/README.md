@@ -8,6 +8,8 @@ Every morning you check the weather, your calendar and your inbox before the day
 
 **Your result:** A scheduled flow that runs on weekday mornings, looks up the weather, your meetings and your important unread email in three parallel branches, and sends you one briefing email.
 
+**Files for this lab:** None. This flow uses your own calendar, inbox and the weather.
+
 ---
 
 ## What You Will Learn

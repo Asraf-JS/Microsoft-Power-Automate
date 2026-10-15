@@ -8,6 +8,10 @@ Your first build: an automated flow that watches for training emails and saves o
 
 **Your result:** An automated cloud flow that examines new training emails and saves only PDF attachments to OneDrive for Business.
 
+**Files for this lab:**
+
+- [test-files.zip](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/test-files.zip): the test attachments for the email you send in 3.6 (you downloaded these in Chapter 2). SessionNotes.docx is for the Independent Practice.
+
 **Connectors:** Office 365 Outlook and OneDrive for Business, both standard.
 
 ---

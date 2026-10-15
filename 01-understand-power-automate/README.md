@@ -8,6 +8,8 @@ Before you build anything, learn the vocabulary of a flow, the three ways a clou
 
 **Your result:** A simple automation plan and familiarity with the Power Automate Home and Create pages.
 
+**Files for this lab:** None. You only explore Power Automate in this chapter.
+
 ---
 
 ## What You Will Learn

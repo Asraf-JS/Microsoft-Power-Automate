@@ -8,6 +8,10 @@ Chapter 5 sent a reminder to every row, including people who had already finishe
 
 **Your result:** A copy of the weekly reminder flow that keeps only upcoming incomplete records, counts the reminders, and follows a clear summary or no-records branch.
 
+**Files for this lab:**
+
+- [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): only if you don't have the workbook from Chapter 2 yet. Upload it to your `Power Automate Training` folder in OneDrive and update the dates so at least two Registered sessions fall in the next 14 days.
+
 ---
 
 ## What You Will Learn

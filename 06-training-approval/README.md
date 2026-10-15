@@ -8,6 +8,8 @@ A training request needs a person to say yes or no before anything is confirmed.
 
 **Your result:** An automated cloud flow that reads a Forms response, asks a person to approve or reject it, and prepares a different Teams message for each outcome.
 
+**Files for this lab:** None. You build the Microsoft Form yourself in 6.1.
+
 ---
 
 ## What You Will Learn

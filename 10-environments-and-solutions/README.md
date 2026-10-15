@@ -8,6 +8,8 @@ A flow that works in one environment can still be hard to move safely. It depend
 
 **Your result:** You can explain how a flow moves between environments, after watching your trainer package the capstone flow in a solution and walk through where an import starts.
 
+**Files for this lab:** None. The demo uses your Chapter 7 capstone flow.
+
 ---
 
 ## What You Will Learn

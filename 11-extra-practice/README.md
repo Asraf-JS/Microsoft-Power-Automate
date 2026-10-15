@@ -8,6 +8,8 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **Your result:** Up to four working personal flows, each built with the skills from Chapters 3 to 8.
 
+**Files for this lab:** None. Each exercise uses your own mailbox, OneDrive, Teams or a public news feed.
+
 ---
 
 ## Which One Should I Try?
