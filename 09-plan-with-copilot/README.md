@@ -8,6 +8,8 @@ Copilot in Power Automate can turn a plain-language description into a suggested
 
 **Your result:** A reviewed and improved flow plan produced with Copilot, without creating or running a cloud flow.
 
+**Files for this lab:** None. Everything you need is in the prompts below.
+
 ---
 
 ## What You Will Learn

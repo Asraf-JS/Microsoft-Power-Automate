@@ -8,6 +8,11 @@ Every flow in this course reads from or writes to something: a folder, a table, 
 
 **Your result:** A training folder, an Excel workbook with a table, and safe test data for the first two build exercises.
 
+**Files for this lab:**
+
+- [test-files.zip](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/test-files.zip): the three test attachments for 2.3 (CourseOutline.pdf, TrainerPhoto.jpg, SessionNotes.docx). Download it and choose **Extract All**.
+- [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): a ready-made training register, only if your trainer tells you to upload it instead of building it in 2.2. Update its dates as in 2.2 step 4.
+
 ---
 
 ## What You Will Learn
