@@ -135,6 +135,9 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
    *The loop runs once for every attachment in the email.*
 
    If **Attachments** isn't in the list, go back to the trigger and confirm Include Attachments is set to Yes.
+
+   <div class="step-anim" data-manifest="../assets/animations/03-03-03/manifest.json" markdown="0"></div>
+
 4. Select **Save** (top right). Now that there's an action, the flow can be saved.
 
 **Check your flow so far.** Your screen should look like this.
@@ -160,6 +163,9 @@ Don't save yet. Power Automate won't save a flow that has only a trigger, so you
    ![The picker search box with name typed and Attachments Name in the results](./images/03-04-search-name.png)
 
    *Or search: typing name brings Attachments Name straight up.*
+
+   <div class="step-anim" data-manifest="../assets/animations/03-04-03/manifest.json" markdown="0"></div>
+
 4. Set the middle box to **ends with**.
 5. In the right box, type `.pdf`.
 

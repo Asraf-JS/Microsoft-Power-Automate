@@ -1,0 +1,73 @@
+{
+  "id": "03-03-03-apply-to-each",
+  "chapter": "03-save-email-attachments",
+  "instruction": "Search for Apply to each and select it. Click into Select an output from previous steps, open the dynamic content picker and select Attachments.",
+  "title": "Animation: select Apply to each, open the lightning bolt picker and choose Attachments",
+  "intro": "Press Play to watch steps 2 and 3: Apply to each, the lightning bolt, then Attachments.",
+  "sourceType": "simulated",
+  "sources": {
+    "add-action": "_design/shots/raw/03-03-add-action.png",
+    "picker": "_design/shots/raw/03-00-dynamic-content.png",
+    "attachments": "_design/shots/raw/03-03-apply-to-each.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "add-action": "1-add-action.webp",
+    "picker": "2-picker.webp",
+    "attachments": "3-attachments.webp"
+  },
+  "start": [
+    420,
+    620
+  ],
+  "steps": [
+    {
+      "caption": "With Apply to each typed in the search box, select Apply to each under Control.",
+      "to": [
+        107,
+        294
+      ],
+      "click": true,
+      "hold": 700
+    },
+    {
+      "caption": "The loop's settings open on the left. Click into Select an output from previous steps, then select the lightning bolt beside it.",
+      "frame": "picker",
+      "hold": 700
+    },
+    {
+      "caption": "The loop's settings open on the left. Click into Select an output from previous steps, then select the lightning bolt beside it.",
+      "to": [
+        615,
+        261
+      ],
+      "moveMs": 1000,
+      "click": true,
+      "hold": 1200
+    },
+    {
+      "caption": "Under When a new email arrives (V3), select Attachments.",
+      "to": [
+        686,
+        376
+      ],
+      "click": true,
+      "hold": 500
+    },
+    {
+      "caption": "Attachments is now in the box. The loop runs once for every attachment in the email.",
+      "frame": "attachments",
+      "to": [
+        150,
+        330
+      ],
+      "moveMs": 700,
+      "tag": "Result",
+      "hold": 2800
+    }
+  ],
+  "review": "verified"
+}
