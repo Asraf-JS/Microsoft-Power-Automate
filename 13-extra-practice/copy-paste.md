@@ -1,4 +1,4 @@
-# 12 - Extra Practice: Copy-paste
+# 13 - Extra Practice: Copy-paste
 
 Hover over a grey box and click the copy icon in its top-right corner. Everything on this page is **text**, typed or pasted straight into a field.
 
