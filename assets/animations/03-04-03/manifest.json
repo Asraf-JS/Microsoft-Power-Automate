@@ -1,0 +1,81 @@
+{
+  "id": "03-04-03-attachments-name",
+  "chapter": "03-save-email-attachments",
+  "instruction": "Click into the left Choose a value box. Open the dynamic content picker and select Attachments Name.",
+  "title": "Animation: open the picker from the Choose a value box, search for name and pick Attachments Name",
+  "intro": "Press Play to watch step 3: the lightning bolt, a search for name, then Attachments Name.",
+  "sourceType": "simulated",
+  "sources": {
+    "picker": "_design/shots/raw/03-04-see-more.png",
+    "search": "_design/shots/raw/03-04-search-name.png",
+    "condition": "_design/shots/raw/03-04-condition.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "picker": "1-picker.webp",
+    "search": "2-search-name.webp",
+    "condition": "3-condition.webp"
+  },
+  "start": [
+    420,
+    720
+  ],
+  "steps": [
+    {
+      "caption": "Click into the left Choose a value box.",
+      "to": [
+        150,
+        350
+      ],
+      "click": true,
+      "hold": 500
+    },
+    {
+      "caption": "Select the lightning bolt beside it. The picker opens, but Attachments Name isn't in the short list.",
+      "to": [
+        58,
+        333
+      ],
+      "click": true,
+      "hold": 1800
+    },
+    {
+      "caption": "Click into the picker's search box and type name.",
+      "to": [
+        480,
+        247
+      ],
+      "click": true,
+      "hold": 400
+    },
+    {
+      "caption": "Attachments Name comes straight up. Select it.",
+      "frame": "search",
+      "hold": 900
+    },
+    {
+      "to": [
+        332,
+        636
+      ],
+      "caption": "Attachments Name comes straight up. Select it.",
+      "click": true,
+      "hold": 500
+    },
+    {
+      "caption": "Attachments Name is in the left box. Steps 4 and 5 then set ends with and .pdf, as shown here.",
+      "frame": "condition",
+      "to": [
+        170,
+        410
+      ],
+      "moveMs": 700,
+      "tag": "After steps 4 and 5",
+      "hold": 3200
+    }
+  ],
+  "review": "verified"
+}

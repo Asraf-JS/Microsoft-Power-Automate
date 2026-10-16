@@ -320,3 +320,45 @@ If something doesn't match the README, use the closest equivalent and add one li
 ```
 
 When Codex is done, tell Claude: it redraws the boxes, then removes the caption patches these retakes make unnecessary.
+
+---
+
+## Animation frames (round 9)
+
+The **Watch this step** animations need clean frames of the same screen before, during and after one click or drag. Each group below is captured without moving the canvas between frames: only the click or drag in the step happens between shots. The frames go to `_design/shots/raw/anim/` only. They aren't chapter screenshots, get no boxes, and Claude turns them into WebP animation frames. Round 8 items 2 and 5 (the 7.6 drag and the 4.7 expression) are covered here too, so skip them if round 8 hasn't been run. Paste this into one Codex conversation.
+
+```text
+Capture animation frames for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, deviceScaleFactor 1. Mask the account avatar and any email address. Move the mouse away from the flow name before each capture, so no "PA - ..." tooltip shows. Keep output short. Save every capture ONLY to _design/shots/raw/anim/<file> (create the folder). Don't edit any README, any chapter images folder or _design/shots/annotations.json. Read only 04-excel-summary/README.md, 05-weekly-reminders/README.md, 07-capstone/README.md, 08-morning-briefing/README.md and _design/shots/NOTES.md.
+
+Rules for every group:
+- Within a group, DON'T scroll, pan, zoom, resize or collapse anything between frames. The only change between two frames is the one click or drag described. If the designer re-centres the canvas by itself, that's fine: note it.
+- No mouse pointer in the captures.
+- For each click or drag, write one line to _design/shots/NOTES.md with the frame names and the pixel coordinates (x, y in the 1600x900 frame) where you clicked, or where the drag started and was dropped.
+- Name every throwaway flow with its real name from the README, and NEVER save it. Leave without saving and confirm it isn't in My flows.
+
+Group A, 7.6 step 7 (drag the email into True). On My flows, Save As "PA - Weekly training reminders" to a copy named "PA - Weekly training capstone (shots)", open it, follow 7.2 to 7.6 step 6 without saving. Close the settings panel (the << at its top right) so the canvas is wide, then zoom the canvas so the date condition, its True and False boxes and the Send an email (V2) card below it fill most of the frame.
+1. anim-07-06-1-before.png: the email card below the condition, True and False empty.
+2. anim-07-06-2-dragging.png: mouse held down on the email card's dotted handle and moved over True, with the dashed blue drop zone showing inside True.
+3. anim-07-06-3-after.png: released. The email sits inside True and nothing is below the condition inside the loop.
+Then delete the copy.
+
+Group B, 4.7 steps 1 to 5 (the fx button). New instant flow "PA - Training register summary", unsaved, follow 4.2 to 4.6. Open Send an email (V2) so its panel shows on the left.
+4. anim-04-07-1-typed.png: Body has "Here is the current training register. This report lists " typed at the end of the first line, the text cursor after it, and the lightning bolt and fx buttons showing at the right edge of Body.
+5. anim-04-07-2-editor.png: fx selected. The expression editor open on the Function tab, the expression box empty.
+6. anim-04-07-3-expression.png: length(body('Select')) in the expression box (type length(, pick Output on the Dynamic content tab, type )), with the Add button visible.
+7. anim-04-07-4-added.png: Add selected. The editor closed and the pink length(...) token after "This report lists " in Body.
+
+Group C, 8.4 step 1 (Add a parallel branch). New scheduled flow "PA - My morning briefing", unsaved, follow 8.1 to 8.3. Close the settings panel and click an empty part of the canvas so nothing is selected.
+8. anim-08-04-1-before.png: the canvas showing Initialize variable 3, the + below it and Get current weather.
+9. anim-08-04-2-menu.png: the + between them selected, its menu open with Add an action and Add a parallel branch.
+10. anim-08-04-3-branch.png: Add a parallel branch selected. The Add an action panel open and the new empty branch beside Get current weather.
+
+Group D, 5.6 step 1 (the To gear). New scheduled flow "PA - Weekly training reminders", unsaved, follow 5.1 to 5.5, then add Send an email (V2) inside Apply to each so its panel shows on the left.
+11. anim-05-06-1-before.png: To is still the people picker (empty), with the small gear above the right end of the To box.
+12. anim-05-06-2-menu.png: the gear selected, its menu showing Use dynamic content.
+13. anim-05-06-3-dynamic.png: Use dynamic content chosen. To is now a plain box, still empty.
+
+If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then commit "Animation frames (round 9)" and push to claude/compassionate-maxwell-evreqg. Reply with only the files saved and the NOTES.md lines you added.
+```
+
+When Codex is done, tell Claude: it checks each group lines up frame to frame, then builds the four animations (7.6, 4.7, 8.4 and 5.6).
