@@ -50,3 +50,25 @@
 - Round seven, Forms: the app redirects to forms.cloud.microsoft and opens a Draft with Copilot pane; closed the pane. Before the first question, the question-type picker is labelled Quick start with instead of Add new question.
 - Round seven, 06-01-form.png: used 85% display zoom to fit all four required questions in the 1600x900 viewport; kept the default theme.
 - Round seven, Forms cleanup: Delete is available under My forms; Recent offers Remove from Recent instead. Deleted only the form created for these captures and preserved the older Training Request form.
+
+- Round nine, anim-07-06-1-before.png → anim-07-06-2-dragging.png → anim-07-06-3-after.png: dragged the email dotted handle from (643, 751) to the True drop zone at (580, 510), then released; no manual canvas movement between frames.
+
+- Round nine, anim-04-07-1-typed.png → anim-04-07-2-editor.png: clicked fx at (613, 498).
+
+- Round nine, anim-04-07-2-editor.png → anim-04-07-3-expression.png: typed length(, clicked Dynamic content at (783, 499), searched Output, clicked Select Output at (878, 727), and typed the closing bracket; Monaco supplies paired brackets automatically.
+
+- Round nine, anim-04-07-3-expression.png → anim-04-07-4-added.png: clicked Add at (696, 868).
+
+- Round nine, anim-08-04-1-before.png → anim-08-04-2-menu.png: right-clicked the + at (800, 765); the README permits right-click when needed to expose Add a parallel branch.
+
+- Round nine, anim-08-04-2-menu.png → anim-08-04-3-branch.png: clicked Add a parallel branch at (941, 742).
+
+- Round nine, anim-08-04-3-branch.png: after Add a parallel branch, this designer opens Add an action and greys the existing canvas; it does not draw the new empty branch until an action is chosen. Captured the actual action-picker state.
+
+- Round nine, anim-05-06-1-before.png → anim-05-06-2-menu.png: clicked the To gear at (591, 247).
+
+- Round nine, anim-05-06-2-menu.png → anim-05-06-3-dynamic.png: clicked Use dynamic content at (524, 281).
+
+- Round nine, Group D: the current README places the To gear instruction in 5.5 step 1, rather than 5.6 step 1; captured the empty email action inside Apply to each before inserting Email.
+
+- Round nine, Group A 7.6: the operator labels are is greater or equal to and is less or equal to; used these equivalents for the README’s is greater than or equal to and is less than or equal to.

@@ -1,0 +1,99 @@
+{
+  "id": "04-07-02",
+  "chapter": "04-excel-summary",
+  "instruction": "Type This report lists in Body, select the fx button, type length(, pick Output under Select on the Dynamic content tab, type ) and select Add.",
+  "title": "Animation: open the expression editor with the fx button and add length(body('Select'))",
+  "intro": "Press Play to watch steps 1 to 5: the fx button, the expression, then Add.",
+  "sourceType": "simulated",
+  "sources": {
+    "typed": "_design/shots/raw/anim/anim-04-07-1-typed.png",
+    "editor": "_design/shots/raw/anim/anim-04-07-2-editor.png",
+    "expression": "_design/shots/raw/anim/anim-04-07-3-expression.png",
+    "added": "_design/shots/raw/anim/anim-04-07-4-added.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "typed": "1-typed.webp",
+    "editor": "2-editor.webp",
+    "expression": "3-expression.webp",
+    "added": "4-added.webp"
+  },
+  "start": [
+    900,
+    640
+  ],
+  "steps": [
+    {
+      "caption": "In Body, click at the end of the first line and type a space, This report lists and another space.",
+      "to": [
+        372,
+        483
+      ],
+      "click": true,
+      "hold": 900
+    },
+    {
+      "caption": "Select the fx button at the right edge of Body, just below the lightning bolt. The expression editor opens.",
+      "to": [
+        613,
+        498
+      ],
+      "click": true,
+      "frame": "editor",
+      "hold": 1000
+    },
+    {
+      "caption": "Click into the expression box and type length(",
+      "to": [
+        720,
+        250
+      ],
+      "click": true,
+      "hold": 1000
+    },
+    {
+      "caption": "Switch to the Dynamic content tab.",
+      "to": [
+        783,
+        499
+      ],
+      "click": true,
+      "hold": 500
+    },
+    {
+      "caption": "Select Output under Select (type Output in the search box if you can't see it), then type ) to close the bracket.",
+      "to": [
+        668,
+        727
+      ],
+      "click": true,
+      "frame": "expression",
+      "hold": 2200
+    },
+    {
+      "caption": "Select Add.",
+      "to": [
+        696,
+        868
+      ],
+      "click": true,
+      "hold": 300
+    },
+    {
+      "caption": "The pink length(...) token is now in Body. In step 6 you type sessions. after it.",
+      "frame": "added",
+      "to": [
+        620,
+        560
+      ],
+      "moveMs": 700,
+      "tag": "Result",
+      "hold": 3000,
+      "frameAt": "start"
+    }
+  ],
+  "review": "verified"
+}

@@ -166,8 +166,8 @@ You now have both ends of the window: **Current time** (already in the flow from
    items('Apply_to_each')?['SessionDate']
    ```
 
-   (See the key point below for why.) If your loop has a different name (for example Apply_to_each_1), change the name in the expression to match. The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater than or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
-4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less than or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
+   (See the key point below for why.) If your loop has a different name (for example Apply_to_each_1), change the name in the expression to match. The box now shows a pink expression token. It may read **SessionDate** or **items(...)**: both are correct. Open the middle dropdown and select **is greater or equal to**. Click the right box, open the lightning bolt, and select **Current time** under *Current time*.
+4. Select **Add row** below the rows. Second row: insert the same expression on the left, select **is less or equal to** in the middle, and on the right pick **Future time** under *Get future time*.
 5. If an empty extra row appears below your two rows, select its **...** and then **Delete**.
 6. Check the dropdown above the rows reads **And**, so both rules must be true.
 7. Move the email into **True**: press and hold on the **Send an email (V2)** card below the condition, drag it up into the green **True** box, and let go when a dashed blue drop zone appears there. On the canvas, the email now sits inside **True**, and nothing is left below the condition inside the loop. (If dragging won't work, delete the email and add it again inside **True** with the same settings.)
@@ -175,6 +175,9 @@ You now have both ends of the window: **Current time** (already in the flow from
    ![Dragging a card from below a condition into its True box, where a dashed blue drop zone appears](./images/07-06-drag.png)
 
    *The drag shown here is from 7.9, a later step; the move is the same. Hold the card (the dotted handle at its left edge is easiest to grab), drag it over True, and let go on the dashed blue drop zone.*
+
+   <div class="step-anim" data-manifest="../assets/animations/07-06-07/manifest.json" markdown="0"></div>
+
 
 ![Condition panel with two AND rows comparing SessionDate to Current time and Future time](./images/07-06-date-condition.png)
 

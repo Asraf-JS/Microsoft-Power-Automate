@@ -66,7 +66,8 @@
       ],
       "moveMs": 700,
       "tag": "Result",
-      "hold": 2800
+      "hold": 2800,
+      "frameAt": "start"
     }
   ],
   "review": "verified"
