@@ -160,6 +160,9 @@ On the canvas, select the **+** inside the **Apply to each** box (below its head
 
    *The gear switches To from picking people to accepting dynamic content (shown here after Email was inserted).*
 
+   <div class="step-anim" data-manifest="../assets/animations/05-05-01/manifest.json" markdown="0"></div>
+
+
 2. **Subject:** click into the box and paste the subject start (it ends with a space). Copy it from the box below.
 
    ```text

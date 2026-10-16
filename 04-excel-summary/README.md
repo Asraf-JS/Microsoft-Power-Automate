@@ -198,6 +198,9 @@ The coordinator wants a line like *"This report lists 6 sessions."* None of the 
 3. In the expression box, type `length(`
 4. At the top of the same panel, switch from the **Function** tab to the **Dynamic content** tab and select **Output** under *Select*. It drops into the expression.
 5. Type `)` to close the bracket, then select **Add** (it reads **Update** if you're editing an expression that's already there).
+
+   <div class="step-anim" data-manifest="../assets/animations/04-07-02/manifest.json" markdown="0"></div>
+
 6. After the new token, type ` sessions.`
 
    ![Expression editor showing length(body('Select')) with the Add button (it reads Update when editing)](./images/04-07-expression.png)

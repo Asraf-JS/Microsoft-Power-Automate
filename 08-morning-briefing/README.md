@@ -118,6 +118,9 @@ This branch starts *beside* the weather, not below it.
 
    *Add a parallel branch starts a new column next to the existing one.*
 
+   <div class="step-anim" data-manifest="../assets/animations/08-04-01/manifest.json" markdown="0"></div>
+
+
 2. The action search opens for the new branch. Search for `Current time` and select it under **Date Time**.
 3. On the canvas, select the **+** below **Current time**, then **Add an action**. Search for `Get future time` and select it under **Date Time**. In **Interval**, enter `12`. Open **Time unit** and select **Hour**.
 4. Select the **+** below **Get future time**, then **Add an action**. Search for `Get calendar view` and select **Get calendar view of events (V3)** under **Office 365 Outlook**. For **Start Time** and **End Time**, click into the box, select the lightning bolt icon beside it (or type `/` and choose **Insert dynamic content**), and pick the value:

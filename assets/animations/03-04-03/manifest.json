@@ -74,7 +74,8 @@
       ],
       "moveMs": 700,
       "tag": "After steps 4 and 5",
-      "hold": 3200
+      "hold": 3200,
+      "frameAt": "start"
     }
   ],
   "review": "verified"

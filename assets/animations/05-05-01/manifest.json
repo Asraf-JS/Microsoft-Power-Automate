@@ -1,0 +1,59 @@
+{
+  "id": "05-05-01",
+  "chapter": "05-weekly-reminders",
+  "instruction": "Select the small settings (gear) icon above the right end of the To box. Choose Use dynamic content.",
+  "title": "Animation: switch the To box from the people picker to dynamic content with the gear",
+  "intro": "Press Play to watch step 1: the gear above To, then Use dynamic content.",
+  "sourceType": "simulated",
+  "sources": {
+    "before": "_design/shots/raw/anim/anim-05-06-1-before.png",
+    "menu": "_design/shots/raw/anim/anim-05-06-2-menu.png",
+    "dynamic": "_design/shots/raw/anim/anim-05-06-3-dynamic.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "before": "1-before.webp",
+    "menu": "2-menu.webp",
+    "dynamic": "3-dynamic.webp"
+  },
+  "start": [
+    1000,
+    600
+  ],
+  "steps": [
+    {
+      "caption": "To opens a people picker. Select the small gear above the right end of the To box.",
+      "to": [
+        589,
+        246
+      ],
+      "click": true,
+      "frame": "menu",
+      "hold": 1100
+    },
+    {
+      "caption": "Choose Use dynamic content.",
+      "to": [
+        534,
+        281
+      ],
+      "click": true,
+      "frame": "dynamic",
+      "hold": 500
+    },
+    {
+      "caption": "To is now a plain box. Click into it, select the lightning bolt and pick Email.",
+      "to": [
+        300,
+        277
+      ],
+      "moveMs": 700,
+      "tag": "Result",
+      "hold": 3000
+    }
+  ],
+  "review": "verified"
+}

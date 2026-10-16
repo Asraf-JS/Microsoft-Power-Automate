@@ -1,0 +1,61 @@
+{
+  "id": "07-06-07",
+  "chapter": "07-capstone",
+  "instruction": "Move the email into True: press and hold on the Send an email (V2) card below the condition, drag it up into the green True box, and let go when a dashed blue drop zone appears there.",
+  "title": "Animation: drag Send an email (V2) from below the condition into its True box",
+  "intro": "Press Play to watch step 7: hold the email card, drag it into True, let go.",
+  "sourceType": "simulated",
+  "sources": {
+    "before": "_design/shots/raw/anim/anim-07-06-1-before.png",
+    "dragging": "_design/shots/raw/anim/anim-07-06-2-dragging.png",
+    "after": "_design/shots/raw/anim/anim-07-06-3-after.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "before": "1-before.webp",
+    "dragging": "2-dragging.webp",
+    "after": "3-after.webp"
+  },
+  "start": [
+    900,
+    620
+  ],
+  "steps": [
+    {
+      "caption": "Point at the dotted handle at the left edge of the Send an email (V2) card, below the condition.",
+      "to": [
+        640,
+        757
+      ],
+      "hold": 500
+    },
+    {
+      "caption": "Press and hold, then drag the card up into the green True box. A dashed blue drop zone appears there.",
+      "press": true,
+      "frame": "dragging",
+      "frameAt": "start",
+      "to": [
+        580,
+        505
+      ],
+      "moveMs": 1500,
+      "hold": 900
+    },
+    {
+      "caption": "Let go on the drop zone. The email now sits inside True, and nothing is left below the condition.",
+      "release": true,
+      "to": [
+        580,
+        505
+      ],
+      "moveMs": 50,
+      "frame": "after",
+      "tag": "Result",
+      "hold": 3000
+    }
+  ],
+  "review": "verified"
+}

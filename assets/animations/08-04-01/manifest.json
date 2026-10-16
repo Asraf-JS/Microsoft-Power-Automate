@@ -1,0 +1,59 @@
+{
+  "id": "08-04-01",
+  "chapter": "08-morning-briefing",
+  "instruction": "Select the + between the last Initialize variable and Get current weather (right-click it if a menu doesn't open), then choose Add a parallel branch.",
+  "title": "Animation: open the + between two actions and choose Add a parallel branch",
+  "intro": "Press Play to watch step 1: the +, then Add a parallel branch.",
+  "sourceType": "simulated",
+  "sources": {
+    "before": "_design/shots/raw/anim/anim-08-04-1-before.png",
+    "menu": "_design/shots/raw/anim/anim-08-04-2-menu.png",
+    "branch": "_design/shots/raw/anim/anim-08-04-3-branch.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "before": "1-before.webp",
+    "menu": "2-menu.webp",
+    "branch": "3-branch.webp"
+  },
+  "start": [
+    1100,
+    600
+  ],
+  "steps": [
+    {
+      "caption": "Select the + between Initialize variable 3 and Get current weather. If a menu doesn't open, right-click it.",
+      "to": [
+        800,
+        765
+      ],
+      "click": true,
+      "frame": "menu",
+      "hold": 1100
+    },
+    {
+      "caption": "Choose Add a parallel branch.",
+      "to": [
+        920,
+        742
+      ],
+      "click": true,
+      "frame": "branch",
+      "hold": 500
+    },
+    {
+      "caption": "The Add an action panel opens for the new branch. The branch appears beside Get current weather once you pick its first action, Current time, in step 2.",
+      "to": [
+        300,
+        152
+      ],
+      "moveMs": 800,
+      "tag": "Result",
+      "hold": 3400
+    }
+  ],
+  "review": "verified"
+}
