@@ -31,7 +31,7 @@ Paste the prompt below into Codex, **one chapter per conversation**, changing `C
 | 08-morning-briefing | 10 | Yes, emails yourself |
 | 09-plan-with-copilot | 5 | No, ends with Cancel |
 | 10-environments-and-solutions | 4 | No, stops at the export panel |
-| 12-extra-practice | 4 | B and C only |
+| 13-extra-practice | 4 | B and C only |
 
 Check progress any time with `node _design/check-screenshots.mjs`.
 
@@ -76,7 +76,7 @@ Finish:
 Five shots need redoing after review. Paste this into one Codex conversation.
 
 ```text
-Recapture 5 screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, mask the account avatar. Keep output short. Read only 08-morning-briefing/README.md, 12-extra-practice/README.md and _design/shots/.
+Recapture 5 screenshots for this repo's Power Automate guide. Same setup as before: Playwright, persistent context ./.pa-profile, viewport 1600x900, mask the account avatar. Keep output short. Read only 08-morning-briefing/README.md, 13-extra-practice/README.md and _design/shots/.
 
 Before capturing, fix two flows (leave both turned OFF, don't test):
 A. "PA - My morning briefing": the meetings Apply to each currently has Run after set to the weather and email branches, so the branches join too early. Remove those extra Run after entries from the meetings Apply to each. Then on the "Busy day" condition, Settings > Run after, select: Get current weather, the meetings Apply to each, and the email Apply to each 1 (each "Is successful"). Confirm on the canvas that three lines lead into Busy day. Save; Flow checker 0 errors.
@@ -87,7 +87,7 @@ Capture (overwrite the files). For canvas shots, zoom in until action names are 
 2. 08-morning-briefing/images/08-05-meetings-branch.png: the meetings branch (Current time, Get future time, Get calendar view of events, Apply to each with Increment variable and Append to string variable) readable.
 3. 08-morning-briefing/images/08-06-three-branches.png: the three branches side by side, from the split down to the end of each branch.
 4. 08-morning-briefing/images/08-07-join.png: Busy day selected with Settings > Run after open, and the three incoming lines visible on the canvas.
-5. 12-extra-practice/images/12-02-input.png: trigger selected showing the Message input; canvas shows the Teams action below it.
+5. 13-extra-practice/images/13-02-input.png: trigger selected showing the Message input; canvas shows the Teams action below it.
 
 Then: node _design/check-screenshots.mjs, commit "Recapture briefing and note screenshots", push. Reply with the files saved and anything that didn't match.
 ```
@@ -111,7 +111,7 @@ Capture 11 new screenshots for this repo's Power Automate guide. Same setup as b
 8. 06-training-approval/images/06-00-forms-question.png: the Training Request form in edit mode with one question selected, showing its question type and the Required toggle. Change nothing.
 9. 08-morning-briefing/images/08-04-calendar.png: "PA - My morning briefing", Get calendar view of events (V3) selected with Calendar Id, Start Time and End Time visible. Mask any real meeting titles.
 10. 08-morning-briefing/images/08-05-get-emails.png: same flow, Get emails (V3) selected with Folder, Fetch Only Unread Messages, Importance and Top visible.
-11. 12-extra-practice/images/12-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news", showing Turn on. Close the menu without selecting it.
+11. 13-extra-practice/images/13-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news", showing Turn on. Close the menu without selecting it.
 
 Then commit "Add round 3 gap-fill screenshots" and push. Reply with the files saved and anything that didn't match.
 ```
@@ -191,7 +191,7 @@ Leave without saving.
 
 Part E, existing flows (open, look, don't change):
 14. 06-training-approval/images/06-03-trigger.png: "PA - Training request approval", trigger selected, Form Id visible, wait until no "Loading connection" spinner shows.
-15. 12-extra-practice/images/12-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news" showing Turn on, no warning banner. Close the menu without selecting.
+15. 13-extra-practice/images/13-05-turn-on.png: My flows with the ... menu open beside "PA - Power Platform news" showing Turn on, no warning banner. Close the menu without selecting.
 
 If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then run node _design/check-screenshots.mjs, commit "Recapture stage-by-stage screenshots (round 5)", and push. Reply with only the files saved and any NOTES.md lines you added.
 ```
@@ -251,11 +251,11 @@ Chapter 8, new scheduled flow "PA - Shots briefing build":
 26. 08-morning-briefing/images/08-07-so-far.png: end of 8.7, Set variable selected.
 27. 08-morning-briefing/images/08-08-so-far.png: end of 8.8, Send an email (V2) selected.
 
-Chapter 12, one throwaway flow per exercise, each named "PA - Shots 12X":
-28. 12-extra-practice/images/12-a-so-far.png: end of exercise A, Add a to-do (V3) selected.
-29. 12-extra-practice/images/12-b-so-far.png: end of exercise B, the Teams action selected.
-30. 12-extra-practice/images/12-c-so-far.png: end of exercise C, Create file selected.
-31. 12-extra-practice/images/12-d-so-far.png: end of exercise D, Send an email (V2) selected.
+Chapter 13, one throwaway flow per exercise, each named "PA - Shots 13X":
+28. 13-extra-practice/images/13-a-so-far.png: end of exercise A, Add a to-do (V3) selected.
+29. 13-extra-practice/images/13-b-so-far.png: end of exercise B, the Teams action selected.
+30. 13-extra-practice/images/13-c-so-far.png: end of exercise C, Create file selected.
+31. 13-extra-practice/images/13-d-so-far.png: end of exercise D, Send an email (V2) selected.
 
 If something doesn't match the README, use the closest equivalent and add one line to _design/shots/NOTES.md. Then commit "Add flow-so-far checkpoints (round 6)" and push. Reply with only the files saved and any NOTES.md lines you added.
 ```
