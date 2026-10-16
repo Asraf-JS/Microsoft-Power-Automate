@@ -1,4 +1,4 @@
-# 11 - Extra Practice: Personal Automations
+# 12 - Extra Practice: Personal Automations
 
 Four small flows for when you finish early, or for practice back at your desk. Each one only reads your own data or writes to your own OneDrive training folder, and only notifies you. None of them touches shared sites, lists, teams or other people's mailboxes.
 
@@ -57,7 +57,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
    From 
    ```
 
-   ![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/11-01-todo.png)
+   ![Add a to-do with the Tasks list, a title built from Follow up and the Subject token, and the From token in the body](./images/12-01-todo.png)
 
    *The flagged email's subject becomes the task title.*
 
@@ -67,7 +67,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after A: the settings panel on the left and the canvas on the right](./images/11-a-so-far.png)
+![Your flow so far after A: the settings panel on the left and the canvas on the right](./images/12-a-so-far.png)
 
 *Two steps: the trigger and Add a to-do (V3).*
 
@@ -81,7 +81,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 2. Under **Choose how to trigger this flow**, select **Manually trigger a flow**, then select **Create**.
 3. Select the trigger card on the canvas. In its panel, select **+ Add an input**, then **Text**. Select the first box, which reads *Input*, delete that word and type `Message`.
 
-   ![Manually trigger a flow with a Text input named Message](./images/11-02-input.png)
+   ![Manually trigger a flow with a Text input named Message](./images/12-02-input.png)
 
    *A trigger input asks the person running the flow to type something first.*
 
@@ -106,7 +106,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after B: the settings panel on the left and the canvas on the right](./images/11-b-so-far.png)
+![Your flow so far after B: the settings panel on the left and the canvas on the right](./images/12-b-so-far.png)
 
 *Two steps: the trigger and the Teams message.*
 
@@ -134,7 +134,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
    /Power Automate Training/Reports
    ```
 
-   ![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/11-03-save-email.png)
+   ![Export email and Create file actions with the Reports folder, Subject.eml as the file name and the exported body as content](./images/12-03-save-email.png)
 
    *Export email turns the message into a file. Create file saves it.*
 
@@ -148,7 +148,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **Check your flow so far.** Your screen should look like this.
 
-![Your flow so far after C: the settings panel on the left and the canvas on the right](./images/11-c-so-far.png)
+![Your flow so far after C: the settings panel on the left and the canvas on the right](./images/12-c-so-far.png)
 
 *Three steps: the trigger, Export email (V2) and Create file.*
 
@@ -179,13 +179,13 @@ Four small flows for when you finish early, or for practice back at your desk. E
    New post: 
    ```
 
-   ![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/11-04-rss.png)
+   ![RSS trigger with the blog feed URL and Send an email with the feed title, summary and link](./images/12-04-rss.png)
 
    *The RSS connector watches a public web feed. It reads, and never writes, anything. Ignore any extra fields such as **Importance**; leave them as they are.*
 
 5. Select **Save**, then select **My flows** on the left. Select the **...** beside **PA - Power Platform news**, then **Turn on**. The next new blog post arrives in your inbox.
 
-   ![My flows with the ... menu open beside PA - Power Platform news and Turn on boxed](./images/11-05-turn-on.png)
+   ![My flows with the ... menu open beside PA - Power Platform news and Turn on boxed](./images/12-05-turn-on.png)
 
    *Turn on is in the flow's ... menu in My flows.* The RSS trigger checks for new posts on a schedule, so a test may not fire straight away.
 
@@ -193,7 +193,7 @@ Four small flows for when you finish early, or for practice back at your desk. E
 
 **Check your flow so far.** Before step 5, your designer should look like this.
 
-![Your flow so far after D: the settings panel on the left and the canvas on the right](./images/11-d-so-far.png)
+![Your flow so far after D: the settings panel on the left and the canvas on the right](./images/12-d-so-far.png)
 
 *Two steps: the feed trigger and Send an email (V2).*
 
