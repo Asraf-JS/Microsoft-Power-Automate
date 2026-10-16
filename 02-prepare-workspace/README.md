@@ -103,6 +103,9 @@ Sign in to each one with your **work or school account**, the same one every tim
    ![The Insert tab on the Excel for the web ribbon](./images/02-05-insert-tab.png)
 
    *Insert is the third tab, after File and Home. Table is near the left end of the Insert tab.*
+
+   <div class="step-anim" data-manifest="../assets/animations/02-02-05/manifest.json" markdown="0"></div>
+
 6. With a cell in the table still selected, select the **Table Design** tab that has appeared at the end of the ribbon.
 7. At the far left of that tab, select the name box (it reads something like **Table1**), type `tblTraining` and press Enter.
 
