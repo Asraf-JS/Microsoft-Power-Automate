@@ -1,0 +1,73 @@
+{
+  "id": "02-02-05-insert-table",
+  "chapter": "02-prepare-workspace",
+  "instruction": "Select any cell with data in it, then select the Insert tab and Table. In the box that opens, make sure My table has headers is ticked, and select OK.",
+  "title": "Animation: select a cell, select the Insert tab, then Table, and the rows become a table",
+  "intro": "Press Play to watch step 5: a cell, then Insert, then Table.",
+  "sourceType": "simulated",
+  "sources": {
+    "home": "_design/shots/raw/02-02-workbook-rows.png",
+    "insert": "_design/shots/raw/02-05-insert-tab.png",
+    "table": "_design/shots/raw/02-03-table-name.png"
+  },
+  "canvas": [
+    1600,
+    900
+  ],
+  "frames": {
+    "home": "1-home.webp",
+    "insert": "2-insert.webp",
+    "table": "3-table.webp"
+  },
+  "start": [
+    760,
+    560
+  ],
+  "steps": [
+    {
+      "caption": "Select any cell with data in it. Here, A1.",
+      "to": [
+        76,
+        256
+      ],
+      "click": true,
+      "hold": 700
+    },
+    {
+      "caption": "Select the Insert tab, the third tab after File and Home.",
+      "to": [
+        141,
+        64
+      ],
+      "click": true,
+      "frame": "insert",
+      "hold": 900
+    },
+    {
+      "caption": "Select Table, near the left end of the Insert tab.",
+      "to": [
+        94,
+        112
+      ],
+      "click": true,
+      "hold": 500
+    },
+    {
+      "caption": "In the Create Table box, make sure My table has headers is ticked, then select OK.",
+      "note": "The Create Table box opens here (not shown). Make sure My table has headers is ticked, then select OK.",
+      "hold": 4000
+    },
+    {
+      "caption": "The rows are now a striped table, and a Table Design tab has appeared at the end of the ribbon.",
+      "frame": "table",
+      "tag": "After OK",
+      "hold": 2800,
+      "to": [
+        480,
+        330
+      ],
+      "moveMs": 700
+    }
+  ],
+  "review": "verified"
+}
