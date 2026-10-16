@@ -1,4 +1,4 @@
-# 12 - Look Up Currency Rates with a Desktop Flow
+# 11 - Look Up Currency Rates with a Desktop Flow
 
 Every chapter so far built a cloud flow that talks to online services. This one is different. You build a **desktop flow** in Power Automate for desktop that drives your own computer: it opens Excel and Microsoft Edge, searches Google for each currency pair in a list, reads the converted amount off the page and types it back into Excel.
 
@@ -10,7 +10,7 @@ Every chapter so far built a cloud flow that talks to online services. This one 
 
 **Files for this lab:**
 
-- [CurrencyList.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/12-desktop-currency-lookup/CurrencyList.xlsx): the list of currency pairs. Save it to your **Desktop**.
+- [CurrencyList.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/11-desktop-currency-lookup/CurrencyList.xlsx): the list of currency pairs. Save it to your **Desktop**.
 
 ---
 
@@ -59,11 +59,11 @@ The workbook has one table, named `Table1`:
 | 2 | To | The currency you want, such as `MYR` |
 | 3 | Result | Empty. The flow fills it in |
 
-> **Warning:** This flow reads a real web page that Google controls. If Google shows a cookie or sign-in prompt, accept or close it once in Edge before you run the flow. If Google changes its page, the UI elements you capture in 12.6 and 12.10 may stop matching and you'll need to capture them again.
+> **Warning:** This flow reads a real web page that Google controls. If Google shows a cookie or sign-in prompt, accept or close it once in Edge before you run the flow. If Google changes its page, the UI elements you capture in 11.6 and 11.10 may stop matching and you'll need to capture them again.
 
 ---
 
-## 12.1 Create the Desktop Flow
+## 11.1 Create the Desktop Flow
 
 1. Open **Power Automate** from the Start menu. This is the desktop app, not the website.
 2. Select **+ New flow**.
@@ -79,7 +79,7 @@ To add any action in this chapter: type its name in the **Search** box at the to
 
 ---
 
-## 12.2 Open Google in Edge
+## 11.2 Open Google in Edge
 
 1. Search for `Launch new Microsoft Edge` and add it.
 2. Set **Launch mode** to **Launch new instance**.
@@ -95,7 +95,7 @@ To add any action in this chapter: type its name in the **Search** box at the to
 
 ---
 
-## 12.3 Open the Workbook in Excel
+## 11.3 Open the Workbook in Excel
 
 1. Search for `Launch Excel` and add it below the Edge action.
 2. Set **Launch Excel** to **and open the following document**.
@@ -106,7 +106,7 @@ To add any action in this chapter: type its name in the **Search** box at the to
 
 ---
 
-## 12.4 Find the End of the Table
+## 11.4 Find the End of the Table
 
 You could tell the loop to stop at row 6, but then it breaks the day someone adds a seventh pair. This action asks Excel where the table ends instead.
 
@@ -124,7 +124,7 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
 
 ---
 
-## 12.5 Loop Through the Rows
+## 11.5 Loop Through the Rows
 
 1. Search for `Loop` and, under **Loops**, add **Loop** (not *For each* or *Loop condition*) below Get table range.
 2. In **Start from**, enter `2`. Row 1 holds the headings, so the first pair is on row 2.
@@ -136,11 +136,11 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
 
 4. In **Increment by**, enter `1`.
 5. Leave **Variables produced** as `LoopIndex`. It holds the current row number: 2 on the first pass, then 3, and so on.
-6. Select **Save**. The designer adds a **Loop** line and an **End** line. Every action from 12.6 to 12.11 goes **between** them, so drop each one just above **End**. Actions inside the loop are indented.
+6. Select **Save**. The designer adds a **Loop** line and an **End** line. Every action from 11.6 to 11.11 goes **between** them, so drop each one just above **End**. Actions inside the loop are indented.
 
 ---
 
-## 12.6 Read the Two Currency Codes
+## 11.6 Read the Two Currency Codes
 
 **Read the From code (column 1)**
 
@@ -177,7 +177,7 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
 
 ---
 
-## 12.7 Type the Search into Google
+## 11.7 Type the Search into Google
 
 You need Google open in Edge to capture its search box. Open Edge yourself, go to `https://www.google.com/` and leave it on screen.
 
@@ -197,7 +197,7 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
 
 ---
 
-## 12.8 Click and Press Enter
+## 11.8 Click and Press Enter
 
 1. Search for `Send mouse click` and add it below the Populate action.
 2. Leave **Mouse event to send** as **Left click** and **Move mouse** off. Select **Save**.
@@ -216,7 +216,7 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
 
 ---
 
-## 12.9 Wait for the Results
+## 11.9 Wait for the Results
 
 1. Search for `Wait` and, under **Flow control**, add **Wait** below Send keys.
 2. In **Duration**, enter `2`. Select **Save**.
@@ -225,7 +225,7 @@ Google needs a moment to show the converter. Without the wait, the next action c
 
 ---
 
-## 12.10 Read the Converted Amount
+## 11.10 Read the Converted Amount
 
 To capture the amount box, Google must be showing its converter. In Edge, search for `USD to MYR`. Google shows a currency converter with two amount boxes: the one you convert from and the converted amount.
 
@@ -240,7 +240,7 @@ To capture the amount box, Google must be showing its converter. In Edge, search
 
 ---
 
-## 12.11 Write the Rate into Excel
+## 11.11 Write the Rate into Excel
 
 1. Search for `Write to Excel worksheet` and add it below Get details, still inside the loop.
 2. **Excel instance** shows `%ExcelInstance%`. Leave it.
@@ -256,15 +256,15 @@ To capture the amount box, Google must be showing its converter. In Edge, search
 
 ---
 
-## 12.12 Check Your Finished Flow
+## 11.12 Check Your Finished Flow
 
 Select **Save** (the disk icon at the top left). The status bar at the bottom should show **13 Actions**. Compare your flow with these two screenshots: the first shows the top, the second is scrolled down to the end of the loop.
 
-![The finished desktop flow, actions 1 to 10: Launch new Microsoft Edge, Launch Excel, Get table range, then the Loop with two Read from Excel worksheet actions, Populate text field on web page, Send mouse click, Send keys and Wait](./images/12-final-top.png)
+![The finished desktop flow, actions 1 to 10: Launch new Microsoft Edge, Launch Excel, Get table range, then the Loop with two Read from Excel worksheet actions, Populate text field on web page, Send mouse click, Send keys and Wait](./images/11-final-top.png)
 
 *Actions 1 to 3 open Edge and Excel and find the end of the table. Everything from 5 onwards is indented, so it runs once per row. Your document path shows your own user name.*
 
-![The finished desktop flow scrolled down, actions 4 to 13: the Loop, its steps through Get details of element on web page and Write to Excel worksheet, then End](./images/12-final-bottom.png)
+![The finished desktop flow scrolled down, actions 4 to 13: the Loop, its steps through Get details of element on web page and Write to Excel worksheet, then End](./images/11-final-bottom.png)
 
 *Actions 11 and 12 read the converted amount and write it to column 3 of the current row. End closes the loop.*
 
@@ -286,7 +286,7 @@ Select **Save** (the disk icon at the top left). The status bar at the bottom sh
 
 ---
 
-## 12.13 Run and Check
+## 11.13 Run and Check
 
 1. Close the Edge window you opened yourself and close `CurrencyList.xlsx` if it's open. The flow opens fresh copies.
 2. Select **Run** (the play icon) in the toolbar.
@@ -313,9 +313,9 @@ Add two rows to `Table1` in Excel, for example `MYR` to `THB` and `AUD` to `MYR`
 | Symptom | What to check |
 |---------|---------------|
 | Edge opens but nothing is typed | The Power Automate extension isn't turned on in Edge. Check Edge's extensions page |
-| *Failed to get the UI element* on Populate text field | Google showed a cookie or sign-in prompt, or the search box changed. Clear the prompt, or capture the search box again in 12.7 |
+| *Failed to get the UI element* on Populate text field | Google showed a cookie or sign-in prompt, or the search box changed. Clear the prompt, or capture the search box again in 11.7 |
 | The search text appears but no search happens | The mouse click landed outside Edge, so Enter went to another window. Check Edge is set to Maximized, and don't move the mouse during the run |
-| The Result column is empty or wrong | Capture the converted amount box again in 12.10, with Google's converter on screen. Increase Wait to `3` on a slow connection |
+| The Result column is empty or wrong | Capture the converted amount box again in 11.10, with Google's converter on screen. Increase Wait to `3` on a slow connection |
 | Only the first row is filled | Every action from Read to Write must sit between Loop and End, indented. Drag any stray action back inside |
 | *Table not found* | The table in the workbook must be named exactly `Table1`. Check **Table Design** > **Table Name** in Excel |
 | The rate goes into the wrong row | Start row in both Read actions and Row in Write must all be `%LoopIndex%` |

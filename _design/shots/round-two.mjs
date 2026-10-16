@@ -59,5 +59,5 @@ await note.mouse.move(1400, 400);
 await note.mouse.down();
 await note.mouse.move(1580, 570, { steps: 10 });
 await note.mouse.up();
-await capture(note, '11-extra-practice', '11-02-input.png');
+await capture(note, '12-extra-practice', '12-02-input.png');
 process.exit(0); // Keep the externally managed training browser open.

@@ -124,7 +124,7 @@ The core exercises use standard connectors only. Power Automate Free can create 
    | Instant cloud flow | Triggered manually as needed | Yes |
    | Scheduled cloud flow | You choose when and how often it runs | Yes |
    | Describe it to design it | Describe the flow you want and AI builds it for you | Chapter 9 |
-   | Desktop flow | Automates processes on your desktop environment | Chapter 12 (bonus) |
+   | Desktop flow | Automates processes on your desktop environment | Chapter 11 (bonus) |
    | Process mining | Evaluate and optimize your existing processes and tasks | No |
 
    ![The Create page with the six Start from blank tiles](./images/01-03-create-tiles.png)
