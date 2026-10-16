@@ -81,6 +81,10 @@
     {
       "notes": "../11-extra-practice/README.md",
       "exercises": "../11-extra-practice/copy-paste.md"
+    },
+    {
+      "notes": "../12-desktop-currency-lookup/README.md",
+      "exercises": "../12-desktop-currency-lookup/copy-paste.md"
     }
   ],
   "backCover": "This book accompanies the two-day Microsoft Power Automate for End Users course. It follows one training coordinator's routine, from saving email attachments and sending an Excel summary, through weekly reminders and a Forms approval, to a filtered capstone flow and a personal morning briefing built with variables and parallel branches. Every chapter gives point-and-click steps and copy-ready values you can use during the session and back at your desk.",

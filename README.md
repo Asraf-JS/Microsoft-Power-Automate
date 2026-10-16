@@ -65,6 +65,7 @@ Each chapter takes one of those manual tasks and turns it into a flow:
 | 2 | 09 | [Plan an automation with Copilot](./09-plan-with-copilot/) | [Copy-paste](./09-plan-with-copilot/copy-paste.md) | Review and refine a Copilot flow plan | 30 min |
 | 2 | 10 | [Move automations with solutions](./10-environments-and-solutions/) | [Copy-paste](./10-environments-and-solutions/copy-paste.md) | Watch a flow being packaged for another environment (trainer demo) | 60 min |
 | Any | 11 | [Extra practice](./11-extra-practice/) | [Copy-paste](./11-extra-practice/copy-paste.md) | Four small personal flows for fast finishers and practice after the course | Self-paced |
+| Any | 12 | [Desktop flow: currency lookup](./12-desktop-currency-lookup/) | [Copy-paste](./12-desktop-currency-lookup/copy-paste.md) | Build a desktop flow that loops through Excel, searches Google in Edge and writes each rate back | 45 min |
 
 ---
 
