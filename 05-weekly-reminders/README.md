@@ -8,9 +8,9 @@ Every week the coordinator opens the register and writes the same reminder for e
 
 **Your result:** A scheduled cloud flow that runs every Monday at 9:00 AM Malaysia time, reads the training register, and prepares one personalised reminder email for each row.
 
-**Files for this lab:**
-
-- [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): only if you don't have the workbook from Chapter 2 yet. Upload it to your `Power Automate Training` folder in OneDrive and update the dates as in 2.2 step 4.
+> **Download:** the files for this lab
+>
+> - [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): only if you don't have the workbook from Chapter 2 yet. Upload it to your `Power Automate Training` folder in OneDrive and update the dates as in 2.2 step 4.
 
 ---
 

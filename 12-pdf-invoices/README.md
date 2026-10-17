@@ -8,10 +8,10 @@ Supplier invoices for your training sessions arrive as PDFs: the venue, the cate
 
 **Your result:** A desktop flow that reads every PDF invoice in a folder and logs its file name, invoice number, date and total in Excel.
 
-**Files for this lab:**
-
-- [invoices.zip](https://asraf-js.github.io/Microsoft-Power-Automate/12-pdf-invoices/invoices.zip): five fictional supplier invoices in a folder called `Invoices`.
-- [InvoiceLog.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/12-pdf-invoices/InvoiceLog.xlsx): an empty log with four column headings.
+> **Download:** the files for this lab
+>
+> - [invoices.zip](https://asraf-js.github.io/Microsoft-Power-Automate/12-pdf-invoices/invoices.zip): five fictional supplier invoices in a folder called `Invoices`.
+> - [InvoiceLog.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/12-pdf-invoices/InvoiceLog.xlsx): an empty log with four column headings.
 
 ---
 
