@@ -8,9 +8,9 @@ The coordinator wants a readable list of training sessions on demand, without co
 
 **Your result:** An instant cloud flow that reads the training register, picks useful columns, counts the rows and sends one summary email. A Teams update is an optional extension.
 
-**Files for this lab:**
-
-- [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): only if you don't have the workbook from Chapter 2 yet. Upload it to your `Power Automate Training` folder in OneDrive.
+> **Download:** the files for this lab
+>
+> - [TrainingRegister.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/02-prepare-workspace/TrainingRegister.xlsx): only if you don't have the workbook from Chapter 2 yet. Upload it to your `Power Automate Training` folder in OneDrive.
 
 ---
 

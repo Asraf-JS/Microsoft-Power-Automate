@@ -25,7 +25,7 @@ Each chapter has a **Notes** page with point-and-click steps and screenshots, an
 
 To copy a value: open the chapter's copy-paste page, find the value, and click the copy icon in the top-right corner of the grey box. Then paste it into Power Automate. Copying from the box is safer than copying from the PDF, which can add line breaks or change the quotation marks.
 
-To download everything: **[download all course files (ZIP)](https://github.com/Asraf-JS/Microsoft-Power-Automate/archive/refs/heads/main.zip)**. Save the ZIP, then right-click it and choose **Extract All** before you open any file.
+> **Download:** **[all course files (ZIP)](https://github.com/Asraf-JS/Microsoft-Power-Automate/archive/refs/heads/main.zip)**. Save the ZIP, then right-click it and choose **Extract All** before you open any file.
 
 
 To read offline or print: download the **[course book (PDF)](./Microsoft-Power-Automate-Course-Book.pdf)**. It has every chapter's notes and copy-paste values in one file.

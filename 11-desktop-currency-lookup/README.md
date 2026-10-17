@@ -8,9 +8,9 @@ Every chapter so far built a cloud flow that talks to online services. This one 
 
 **Your result:** A desktop flow that loops through a list of currency pairs in Excel, looks up each rate on Google in Edge and writes the result into the third column.
 
-**Files for this lab:**
-
-- [CurrencyList.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/11-desktop-currency-lookup/CurrencyList.xlsx): the list of currency pairs. Save it to your **Desktop**.
+> **Download:** the files for this lab
+>
+> - [CurrencyList.xlsx](https://asraf-js.github.io/Microsoft-Power-Automate/11-desktop-currency-lookup/CurrencyList.xlsx): the list of currency pairs. Save it to your **Desktop**.
 
 ---
 
