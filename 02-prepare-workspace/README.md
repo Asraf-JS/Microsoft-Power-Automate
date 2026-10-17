@@ -121,7 +121,9 @@ If Power Automate can't find the table later, check three things: the workbook i
 
 ## 2.3 Prepare a Test Email
 
-1. Download the test files: **[test-files.zip](./test-files.zip)** (one click, all three files). Open your Downloads folder, right-click the ZIP and choose **Extract All**.
+> **Download:** **[test-files.zip](./test-files.zip)** (one click, all three files).
+
+1. Open your Downloads folder, right-click `test-files.zip` and choose **Extract All**.
 2. Open Outlook on the web ([outlook.office.com](https://outlook.office.com)) with the training account and select **New mail** (it may just say **New**) at the top left.
 3. In **To**, type your own email address, the mailbox you connect to Power Automate in Chapter 3. In the subject line, enter the subject below.
 
