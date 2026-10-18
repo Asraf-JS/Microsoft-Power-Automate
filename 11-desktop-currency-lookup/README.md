@@ -69,11 +69,15 @@ The workbook has one table, named `Table1`:
 
 1. Open **Power Automate** from the Start menu. This is the desktop app, not the website.
 2. Select **+ New flow**.
-3. In **Flow name**, enter the name below, then select **Create**.
+3. In **Flow name**, enter the name below. Leave **Sequence mode** selected, then select **Create**.
 
    ```text
    PA - Currency lookup
    ```
+
+   ![The Create a flow dialog with PA - Currency lookup in Flow name, Sequence mode selected and the Create button](./images/11-01-name.png)
+
+   *Type the name, keep Sequence mode, then Create.*
 
 4. The flow designer opens. **Actions** is on the left, the **Main** tab (your flow) is in the middle, and the variables pane is on the right.
 
@@ -93,6 +97,10 @@ To add any action in this chapter: type its name in the **Search** box at the to
 
 4. Set **Window state** to **Maximized**, so Edge fills the screen.
 5. Leave **Variables produced** as `Browser`. Later actions use it to know which Edge window to work in.
+
+   ![Launch new Microsoft Edge with Launch new instance, the Google URL, Window state Maximized and the Browser variable](./images/11-02-edge.png)
+
+   *Check these four settings before you select Save. Target desktop and Browser interaction method keep their defaults.*
 6. Select **Save**.
 
 ---
@@ -104,6 +112,10 @@ To add any action in this chapter: type its name in the **Search** box at the to
 3. In **Document path**, select the file icon at the right of the box, browse to your Desktop and select `CurrencyList.xlsx`.
 4. Leave **Make instance visible** on, so you can watch the results appear.
 5. Leave **Variables produced** as `ExcelInstance`.
+
+   ![Launch Excel set to and open the following document, with the path to CurrencyList.xlsx and Make instance visible on](./images/11-03-launch-excel.png)
+
+   *Your Document path shows your own user name and folder.*
 6. Select **Save**.
 
 ---
@@ -119,6 +131,10 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
    ```text
    Table1
    ```
+
+   ![Get table range from Excel worksheet with Table Name Table1 and four variables produced, LastRowIndex boxed](./images/11-04-table-range.png)
+
+   *Table1 in Table Name, and LastRowIndex is the one variable you use.*
 
 4. Select **Save**. It produces four variables: `FirstRowIndex`, `FirstColumnIndex`, `LastRowIndex` and `LastColumnIndex`. You only need `LastRowIndex`, the row number of the last row in the table (6 in the downloaded file).
 
@@ -138,7 +154,17 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
 
 4. In **Increment by**, enter `1`.
 5. Leave **Variables produced** as `LoopIndex`. It holds the current row number: 2 on the first pass, then 3, and so on.
+
+   ![Loop with Start from 2, End to %LastRowIndex% and Increment by 1](./images/11-05-loop.png)
+
+   *Start at 2, end at the last row, one row at a time.*
 6. Select **Save**. The designer adds a **Loop** line and an **End** line. Every action from 11.6 to 11.11 goes **between** them, so drop each one just above **End**. Actions inside the loop are indented.
+
+   **Check your flow so far.** Your screen should look like this.
+
+   ![The designer with Launch new Microsoft Edge, Launch Excel, Get table range, then Loop and End](./images/11-05-so-far.png)
+
+   *Four actions, then End. The next actions go between Loop and End.*
 
 ---
 
@@ -162,6 +188,10 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
    ```
 
    Short for *source currency*.
+
+   ![Read from Excel worksheet with The value of a single cell, Start column 1, Start row %LoopIndex% and the variable renamed sc](./images/11-06-read-from.png)
+
+   *Column 1 of the current row goes into sc.*
 6. Select **Save**.
 
 **Read the To code (column 2)**
@@ -175,6 +205,10 @@ You could tell the loop to stop at row 6, but then it breaks the day someone add
    ```
 
    Short for *to be converted to*.
+
+   ![Read from Excel worksheet with Start column 2, Start row %LoopIndex% and the variable renamed ToBeC](./images/11-06-read-to.png)
+
+   *The same settings with column 2, stored in ToBeC.*
 4. Select **Save**.
 
 ---
@@ -195,6 +229,10 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
 
    For the first row this types `USD to MYR`.
 6. Under **Advanced**, leave **Emulate typing** on, so the text is typed key by key like a person would.
+
+   ![Populate text field on web page with the Google search box as the UI element and %sc% to %ToBeC% in Text](./images/11-07-populate.png)
+
+   *UI element now points at the Google search box you captured, shown as a path that starts Local computer > Web Page. Advanced is closed here: Emulate typing is on by default.*
 7. Select **Save**.
 
 ---
@@ -205,6 +243,10 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
 2. Leave **Mouse event to send** as **Left click** and **Move mouse** off. Select **Save**.
 
    This clicks wherever the mouse pointer is. Because Edge is maximized, that lands in Edge and makes sure Edge is the active window before the next step presses Enter.
+
+   ![Send mouse click with Mouse event to send Left click and Move mouse off](./images/11-08-mouse-click.png)
+
+   *Left click, Wait 0 and Move mouse off are the defaults.*
 3. Search for `Send keys` and add it below Send mouse click.
 4. Leave **Send keys to** as **Foreground window**.
 5. In **Text to send**, enter:
@@ -213,7 +255,11 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
    {Enter}
    ```
 
-   Type it exactly, with curly brackets. You can also select **Special keys** under the box and pick **Enter**.
+   Type it exactly, with curly brackets. You can also select **Insert special keys** under the box and pick **Enter**.
+
+   ![Send keys with Send keys to Foreground window and {Enter} in Text to send](./images/11-08-send-keys.png)
+
+   *Foreground window and {Enter}. Leave the delay and hardware keys as they are.*
 6. Select **Save**.
 
 ---
@@ -222,6 +268,10 @@ You need Google open in Edge to capture its search box. Open Edge yourself, go t
 
 1. Search for `Wait` and, under **Flow control**, add **Wait** below Send keys.
 2. In **Duration**, enter `2`. Select **Save**.
+
+   ![Wait with Duration 2](./images/11-09-wait.png)
+
+   *Two seconds is enough on a normal connection.*
 
 Google needs a moment to show the converter. Without the wait, the next action can look for the amount before it appears.
 
@@ -236,6 +286,10 @@ To capture the amount box, Google must be showing its converter. In Edge, search
 3. Open **UI element**, select **Add a new UI element**, switch to Edge and hover over the **converted amount** box (the one showing the MYR value). When the red frame reads **Input number 'Currency Amount Field'**, hold **Ctrl** and click.
 4. Set **Attribute name** to **Own Text**.
 5. Leave **Variables produced** as `AttributeValue`.
+
+   ![Get details of element on web page with the Google converter field as the UI element, Attribute name Own Text and the AttributeValue variable](./images/11-10-get-details.png)
+
+   *The UI element is the converted amount box you captured in step 3.*
 6. Select **Save**.
 
 > **Tip:** If the red frame grabs the whole converter instead of the box, move the pointer slightly further inside the box until the label reads *Input number*.
@@ -254,6 +308,10 @@ To capture the amount box, Google must be showing its converter. In Edge, search
 
 4. Set **Write mode** to **On specified cell**.
 5. In **Column**, enter `3`. In **Row**, enter `%LoopIndex%`. The rate goes into the Result column of the same row the codes came from.
+
+   ![Write to Excel worksheet with %AttributeValue%, On specified cell, Column 3 and Row %LoopIndex%](./images/11-11-write-excel.png)
+
+   *The rate goes into column 3 of the row the codes came from.*
 6. Select **Save**.
 
 ---
@@ -294,6 +352,10 @@ Select **Save** (the disk icon at the top left). The status bar at the bottom sh
 2. Select **Run** (the play icon) in the toolbar.
 3. Take your hands off the mouse and keyboard. Edge opens Google, Excel opens the workbook, and the searches run one after another.
 4. When the status bar shows **Status: Ready** again, switch to Excel. The **Result** column has a rate on every row.
+
+   ![Excel with CurrencyList.xlsx showing rates in the Result column for USD, EUR, GBP, SGD and JPY to MYR](./images/11-13-results.png)
+
+   *One run's results. Your rates will differ.*
 5. Save the workbook in Excel. The flow writes the values but doesn't save the file.
 
 > **Note:** Every rate comes from Google at the moment the flow runs, so your numbers won't match anyone else's exactly.
