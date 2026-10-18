@@ -59,7 +59,9 @@ The workbook has one table, named `Table1`:
 | 2 | To | The currency you want, such as `MYR` |
 | 3 | Result | Empty. The flow fills it in |
 
-> **Warning:** This flow reads a real web page that Google controls. If Google shows a cookie or sign-in prompt, accept or close it once in Edge before you run the flow. If Google changes its page, the UI elements you capture in 11.6 and 11.10 may stop matching and you'll need to capture them again.
+> **Warning:** This flow reads a real web page that Google controls. If Google shows a cookie or sign-in prompt, accept or close it once in Edge before you run the flow. If Google changes its page, the UI elements you capture in 11.7 and 11.10 may stop matching and you'll need to capture them again.
+
+> **Important:** Run this flow with **one screen**. With a second monitor, Edge can open on the other screen and the typing in 11.7 lands in whatever window is in front, usually Excel. To switch, press **Windows key + P** and choose **PC screen only**, then switch back after the lab. If your Desktop is in OneDrive (the file shows a cloud or tick icon), open `CurrencyList.xlsx` once, turn **AutoSave** off at the top left of Excel and close it. Otherwise a stray keystroke into the workbook is saved straight away.
 
 ---
 
@@ -319,6 +321,8 @@ Add two rows to `Table1` in Excel, for example `MYR` to `THB` and `AUD` to `MYR`
 | Only the first row is filled | Every action from Read to Write must sit between Loop and End, indented. Drag any stray action back inside |
 | *Table not found* | The table in the workbook must be named exactly `Table1`. Check **Table Design** > **Table Name** in Excel |
 | The rate goes into the wrong row | Start row in both Read actions and Row in Write must all be `%LoopIndex%` |
+| `USD to MYR` is typed into an Excel cell, or the workbook gets renamed | Edge opened on another monitor, so the typing went to Excel. Switch to one screen (**Windows key + P** > **PC screen only**), close Excel without saving and run again |
+| An *Unhandled error* appears when you save an action, or the Errors list points to a line after **End** | Power Automate for desktop left a broken, invisible action behind. Save the flow, close the designer and open the flow again. The broken action now shows at the end: delete it |
 
 ---
 
