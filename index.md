@@ -108,6 +108,6 @@ During the course, ask your trainer. After the course, contact the training coor
 
 ---
 
-*Last updated: October 2026 | Trainer: Asraf*
+*Last updated: October 2026 \| Trainer: Asraf*
 
 © Asraf Jaafar Sidik, Microsoft Certified Trainer. These materials are for course participants' personal use. Please don't redistribute or resell them.
