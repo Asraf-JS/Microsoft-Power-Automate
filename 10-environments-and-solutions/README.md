@@ -6,9 +6,9 @@ A flow that works in one environment can still be hard to move safely. It depend
 
 **Estimated time:** 60 minutes (trainer demonstration)
 
-**Your result:** You can explain how a flow moves between environments, after watching your trainer package the capstone flow in a solution and walk through where an import starts.
+**Your result:** You can explain how a flow moves between environments, after watching your trainer package the Chapter 7 flow in a solution and walk through where an import starts.
 
-**Files for this lab:** None. The demo uses your Chapter 7 capstone flow.
+**Files for this lab:** None. The demo uses your Chapter 7 flow.
 
 ---
 
@@ -27,7 +27,7 @@ A flow that works in one environment can still be hard to move safely. It depend
 
 **Development environment > Solution > Publish > Export package > Target environment > Import > Repair connections > Verify > Authorised test**
 
-The live demonstration stops after opening the import screen. Importing back into the same environment isn't a real migration test, and testing the capstone could send email.
+The live demonstration stops after opening the import screen. Importing back into the same environment isn't a real migration test, and testing the flow could send email.
 
 ---
 
@@ -80,21 +80,21 @@ For **Publisher**, open the dropdown and pick the publisher your trainer names. 
 
 ---
 
-## 10.3 Add the Capstone Flow
+## 10.3 Add the Chapter 7 Flow
 
 1. Open the new solution: in the **Solutions** list, select its display name, `Power Automate Training Migration`. Its object list is empty: a new solution is just a container.
 2. In the toolbar at the top, select **Add existing** and point to **Automation**.
 3. Under Automation, select **Cloud flow**.
 4. Find `PA - Weekly training capstone`. Depending on how your environment stores flows, it's on the **From Dataverse** tab or the **Outside Dataverse** tab. Scroll the list, or type its name in **Search cloud flows** at the top right of the panel.
-5. Select the circle to the left of the capstone's name, then select **Add** at the bottom of the panel.
+5. Select the circle to the left of the flow's name, then select **Add** at the bottom of the panel.
 
    ![Add existing cloud flows panel with PA - Weekly training capstone selected](./images/10-02-add-existing.png)
 
-   *Pick the capstone from the list. Here it's on the From Dataverse tab.*
+   *Pick the flow from the list. Here it's on the From Dataverse tab.*
 
 6. If only the flow appears in the solution, select the circle beside it, then in the toolbar select **Advanced** > **Add required objects**. This adds the connection references it needs.
 
-   ![Solution object list showing the capstone cloud flow and two connection references](./images/10-03-components.png)
+   ![Solution object list showing the Chapter 7 cloud flow and two connection references](./images/10-03-components.png)
 
    *Three objects: the flow and its two connection references.*
 
@@ -104,7 +104,7 @@ Power Automate may also add **connection references**. A connection reference is
 
 ## 10.4 Verify the Solution Components
 
-Confirm the solution has three objects: the capstone cloud flow and the Excel Online (Business) and Office 365 Outlook connection references (see the picture under step 6 of 10.3).
+Confirm the solution has three objects: the Chapter 7 cloud flow and the Excel Online (Business) and Office 365 Outlook connection references (see the picture under step 6 of 10.3).
 
 > **Key point:** Showing up in the object list doesn't mean a dependency is ready. File locations, table names, recipients, connection accounts, environment variables and permissions can all differ in the target environment.
 
