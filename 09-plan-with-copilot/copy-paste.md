@@ -53,7 +53,7 @@ First ask me up to five questions about anything unclear. Then give me:
 5. A safe test plan that only sends to me
 ```
 
-Example with every value filled in (Chapter 7 capstone):
+Example with every value filled in (Chapter 7 weekly reminders):
 
 ```text
 I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.

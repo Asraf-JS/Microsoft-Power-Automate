@@ -1,6 +1,6 @@
-# 07 - Capstone: Weekly Reminders and Summary
+# 07 - Refine the Weekly Reminders
 
-Chapter 5 sent a reminder to every row, including people who had already finished. The capstone turns that into a process a coordinator would actually use: skip completed training, limit the window to the next 14 days, count what was sent, and handle the week when nothing matches.
+Chapter 5 sent a reminder to every row, including people who had already finished. This chapter turns that into a process a coordinator would actually use: skip completed training, limit the window to the next 14 days, count what was sent, and handle the week when nothing matches.
 
 > **Copy-paste values:** every value you need is in the steps, with a Copy button. The [copy-paste page](./copy-paste.md) has them all on one page too.
 
@@ -36,13 +36,13 @@ Filter array removes completed rows before the loop starts. Inside the loop, a c
 
 Complete Chapter 5.
 
-> **Important:** The sample register uses `example.com` addresses, which can't receive mail. Keep the capstone turned off and don't test it until the trainer has replaced every recipient with an approved destination.
+> **Important:** The sample register uses `example.com` addresses, which can't receive mail. Keep this flow turned off and don't test it until the trainer has replaced every recipient with an approved destination.
 
 > **Note:** The sample sessions run from 21 September to 5 October 2026. The SessionDate values in your workbook must include at least two **Registered** rows within the next 14 days of today. Otherwise the capstone finds nothing and goes to **False**. To update the dates, see Chapter 2, section 2.2, step 4, or ask your trainer.
 
 ---
 
-## 7.1 Make a Safe Capstone Copy
+## 7.1 Make a Safe Copy
 
 1. In the left navigation, select **My flows**. Select the flow's name `PA - Weekly training reminders` (not the pencil) to open its details page.
 
@@ -57,7 +57,7 @@ Complete Chapter 5.
 
    *Working on a copy keeps your Chapter 5 flow safe.*
 
-4. Go back to **My flows** and select the capstone copy's name (not the pencil). Its details page opens. Select **Edit** at the left of the toolbar to open it in the designer.
+4. Go back to **My flows** and select the copy's name (not the pencil). Its details page opens. Select **Edit** at the left of the toolbar to open it in the designer.
 
 **Checkpoint:** The name at the top of the designer reads `PA - Weekly training capstone` before you change anything.
 
@@ -286,16 +286,16 @@ That records a clear outcome in run history without sending an unnecessary email
 
 ![Your flow so far after 7.10: the settings panel on the left and the canvas on the right](./images/07-10-so-far.png)
 
-*No upcoming records sits in False. That is the whole capstone.*
+*No upcoming records sits in False. That is the whole flow.*
 
 ---
 
-## 7.11 Save and Check the Capstone
+## 7.11 Save and Check the Flow
 
 1. Select **Save** in the toolbar at the top right. Then select **Flow checker** in the same toolbar and confirm zero errors and zero warnings.
 2. Close Flow checker. In the column of buttons at the bottom left of the canvas, select **Zoom view to fit**. Check the shape: filter before the loop, date check and count inside the loop, decision after the loop.
 
-![The complete capstone flow zoomed to fit, showing the filter, the loop with its condition, and the final condition with both branches](./images/07-10-full-flow.png)
+![The complete flow zoomed to fit, showing the filter, the loop with its condition, and the final condition with both branches](./images/07-10-full-flow.png)
 
 *Filter before, check and count inside, decide after.*
 
@@ -349,4 +349,4 @@ lessOrEquals(ticks(item()?['SessionDate']), ticks(addDays(startOfDay(utcNow()), 
 
 ## Lesson Summary
 
-The capstone filters out completed rows before looping, checks a date window with a two-rule condition, keeps a running count in a variable, and branches on the final count. That turns a broad weekly reminder into a controlled process with a clear result for the coordinator. Next, you'll use variables again, alongside parallel branches, in a flow that's all about you.
+The refined flow filters out completed rows before looping, checks a date window with a two-rule condition, keeps a running count in a variable, and branches on the final count. That turns a broad weekly reminder into a controlled process with a clear result for the coordinator. Next, you'll use variables again, alongside parallel branches, in a flow that's all about you.

@@ -194,7 +194,7 @@ The exercise above used prompts written for you. For your own work, plan in plai
    The sample step at the end is what makes the difference: Copilot copies its shape for the rest of the lab. Copilot can't see your screen, so treat the lab as a first draft. Button names are sometimes slightly off, and the "Check: your canvas should now show" lines help you spot when something has gone wrong.
 6. Build it in a test environment with every recipient set to you, following the lab (or with **Create with Copilot**, or yourself as in Chapters 3 to 8). Test with a few rows before anyone else receives anything.
 
-Here's the planning prompt from step 2 with every value filled in, using the Chapter 7 capstone as the example. Copy it to see the whole conversation: Copilot asks its questions, you answer them, then you send the lab prompt from step 5.
+Here's the planning prompt from step 2 with every value filled in, using the Chapter 7 weekly reminders flow as the example. Copy it to see the whole conversation: Copilot asks its questions, you answer them, then you send the lab prompt from step 5.
 
 ```text
 I want to automate a task in Power Automate. Don't build anything yet. Help me plan it.

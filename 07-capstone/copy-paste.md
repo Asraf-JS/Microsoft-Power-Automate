@@ -1,4 +1,4 @@
-# 07 - Capstone: Copy-paste
+# 07 - Refine the Weekly Reminders: Copy-paste
 
 Hover over a grey box and click the copy icon in its top-right corner. Everything in the main steps is **text**, typed or pasted straight into a field.
 

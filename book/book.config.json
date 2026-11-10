@@ -146,12 +146,12 @@
       },
       {
         "n": 7,
-        "app": "Capstone",
+        "app": "Refine",
         "icon": "lines",
         "color": "#5b6cf0",
         "stage": "Refine",
         "desc": "Filter, count and summarise the week",
-        "output": "Capstone flow"
+        "output": "Refined reminders"
       },
       {
         "n": 8,
